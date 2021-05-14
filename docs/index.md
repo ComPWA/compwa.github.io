@@ -12,7 +12,9 @@ This page is combines documentation on projects provided by the
 technical than the [PWA Pages](https://pwa.rtfd.io) and focuses on the ComPWA
 organization only.
 
-## Table of Contents
+```{rubric} Table of contents
+
+```
 
 ```{toctree}
 ---
@@ -23,8 +25,6 @@ reports
 About <https://pwa.rtfd.io/about.html>
 ComPWA Organization <https://github.com/ComPWA>
 ```
-
-- {ref}`Search <search>`
 
 ```{toctree}
 ---
