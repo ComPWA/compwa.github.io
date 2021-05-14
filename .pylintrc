@@ -8,6 +8,7 @@ good-names-rgxs=
 
 [MASTER]
 ignore=
+    conf.py,
     sympy,
 ignore-patterns=
     .*\.pyi

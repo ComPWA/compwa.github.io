@@ -9,7 +9,7 @@ https://www.sphinx-doc.org/en/master/usage/configuration.html
 # -- Project information -----------------------------------------------------
 project = "ComPWA Organization"
 repo_name = "compwa-org"
-copyright = "2021, ComPWA"
+copyright = "2021, ComPWA"  # noqa: A001
 author = "Common Partial Wave Analysis"
 
 
