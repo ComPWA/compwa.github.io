@@ -1,0 +1,34 @@
+tasks:
+  - init: pip install -e .[dev]
+
+github:
+  prebuilds:
+    master: true
+    branches: false
+    pullRequests: true
+    pullRequestsFromForks: true
+    addComment: false
+    addBadge: false
+    addLabel: false
+
+vscode:
+  extensions:
+    - bungcip.better-toml
+    - christian-kohler.path-intellisense
+    - codestream.codestream
+    - davidanson.vscode-markdownlint
+    - eamodio.gitlens
+    - editorconfig.editorconfig
+    - esbenp.prettier-vscode
+    - executablebookproject.myst-highlight
+    - github.vscode-pull-request-github
+    - ms-python.python
+    - ms-python.vscode-pylance
+    - ms-vsliveshare.vsliveshare
+    - redhat.vscode-yaml
+    - stkb.rewrap
+    - streetsidesoftware.code-spell-checker
+    - travisillig.vscode-json-stable-stringify
+    - trentrand.git-commit-helper-vscode
+    - tyriar.sort-lines
+    - yzhang.markdown-all-in-one
