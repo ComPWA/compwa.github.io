@@ -98,6 +98,8 @@ intersphinx_mapping = {
     "ampform": ("https://ampform.readthedocs.io/en/stable", None),
     "ComPWA": ("https://compwa.readthedocs.io/en/latest", None),
     "expertsystem": ("https://expertsystem.readthedocs.io/en/stable", None),
+    "jax": ("https://jax.readthedocs.io/en/latest", None),
+    "numpy": ("https://numpy.org/doc/stable", None),
     "pycompwa": ("https://compwa.github.io", None),
     "python": ("https://docs.python.org/3", None),
     "qrules": ("https://qrules.readthedocs.io/en/stable", None),
