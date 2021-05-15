@@ -26,7 +26,6 @@ jobs:
         run: pre-commit autoupdate
       - uses: actions/upload-artifact@v2
         with:
-          name: pre-commit
           path: .pre-commit-config.yaml
 
   push:
@@ -39,12 +38,7 @@ jobs:
         with:
           token: ${{ secrets.PAT }}
       - uses: actions/download-artifact@v2
-        with:
-          path: .constraints
-      - run: |
-          mv -f artifact/.pre-commit-config.yaml ..
-          mv -f artifact/* .
-        working-directory: .constraints
+      - run: mv -f artifact/.pre-commit-config.yaml .
       - run: git status -s
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v3
