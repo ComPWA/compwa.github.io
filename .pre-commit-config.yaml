@@ -5,7 +5,7 @@ repos:
       - id: check-useless-excludes
 
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v4.0.0
+    rev: v4.0.1
     hooks:
       - id: check-ast
       - id: check-case-conflict
@@ -58,7 +58,7 @@ repos:
       - id: markdownlint
 
   - repo: https://github.com/nbQA-dev/nbQA
-    rev: 0.8.0
+    rev: 0.8.1
     hooks:
       - id: nbqa-black
         args: [--nbqa-mutate]
@@ -79,7 +79,7 @@ repos:
         language_version: 12.18.2 # prettier does not specify node correctly
 
   - repo: https://github.com/ComPWA/mirrors-pyright
-    rev: v1.1.138
+    rev: v1.1.139
     hooks:
       - id: pyright
 
