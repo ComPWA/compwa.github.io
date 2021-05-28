@@ -5,8 +5,11 @@
 features as well as some peculiarities that are to be taken into account while
 developing.
 
+<!-- cspell:ignore componentwise -->
+
 ```{toctree}
 :maxdepth: 1
 sympy/sqrt
 sympy/custom-lambdifier
+sympy/componentwise-lambdify
 ```
