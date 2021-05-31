@@ -114,7 +114,11 @@
         "spflueger",
         "startswith",
         "theano",
+        "timeit",
         "toctree",
-        "venv"
+        "venv",
+        "xlabel",
+        "ylabel",
+        "ylim"
     ]
 }
