@@ -9,4 +9,5 @@ developing.
 :maxdepth: 1
 sympy/sqrt
 sympy/custom-lambdifier
+sympy/lambdify-speedup
 ```
