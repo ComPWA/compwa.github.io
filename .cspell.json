@@ -117,6 +117,7 @@
         "theano",
         "timeit",
         "toctree",
+        "treewise",
         "venv",
         "xlabel",
         "xreplace",
