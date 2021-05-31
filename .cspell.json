@@ -101,6 +101,7 @@
         "maxdepth",
         "nbconvert",
         "nbformat",
+        "nonlocal",
         "numpycode",
         "pandoc",
         "phsp",
@@ -118,6 +119,7 @@
         "toctree",
         "venv",
         "xlabel",
+        "xreplace",
         "ylabel",
         "ylim"
     ]
