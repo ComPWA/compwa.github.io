@@ -5,6 +5,7 @@ list see the documentation:
 https://www.sphinx-doc.org/en/master/usage/configuration.html
 """
 
+import os
 
 # -- Project information -----------------------------------------------------
 project = "ComPWA Organization"
@@ -125,7 +126,6 @@ execution_timeout = -1
 execution_excludepatterns = [
     "adr/001/*",
 ]
-jupyter_execute_notebooks = "force"
 nb_output_stderr = "remove"
 nb_render_priority = {
     "html": (
@@ -140,6 +140,11 @@ nb_render_priority = {
         "text/plain",
     )
 }
+
+jupyter_execute_notebooks = "off"
+if "EXECUTE_NB" in os.environ:
+    print("\033[93;1mWill run Jupyter notebooks!\033[0m")
+    jupyter_execute_notebooks = "force"
 
 # Settings for myst-parser
 myst_enable_extensions = [
