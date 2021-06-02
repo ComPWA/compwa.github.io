@@ -7,5 +7,6 @@ useful to other frameworks as well.
 
 ```{toctree}
 :maxdepth: 2
-reports/sympy
+:glob:
+report/*
 ```
