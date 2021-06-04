@@ -127,6 +127,7 @@ execution_excludepatterns = [
     "adr/001/*",
     "adr/002/*",
     "report/000*",
+    "report/001*",
     "report/002*",
 ]
 nb_output_stderr = "remove"
