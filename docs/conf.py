@@ -126,6 +126,7 @@ execution_timeout = -1
 execution_excludepatterns = [
     "adr/001/*",
     "adr/002/*",
+    "report/000*",
     "report/001*",
     "report/002*",
 ]
