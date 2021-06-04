@@ -91,6 +91,7 @@
         "hasattr",
         "ipython",
         "isort",
+        "jaxlib",
         "kernelspec",
         "lambdifier",
         "linkcheck",
