@@ -126,6 +126,7 @@ execution_timeout = -1
 execution_excludepatterns = [
     "adr/001/*",
     "adr/002/*",
+    "report/000*",
 ]
 nb_output_stderr = "remove"
 nb_render_priority = {
