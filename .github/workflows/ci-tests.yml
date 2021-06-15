@@ -26,6 +26,8 @@ jobs:
         run:
           echo "::set-output name=modified-notebooks::$(git diff --name-only
           origin/$GITHUB_BASE_REF -- docs | grep ipynb)"
+      - name: Show modified notebooks
+        run: echo ${{join(steps.git-diff.outputs.*, '\n')}}
       - name: Set up Python ${{ matrix.python-version }}
         if: steps.git-diff.outputs.modified-notebooks != ''
         uses: actions/setup-python@master
