@@ -193,7 +193,7 @@ for root, _, files in os.walk("../demo"):
             break
         if not notebook_title:
             raise ValueError(f'Notebook "{filepath}" does not have a title')
-        link = f"https://mybinder.org/v2/gh/ComPWA/compwa-org/main?urlpath=apps%2Fdemo%2F{filename}"
+        link = f"https://mybinder.org/v2/gh/ComPWA/compwa-org/stable?urlpath=apps%2Fdemo%2F{filename}"
         demo_template += f"{notebook_title} <{link}>\n"
 demo_template += "```\n"
 
