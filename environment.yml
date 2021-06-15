@@ -1,7 +1,9 @@
 name: compwa-org
 channels:
   - defaults
+  - conda-forge
 dependencies:
+  - appmode
   - python==3.8.*
   - pip
   - graphviz # for binder

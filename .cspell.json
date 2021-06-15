@@ -78,6 +78,7 @@
     ],
     "ignoreWords": [
         "adrs",
+        "appmode",
         "asdot",
         "astype",
         "autolaunch",
