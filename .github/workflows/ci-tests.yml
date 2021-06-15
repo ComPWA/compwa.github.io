@@ -20,6 +20,12 @@ jobs:
         python-version: [3.7]
     steps:
       - uses: actions/checkout@master
+      - run: git fetch origin
+      - name: Check modified notebooks
+        id: git-diff
+        run:
+          echo "::set-output name=dependency-changes::$(git diff --name-only
+          origin/$GITHUB_BASE_REF -- docs | grep ipynb)"
       - name: Set up Python ${{ matrix.python-version }}
         uses: actions/setup-python@master
         with:
@@ -30,8 +36,6 @@ jobs:
           pip install .[test]
           sudo apt-get -y install graphviz
       - name: Run notebooks with pytest (diff only)
-        run:
-          pytest $(git diff --name-only origin/$GITHUB_BASE_REF -- docs | grep
-          ipynb)
+        run: pytest ${{ steps.git-diff.outputs.dependency-changes }}
       - name: Run demo notebooks
         run: pytest demo
