@@ -33,6 +33,10 @@ repos:
       - id: fix-nbformat-version
       - id: format-setup-cfg
       - id: pin-nb-requirements
+        exclude: >
+          (?x)^(
+            demo/.*
+          )$
 
   - repo: https://github.com/asottile/blacken-docs
     rev: v1.10.0

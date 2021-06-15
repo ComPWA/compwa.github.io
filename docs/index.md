@@ -22,6 +22,7 @@ maxdepth: 2
 ---
 adr
 reports
+demo
 About <https://pwa.rtfd.io/about.html>
 ComPWA Organization <https://github.com/ComPWA>
 ```
