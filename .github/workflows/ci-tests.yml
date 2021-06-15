@@ -31,4 +31,7 @@ jobs:
           sudo apt-get -y install graphviz
       - name: Run notebooks with pytest (diff only)
         run:
-          pytest $(git diff --name-only origin/$GITHUB_BASE_REF | grep ipynb)
+          pytest $(git diff --name-only origin/$GITHUB_BASE_REF -- docs | grep
+          ipynb)
+      - name: Run demo notebooks
+        run: pytest demo
