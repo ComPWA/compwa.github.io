@@ -7,7 +7,7 @@ https://www.sphinx-doc.org/en/master/usage/configuration.html
 
 import os
 
-import nbformat
+import nbformat  # pyright: reportMissingImports=false
 
 # -- Project information -----------------------------------------------------
 project = "ComPWA Organization"
