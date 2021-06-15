@@ -107,6 +107,7 @@
         "ipynb",
         "ipyplot",
         "ipython",
+        "ipywidgets",
         "isinstance",
         "isort",
         "jaxlib",
