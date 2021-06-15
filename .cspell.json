@@ -115,6 +115,7 @@
         "linewidth",
         "linkcheck",
         "linspace",
+        "livereveal",
         "markdownlint",
         "mathbb",
         "mathrm",
