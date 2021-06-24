@@ -1,5 +1,15 @@
 # Demos
 
+:::{margin}
+
+It takes about **one minute** to launch the kernel once you open one of the
+below demos if an image is available. If the kernel hasn't been launched since
+new updates were pushed to the
+[stable](https://github.com/ComPWA/compwa-org/tree/stable) branch, it will take
+a few additional minutes for Binder to build an image.
+
+:::
+
 The following notebooks illustrate some key features of {mod}`qrules`,
 {mod}`ampform`, and {mod}`tensorwaves`. Since they are meant to be run
 directly, they are hosted on [Binder](https://mybinder.rtfd.io), but they can
