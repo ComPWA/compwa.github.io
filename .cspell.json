@@ -82,6 +82,7 @@
     "ignoreWords": [
         "adrs",
         "appmode",
+        "arange",
         "asdot",
         "astype",
         "autolaunch",
@@ -139,6 +140,7 @@
         "pythoncode",
         "redeboer",
         "rtfd",
+        "savefig",
         "scimath",
         "seealso",
         "seterr",

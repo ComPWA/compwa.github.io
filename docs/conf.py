@@ -38,6 +38,7 @@ extensions = [
     "sphinx_panels",
     "sphinx_thebe",
     "sphinx_togglebutton",
+    "sphinxcontrib.hep.pdgref",
 ]
 exclude_patterns = [
     "**.ipynb_checkpoints",
