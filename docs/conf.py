@@ -38,6 +38,7 @@ extensions = [
     "sphinx_panels",
     "sphinx_thebe",
     "sphinx_togglebutton",
+    "sphinxcontrib.hep.pdgref",
 ]
 exclude_patterns = [
     "**.ipynb_checkpoints",
@@ -107,6 +108,7 @@ intersphinx_mapping = {
     "pycompwa": ("https://compwa.github.io", None),
     "python": ("https://docs.python.org/3", None),
     "qrules": ("https://qrules.readthedocs.io/en/stable", None),
+    "scipy": ("https://docs.scipy.org/doc/scipy", None),
     "sympy": ("https://docs.sympy.org/latest", None),
     "tensorwaves": ("https://tensorwaves.readthedocs.io/en/stable", None),
 }
@@ -132,6 +134,7 @@ execution_excludepatterns = [
     "report/000*",
     "report/001*",
     "report/002*",
+    "report/003*",
 ]
 nb_output_stderr = "remove"
 nb_render_priority = {
