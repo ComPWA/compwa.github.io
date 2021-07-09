@@ -1,6 +1,7 @@
 # ComPWA Organization Documentation
 
 [![Documentation build status](https://readthedocs.org/projects/pwa/badge/?version=latest)](https://pwa.readthedocs.io)
+[![Open in Visual Studio Code](https://open.vscode.dev/badges/open-in-vscode.svg)](https://open.vscode.dev/ComPWA/compwa-org)
 [![GitPod](https://img.shields.io/badge/Gitpod-ready--to--code-blue?logo=gitpod)](https://gitpod.io/#https://github.com/ComPWA/compwa-org)
 [![CI status](https://github.com/ComPWA/compwa-org/workflows/CI-docs/badge.svg)](https://github.com/ComPWA/compwa-org/actions?query=branch%3Amain+workflow%3ACI-docs)
 [![pre-commit](https://github.com/ComPWA/compwa-org/workflows/pre-commit/badge.svg)](https://github.com/ComPWA/compwa-org/actions?query=branch%3Amain+workflow%3Apre-commit)
