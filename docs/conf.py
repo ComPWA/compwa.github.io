@@ -185,9 +185,15 @@ for root, _, files in os.walk("../demo"):
         filepath = os.path.join(root, filename)
         notebook = nbformat.read(filepath, as_version=nbformat.NO_CONVERT)
         notebook_title = ""
+        app_mode = False
         for cell in notebook.cells:
             if not cell.cell_type == "markdown":
                 continue
+            if not app_mode and (
+                "<!-- appmode -->" in cell.source
+                or "<!-- app-mode -->" in cell.source
+            ):
+                app_mode = True
             if not cell.source.startswith("# "):
                 continue
             notebook_title = cell.source
@@ -196,7 +202,11 @@ for root, _, files in os.walk("../demo"):
             break
         if not notebook_title:
             raise ValueError(f'Notebook "{filepath}" does not have a title')
-        link = f"https://mybinder.org/v2/gh/ComPWA/compwa-org/stable?urlpath=apps%2Fdemo%2F{filename}"
+        link = "https://mybinder.org/v2/gh/ComPWA/compwa-org/stable"
+        if app_mode:
+            link += f"?urlpath=apps%2Fdemo%2F{filename}"
+        else:
+            link += f"?filepath=demo%2F{filename}"
         demo_template += f"{notebook_title} <{link}>\n"
 demo_template += "```\n"
 
