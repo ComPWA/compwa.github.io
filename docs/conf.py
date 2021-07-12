@@ -174,7 +174,8 @@ thebe_config = {
 with open("demo.template.md") as stream:
     demo_template = stream.read()
 
-notebook_paths = []
+demo_template += "\n"
+demo_template += "```{toctree}\n"
 for root, _, files in os.walk("../demo"):
     if ".ipynb_checkpoints" in root:
         continue
@@ -182,35 +183,31 @@ for root, _, files in os.walk("../demo"):
         if not filename.endswith(".ipynb"):
             continue
         filepath = os.path.join(root, filename)
-        notebook_paths.append(filepath)
-demo_template += "\n"
-demo_template += "```{toctree}\n"
-for filepath in sorted(notebook_paths):
-    notebook = nbformat.read(filepath, as_version=nbformat.NO_CONVERT)
-    notebook_title = ""
-    app_mode = False
-    for cell in notebook.cells:
-        if not cell.cell_type == "markdown":
-            continue
-        if not app_mode and (
-            "<!-- appmode -->" in cell.source
-            or "<!-- app-mode -->" in cell.source
-        ):
-            app_mode = True
-        if not cell.source.startswith("# "):
-            continue
-        notebook_title = cell.source
-        notebook_title = notebook_title[1:]
-        notebook_title = notebook_title.strip()
-        break
-    if not notebook_title:
-        raise ValueError(f'Notebook "{filepath}" does not have a title')
-    link = "https://mybinder.org/v2/gh/ComPWA/compwa-org/stable"
-    if app_mode:
-        link += f"?urlpath=apps%2Fdemo%2F{filename}"
-    else:
-        link += f"?filepath=demo%2F{filename}"
-    demo_template += f"{notebook_title} <{link}>\n"
+        notebook = nbformat.read(filepath, as_version=nbformat.NO_CONVERT)
+        notebook_title = ""
+        app_mode = False
+        for cell in notebook.cells:
+            if not cell.cell_type == "markdown":
+                continue
+            if not app_mode and (
+                "<!-- appmode -->" in cell.source
+                or "<!-- app-mode -->" in cell.source
+            ):
+                app_mode = True
+            if not cell.source.startswith("# "):
+                continue
+            notebook_title = cell.source
+            notebook_title = notebook_title[1:]
+            notebook_title = notebook_title.strip()
+            break
+        if not notebook_title:
+            raise ValueError(f'Notebook "{filepath}" does not have a title')
+        link = "https://mybinder.org/v2/gh/ComPWA/compwa-org/stable"
+        if app_mode:
+            link += f"?urlpath=apps%2Fdemo%2F{filename}"
+        else:
+            link += f"?filepath=demo%2F{filename}"
+        demo_template += f"{notebook_title} <{link}>\n"
 demo_template += "```\n"
 
 
