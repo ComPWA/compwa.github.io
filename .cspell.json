@@ -54,6 +54,7 @@
     "language": "en-US",
     "words": [
         "ampform",
+        "analyticity",
         "argand",
         "blatt",
         "breit",
@@ -145,6 +146,7 @@
         "pyplot",
         "pythoncode",
         "q",
+        "quadpack",
         "redeboer",
         "rtfd",
         "rules's",

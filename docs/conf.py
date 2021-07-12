@@ -179,7 +179,7 @@ demo_template += "```{toctree}\n"
 for root, _, files in os.walk("../demo"):
     if ".ipynb_checkpoints" in root:
         continue
-    for filename in files:
+    for filename in sorted(files):
         if not filename.endswith(".ipynb"):
             continue
         filepath = os.path.join(root, filename)
