@@ -171,6 +171,7 @@
         "timeit",
         "toctree",
         "treewise",
+        "unsrt",
         "venv",
         "vmax",
         "vmin",
