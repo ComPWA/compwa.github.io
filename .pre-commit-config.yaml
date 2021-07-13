@@ -46,6 +46,7 @@ repos:
         exclude: >
           (?x)^(
             docs/report/004.*|
+            docs/report/005.*|
             docs/report/006.*|
             demo/.*
           )$
