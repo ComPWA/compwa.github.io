@@ -53,6 +53,7 @@
     ],
     "language": "en-US",
     "words": [
+        "aitchison",
         "ampform",
         "analyticity",
         "argand",
@@ -106,6 +107,7 @@
         "facecolors",
         "figsize",
         "filterwarnings",
+        "fontsize",
         "getsource",
         "graphviz",
         "gridspec",
