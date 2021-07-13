@@ -107,6 +107,7 @@
         "facecolors",
         "figsize",
         "filterwarnings",
+        "fontsize",
         "getsource",
         "graphviz",
         "gridspec",
