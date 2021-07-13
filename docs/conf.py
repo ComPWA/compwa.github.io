@@ -105,6 +105,7 @@ intersphinx_mapping = {
     "expertsystem": ("https://expertsystem.readthedocs.io/en/stable", None),
     "jax": ("https://jax.readthedocs.io/en/latest", None),
     "numpy": ("https://numpy.org/doc/stable", None),
+    "pwa": ("https://pwa.readthedocs.io", None),
     "pycompwa": ("https://compwa.github.io", None),
     "python": ("https://docs.python.org/3", None),
     "qrules": ("https://qrules.readthedocs.io/en/stable", None),
@@ -162,7 +163,20 @@ myst_enable_extensions = [
     "colon_fence",
     "dollarmath",
     "smartquotes",
+    "substitution",
 ]
+BINDER_LINK = (
+    f"https://mybinder.org/v2/gh/ComPWA/{repo_name}/stable?filepath=docs"
+)
+myst_substitutions = {
+    "run_interactive": f"""
+```{{margin}}
+Run this notebook [on Binder]({BINDER_LINK}) or
+{{ref}}`locally on Jupyter Lab <pwa:develop:Jupyter Notebooks>` to
+interactively modify the parameters.
+```
+"""
+}
 myst_update_mathjax = False
 
 # Settings for Thebe cell output
