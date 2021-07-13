@@ -5,9 +5,31 @@ list see the documentation:
 https://www.sphinx-doc.org/en/master/usage/configuration.html
 """
 
+import dataclasses
 import os
+from typing import Union
 
 import nbformat  # pyright: reportMissingImports=false
+import sphinxcontrib.bibtex.plugin
+from pybtex.database import Entry
+from pybtex.plugin import register_plugin
+from pybtex.richtext import BaseText, Tag, Text
+from pybtex.style.formatting.unsrt import Style as UnsrtStyle
+from pybtex.style.template import (
+    FieldIsMissing,
+    Node,
+    _format_list,
+    field,
+    href,
+    join,
+    node,
+    sentence,
+    words,
+)
+from sphinxcontrib.bibtex.style.referencing import BracketStyle
+from sphinxcontrib.bibtex.style.referencing.author_year import (
+    AuthorYearReferenceStyle,
+)
 
 # -- Project information -----------------------------------------------------
 project = "ComPWA Organization"
@@ -38,6 +60,7 @@ extensions = [
     "sphinx_panels",
     "sphinx_thebe",
     "sphinx_togglebutton",
+    "sphinxcontrib.bibtex",
     "sphinxcontrib.hep.pdgref",
 ]
 exclude_patterns = [
@@ -105,6 +128,7 @@ intersphinx_mapping = {
     "expertsystem": ("https://expertsystem.readthedocs.io/en/stable", None),
     "jax": ("https://jax.readthedocs.io/en/latest", None),
     "numpy": ("https://numpy.org/doc/stable", None),
+    "pwa": ("https://pwa.readthedocs.io", None),
     "pycompwa": ("https://compwa.github.io", None),
     "python": ("https://docs.python.org/3", None),
     "qrules": ("https://qrules.readthedocs.io/en/stable", None),
@@ -115,6 +139,13 @@ intersphinx_mapping = {
 
 # Settings for autosectionlabel
 autosectionlabel_prefix_document = True
+
+# Settings for bibtex
+bibtex_bibfiles = ["bibliography.bib"]
+suppress_warnings = [
+    "myst.domains",
+]
+bibtex_reference_style = "author_year_no_comma"
 
 # Settings for copybutton
 copybutton_prompt_is_regexp = True
@@ -162,7 +193,20 @@ myst_enable_extensions = [
     "colon_fence",
     "dollarmath",
     "smartquotes",
+    "substitution",
 ]
+BINDER_LINK = (
+    f"https://mybinder.org/v2/gh/ComPWA/{repo_name}/stable?filepath=docs"
+)
+myst_substitutions = {
+    "run_interactive": f"""
+```{{margin}}
+Run this notebook [on Binder]({BINDER_LINK}) or
+{{ref}}`locally on Jupyter Lab <pwa:develop:Jupyter Notebooks>` to
+interactively modify the parameters.
+```
+"""
+}
 myst_update_mathjax = False
 
 # Settings for Thebe cell output
@@ -174,6 +218,8 @@ thebe_config = {
 with open("demo.template.md") as stream:
     demo_template = stream.read()
 
+
+# Embed links to demos on Binder
 demo_template += "\n"
 demo_template += "```{toctree}\n"
 for root, _, files in os.walk("../demo"):
@@ -213,3 +259,115 @@ demo_template += "```\n"
 
 with open("demo.md", "w") as stream:
     stream.write(demo_template)
+
+
+# Specify bibliography style
+
+no_brackets = BracketStyle(
+    left="",
+    right="",
+)
+
+
+@dataclasses.dataclass
+class NoCommaReferenceStyle(AuthorYearReferenceStyle):
+    author_year_sep: Union["BaseText", str] = " "
+    bracket_parenthetical: BracketStyle = no_brackets
+
+
+sphinxcontrib.bibtex.plugin.register_plugin(
+    "sphinxcontrib.bibtex.style.referencing",
+    "author_year_no_comma",
+    NoCommaReferenceStyle,
+)
+
+
+@node
+def et_al(children, data, sep="", sep2=None, last_sep=None):
+    if sep2 is None:
+        sep2 = sep
+    if last_sep is None:
+        last_sep = sep
+    parts = [part for part in _format_list(children, data) if part]
+    if len(parts) <= 1:
+        return Text(*parts)
+    elif len(parts) == 2:
+        return Text(sep2).join(parts)
+    elif len(parts) == 3:
+        return Text(last_sep).join([Text(sep).join(parts[:-1]), parts[-1]])
+    else:
+        return Text(parts[0], Tag("em", " et al"))
+
+
+@node
+def names(children, context, role, **kwargs):
+    """Return formatted names."""
+    assert not children
+    try:
+        persons = context["entry"].persons[role]
+    except KeyError:
+        raise FieldIsMissing(role, context["entry"])
+
+    style = context["style"]
+    formatted_names = [
+        style.format_name(person, style.abbreviate_names) for person in persons
+    ]
+    return et_al(**kwargs)[formatted_names].format_data(context)
+
+
+class MyStyle(UnsrtStyle):
+    def __init__(self):
+        super().__init__(abbreviate_names=True)
+
+    def format_names(self, role, as_sentence=True) -> Node:
+        formatted_names = names(
+            role, sep=", ", sep2=" and ", last_sep=", and "
+        )
+        if as_sentence:
+            return sentence[formatted_names]
+        else:
+            return formatted_names
+
+    def format_eprint(self, e):
+        if "doi" in e.fields:
+            return ""
+        return super().format_eprint(e)
+
+    def format_url(self, e: Entry) -> Node:
+        if "doi" in e.fields or "eprint" in e.fields:
+            return ""
+        return words[
+            href[
+                field("url", raw=True),
+                field("url", raw=True, apply_func=remove_http),
+            ]
+        ]
+
+    def format_isbn(self, e: Entry) -> Node:
+        return href[
+            join[
+                "https://isbnsearch.org/isbn/",
+                field("isbn", raw=True, apply_func=remove_dashes_and_spaces),
+            ],
+            join[
+                "ISBN:",
+                field("isbn", raw=True),
+            ],
+        ]
+
+
+def remove_dashes_and_spaces(isbn: str) -> str:
+    to_remove = ["-", " "]
+    for remove in to_remove:
+        isbn = isbn.replace(remove, "")
+    return isbn
+
+
+def remove_http(input_str: str) -> str:
+    to_remove = ["https://", "http://"]
+    for remove in to_remove:
+        input_str = input_str.replace(remove, "")
+    return input_str
+
+
+register_plugin("pybtex.style.formatting", "unsrt_et_al", MyStyle)
