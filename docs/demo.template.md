@@ -1,12 +1,12 @@
 # Demos
 
-:::{margin}
+:::{admonition} Demo launch time
 
 It takes about **one minute** to launch the kernel once you open one of the
-below demos if an image is available. If the kernel hasn't been launched since
-new updates were pushed to the
-[stable](https://github.com/ComPWA/compwa-org/tree/stable) branch, it will take
-a few additional minutes for Binder to build an image.
+below demos if an image is available. However, if the kernel hasn't been
+launched since new updates were pushed to the
+[stable](https://github.com/ComPWA/compwa-org/tree/stable) branch, it can take
+around **10 minutes** for Binder to build an image.
 
 :::
 
