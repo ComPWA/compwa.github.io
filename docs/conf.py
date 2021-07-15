@@ -127,6 +127,8 @@ intersphinx_mapping = {
     "ComPWA": ("https://compwa.readthedocs.io/en/latest", None),
     "expertsystem": ("https://expertsystem.readthedocs.io/en/stable", None),
     "jax": ("https://jax.readthedocs.io/en/latest", None),
+    "ipywidgets": ("https://ipywidgets.readthedocs.io/en/stable", None),
+    "matplotlib": ("https://matplotlib.org/stable", None),
     "numpy": ("https://numpy.org/doc/stable", None),
     "pwa": ("https://pwa.readthedocs.io", None),
     "pycompwa": ("https://compwa.github.io", None),
