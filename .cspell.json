@@ -80,6 +80,7 @@
         "sympy",
         "tensorflow",
         "tensorwaves",
+        "toolkits",
         "vectorize",
         "weisskopf",
         "wigners"
@@ -188,6 +189,7 @@
         "ylim",
         "yticks",
         "zlabel",
-        "zlim"
+        "zlim",
+        "zticks"
     ]
 }
