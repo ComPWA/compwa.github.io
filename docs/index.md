@@ -30,11 +30,11 @@ GitHub Repositories <https://github.com/ComPWA>
 
 ```{toctree}
 ---
-caption: Related projects
+caption: Main projects
 hidden:
 ---
-AmpForm <https://ampform.rtfd.io>
 QRules <https://qrules.rtfd.io>
+AmpForm <https://ampform.rtfd.io>
 TensorWaves <https://tensorwaves.rtfd.io>
 PWA Pages <https://pwa.rtfd.io>
 ```
