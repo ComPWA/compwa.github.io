@@ -1,6 +1,7 @@
 # ComPWA Organization Documentation
 
 [![Documentation build status](https://readthedocs.org/projects/pwa/badge/?version=latest)](https://pwa.readthedocs.io)
+[![GPLv3+ license](https://img.shields.io/badge/License-GPLv3+-blue.svg)](https://www.gnu.org/licenses/gpl-3.0-standalone.html)
 [![Open in Visual Studio Code](https://open.vscode.dev/badges/open-in-vscode.svg)](https://open.vscode.dev/ComPWA/compwa-org)
 [![GitPod](https://img.shields.io/badge/Gitpod-ready--to--code-blue?logo=gitpod)](https://gitpod.io/#https://github.com/ComPWA/compwa-org)
 [![CI status](https://github.com/ComPWA/compwa-org/workflows/CI-docs/badge.svg)](https://github.com/ComPWA/compwa-org/actions?query=branch%3Amain+workflow%3ACI-docs)
