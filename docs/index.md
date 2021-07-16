@@ -24,8 +24,8 @@ adr
 reports
 demo
 references
-About <https://pwa.rtfd.io/about.html>
-ComPWA Organization <https://github.com/ComPWA>
+about
+GitHub Repositories <https://github.com/ComPWA>
 ```
 
 ```{toctree}
