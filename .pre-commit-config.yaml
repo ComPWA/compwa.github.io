@@ -60,12 +60,12 @@ repos:
           )$
 
   - repo: https://github.com/igorshubovych/markdownlint-cli
-    rev: v0.27.1
+    rev: v0.28.1
     hooks:
       - id: markdownlint
 
   - repo: https://github.com/nbQA-dev/nbQA
-    rev: 0.13.1
+    rev: 1.0.0
     hooks:
       - id: nbqa-black
         args: [--nbqa-mutate]
@@ -86,7 +86,7 @@ repos:
         language_version: 12.18.2 # prettier does not specify node correctly
 
   - repo: https://github.com/ComPWA/mirrors-pyright
-    rev: v1.1.154
+    rev: v1.1.158
     hooks:
       - id: pyright
 
