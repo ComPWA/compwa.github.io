@@ -1,1 +1,8 @@
-!006-ipywidgets-slider.svg
+# Hide rendered DOT files
+*
+!/*.*
+
+*.png
+*.svg
+!006-*.svg
+!008-*.svg
