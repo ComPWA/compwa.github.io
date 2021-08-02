@@ -77,7 +77,7 @@ repos:
           )$
 
   - repo: https://github.com/pycqa/isort
-    rev: 5.9.2
+    rev: 5.9.3
     hooks:
       - id: isort
 
@@ -87,7 +87,7 @@ repos:
       - id: markdownlint
 
   - repo: https://github.com/nbQA-dev/nbQA
-    rev: 1.0.0
+    rev: 1.1.0
     hooks:
       - id: nbqa-black
       - id: nbqa-flake8
@@ -104,7 +104,7 @@ repos:
       - id: prettier
 
   - repo: https://github.com/ComPWA/mirrors-pyright
-    rev: v1.1.158
+    rev: v1.1.159
     hooks:
       - id: pyright
 
