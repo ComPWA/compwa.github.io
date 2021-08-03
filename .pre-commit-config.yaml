@@ -35,6 +35,10 @@ repos:
 
       - id: mixed-line-ending
       - id: trailing-whitespace
+        exclude: >
+          (?x)^(
+            .*\.svg
+          )$
 
   - repo: https://github.com/ComPWA/repo-maintenance
     rev: 0.0.26
