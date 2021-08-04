@@ -54,6 +54,7 @@ repos:
             docs/report/006.*|
             docs/report/007.*|
             docs/report/009.*|
+            docs/report/010.*|
             demo/.*
           )$
 
