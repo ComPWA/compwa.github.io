@@ -33,8 +33,8 @@ references
 caption: Organization
 maxdepth: 2
 ---
-develop
 about
+develop
 GitHub Repositories <https://github.com/ComPWA>
 ```
 
