@@ -19,12 +19,21 @@ organization only.
 
 ```{toctree}
 ---
+caption: Reports
 maxdepth: 2
 ---
 adr
 reports
 demo
 references
+```
+
+```{toctree}
+---
+caption: Organization
+maxdepth: 2
+---
+develop
 about
 GitHub Repositories <https://github.com/ComPWA>
 ```
