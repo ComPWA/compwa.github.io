@@ -70,12 +70,12 @@ ComPWA attempts to break this with the following ideals:
 - Follow industry standards and tools (e.g.
   {doc}`ticket system, CI, ADR, etc... </develop>`).
 
-The points is crucial. ComPWA rather sacrifices functionality for design and
-developer experience related developments. Many other frameworks have started
-with the same ideal of having a good software design etc., but soon begin to
-drop those ideals for the understandable reasons described above. We believe
-that only by sticking to those ideals, it is possible to maintain a long-term
-and collaboration-independent common tool.
+The first point is crucial. ComPWA rather sacrifices functionality for design
+and developer experience related developments. Many other frameworks have
+started with the same ideal of having a good software design etc., but soon
+begin to drop those ideals for the understandable reasons described above. We
+believe that only by sticking to those ideals, it is possible to maintain a
+long-term and collaboration-independent common tool.
 
 ## Developer Experience
 
