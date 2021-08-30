@@ -208,8 +208,8 @@ myst_substitutions = {
     "run_interactive": f"""
 ```{{margin}}
 Run this notebook [on Binder]({BINDER_LINK}) or
-{{ref}}`locally on Jupyter Lab <pwa:develop:Jupyter Notebooks>` to
-interactively modify the parameters.
+{{ref}}`locally on Jupyter Lab <develop:Jupyter Notebooks>` to interactively
+modify the parameters.
 ```
 """
 }
