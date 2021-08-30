@@ -133,6 +133,7 @@
         "imag",
         "infty",
         "iplt",
+        "ipykernel",
         "ipympl",
         "ipynb",
         "ipyplot",
