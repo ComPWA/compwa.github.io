@@ -172,6 +172,8 @@ execution_excludepatterns = [
     "report/003*",
     "report/006*",
     "report/008*",
+    "report/009*",
+    "report/010*",
 ]
 nb_output_stderr = "remove"
 nb_render_priority = {
@@ -208,8 +210,8 @@ myst_substitutions = {
     "run_interactive": f"""
 ```{{margin}}
 Run this notebook [on Binder]({BINDER_LINK}) or
-{{ref}}`locally on Jupyter Lab <pwa:develop:Jupyter Notebooks>` to
-interactively modify the parameters.
+{{ref}}`locally on Jupyter Lab <develop:Jupyter Notebooks>` to interactively
+modify the parameters.
 ```
 """
 }
