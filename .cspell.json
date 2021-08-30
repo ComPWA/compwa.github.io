@@ -154,6 +154,7 @@
         "mathbb",
         "mathop",
         "mathrm",
+        "mathtt",
         "maxdepth",
         "meshgrid",
         "multiline",

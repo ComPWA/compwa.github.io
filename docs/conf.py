@@ -172,6 +172,7 @@ execution_excludepatterns = [
     "report/003*",
     "report/006*",
     "report/008*",
+    "report/009*",
 ]
 nb_output_stderr = "remove"
 nb_render_priority = {
