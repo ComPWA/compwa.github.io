@@ -48,7 +48,7 @@ some alignment parameters that were not yet supplied by the framework. It's
 therefore hard to facilitate ongoing research, while at the same time
 developing a general, long-term PWA tool.
 
-This state of affairs has a few major disadvantages:
+This situation however has a few major disadvantages:
 
 - Collaborations usually start developing a PWA framework from scratch. It
   therefore takes years for packages to move beyond the basic PWA formalisms.
