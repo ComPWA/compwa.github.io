@@ -85,7 +85,7 @@ json5==0.9.6
 jsonschema==4.1.2
 jupyter==1.0.0
 jupyter-cache==0.4.3
-jupyter-client==7.0.6
+jupyter-client==6.1.12
 jupyter-console==6.4.0
 jupyter-contrib-core==0.3.3
 jupyter-contrib-nbextensions==0.5.1
