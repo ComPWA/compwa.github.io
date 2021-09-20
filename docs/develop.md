@@ -708,7 +708,10 @@ branch".
   [linear commit history](https://docs.github.com/en/github/administering-a-repository/requiring-a-linear-commit-history)
   and the PR title will become the eventual commit message. A linear commit
   history is important for the {ref}`develop:Release flow` and it is easier to
-  navigate through changes once something goes wrong.
+  navigate through changes once something goes wrong. In fact, in a linear
+  commit history, commits that a have been merged into the {ref}`main-branch`
+  become more like small intermediate patches between the minor and major
+  releases.
 
   Note that a conventional commit message style is
   {ref}`enforced through GitHub Actions <develop:GitHub Actions>`, as well as a
