@@ -593,7 +593,8 @@ GitHub account to log in there and automatically get access to the issue boards
 of the packages once you are part of the
 [ComPWA organization](https://github.com/ComPWA).
 
-Publicly available are:
+ZenHub issue information is only visible once you log in on ZenHub. Still
+publicly visible on GitHub are:
 
 - [Issue labels](https://github.com/ComPWA/ampform/labels): help to categorize
   issues by type (maintenance, enhancement, bug, etc.).
