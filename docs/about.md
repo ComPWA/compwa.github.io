@@ -33,6 +33,22 @@ Finally, the {doc}`technical reports </reports>` on these pages
 tips and tricks, some of which can be of interest to general Python users as
 well!
 
+:::{dropdown} Deprecated projects
+
+The main packages listed above originate from the following, deprecated
+projects:
+
+<!-- cspell:ignore pycompwa -->
+
+- {doc}`ComPWA <ComPWA:index>`: a single framework for Partial Wave Analysis
+  written in C++.
+- {doc}`pycompwa <pycompwa:index>`: the Python interface of ComPWA, which also
+  hosted a first version of the PWA Expert System.
+- {doc}`PWA Expert System <expertsystem:index>` (split into
+  {doc}`QRules <qrules:index>` and {doc}`AmpForm <ampform:index>`).
+
+:::
+
 ## Long-term development
 
 Partial Wave Analysis is a complicated research discipline, where several
