@@ -64,8 +64,8 @@ administrator rights, see instructions on
 [this page](https://www.anaconda.com/distribution). In addition, Conda can
 install more than just Python packages.
 
-All projects
-{ref}`affiliated with the PWA pages <software:Affiliated projects>` provide a
+All packages {ref}`maintained by the ComPWA organization <about:Main projects>`
+provide a
 [Conda environment file](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html)
 ([`environment.yml`](https://github.com/ComPWA/ampform/blob/main/environment.yml))
 that defines the minimal dependencies to run the framework. To create an
@@ -607,10 +607,10 @@ Publicly available are:
 ### Branching model
 
 While our aim is to maintain long-term, stable projects,
-{ref}`PWA software projects <software:Affiliated projects>` are academic
-projects that are subject to change and often require swift modifications or
-new features for ongoing analyses. For this reason, we work in different layers
-of development. These layers are represented by Git branches.
+{ref}`PWA software projects <pwa:software:Inventory of PWA projects>` are
+academic projects that are subject to change and often require swift
+modifications or new features for ongoing analyses. For this reason, we work in
+different layers of development. These layers are represented by Git branches.
 
 ![Epic branches](./_static/epic-branches.svg)
 
