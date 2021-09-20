@@ -8,4 +8,5 @@ dependencies:
   - pip
   - graphviz # for binder
   - pip:
+      - -c .constraints/py3.8.txt
       - -e .[dev]
