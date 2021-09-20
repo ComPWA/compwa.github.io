@@ -295,9 +295,9 @@ to **run tox before submitting a pull request!**
 <!-- cspell:ignore testenv -->
 
 More specialized {command}`tox` tests are defined in the
-{download}`tox.ini <../tox.ini>` config file, under each {code}`testenv`
-section. You can list all environments, along with a description of what they
-do, by running:
+[`tox.ini`](https://github.com/ComPWA/ampform/blob/main/tox.ini) config file,
+under each {code}`testenv` section. You can list all environments, along with a
+description of what they do, by running:
 
 ```shell
 tox -av
@@ -347,21 +347,21 @@ are formulated in config files. For linters, we use the following:
 
 <!-- cspell:ignore prettierrc pydocstyle pyrightconfig -->
 
-- {download}`.cspell.json <../.cspell.json>`
+- [`.cspell.json`](https://github.com/ComPWA/ampform/blob/main/.cspell.json)
   - [cSpell: spell checker for code](https://github.com/streetsidesoftware/cspell/tree/master/packages/cspell)
-- {download}`.markdownlint.json <../.markdownlint.json>`
+- [`.markdownlint.json`](https://github.com/ComPWA/ampform/blob/main/.markdownlint.json)
   - [markdownlint](https://github.com/DavidAnson/markdownlint)
-- {download}`pyproject.toml <../pyproject.toml>`
+- [`pyproject.toml`](https://github.com/ComPWA/ampform/blob/main/pyproject.toml)
   - {ref}`black <develop:Formatting>`
   - {ref}`isort <develop:Formatting>`
 - [`.mypy.ini`](https://github.com/ComPWA/ampform/blob/main/.mypy.ini)
   - [mypy](http://mypy-lang.org)
-- {download}`.prettierrc <../.prettierrc>`
+- [`.prettierrc`](https://github.com/ComPWA/ampform/blob/main/.prettierrc)
   - [Prettier](https://prettier.io)
-- {download}`pyrightconfig.json <../pyrightconfig.json>`
+- [`pyrightconfig.json`](https://github.com/ComPWA/ampform/blob/main/pyrightconfig.json)
   - [Pylance](https://marketplace.visualstudio.com/items?itemName=ms-python.vscode-pylance)
   - [Pyright](https://github.com/microsoft/pyright)
-- {download}`tox.ini <../tox.ini>`
+- [`tox.ini`](https://github.com/ComPWA/ampform/blob/main/tox.ini)
   - [flake8](https://flake8.pycqa.org)
   - [pydocstyle](https://pydocstyle.pycqa.org)
   - [pytest](https://docs.pytest.org)
@@ -389,21 +389,23 @@ way, a spelling checker helps you avoid mistakes in the code as well! cSpell is
 enforced through pre-commit.
 
 Accepted words are tracked through the
-{download}`.cspell.json <../.cspell.json>` file. As with the other config
-files, {download}`.cspell.json <../.cspell.json>` formulates our conventions
-with regard to spelling and can be continuously updated while our code base
-develops. In the file, the `words` section lists words that you want to see as
-suggested corrections, while `ignoreWords` are just the words that won't be
-flagged. Try to be sparse in adding words: if some word is just specific to one
-file, you can [ignore it inline](https://www.npmjs.com/package/cspell#ignore),
-or you can add the file to the `ignorePaths` section if you want to ignore it
-completely.
+[`.cspell.json`](https://github.com/ComPWA/ampform/blob/main/.cspell.json)
+file. As with the other config files,
+[`.cspell.json`](https://github.com/ComPWA/ampform/blob/main/.cspell.json)
+formulates our conventions with regard to spelling and can be continuously
+updated while our code base develops. In the file, the `words` section lists
+words that you want to see as suggested corrections, while `ignoreWords` are
+just the words that won't be flagged. Try to be sparse in adding words: if some
+word is just specific to one file, you can
+[ignore it inline](https://www.npmjs.com/package/cspell#ignore), or you can add
+the file to the `ignorePaths` section if you want to ignore it completely.
 
 It is easiest to use cSpell in {ref}`develop:Visual Studio Code`, through the
 [Code Spell Checker](https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker)
 extension: it provides linting, suggests corrections from the {code}`words`
 section, and enables you to quickly add or ignore words through the
-{file}`.cspell.json` file.
+[`.cspell.json`](https://github.com/ComPWA/ampform/blob/main/.cspell.json)
+file.
 
 ## Testing
 
@@ -706,7 +708,7 @@ branch".
   check on {ref}`PR labels <develop:Issue management>` (see overview
   [here](https://github.com/ComPWA/ampform/actions?query=workflow%3A%22PR+linting%22)).
   The corresponding configuration file is
-  {download}`commitlint.config.js <../commitlint.config.js>`.
+  [`commitlint.config.js`](https://github.com/ComPWA/ampform/blob/main/commitlint.config.js).
 
 - PRs can only be merged through 'squash and merge'. There, you will see a
   summary based on the separate commits that constitute this PR. Leave the
@@ -763,12 +765,15 @@ extensions.
 
 If you add or open this repository as a
 [VSCode workspace](https://code.visualstudio.com/docs/editor/multi-root-workspaces),
-the file {download}`.vscode/settings.json <../.vscode/settings.json>` will
-ensure that you have the right developer settings for this repository. In
+the file
+[`.vscode/settings.json`](https://github.com/ComPWA/ampform/blob/main/.vscode/settings.json)
+will ensure that you have the right developer settings for this repository. In
 addition, VSCode will automatically recommend you to install a number of
 extensions that we use when working on this code base.
 [They are defined](https://code.visualstudio.com/updates/v1_6#_workspace-extension-recommendations)
-in the {download}`.vscode/extensions.json <../.vscode/extensions.json>` file.
+in the
+[`.vscode/extensions.json`](https://github.com/ComPWA/ampform/blob/main/.vscode/extensions.json)
+file.
 
 You can still specify your own settings in
 [either the user or encompassing workspace settings](https://code.visualstudio.com/docs/getstarted/settings),
