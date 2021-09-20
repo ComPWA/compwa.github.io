@@ -599,13 +599,16 @@ ZenHub issue information is only visible once you log in on ZenHub. Still
 publicly visible on GitHub are:
 
 - [Issue labels](https://github.com/ComPWA/ampform/labels): help to categorize
-  issues by type (maintenance, enhancement, bug, etc.).
+  issues by type (maintenance, enhancement, bug, etc.). The labels are also
+  used to in the sub-sections of the release notes.
 
 - [Milestones](https://github.com/ComPWA/ampform/milestones?direction=asc&sort=title&state=open):
-  way to bundle issues for upcoming releases.
+  way to bundle issues and PRs for upcoming releases.
 
-- [Releases](https://github.com/ComPWA/ampform/releases) (see
-  {ref}`develop:Release flow`)
+- [Releases](https://github.com/ComPWA/ampform/releases)
+
+All of these are important for the {ref}`develop:Release flow` and therefore
+also serve as a way to document the framework.
 
 ### Branching model
 
@@ -616,6 +619,8 @@ modifications or new features for ongoing analyses. For this reason, we work in
 different layers of development. These layers are represented by Git branches.
 
 ![Epic branches](./_static/epic-branches.svg)
+
+(stable-branch)=
 
 #### `stable` branch
 
@@ -718,20 +723,33 @@ branch".
 
 ### Release flow
 
+<!-- cspell:ignore setuptools -->
+
 Releases are managed with the
 [GitHub release page](https://docs.github.com/en/free-pro-team@latest/github/administering-a-repository/managing-releases-in-a-repository),
 see for instance
-[the one for the PWA pages](https://github.com/ComPWA/ampform/releases).
-
-<!-- cspell:ignore setuptools -->
-
-Release notes are
+[the one for AmpForm](https://github.com/ComPWA/ampform/releases). The release
+notes there are
 [automatically generated from the PRs](https://github.com/release-drafter/release-drafter)
-that were merged into the main branch since the previous tag. The changelog
-there is generated from the PR titles and categorized by issue label. New
-releases are automatically published to PyPI when a new tag with such release
-notes is created (see
-[setuptools-scm](https://pypi.org/project/setuptools-scm)).
+that were merged into the main branch since the previous tag and can be viewed
+and edited as a release draft if you are a member of the ComPWA organization.
+Each of the entries are generated from the PR titles, categorized by issue
+label (see configuration in
+[`.github.release-drafter`](https://github.com/ComPWA/ampform/blob/main/.github/release-drafter.yml)).
+
+Once a release is made on GitHub for a repository with source code for a Python
+package, a new version is automatically published on [PyPI](https://pypi.org)
+and the [`stable` branch](#stable-branch) is updated to this latest tag. The
+package version is taken from the Git tag associated with the release on GitHub
+(see [setuptools-scm](https://pypi.org/project/setuptools-scm)). This way, the
+release notes on GitHub serve as a changelog as well!
+
+Release tags **have to follow the
+[Semantic Versioning scheme](https://semver.org)**! This ensures that the tag
+can be used by [setuptools-scm](https://pypi.org/project/setuptools-scm) (in
+case the repository is a Python package). In addition,
+{ref}`milestones <develop:Issue management>` with the same name as the release
+tag are automatically closed.
 
 ## Code editors
 
