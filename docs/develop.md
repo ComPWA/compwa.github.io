@@ -607,10 +607,10 @@ Publicly available are:
 ### Branching model
 
 While our aim is to maintain long-term, stable projects,
-{ref}`PWA software projects <software:Affiliated projects>` are academic
-projects that are subject to change and often require swift modifications or
-new features for ongoing analyses. For this reason, we work in different layers
-of development. These layers are represented by Git branches.
+{ref}`PWA software projects <pwa:software:Inventory of PWA projects>` are
+academic projects that are subject to change and often require swift
+modifications or new features for ongoing analyses. For this reason, we work in
+different layers of development. These layers are represented by Git branches.
 
 ![Epic branches](./_static/epic-branches.svg)
 
