@@ -295,9 +295,9 @@ to **run tox before submitting a pull request!**
 <!-- cspell:ignore testenv -->
 
 More specialized {command}`tox` tests are defined in the
-{download}`tox.ini <../tox.ini>` config file, under each {code}`testenv`
-section. You can list all environments, along with a description of what they
-do, by running:
+[`tox.ini`](https://github.com/ComPWA/ampform/blob/main/tox.ini) config file,
+under each {code}`testenv` section. You can list all environments, along with a
+description of what they do, by running:
 
 ```shell
 tox -av
@@ -347,21 +347,21 @@ are formulated in config files. For linters, we use the following:
 
 <!-- cspell:ignore prettierrc pydocstyle pyrightconfig -->
 
-- {download}`.cspell.json <../.cspell.json>`
+- [`.cspell.json`](https://github.com/ComPWA/ampform/blob/main/.cspell.json)
   - [cSpell: spell checker for code](https://github.com/streetsidesoftware/cspell/tree/master/packages/cspell)
-- {download}`.markdownlint.json <../.markdownlint.json>`
+- [`.markdownlint.json`](https://github.com/ComPWA/ampform/blob/main/.markdownlint.json)
   - [markdownlint](https://github.com/DavidAnson/markdownlint)
-- {download}`pyproject.toml <../pyproject.toml>`
+- [`pyproject.toml`](https://github.com/ComPWA/ampform/blob/main/pyproject.toml)
   - {ref}`black <develop:Formatting>`
   - {ref}`isort <develop:Formatting>`
 - [`.mypy.ini`](https://github.com/ComPWA/ampform/blob/main/.mypy.ini)
   - [mypy](http://mypy-lang.org)
-- {download}`.prettierrc <../.prettierrc>`
+- [`.prettierrc`](https://github.com/ComPWA/ampform/blob/main/.prettierrc)
   - [Prettier](https://prettier.io)
-- {download}`pyrightconfig.json <../pyrightconfig.json>`
+- [`pyrightconfig.json`](https://github.com/ComPWA/ampform/blob/main/pyrightconfig.json)
   - [Pylance](https://marketplace.visualstudio.com/items?itemName=ms-python.vscode-pylance)
   - [Pyright](https://github.com/microsoft/pyright)
-- {download}`tox.ini <../tox.ini>`
+- [`tox.ini`](https://github.com/ComPWA/ampform/blob/main/tox.ini)
   - [flake8](https://flake8.pycqa.org)
   - [pydocstyle](https://pydocstyle.pycqa.org)
   - [pytest](https://docs.pytest.org)
@@ -389,21 +389,23 @@ way, a spelling checker helps you avoid mistakes in the code as well! cSpell is
 enforced through pre-commit.
 
 Accepted words are tracked through the
-{download}`.cspell.json <../.cspell.json>` file. As with the other config
-files, {download}`.cspell.json <../.cspell.json>` formulates our conventions
-with regard to spelling and can be continuously updated while our code base
-develops. In the file, the `words` section lists words that you want to see as
-suggested corrections, while `ignoreWords` are just the words that won't be
-flagged. Try to be sparse in adding words: if some word is just specific to one
-file, you can [ignore it inline](https://www.npmjs.com/package/cspell#ignore),
-or you can add the file to the `ignorePaths` section if you want to ignore it
-completely.
+[`.cspell.json`](https://github.com/ComPWA/ampform/blob/main/.cspell.json)
+file. As with the other config files,
+[`.cspell.json`](https://github.com/ComPWA/ampform/blob/main/.cspell.json)
+formulates our conventions with regard to spelling and can be continuously
+updated while our code base develops. In the file, the `words` section lists
+words that you want to see as suggested corrections, while `ignoreWords` are
+just the words that won't be flagged. Try to be sparse in adding words: if some
+word is just specific to one file, you can
+[ignore it inline](https://www.npmjs.com/package/cspell#ignore), or you can add
+the file to the `ignorePaths` section if you want to ignore it completely.
 
 It is easiest to use cSpell in {ref}`develop:Visual Studio Code`, through the
 [Code Spell Checker](https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker)
 extension: it provides linting, suggests corrections from the {code}`words`
 section, and enables you to quickly add or ignore words through the
-{file}`.cspell.json` file.
+[`.cspell.json`](https://github.com/ComPWA/ampform/blob/main/.cspell.json)
+file.
 
 ## Testing
 
@@ -593,16 +595,20 @@ GitHub account to log in there and automatically get access to the issue boards
 of the packages once you are part of the
 [ComPWA organization](https://github.com/ComPWA).
 
-Publicly available are:
+ZenHub issue information is only visible once you log in on ZenHub. Still
+publicly visible on GitHub are:
 
 - [Issue labels](https://github.com/ComPWA/ampform/labels): help to categorize
-  issues by type (maintenance, enhancement, bug, etc.).
+  issues by type (maintenance, enhancement, bug, etc.). The labels are also
+  used to in the sub-sections of the release notes.
 
 - [Milestones](https://github.com/ComPWA/ampform/milestones?direction=asc&sort=title&state=open):
-  way to bundle issues for upcoming releases.
+  way to bundle issues and PRs for upcoming releases.
 
-- [Releases](https://github.com/ComPWA/ampform/releases) (see
-  {ref}`develop:Milestones and releases`)
+- [Releases](https://github.com/ComPWA/ampform/releases)
+
+All of these are important for the {ref}`develop:Release flow` and therefore
+also serve as a way to document the framework.
 
 ### Branching model
 
@@ -614,13 +620,15 @@ different layers of development. These layers are represented by Git branches.
 
 ![Epic branches](./_static/epic-branches.svg)
 
+(stable-branch)=
+
 #### `stable` branch
 
 Represents the _latest release_ of the package that can be found on both the
-GitHub release page and on PyPI (see {ref}`develop:Milestones and releases`).
-The documentation of the `stable` branch is also the default view
+GitHub release page and on PyPI (see {ref}`develop:Release flow`). The
+documentation of the `stable` branch is also the default view
 {ref}`you see on Read the Docs <develop:Documentation>` (RTD). See e.g.
-[expertsystem.rtfd.io/en/stable](https://expertsystem.rtfd.io/en/stable).
+[ampform.rtfd.io/en/stable](https://ampform.rtfd.io/en/stable).
 
 (main-branch)=
 
@@ -630,7 +638,7 @@ Represents the upcoming release of the package. This branch is not guaranteed
 to be stable, but has high {ref}`CI standards <develop:GitHub Actions>` and can
 only be updated through reviewed pull requests. The documentation of the `main`
 branch can be found on RTD under "latest", see e.g.
-[expertsystem.rtfd.io/en/latest](https://expertsystem.rtfd.io/en/latest).
+[ampform.rtfd.io/en/latest](https://ampform.rtfd.io/en/latest).
 
 #### Epic branches
 
@@ -655,12 +663,11 @@ possibility to discuss new implementations and
 
 Epic branches can be installed through PyPI as well. Say that a certain epic is
 located under the branch `epic/some-title` and that the source code is located
-under
-[https://github.com/ComPWA/expertsystem](https://github.com/compwa/expertsystem),
+under [https://github.com/ComPWA/ampform](https://github.com/compwa/ampform),
 it can be installed as follows:
 
 ```shell
-python3 -m pip install git+https://github.com/ComPWA/expertsystem@epic/some-title
+python3 -m pip install git+https://github.com/ComPWA/ampform@epic/some-title
 ```
 
 #### Feature branches
@@ -699,37 +706,56 @@ branch".
 - Also use a [conventional commit message](https://www.conventionalcommits.org)
   style for the PR title. This is because we follow a
   [linear commit history](https://docs.github.com/en/github/administering-a-repository/requiring-a-linear-commit-history)
-  and the PR title will become the eventual commit message. Note that a
-  conventional commit message style is
+  and the PR title will become the eventual commit message. A linear commit
+  history is important for the {ref}`develop:Release flow` and it is easier to
+  navigate through changes once something goes wrong. In fact, in a linear
+  commit history, commits that a have been merged into the {ref}`main-branch`
+  become more like small intermediate patches between the minor and major
+  releases.
+
+  Note that a conventional commit message style is
   {ref}`enforced through GitHub Actions <develop:GitHub Actions>`, as well as a
   check on {ref}`PR labels <develop:Issue management>` (see overview
   [here](https://github.com/ComPWA/ampform/actions?query=workflow%3A%22PR+linting%22)).
   The corresponding configuration file is
-  {download}`commitlint.config.js <../commitlint.config.js>`.
+  [`commitlint.config.js`](https://github.com/ComPWA/ampform/blob/main/commitlint.config.js).
 
 - PRs can only be merged through 'squash and merge'. There, you will see a
   summary based on the separate commits that constitute this PR. Leave the
   relevant commits in as bullet points. See the
   [commit history](https://github.com/ComPWA/ampform/commits/main) for
   examples. This comes in especially handy when
-  {ref}`drafting a release <develop:Milestones and releases>`!
+  {ref}`drafting a release <develop:Release flow>`!
 
-### Milestones and releases
+### Release flow
+
+<!-- cspell:ignore setuptools -->
 
 Releases are managed with the
 [GitHub release page](https://docs.github.com/en/free-pro-team@latest/github/administering-a-repository/managing-releases-in-a-repository),
 see for instance
-[the one for the PWA pages](https://github.com/ComPWA/ampform/releases).
-
-<!-- cspell:ignore setuptools -->
-
-Release notes are
+[the one for AmpForm](https://github.com/ComPWA/ampform/releases). The release
+notes there are
 [automatically generated from the PRs](https://github.com/release-drafter/release-drafter)
-that were merged into the main branch since the previous tag. The changelog
-there is generated from the PR titles and categorized by issue label. New
-releases are automatically published to PyPI when a new tag with such release
-notes is created (see
-[setuptools-scm](https://pypi.org/project/setuptools-scm)).
+that were merged into the main branch since the previous tag and can be viewed
+and edited as a release draft if you are a member of the ComPWA organization.
+Each of the entries are generated from the PR titles, categorized by issue
+label (see configuration in
+[`.github.release-drafter`](https://github.com/ComPWA/ampform/blob/main/.github/release-drafter.yml)).
+
+Once a release is made on GitHub for a repository with source code for a Python
+package, a new version is automatically published on [PyPI](https://pypi.org)
+and the [`stable` branch](#stable-branch) is updated to this latest tag. The
+package version is taken from the Git tag associated with the release on GitHub
+(see [setuptools-scm](https://pypi.org/project/setuptools-scm)). This way, the
+release notes on GitHub serve as a changelog as well!
+
+Release tags **have to follow the
+[Semantic Versioning scheme](https://semver.org)**! This ensures that the tag
+can be used by [setuptools-scm](https://pypi.org/project/setuptools-scm) (in
+case the repository is a Python package). In addition,
+{ref}`milestones <develop:Issue management>` with the same name as the release
+tag are automatically closed.
 
 ## Code editors
 
@@ -762,12 +788,15 @@ extensions.
 
 If you add or open this repository as a
 [VSCode workspace](https://code.visualstudio.com/docs/editor/multi-root-workspaces),
-the file {download}`.vscode/settings.json <../.vscode/settings.json>` will
-ensure that you have the right developer settings for this repository. In
+the file
+[`.vscode/settings.json`](https://github.com/ComPWA/ampform/blob/main/.vscode/settings.json)
+will ensure that you have the right developer settings for this repository. In
 addition, VSCode will automatically recommend you to install a number of
 extensions that we use when working on this code base.
 [They are defined](https://code.visualstudio.com/updates/v1_6#_workspace-extension-recommendations)
-in the {download}`.vscode/extensions.json <../.vscode/extensions.json>` file.
+in the
+[`.vscode/extensions.json`](https://github.com/ComPWA/ampform/blob/main/.vscode/extensions.json)
+file.
 
 You can still specify your own settings in
 [either the user or encompassing workspace settings](https://code.visualstudio.com/docs/getstarted/settings),
