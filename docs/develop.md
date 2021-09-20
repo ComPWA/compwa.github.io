@@ -623,7 +623,7 @@ Represents the _latest release_ of the package that can be found on both the
 GitHub release page and on PyPI (see {ref}`develop:Release flow`). The
 documentation of the `stable` branch is also the default view
 {ref}`you see on Read the Docs <develop:Documentation>` (RTD). See e.g.
-[expertsystem.rtfd.io/en/stable](https://expertsystem.rtfd.io/en/stable).
+[ampform.rtfd.io/en/stable](https://ampform.rtfd.io/en/stable).
 
 (main-branch)=
 
@@ -633,7 +633,7 @@ Represents the upcoming release of the package. This branch is not guaranteed
 to be stable, but has high {ref}`CI standards <develop:GitHub Actions>` and can
 only be updated through reviewed pull requests. The documentation of the `main`
 branch can be found on RTD under "latest", see e.g.
-[expertsystem.rtfd.io/en/latest](https://expertsystem.rtfd.io/en/latest).
+[ampform.rtfd.io/en/latest](https://ampform.rtfd.io/en/latest).
 
 #### Epic branches
 
@@ -658,12 +658,11 @@ possibility to discuss new implementations and
 
 Epic branches can be installed through PyPI as well. Say that a certain epic is
 located under the branch `epic/some-title` and that the source code is located
-under
-[https://github.com/ComPWA/expertsystem](https://github.com/compwa/expertsystem),
+under [https://github.com/ComPWA/ampform](https://github.com/compwa/ampform),
 it can be installed as follows:
 
 ```shell
-python3 -m pip install git+https://github.com/ComPWA/expertsystem@epic/some-title
+python3 -m pip install git+https://github.com/ComPWA/ampform@epic/some-title
 ```
 
 #### Feature branches
