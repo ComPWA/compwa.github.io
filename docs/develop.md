@@ -602,7 +602,7 @@ Publicly available are:
   way to bundle issues for upcoming releases.
 
 - [Releases](https://github.com/ComPWA/ampform/releases) (see
-  {ref}`develop:Milestones and releases`)
+  {ref}`develop:Release flow`)
 
 ### Branching model
 
@@ -617,8 +617,8 @@ different layers of development. These layers are represented by Git branches.
 #### `stable` branch
 
 Represents the _latest release_ of the package that can be found on both the
-GitHub release page and on PyPI (see {ref}`develop:Milestones and releases`).
-The documentation of the `stable` branch is also the default view
+GitHub release page and on PyPI (see {ref}`develop:Release flow`). The
+documentation of the `stable` branch is also the default view
 {ref}`you see on Read the Docs <develop:Documentation>` (RTD). See e.g.
 [expertsystem.rtfd.io/en/stable](https://expertsystem.rtfd.io/en/stable).
 
@@ -712,9 +712,9 @@ branch".
   relevant commits in as bullet points. See the
   [commit history](https://github.com/ComPWA/ampform/commits/main) for
   examples. This comes in especially handy when
-  {ref}`drafting a release <develop:Milestones and releases>`!
+  {ref}`drafting a release <develop:Release flow>`!
 
-### Milestones and releases
+### Release flow
 
 Releases are managed with the
 [GitHub release page](https://docs.github.com/en/free-pro-team@latest/github/administering-a-repository/managing-releases-in-a-repository),
