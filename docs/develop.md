@@ -64,8 +64,8 @@ administrator rights, see instructions on
 [this page](https://www.anaconda.com/distribution). In addition, Conda can
 install more than just Python packages.
 
-All projects
-{ref}`affiliated with the PWA pages <software:Affiliated projects>` provide a
+All packages {ref}`maintained by the ComPWA organization <about:Main projects>`
+provide a
 [Conda environment file](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html)
 ([`environment.yml`](https://github.com/ComPWA/ampform/blob/main/environment.yml))
 that defines the minimal dependencies to run the framework. To create an
