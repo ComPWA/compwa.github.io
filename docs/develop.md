@@ -706,8 +706,11 @@ branch".
 - Also use a [conventional commit message](https://www.conventionalcommits.org)
   style for the PR title. This is because we follow a
   [linear commit history](https://docs.github.com/en/github/administering-a-repository/requiring-a-linear-commit-history)
-  and the PR title will become the eventual commit message. Note that a
-  conventional commit message style is
+  and the PR title will become the eventual commit message. A linear commit
+  history is important for the {ref}`develop:Release flow` and it is easier to
+  navigate through changes once something goes wrong.
+
+  Note that a conventional commit message style is
   {ref}`enforced through GitHub Actions <develop:GitHub Actions>`, as well as a
   check on {ref}`PR labels <develop:Issue management>` (see overview
   [here](https://github.com/ComPWA/ampform/actions?query=workflow%3A%22PR+linting%22)).
