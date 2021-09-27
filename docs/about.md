@@ -17,13 +17,15 @@ details, see the {doc}`develop page <develop>`.
 
 The main projects that ComPWA is currently developing are:
 
-<!-- prettier-ignore-start -->
 :::{panels}
-:header: font-weight-bold text-center
-<!-- prettier-ignore-end -->
 
-[QRules](https://github.com/ComPWA/qrules)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+```{link-button} https://github.com/ComPWA/qrules
+:text: QRules
+:classes: btn-block btn-outline-primary font-weight-bold
+```
+
+^^^^^^^
+
 [![Documentation build status](https://readthedocs.org/projects/qrules/badge/?version=latest)](https://qrules.readthedocs.io)
 [![PyPI package](https://badge.fury.io/py/qrules.svg)](https://pypi.org/project/qrules)
 [![Zenodo DOI](https://zenodo.org/badge/doi/10.5281/zenodo.5526360.svg)](https://doi.org/10.5281/zenodo.5526360)<br>
@@ -31,8 +33,12 @@ Rule-based particle reaction problem solver on a quantum number level
 
 ---
 
-[AmpForm](https://github.com/ComPWA/ampform)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+```{link-button} https://github.com/ComPWA/ampform
+:text: AmpForm
+:classes: btn-block btn-outline-primary font-weight-bold
+```
+
+^^^^^^^
 [![Documentation build status](https://readthedocs.org/projects/qrules/badge/?version=latest)](https://qrules.readthedocs.io)
 [![PyPI package](https://badge.fury.io/py/ampform.svg)](https://pypi.org/project/ampform)
 [![Zenodo DOI](https://zenodo.org/badge/doi/10.5281/zenodo.5526648.svg)](https://doi.org/10.5281/zenodo.5526648)<br>
@@ -40,8 +46,12 @@ Automatically generate symbolic amplitude models for Partial Wave Analysis
 
 ---
 
-[TensorWaves](https://github.com/ComPWA/tensorwaves)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+```{link-button} https://github.com/ComPWA/tensorwaves
+:text: TensorWaves
+:classes: btn-block btn-outline-primary font-weight-bold
+```
+
+^^^^^^^
 [![Documentation build status](https://readthedocs.org/projects/qrules/badge/?version=latest)](https://qrules.readthedocs.io)
 [![PyPI package](https://badge.fury.io/py/tensorwaves.svg)](https://pypi.org/project/tensorwaves)
 [![Zenodo DOI](https://zenodo.org/badge/doi/10.5281/zenodo.5526650.svg)](https://doi.org/10.5281/zenodo.5526650)<br>
@@ -49,8 +59,13 @@ Python fitter package for multiple computational back-ends
 
 ---
 
-[PWA Pages](https://github.com/ComPWA/PWA-pages)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+```{link-button} https://github.com/ComPWA/PWA-pages
+:text: PWA Pages
+:classes: btn-block btn-outline-primary font-weight-bold
+```
+
+^^^^^^^
+
 [![Documentation build status](https://readthedocs.org/projects/pwa/badge/?version=latest)](https://pwa.readthedocs.io)<br>
 A central knowledge-base for Partial Wave Analysis theory and software
 
