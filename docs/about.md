@@ -17,7 +17,10 @@ details, see the {doc}`develop page <develop>`.
 
 The main projects that ComPWA is currently developing are:
 
+<!-- prettier-ignore-start -->
 :::{panels}
+:column: col-lg-12 p-2
+<!-- prettier-ignore-end -->
 
 **[QRules](https://github.com/ComPWA/qrules)**<br>
 [![Documentation build status](https://readthedocs.org/projects/qrules/badge/?version=latest)](https://qrules.readthedocs.io)
