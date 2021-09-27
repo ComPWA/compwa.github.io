@@ -17,16 +17,24 @@ details, see the {doc}`develop page <develop>`.
 
 The main projects that ComPWA is currently developing are:
 
-- {doc}`QRules <qrules:index>`, a package that helps generating allowed
-  transitions between quantum states on the basis of quantum number
-  conservation rules.
-- {doc}`AmpForm <qrules:index>`, which helps to formulate amplitude models for
-  different spin formalisms and with different dynamics.
-- {doc}`TensorWaves <qrules:index>`, a fitter and data generation package for
-  multiple computational back-ends.
-- {doc}`PWA Pages <pwa:index>`, an overview of the basis of Partial Wave
-  Analysis that provides links to the most important literature and software in
-  the field.
+- **[QRules](https://github.com/ComPWA/qrules)**<br>
+  [![Documentation build status](https://readthedocs.org/projects/qrules/badge/?version=latest)](https://qrules.readthedocs.io)
+  [![Zenodo DOI](https://zenodo.org/badge/doi/10.5281/zenodo.5526360.svg)](https://doi.org/10.5281/zenodo.5526360)<br>
+  Rule-based particle reaction problem solver on a quantum number level
+
+- **[AmpForm](https://github.com/ComPWA/ampform)**<br>
+  [![Documentation build status](https://readthedocs.org/projects/qrules/badge/?version=latest)](https://qrules.readthedocs.io)
+  [![Zenodo DOI](https://zenodo.org/badge/doi/10.5281/zenodo.5526648.svg)](https://doi.org/10.5281/zenodo.5526648)<br>
+  Automatically generate symbolic amplitude models for Partial Wave Analysis
+
+- **[TensorWaves](https://github.com/ComPWA/tensorwaves)**<br>
+  [![Documentation build status](https://readthedocs.org/projects/qrules/badge/?version=latest)](https://qrules.readthedocs.io)
+  [![Zenodo DOI](https://zenodo.org/badge/doi/10.5281/zenodo.5526650.svg)](https://doi.org/10.5281/zenodo.5526650)<br>
+  Python fitter package for multiple computational back-ends
+
+- **[PWA Pages](https://github.com/ComPWA/PWA-pages)**<br>
+  [![Documentation build status](https://readthedocs.org/projects/pwa/badge/?version=latest)](https://pwa.readthedocs.io)<br>
+  A central knowledge-base for Partial Wave Analysis theory and software
 
 Finally, the {doc}`technical reports </reports>` on these pages
 ([compwa-org.rtfd.io](https://compwa-org.readthedocs.io)) describe more general
