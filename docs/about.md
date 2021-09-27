@@ -20,30 +20,35 @@ The main projects that ComPWA is currently developing are:
 <!-- prettier-ignore-start -->
 :::{panels}
 :column: col-lg-12 p-2
+:header: font-weight-bold
 <!-- prettier-ignore-end -->
 
-**[QRules](https://github.com/ComPWA/qrules)**<br>
+[QRules](https://github.com/ComPWA/qrules)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 [![Documentation build status](https://readthedocs.org/projects/qrules/badge/?version=latest)](https://qrules.readthedocs.io)
 [![Zenodo DOI](https://zenodo.org/badge/doi/10.5281/zenodo.5526360.svg)](https://doi.org/10.5281/zenodo.5526360)<br>
 Rule-based particle reaction problem solver on a quantum number level
 
 ---
 
-**[AmpForm](https://github.com/ComPWA/ampform)**<br>
+[AmpForm](https://github.com/ComPWA/ampform)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 [![Documentation build status](https://readthedocs.org/projects/qrules/badge/?version=latest)](https://qrules.readthedocs.io)
 [![Zenodo DOI](https://zenodo.org/badge/doi/10.5281/zenodo.5526648.svg)](https://doi.org/10.5281/zenodo.5526648)<br>
 Automatically generate symbolic amplitude models for Partial Wave Analysis
 
 ---
 
-**[TensorWaves](https://github.com/ComPWA/tensorwaves)**<br>
+[TensorWaves](https://github.com/ComPWA/tensorwaves)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 [![Documentation build status](https://readthedocs.org/projects/qrules/badge/?version=latest)](https://qrules.readthedocs.io)
 [![Zenodo DOI](https://zenodo.org/badge/doi/10.5281/zenodo.5526650.svg)](https://doi.org/10.5281/zenodo.5526650)<br>
 Python fitter package for multiple computational back-ends
 
 ---
 
-**[PWA Pages](https://github.com/ComPWA/PWA-pages)**<br>
+[PWA Pages](https://github.com/ComPWA/PWA-pages)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 [![Documentation build status](https://readthedocs.org/projects/pwa/badge/?version=latest)](https://pwa.readthedocs.io)<br>
 A central knowledge-base for Partial Wave Analysis theory and software
 
