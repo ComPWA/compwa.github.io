@@ -17,16 +17,59 @@ details, see the {doc}`develop page <develop>`.
 
 The main projects that ComPWA is currently developing are:
 
-- {doc}`QRules <qrules:index>`, a package that helps generating allowed
-  transitions between quantum states on the basis of quantum number
-  conservation rules.
-- {doc}`AmpForm <qrules:index>`, which helps to formulate amplitude models for
-  different spin formalisms and with different dynamics.
-- {doc}`TensorWaves <qrules:index>`, a fitter and data generation package for
-  multiple computational back-ends.
-- {doc}`PWA Pages <pwa:index>`, an overview of the basis of Partial Wave
-  Analysis that provides links to the most important literature and software in
-  the field.
+:::{panels}
+
+```{link-button} https://github.com/ComPWA/qrules
+:text: QRules
+:classes: btn-block btn-outline-primary font-weight-bold
+```
+
+^^^^^^^
+
+[![Documentation build status](https://readthedocs.org/projects/qrules/badge/?version=latest)](https://qrules.readthedocs.io)
+[![PyPI package](https://badge.fury.io/py/qrules.svg)](https://pypi.org/project/qrules)
+[![Zenodo DOI](https://zenodo.org/badge/doi/10.5281/zenodo.5526360.svg)](https://doi.org/10.5281/zenodo.5526360)<br>
+Rule-based particle reaction problem solver on a quantum number level
+
+---
+
+```{link-button} https://github.com/ComPWA/ampform
+:text: AmpForm
+:classes: btn-block btn-outline-primary font-weight-bold
+```
+
+^^^^^^^
+[![Documentation build status](https://readthedocs.org/projects/qrules/badge/?version=latest)](https://qrules.readthedocs.io)
+[![PyPI package](https://badge.fury.io/py/ampform.svg)](https://pypi.org/project/ampform)
+[![Zenodo DOI](https://zenodo.org/badge/doi/10.5281/zenodo.5526648.svg)](https://doi.org/10.5281/zenodo.5526648)<br>
+Automatically generate symbolic amplitude models for Partial Wave Analysis
+
+---
+
+```{link-button} https://github.com/ComPWA/tensorwaves
+:text: TensorWaves
+:classes: btn-block btn-outline-primary font-weight-bold
+```
+
+^^^^^^^
+[![Documentation build status](https://readthedocs.org/projects/qrules/badge/?version=latest)](https://qrules.readthedocs.io)
+[![PyPI package](https://badge.fury.io/py/tensorwaves.svg)](https://pypi.org/project/tensorwaves)
+[![Zenodo DOI](https://zenodo.org/badge/doi/10.5281/zenodo.5526650.svg)](https://doi.org/10.5281/zenodo.5526650)<br>
+Python fitter package for multiple computational back-ends
+
+---
+
+```{link-button} https://github.com/ComPWA/PWA-pages
+:text: PWA Pages
+:classes: btn-block btn-outline-primary font-weight-bold
+```
+
+^^^^^^^
+
+[![Documentation build status](https://readthedocs.org/projects/pwa/badge/?version=latest)](https://pwa.readthedocs.io)<br>
+A central knowledge-base for Partial Wave Analysis theory and software
+
+:::
 
 Finally, the {doc}`technical reports </reports>` on these pages
 ([compwa-org.rtfd.io](https://compwa-org.readthedocs.io)) describe more general

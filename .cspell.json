@@ -87,7 +87,8 @@
         "unphysical",
         "vectorize",
         "weisskopf",
-        "wigners"
+        "wigners",
+        "Zenodo"
     ],
     "ignoreWords": [
         "adrs",
