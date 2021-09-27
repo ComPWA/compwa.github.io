@@ -19,8 +19,7 @@ The main projects that ComPWA is currently developing are:
 
 <!-- prettier-ignore-start -->
 :::{panels}
-:column: col-lg-12 p-2
-:header: font-weight-bold
+:header: font-weight-bold text-center
 <!-- prettier-ignore-end -->
 
 [QRules](https://github.com/ComPWA/qrules)
