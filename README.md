@@ -1,10 +1,11 @@
 # ComPWA Organization Documentation
 
 [![Documentation build status](https://readthedocs.org/projects/pwa/badge/?version=latest)](https://pwa.readthedocs.io)
+[![Binder](https://static.mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/ComPWA/compwa-org/stable)
 [![GPLv3+ license](https://img.shields.io/badge/License-GPLv3+-blue.svg)](https://www.gnu.org/licenses/gpl-3.0-standalone.html)
+
 [![Open in Visual Studio Code](https://open.vscode.dev/badges/open-in-vscode.svg)](https://open.vscode.dev/ComPWA/compwa-org)
 [![GitPod](https://img.shields.io/badge/Gitpod-ready--to--code-blue?logo=gitpod)](https://gitpod.io/#https://github.com/ComPWA/compwa-org)
-[![CI status](https://github.com/ComPWA/compwa-org/workflows/CI-docs/badge.svg)](https://github.com/ComPWA/compwa-org/actions?query=branch%3Amain+workflow%3ACI-docs)
 [![pre-commit.ci status](https://results.pre-commit.ci/badge/github/ComPWA/compwa-org/main.svg)](https://results.pre-commit.ci/latest/github/ComPWA/compwa-org/main)
 [![Spelling checked](https://img.shields.io/badge/cspell-checked-brightgreen.svg)](https://github.com/streetsidesoftware/cspell/tree/master/packages/cspell)
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
