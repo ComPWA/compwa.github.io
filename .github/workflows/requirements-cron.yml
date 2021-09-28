@@ -27,7 +27,9 @@ jobs:
       - name: Install pip-tools
         run: |
           python -m pip install --upgrade pip
-          pip install pip-tools
+          pip install pip-tools notebook
+        # notebook required because it is imported in hide-code's setup.py...
+        # https://github.com/kirbs-/hide_code/tree/v0.6.0/setup.py#L9
       - name: Upgrade pinned requirements
         run: python3 .constraints/pin_requirements.py
       - uses: actions/upload-artifact@v2
