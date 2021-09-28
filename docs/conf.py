@@ -5,15 +5,12 @@ list see the documentation:
 https://www.sphinx-doc.org/en/master/usage/configuration.html
 """
 
-import dataclasses
 import os
-from typing import Union
 
 import nbformat  # pyright: reportMissingImports=false
-import sphinxcontrib.bibtex.plugin
 from pybtex.database import Entry
 from pybtex.plugin import register_plugin
-from pybtex.richtext import BaseText, Tag, Text
+from pybtex.richtext import Tag, Text
 from pybtex.style.formatting.unsrt import Style as UnsrtStyle
 from pybtex.style.template import (
     FieldIsMissing,
@@ -25,10 +22,6 @@ from pybtex.style.template import (
     node,
     sentence,
     words,
-)
-from sphinxcontrib.bibtex.style.referencing import BracketStyle
-from sphinxcontrib.bibtex.style.referencing.author_year import (
-    AuthorYearReferenceStyle,
 )
 
 # -- Project information -----------------------------------------------------
@@ -149,7 +142,6 @@ bibtex_bibfiles = ["bibliography.bib"]
 suppress_warnings = [
     "myst.domains",
 ]
-bibtex_reference_style = "author_year_no_comma"
 
 # Settings for copybutton
 copybutton_prompt_is_regexp = True
@@ -270,26 +262,6 @@ with open("demo.md", "w") as stream:
 
 
 # Specify bibliography style
-
-no_brackets = BracketStyle(
-    left="",
-    right="",
-)
-
-
-@dataclasses.dataclass
-class NoCommaReferenceStyle(AuthorYearReferenceStyle):
-    author_year_sep: Union["BaseText", str] = " "
-    bracket_parenthetical: BracketStyle = no_brackets
-
-
-sphinxcontrib.bibtex.plugin.register_plugin(
-    "sphinxcontrib.bibtex.style.referencing",
-    "author_year_no_comma",
-    NoCommaReferenceStyle,
-)
-
-
 @node
 def et_al(children, data, sep="", sep2=None, last_sep=None):
     if sep2 is None:
