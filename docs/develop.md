@@ -449,24 +449,6 @@ pytest --profile-svg
 
 and check the stats and the {file}`prof/combined.svg` output file.
 
-:::{dropdown} Organizing unit tests
-
-When **unit** tests are well-organized, you avoid writing duplicate tests. In
-addition, it allows you to check for coverage of specific parts of the code.
-
-Therefore, when writing new tests, try to follow the module and class structure
-of the package. For example, put unit tests that test the functions and methods
-defined of some module called {code}`package.module` module into a test file
-called {file}`test_module.py` that is directly placed under the {file}`tests`
-folder. Similarly, bundle for a class {code}`SomeClass` under a
-{code}`TestSomeClass` class in that file and test its methods (say,
-{code}`SomeClass.my_method`) with `TestSomeClass.test_my_method`.
-
-If possible, also try to order the tests by alphabetical order (that is, the
-order of the {code}`import` statements).
-
-:::
-
 :::{note}
 
 Jupyter notebooks can also be used as tests. See more info
@@ -771,12 +753,15 @@ This is especially the case for [VSCode](#visual-studio-code), which we prefer.
 
 :::{tip}
 
-<!-- cspell:ignore vimrc -->
+<!-- cspell:ignore Intelli vimrc -->
 
 We are open to other code editors as well. An example would be maintaining a
 [local vimrc](https://github.com/embear/vim-localvimrc) for users who prefer
-[VIM](https://www.vim.org). So we'll gladly integrate your editor settings
-where possible as you [contribute](#collaboration) to the frameworks!
+[VIM](https://www.vim.org). Other IDEs we'd like to support are
+[PyCharm](https://www.jetbrains.com/pycharm), [Atom](https://atom.io),
+[IntelliJ with Python](https://www.jetbrains.com/help/idea/plugin-overview.html#b370507b).
+So we'll gladly integrate your editor settings where possible as you
+[contribute](#collaboration) to the frameworks!
 
 :::
 
@@ -822,3 +807,79 @@ conda env create
 conda activate pwa  # or whatever the environment name is
 code .  # open folder in VSCode
 ```
+
+## Writing durable software
+
+ComPWA strives to follow best practices from software development in industry.
+Following these standards not only makes the code easier to maintain and the
+software more reliable, it also provides you with the opportunity to learn
+about these practices while developing the code-base. Below you can find some
+resources we highly recommend you to be familiar with.
+
+:::{margin}
+
+Do you have other recommendations? Edit this page
+[here](https://github.com/ComPWA/compwa-org/edit/main/docs/develop.md)!
+
+:::
+
+<!-- cspell:ignore Coursera Hynek Schlawack Sedgewick Slatkin subclassing testdriven Vlissides -->
+
+```{rubric} Software development in Python
+
+```
+
+- [Complete Python Development Guide ― testdriven.io](https://testdriven.io/guides/complete-python)
+- _Effective Python: 90 Specific Ways to Write Better Python_ (2019) by Brett
+  Slatkin {cite}`slatkinEffectivePython902019`. See also
+  [its website](https://effectivepython.com).
+- [Scikit-HEP Developer Information](https://scikit-hep.org/developer)
+
+```{rubric} Clean Code
+
+```
+
+- [Clean Code lesson series by "Uncle Bob" on YouTube](https://youtu.be/7EmboKQH8lM)
+- _Clean Code: A Handbook of Agile Software Craftsmanship_ (2009) by Robert
+  Martin ("Uncle Bob") {cite}`martinCleanCodeHandbook2009`
+- [This gist](https://gist.github.com/wojteklu/73c6914cc446146b8b533c0988cf8d29)
+  with a comprehensive summary of the core principles of Martin's _Clean Code_
+
+```{rubric} Test-Driven Development
+
+```
+
+- _Test-Driven Development with Python_ (2017) by Harry Percival
+  {cite}`percivalTestDrivenDevelopmentPython2017`
+- The classic: _Test-Driven Development by Example_ (2002) by Kent Beck
+  {cite}`beckTestDrivenDevelopmentExample2003`
+- [The different types of software testing ― Atlassian](https://www.atlassian.com/continuous-delivery/software-testing/types-of-software-testing)
+- [Types of Software Testing: 100 Examples of Different Testing Types ― Guru99](https://www.guru99.com/types-of-software-testing.html)
+
+```{rubric} Design patterns
+
+```
+
+- [Design Patterns in Python ― refactoring.guru](https://refactoring.guru/design-patterns/python)
+- [SourceMaking](https://sourcemaking.com):
+  [Design Patterns](https://sourcemaking.com/design_patterns) and
+  [AntiPatterns](https://sourcemaking.com/antipatterns)
+- Composition over inheritance:
+  [Subclassing in Python Redux](https://hynek.me/articles/python-subclassing-redux)
+  by Hynek Schlawack. A comprehensive article on the topic with illustrative
+  examples in Python an several references to other important articles.
+- The classic
+  ["Gang of Four" (GOF) book](https://en.wikipedia.org/wiki/Design_Patterns):
+  _Design Patterns_ (1994) by Erich Gamma, Richard Helm, Ralph Johnson, and
+  John Vlissides {cite}`gammaDesignPatternsElements1995`
+
+```{rubric} Algorithms
+
+```
+
+- _Algorithms_ (2011) by Robert Sedgewick and Kevin Wayne
+  {cite}`sedgewickAlgorithms2011`. See also
+  [their website](https://algs4.cs.princeton.edu), with several links to other
+  resources like their Coursera course.
+- [LeetCode](https://leetcode.com/problemset): practice algorithms through
+  coding problems

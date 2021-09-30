@@ -189,7 +189,8 @@ ideas:
   physics, while {mod}`tensorwaves` can use these amplitude models and perform
   fits, but aims to keep physics logic contained upstream.
 - Keep the code simple by sticking to the core responsibility: construct
-  amplitude models and fitting them to data.
+  amplitude models and fitting them to data. Avoid
+  ["feature creep"](https://en.wikipedia.org/wiki/Feature_creep)!
 - Accommodate both stable development and flexibility for ongoing analyses (see
   e.g. {ref}`develop:Branching model`).
 - ComPWA values the
