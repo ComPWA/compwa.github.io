@@ -42,7 +42,7 @@ repos:
           )$
 
   - repo: https://github.com/ComPWA/repo-maintenance
-    rev: 0.0.41
+    rev: 0.0.43
     hooks:
       - id: check-dev-files
       - id: fix-nbformat-version
