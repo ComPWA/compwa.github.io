@@ -29,7 +29,7 @@ software.
 
 [![Documentation build status](https://readthedocs.org/projects/qrules/badge/?version=latest)](https://qrules.readthedocs.io)
 [![PyPI package](https://badge.fury.io/py/qrules.svg)](https://pypi.org/project/qrules)
-[![Zenodo DOI](https://zenodo.org/badge/doi/10.5281/zenodo.5526360.svg)](https://doi.org/10.5281/zenodo.5526360)<br>
+[![10.5281/zenodo.5526360](https://zenodo.org/badge/doi/10.5281/zenodo.5526360.svg)](https://doi.org/10.5281/zenodo.5526360)<br>
 Rule-based particle reaction problem solver on a quantum number level
 
 ---
@@ -42,7 +42,7 @@ Rule-based particle reaction problem solver on a quantum number level
 ^^^^^^^
 [![Documentation build status](https://readthedocs.org/projects/qrules/badge/?version=latest)](https://qrules.readthedocs.io)
 [![PyPI package](https://badge.fury.io/py/ampform.svg)](https://pypi.org/project/ampform)
-[![Zenodo DOI](https://zenodo.org/badge/doi/10.5281/zenodo.5526648.svg)](https://doi.org/10.5281/zenodo.5526648)<br>
+[![10.5281/zenodo.5526648](https://zenodo.org/badge/doi/10.5281/zenodo.5526648.svg)](https://doi.org/10.5281/zenodo.5526648)<br>
 Automatically generate symbolic amplitude models for Partial Wave Analysis
 
 ---
@@ -55,7 +55,7 @@ Automatically generate symbolic amplitude models for Partial Wave Analysis
 ^^^^^^^
 [![Documentation build status](https://readthedocs.org/projects/qrules/badge/?version=latest)](https://qrules.readthedocs.io)
 [![PyPI package](https://badge.fury.io/py/tensorwaves.svg)](https://pypi.org/project/tensorwaves)
-[![Zenodo DOI](https://zenodo.org/badge/doi/10.5281/zenodo.5526650.svg)](https://doi.org/10.5281/zenodo.5526650)<br>
+[![10.5281/zenodo.5526650](https://zenodo.org/badge/doi/10.5281/zenodo.5526650.svg)](https://doi.org/10.5281/zenodo.5526650)<br>
 Python fitter package for multiple computational back-ends
 
 ---
