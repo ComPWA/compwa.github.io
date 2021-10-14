@@ -49,6 +49,7 @@ extensions = [
     "sphinx.ext.mathjax",
     "sphinx.ext.napoleon",
     "sphinx_copybutton",
+    "sphinx_issues",
     "sphinx_math_dollar",
     "sphinx_panels",
     "sphinx_thebe",
@@ -208,6 +209,9 @@ modify the parameters.
 """
 }
 myst_update_mathjax = False
+
+# Settings for sphinx-issues
+issues_github_path = "ComPWA/compwa-org"
 
 # Settings for Thebe cell output
 thebe_config = {
