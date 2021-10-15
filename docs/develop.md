@@ -754,13 +754,6 @@ as the VSCode settings that come with this are folder settings.
 
 :::{dropdown} Conda and VSCode
 
-:::{tip}
-
-We would gladly extend the environment configuration in such a way that other
-editors behave in a standardized way as well. Let us know
-
-:::
-
 ComPWA projects are best developed
 {ref}`with Conda <develop:Virtual environment>` and VSCode. The complete
 developer install procedure then becomes:
@@ -772,6 +765,8 @@ conda env create
 conda activate pwa  # or whatever the environment name is
 code .  # open folder in VSCode
 ```
+
+:::
 
 ## Writing durable software
 
