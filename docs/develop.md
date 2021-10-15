@@ -340,43 +340,8 @@ See more info at {ref}`develop:Jupyter Notebooks`.
 
 Linters point out when certain style conventions are not correctly followed.
 Unlike with {ref}`formatters <develop:Formatting>`, you have to fix the errors
-yourself.
-
-As mentioned in {ref}`develop:Automated coding conventions`, style conventions
-are formulated in config files. For linters, we use the following:
-
-<!-- cspell:ignore prettierrc pydocstyle pyrightconfig -->
-
-- [`.cspell.json`](https://github.com/ComPWA/ampform/blob/main/.cspell.json)
-  - [cSpell: spell checker for code](https://github.com/streetsidesoftware/cspell/tree/master/packages/cspell)
-- [`.markdownlint.json`](https://github.com/ComPWA/ampform/blob/main/.markdownlint.json)
-  - [markdownlint](https://github.com/DavidAnson/markdownlint)
-- [`pyproject.toml`](https://github.com/ComPWA/ampform/blob/main/pyproject.toml)
-  - {ref}`black <develop:Formatting>`
-  - {ref}`isort <develop:Formatting>`
-- [`.mypy.ini`](https://github.com/ComPWA/ampform/blob/main/.mypy.ini)
-  - [mypy](http://mypy-lang.org)
-- [`.prettierrc`](https://github.com/ComPWA/ampform/blob/main/.prettierrc)
-  - [Prettier](https://prettier.io)
-- [`pyrightconfig.json`](https://github.com/ComPWA/ampform/blob/main/pyrightconfig.json)
-  - [Pylance](https://marketplace.visualstudio.com/items?itemName=ms-python.vscode-pylance)
-  - [Pyright](https://github.com/microsoft/pyright)
-- [`tox.ini`](https://github.com/ComPWA/ampform/blob/main/tox.ini)
-  - [flake8](https://flake8.pycqa.org)
-  - [pydocstyle](https://pydocstyle.pycqa.org)
-  - [pytest](https://docs.pytest.org)
-
-::::{toggle}
-
-:::{note}
-
-As an illustration of automated checks, we list the files here with links to
-the actual files as to ensure that these files still exist and that this
-documentation remains up to date.
-
-:::
-
-::::
+yourself. As mentioned in {ref}`develop:Automated coding conventions`, style
+conventions are formulated in config files.
 
 ### Spelling
 
