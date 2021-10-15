@@ -816,7 +816,7 @@ Do you have other recommendations? Edit this page
 - [The different types of software testing ― Atlassian](https://www.atlassian.com/continuous-delivery/software-testing/types-of-software-testing)
 - [Types of Software Testing: 100 Examples of Different Testing Types ― Guru99](https://www.guru99.com/types-of-software-testing.html)
 
-```{rubric} Design patterns
+```{rubric} Software Design
 
 ```
 
@@ -832,6 +832,9 @@ Do you have other recommendations? Edit this page
   ["Gang of Four" (GOF) book](https://en.wikipedia.org/wiki/Design_Patterns):
   _Design Patterns_ (1994) by Erich Gamma, Richard Helm, Ralph Johnson, and
   John Vlissides {cite}`gammaDesignPatternsElements1995`
+- [C++ Core Guidelines](https://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines):
+  while this document provides intended for C++ developers, it is an excellent,
+  up-to-date set of guidelines that apply to any programming language.
 
 ```{rubric} Algorithms
 
