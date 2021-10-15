@@ -61,23 +61,24 @@ framework or use the developer tools.
 
 [Conda/Anaconda](https://www.anaconda.com) can be installed without
 administrator rights, see instructions on
-[this page](https://www.anaconda.com/distribution). In addition, Conda can
-install more than just Python packages.
+[this page](https://conda.io/projects/conda/en/latest/user-guide/install/index.html).
+In addition, Conda can install more than just Python packages.
 
 All packages {ref}`maintained by the ComPWA organization <about:Main projects>`
 provide a
 [Conda environment file](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html)
 ([`environment.yml`](https://github.com/ComPWA/ampform/blob/main/environment.yml))
-that defines the minimal dependencies to run the framework. To create an
-environment specific for this package, simply navigate to the main folder of
-the source code and run:
+that defines all requirements when working on the source code of that
+repository. To create an environment specific for this repository, simply
+navigate to the main folder of the source code and run:
 
 ```shell
 conda env create
 ```
 
 Conda now creates an environment with a name that is defined in the
-{file}`environment.yml` file. In addition, it will install the framework in
+[`environment.yml`](https://github.com/ComPWA/ampform/blob/main/environment.yml)
+file. In addition, it will install the framework itself in
 ["editable" mode](#editable-installation), so that you can start developing
 right away.
 
@@ -85,9 +86,9 @@ right away.
 
 :::{tabbed} Python venv
 
-Alternatively, you can use
-[Python's `venv`](https://docs.python.org/3/library/venv.html), if you have
-that available on your system. Navigate to some convenient folder and run:
+If you have [Python's `venv`](https://docs.python.org/3/library/venv.html),
+available on your system, you can create a virtual environment with it.
+Navigate to some convenient folder and run:
 
 ```shell
 python3 -m venv ./venv
@@ -100,8 +101,9 @@ contained. To activate the environment, run:
 source ./venv/bin/activate
 ```
 
-Now you can safely install the package you want to working on, as well as any
-dependencies (see ["editable" mode](#editable-installation)):
+Now you can safely install the package you want to work on (see
+["editable" mode](#editable-installation)), as well as any additional required
+packages (see [optional dependencies](#optional-dependencies)):
 
 ```shell
 pip install -e .
