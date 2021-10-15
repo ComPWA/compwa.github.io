@@ -168,8 +168,8 @@ These files can be used to 'pin' all versions of installed packages as follows:
 
 :::{margin}
 
-Requirements may differ per Python version. Each version of Python therefore
-requires a different constraint file.
+Requirements may differ per Python version, so there is one constraint file for
+each version of Python that the package supports.
 
 :::
 
@@ -185,20 +185,20 @@ python3 -m pip install -c .constraints/py-3.8.txt -e .[test]
 python3 -m pip install -c .constraints/py-3.8.txt -e .[dev]
 ```
 
-:::{margin}
-
-Constraint files are updated automatically with
+The constraint files are updated automatically with
 [`pip-tools`](https://github.com/jazzband/pip-tools) through
-{ref}`develop:GitHub Actions`.
-
-:::
+{ref}`develop:GitHub Actions`. See
+[`requirements-pr.yml`](https://github.com/ComPWA/ampform/actions/workflows/requirements-pr.yml)
+and
+[`requirements-cron.yml`](https://github.com/ComPWA/ampform/actions/workflows/requirements-cron.yml).
 
 :::{note}
 
-This set-up ensures that the framework _deterministic and reproducible_ (up to
-testing) for all commits, which is vital for both users (doing analysis) and
-for developers ({ref}`continuous integration <develop:GitHub Actions>`). In
-other words, it provides a way out of
+Constraint files ensure that the framework is _deterministic and reproducible_
+(up to testing) _for all commits and versions_, which is vital for both users
+(doing analysis) and for developers (for instance with
+{ref}`continuous integration <develop:GitHub Actions>`). In other words, it
+provides a way out of
 ["dependency hell"](https://en.wikipedia.org/wiki/Dependency_hell).
 
 :::
@@ -216,7 +216,7 @@ pip install -c .constraints/py3.8.txt -e .[dev]
 ```
 
 If you still have problems, it may be that certain dependencies have become
-redundant or conflicting. In that case, trash the virtual environment and
+redundant. In that case, trash the virtual environment and
 {ref}`create a new one <develop:Virtual environment>`.
 
 ## Automated coding conventions
