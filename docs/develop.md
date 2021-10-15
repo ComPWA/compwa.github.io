@@ -7,10 +7,10 @@ This page describes some of the tools and conventions followed by
 [Common Partial Wave Analysis](https://github.com/ComPWA). Where possible, we
 use the
 [source code of the AmpForm repository](https://github.com/ComPWA/AmpForm) as
-example, because its file structure is comparable to that of ComPWA
+example, because its file structure is comparable to that of other ComPWA
 repositories.
 
-::::{tip} To start developing, simply run the following in the a cloned
+::::{tip} To start developing, simply run the following from a cloned
 repository on your machine:
 
 :::{tabbed} Conda
@@ -244,8 +244,9 @@ can be formulated through those config files.
 ### Pre-commit
 
 All {ref}`style checks <develop:Style checks>` are enforced through a tool
-called [{command}`pre-commit`](https://pre-commit.com). This tool needs to be
-activated, but only once, after you clone the repository:
+called [{command}`pre-commit`](https://pre-commit.com). It's best to activate
+this tool locally as well. This has to be done only once, after you clone the
+repository:
 
 ```shell
 pre-commit install
@@ -258,8 +259,8 @@ checks, it may take some time to initialize.
 
 :::
 
-Upon committing, {command}`pre-commit` now runs a set of checks as defined in
-the file
+Upon committing, {command}`pre-commit` runs a set of checks as defined in the
+file
 [{file}`.pre-commit-config.yaml`](https://github.com/ComPWA/ampform/blob/main/.pre-commit-config.yaml)
 over all staged files. You can also quickly run all checks over _all_ indexed
 files in the repository with the command:
@@ -268,10 +269,12 @@ files in the repository with the command:
 pre-commit run -a
 ```
 
-This command is also run on GitHub actions whenever you
-{ref}`submit a pull request <develop:Collaboration>`, ensuring that all files
-in the repository follow the same conventions as set in the config files of
-these tools.
+Whenever you {ref}`submit a pull request <develop:Collaboration>`, this command
+is automatically run
+[on GitHub actions](https://github.com/ComPWA/ampform/actions/workflows/ci-style.yml)
+and [on pre-commit.ci](https://results.pre-commit.ci/install/github/18435973) ,
+ensuring that all files in the repository follow the same conventions as set in
+the config files of these tools.
 
 ### Tox
 
@@ -296,7 +299,7 @@ to **run tox before submitting a pull request!**
 
 <!-- cspell:ignore testenv -->
 
-More specialized {command}`tox` tests are defined in the
+More specialized {command}`tox` job are defined in the
 [`tox.ini`](https://github.com/ComPWA/ampform/blob/main/tox.ini) config file,
 under each {code}`testenv` section. You can list all environments, along with a
 description of what they do, by running:
@@ -305,18 +308,16 @@ description of what they do, by running:
 tox -av
 ```
 
-Note that {command}`tox` works with its own virtual environments. These
-environments install
-{ref}`'pinned' dependencies <develop:Optional dependencies>`.
-
 ### GitHub Actions
 
 All {ref}`style checks <develop:Style checks>`, testing of the
 {ref}`documentation and links <develop:Documentation>`, and
 {ref}`unit tests <develop:Testing>` are performed upon each pull request
 through [GitHub Actions](https://docs.github.com/en/actions) (see status
-overview [here](https://github.com/ComPWA/ampform/actions)). All checks
-performed for each PR have to pass before the PR can be merged.
+overview [here](https://github.com/ComPWA/ampform/actions)). The checks are
+defined under the
+[`.github`](https://github.com/ComPWA/ampform/blob/main/.github) folder. All
+checks performed for each PR have to pass before the PR can be merged.
 
 ## Style checks
 
@@ -325,18 +326,21 @@ performed for each PR have to pass before the PR can be merged.
 Formatters are tools that automatically format source code, or some document.
 Naturally, this speeds up your own programming, but these tools are
 particularly important when {ref}`collaborating <develop:Collaboration>`,
-because a standardized format avoids line conflicts in Git.
+because a standardized format avoids line conflicts in Git and makes diffs in
+code review easier to read.
 
 For the Python source code, we use [`black`](https://black.readthedocs.io) and
 [`isort`](https://isort.readthedocs.io). For other code, we use
 [Prettier](https://prettier.io). All of these formatters are "opinionated
-formatters": they offer only limited configuration options as, to make
+formatters": they offer only limited configuration options, as to make
 formatting as conform as possible.
 
-{ref}`develop:Pre-commit` automatically strips Jupyter notebook of any output
-cells. Notebook cells can be formatted with
-[`jupyterlab-code-formatter`](https://jupyterlab-code-formatter.readthedocs.io).
-See more info at {ref}`develop:Jupyter Notebooks`.
+{ref}`develop:Pre-commit` performs some additional formatting jobs. For
+instance, it formats Jupyter notebooks with
+[nbQA](https://github.com/nbQA-dev/nbQA) and strips them of any output cells
+with [`nbstripout`](https://github.com/kynan/nbstripout).
+
+<!-- cspell:ignore nbstripout -->
 
 ### Linting
 
@@ -443,8 +447,7 @@ notebooks and host them on the website (see
 
 ### Documentation preview
 
-You can quickly build the documentation from the root directory of any of the
-repositories with the command:
+You can quickly build the documentation with the command:
 
 ```shell
 tox -e doc
@@ -452,7 +455,9 @@ tox -e doc
 
 :::{toggle}
 
-Alternatively, you can run `sphinx-build` yourself as follows:
+Alternatively, you can run
+[`sphinx-build`](https://www.sphinx-doc.org/en/master/man/sphinx-build.html)
+yourself as follows:
 
 ```shell
 cd docs
@@ -492,16 +497,19 @@ or just click "details" under the RTD check once you submit your PR.
 Sometimes it happens that your Jupyter installation does not recognize your
 {ref}`virtual environment <develop:Virtual environment>`. In that case, have a
 look at
-[these instructions](https://ipython.readthedocs.io/en/stable/install/kernel_install.html#kernels-for-different-environments)
+[these instructions](https://ipython.readthedocs.io/en/stable/install/kernel_install.html#kernels-for-different-environments).
 
 :::
 
 ::::
 
-The [docs](https://github.com/ComPWA/ampform/tree/main/docs) folder contains a
-few Jupyter notebooks. These notebooks are run and tested whenever you make a
-{ref}`pull request <develop:Collaboration>`. If you want to improve those
-notebooks, we recommend working with
+The [docs](https://github.com/ComPWA/ampform/tree/main/docs) folder can also
+contain Jupyter notebooks. These notebooks are rendered as HTML by
+[MyST-NB](https://myst-nb.readthedocs.io). The notebooks are also run and
+tested whenever you make a {ref}`pull request <develop:Collaboration>`, so they
+also serve as **integration tests**.
+
+If you want to improve those notebooks, we recommend working with
 [Jupyter Lab](https://jupyterlab.readthedocs.io/en/stable), which is
 {ref}`installed with the dev requirements <develop:Optional dependencies>`.
 Jupyter Lab offers a nicer developer experience than the default Jupyter
@@ -526,6 +534,18 @@ with:
 ```shell
 EXECUTE_NB= tox -e doclive
 ```
+
+:::{tip}
+
+Notebooks are automatically formatted through
+{ref}`pre-commit <develop:Pre-commit>` (see {ref}`develop:Formatting`). If you
+want to format the notebooks automatically as you're working, you can do so
+with
+[`jupyterlab-code-formatter`](https://jupyterlab-code-formatter.readthedocs.io),
+which is automatically
+{ref}`installed with the dev requirements <develop:Optional dependencies>`.
+
+:::
 
 ## Collaboration
 
@@ -554,7 +574,7 @@ publicly visible on GitHub are:
 - [Milestones](https://github.com/ComPWA/ampform/milestones?direction=asc&sort=title&state=open):
   way to bundle issues and PRs for upcoming releases.
 
-- [Releases](https://github.com/ComPWA/ampform/releases)
+- [Releases](https://github.com/ComPWA/ampform/releases).
 
 All of these are important for the {ref}`develop:Release flow` and therefore
 also serve as a way to document the framework.
@@ -650,7 +670,7 @@ branch".
   [Epic](https://blog.zenhub.com/working-with-epics-in-github) and split up
   into smaller tasks.
 
-- Before creating a pull request, run `tox`. See also {ref}`develop:Tox`.
+- Before creating a pull request, run {ref}`develop:Tox`.
 
 - Also use a [conventional commit message](https://www.conventionalcommits.org)
   style for the PR title. This is because we follow a
@@ -690,7 +710,7 @@ that were merged into the main branch since the previous tag and can be viewed
 and edited as a release draft if you are a member of the ComPWA organization.
 Each of the entries are generated from the PR titles, categorized by issue
 label (see configuration in
-[`.github.release-drafter`](https://github.com/ComPWA/ampform/blob/main/.github/release-drafter.yml)).
+[`.github/release-drafter.yml`](https://github.com/ComPWA/ampform/blob/main/.github/release-drafter.yml)).
 
 Once a release is made on GitHub for a repository with source code for a Python
 package, a new version is automatically published on [PyPI](https://pypi.org)
@@ -716,7 +736,7 @@ configuration files of the editors.
 
 Still, where code editor settings can be shared through configuration files in
 the repository, we provide recommended settings for the code editor as well.
-This is especially the case for [VSCode](#visual-studio-code), which we prefer.
+This is especially the case for [VSCode](#visual-studio-code).
 
 :::{tip}
 
