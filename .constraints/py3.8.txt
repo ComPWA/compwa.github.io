@@ -7,7 +7,7 @@
 absl-py==0.14.1
 alabaster==0.7.12
 ampform==0.11.4
-anyio==3.3.3
+anyio==3.3.4
 appdirs==1.4.4
 aquirdturtle-collapsible-headings==3.1.0
 argon2-cffi==21.1.0
@@ -39,7 +39,7 @@ dm-tree==0.1.6
 docutils==0.16
 entrypoints==0.3
 execnet==1.9.0
-filelock==3.3.0
+filelock==3.3.1
 flake8==3.9.2
 flake8-blind-except==0.2.0
 flake8-bugbear==21.9.2
@@ -69,7 +69,7 @@ idna==3.3
 imagesize==1.2.0
 iminuit==2.8.4
 importlib-metadata==4.8.1
-importlib-resources==5.2.2
+importlib-resources==5.2.3
 iniconfig==1.1.1
 ipykernel==6.4.1
 ipympl==0.8.0
@@ -138,12 +138,12 @@ parso==0.8.2
 particle==0.16.1
 pathspec==0.9.0
 pdfkit==0.6.1
-pep517==0.11.0
+pep517==0.11.1
 pep8-naming==0.12.1
 pexpect==4.8.0
 phasespace==1.4.1
 pickleshare==0.7.5
-pillow==8.3.2
+pillow==8.4.0
 pip-tools==6.4.0
 platformdirs==2.4.0
 pluggy==1.0.0
@@ -194,7 +194,7 @@ snowballstemmer==2.1.0
 soupsieve==2.2.1
 sphinx==4.2.0
 sphinx-autobuild==2021.3.14
-sphinx-book-theme==0.1.5
+sphinx-book-theme==0.1.6
 sphinx-copybutton==0.4.0
 sphinx-issues==1.2.0
 sphinx-math-dollar==1.2
