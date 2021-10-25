@@ -42,7 +42,7 @@ repos:
           )$
 
   - repo: https://github.com/ComPWA/repo-maintenance
-    rev: 0.0.45
+    rev: 0.0.52
     hooks:
       - id: check-dev-files
       - id: fix-nbformat-version
@@ -108,7 +108,7 @@ repos:
       - id: prettier
 
   - repo: https://github.com/ComPWA/mirrors-pyright
-    rev: v1.1.179
+    rev: v1.1.181
     hooks:
       - id: pyright
 
