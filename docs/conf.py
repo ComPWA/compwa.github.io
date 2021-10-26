@@ -8,6 +8,7 @@ https://www.sphinx-doc.org/en/master/usage/configuration.html
 import os
 
 import nbformat  # pyright: reportMissingImports=false
+import requests
 from pybtex.database import Entry
 from pybtex.plugin import register_plugin
 from pybtex.richtext import Tag, Text
@@ -30,6 +31,21 @@ repo_name = "compwa-org"
 copyright = "2021, ComPWA"  # noqa: A001
 author = "Common Partial Wave Analysis"
 
+
+# -- Fetch logo --------------------------------------------------------------
+logo_path = "_static/logo.svg"
+if not os.path.exists(logo_path):
+    try:
+        online_content = requests.get(
+            url="https://raw.githubusercontent.com/ComPWA/ComPWA/04e5199/doc/images/logo.svg",
+            allow_redirects=True,
+        )
+        with open(logo_path, "wb") as stream:
+            stream.write(online_content.content)
+    except requests.exceptions.ConnectionError:
+        pass
+if os.path.exists(logo_path):
+    html_logo = logo_path
 
 # -- General configuration ---------------------------------------------------
 master_doc = "index.md"
@@ -105,7 +121,7 @@ html_theme_options = {
     },
     "theme_dev_mode": True,
 }
-html_title = "Common Partial Wave Analysis"
+html_title = "Common Partial Wave Analysis Project"
 panels_add_bootstrap_css = False  # wider pages
 pygments_style = "sphinx"
 todo_include_todos = False
