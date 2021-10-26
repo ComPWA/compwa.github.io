@@ -116,6 +116,7 @@
         "codemirror",
         "colorbar",
         "commitlint",
+        "compat",
         "componentwise",
         "coolwarm",
         "csqrt",
