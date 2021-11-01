@@ -19,7 +19,11 @@ ignore =
     RST299
     # unexpected indentation (related to google style docstring)
     RST301
+    # enforce type ignore with mypy error codes (combined --extend-select=TI100)
+    TI1
     # https://github.com/psf/black#line-breaks--binary-operators
     W503
+extend-select =
+    TI100
 radon-max-cc = 8
 radon-no-assert = True
