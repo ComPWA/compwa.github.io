@@ -4,14 +4,19 @@ filename =
     ./tests/*.py
 exclude =
     __pycache__
-ignore = # more info: https://www.flake8rules.com/
-    E203 # https://github.com/psf/black#slices
-    E231 # allowed by black
-    E501 # https://github.com/psf/black#line-length
-    FS003 # should be possible to use {} in latex strings
-    RST299 # missing pygments
-    RST201 # block quote ends without a blank line (black formatting)
-    RST301 # unexpected indentation (related to google style docstring)
-    W503 # https://github.com/psf/black#line-breaks--binary-operators
+# more info: https://www.flake8rules.com/
+ignore =
+    E203  # https://github.com/psf/black#slices
+    # allowed by black
+    E231
+    E501  # https://github.com/psf/black#line-length
+    # should be possible to use {} in latex strings
+    FS003
+    RST299  # missing pygments
+    # block quote ends without a blank line (black formatting)
+    RST201
+    RST301  # unexpected indentation (related to google style docstring)
+    # https://github.com/psf/black#line-breaks--binary-operators
+    W503
 radon-max-cc = 8
 radon-no-assert = True
