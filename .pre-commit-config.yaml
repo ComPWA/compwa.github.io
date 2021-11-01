@@ -42,7 +42,7 @@ repos:
           )$
 
   - repo: https://github.com/ComPWA/repo-maintenance
-    rev: 0.0.53
+    rev: 0.0.55
     hooks:
       - id: check-dev-files
       - id: fix-nbformat-version
@@ -57,7 +57,7 @@ repos:
           )$
 
   - repo: https://github.com/psf/black
-    rev: 21.9b0
+    rev: 21.10b0
     hooks:
       - id: black
 
@@ -108,7 +108,7 @@ repos:
       - id: prettier
 
   - repo: https://github.com/ComPWA/mirrors-pyright
-    rev: v1.1.181
+    rev: v1.1.183
     hooks:
       - id: pyright
 
