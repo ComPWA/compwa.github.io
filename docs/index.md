@@ -4,8 +4,13 @@
 
 ```
 
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
 [![GPLv3+ license](https://img.shields.io/badge/License-GPLv3+-blue.svg)](https://www.gnu.org/licenses/gpl-3.0-standalone.html)
-[![Binder](https://static.mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/ComPWA/compwa-org/stable)
+{{ '[![Google Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/ComPWA/compwa-org/blob/{})'.format(branch) }}
+{{ '[![Binder](https://static.mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/ComPWA/compwa-org/{}?filepath=docs/usage)'.format(branch) }}
+<!-- markdownlint-enable -->
+<!-- prettier-ignore-end -->
 
 This page is combines documentation on projects provided by the
 [ComPWA organization on GitHub](https://github.com/ComPWA). It is more

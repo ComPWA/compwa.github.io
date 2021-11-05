@@ -6,6 +6,7 @@ https://www.sphinx-doc.org/en/master/usage/configuration.html
 """
 
 import os
+import re
 
 import nbformat  # pyright: reportMissingImports=false
 import requests
@@ -27,25 +28,37 @@ from pybtex.style.template import (
 
 # -- Project information -----------------------------------------------------
 project = "ComPWA Organization"
-repo_name = "compwa-org"
+REPO_NAME = "compwa-org"
 copyright = "2021, ComPWA"  # noqa: A001
 author = "Common Partial Wave Analysis"
 
+# https://docs.readthedocs.io/en/stable/builds.html
+BRANCH = os.environ.get("READTHEDOCS_VERSION", default="stable")
+if BRANCH == "latest":
+    BRANCH = "main"
+if re.match(r"^\d+$", BRANCH):  # PR preview
+    BRANCH = "stable"
+
 
 # -- Fetch logo --------------------------------------------------------------
-logo_path = "_static/logo.svg"
-if not os.path.exists(logo_path):
-    try:
-        online_content = requests.get(
-            url="https://raw.githubusercontent.com/ComPWA/ComPWA/04e5199/doc/images/logo.svg",
-            allow_redirects=True,
-        )
-        with open(logo_path, "wb") as stream:
-            stream.write(online_content.content)
-    except requests.exceptions.ConnectionError:
-        pass
-if os.path.exists(logo_path):
-    html_logo = logo_path
+def fetch_logo(url: str, output_path: str) -> None:
+    if os.path.exists(output_path):
+        return
+    online_content = requests.get(url, allow_redirects=True)
+    with open(output_path, "wb") as stream:
+        stream.write(online_content.content)
+
+
+LOGO_PATH = "_static/logo.svg"
+try:
+    fetch_logo(
+        url="https://raw.githubusercontent.com/ComPWA/ComPWA/04e5199/doc/images/logo.svg",
+        output_path=LOGO_PATH,
+    )
+except requests.exceptions.ConnectionError:
+    pass
+if os.path.exists(LOGO_PATH):
+    html_logo = LOGO_PATH
 
 # -- General configuration ---------------------------------------------------
 master_doc = "index.md"
@@ -105,8 +118,8 @@ html_sourcelink_suffix = ""
 html_static_path = ["_static"]
 html_theme = "sphinx_book_theme"
 html_theme_options = {
-    "repository_url": f"https://github.com/ComPWA/{repo_name}",
-    "repository_branch": "stable",
+    "repository_url": f"https://github.com/ComPWA/{REPO_NAME}",
+    "repository_branch": BRANCH,
     "path_to_docs": "docs",
     "use_download_button": True,
     "use_edit_page_button": True,
@@ -212,17 +225,16 @@ myst_enable_extensions = [
     "smartquotes",
     "substitution",
 ]
-BINDER_LINK = (
-    f"https://mybinder.org/v2/gh/ComPWA/{repo_name}/stable?filepath=docs"
-)
+BINDER_LINK = f"https://mybinder.org/v2/gh/ComPWA/{REPO_NAME}/{BRANCH}?filepath=docs/usage"
 myst_substitutions = {
+    "branch": BRANCH,
     "run_interactive": f"""
 ```{{margin}}
 Run this notebook [on Binder]({BINDER_LINK}) or
 {{ref}}`locally on Jupyter Lab <develop:Jupyter Notebooks>` to interactively
 modify the parameters.
 ```
-"""
+""",
 }
 myst_update_mathjax = False
 

@@ -115,6 +115,7 @@
         "cmath",
         "codegen",
         "codemirror",
+        "Colab",
         "colorbar",
         "commitlint",
         "compat",
