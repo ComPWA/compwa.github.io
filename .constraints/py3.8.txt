@@ -8,17 +8,16 @@ absl-py==0.15.0
 alabaster==0.7.12
 ampform==0.11.5
 anyio==3.3.4
-appdirs==1.4.4
 aquirdturtle-collapsible-headings==3.1.0
 argon2-cffi==21.1.0
-astroid==2.7.3
+astroid==2.8.4
 astunparse==1.6.3
 attrs==20.3.0
 babel==2.9.1
 backcall==0.2.0
 backports.entry-points-selectable==1.1.0
 beautifulsoup4==4.10.0
-black==21.7b0
+black==21.10b0 ; python_version >= "3.7.0"
 bleach==4.1.0
 cachetools==4.2.4
 certifi==2021.10.8
@@ -163,7 +162,7 @@ pycparser==2.21
 pydata-sphinx-theme==0.6.3
 pyflakes==2.4.0
 pygments==2.10.0
-pylint==2.10.2
+pylint==2.11.1 ; python_version >= "3.7.0"
 pyparsing==2.4.7
 pyrsistent==0.18.0
 pytest==6.2.5
@@ -237,7 +236,7 @@ websocket-client==1.2.1
 werkzeug==2.0.2
 wheel==0.37.0
 widgetsnbextension==3.5.2
-wrapt==1.12.1
+wrapt==1.13.3
 zipp==3.6.0
 
 # The following packages are considered to be unsafe in a requirements file:
