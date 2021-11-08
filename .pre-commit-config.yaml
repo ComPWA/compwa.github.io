@@ -96,6 +96,9 @@ repos:
       - id: nbqa-black
       - id: nbqa-flake8
       - id: nbqa-isort
+      - id: nbqa-pyupgrade
+        args:
+          - --py36-plus
 
   - repo: https://github.com/kynan/nbstripout
     rev: 0.5.0
@@ -111,6 +114,13 @@ repos:
     rev: v1.1.185
     hooks:
       - id: pyright
+
+  - repo: https://github.com/asottile/pyupgrade
+    rev: v2.29.0
+    hooks:
+      - id: pyupgrade
+        args:
+          - --py36-plus
 
   # The following tools have to be install locally, because they can also be
   # used by code editors (e.g. linting and format-on-save).
