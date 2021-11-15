@@ -42,9 +42,11 @@ repos:
           )$
 
   - repo: https://github.com/ComPWA/repo-maintenance
-    rev: 0.0.71
+    rev: 0.0.81
     hooks:
       - id: check-dev-files
+        args:
+          - --pin-requirements
       - id: fix-nbformat-version
       - id: format-setup-cfg
       - id: pin-nb-requirements
@@ -81,7 +83,7 @@ repos:
           )$
 
   - repo: https://github.com/pycqa/isort
-    rev: 5.10.0
+    rev: 5.10.1
     hooks:
       - id: isort
 
@@ -99,7 +101,6 @@ repos:
       - id: nbqa-pyupgrade
         args:
           - --py36-plus
-
   - repo: https://github.com/kynan/nbstripout
     rev: 0.5.0
     hooks:
@@ -125,7 +126,7 @@ repos:
       - id: prettier
 
   - repo: https://github.com/ComPWA/mirrors-pyright
-    rev: v1.1.185
+    rev: v1.1.187
     hooks:
       - id: pyright
 

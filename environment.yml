@@ -4,9 +4,12 @@ channels:
   - conda-forge
 dependencies:
   - appmode
-  - python==3.8.*
-  - pip
   - graphviz # for binder
+  - pip
+  - python==3.8.*
   - pip:
-      - -c .constraints/py3.8.txt
-      - -e .[dev]
+      - notebook # https://github.com/kirbs-/hide_code/issues/97
+      - hide-code
+      - |
+        -c .constraints/py3.8.txt
+        -e .[dev]
