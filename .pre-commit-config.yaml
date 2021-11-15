@@ -45,6 +45,8 @@ repos:
     rev: 0.0.81
     hooks:
       - id: check-dev-files
+        args:
+          - --pin-requirements
       - id: fix-nbformat-version
       - id: format-setup-cfg
       - id: pin-nb-requirements
