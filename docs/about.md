@@ -29,7 +29,7 @@ software.
 
 [![Documentation build status](https://readthedocs.org/projects/qrules/badge/?version=latest)](https://qrules.readthedocs.io)
 [![10.5281/zenodo.5526360](https://zenodo.org/badge/doi/10.5281/zenodo.5526360.svg)](https://doi.org/10.5281/zenodo.5526360)
-[![PyPI package](https://badge.fury.io/py/qrules.svg)](https://pypi.org/project/qrules)
+[![PyPI package](https://img.shields.io/pypi/pyversions/qrules)](https://pypi.org/project/qrules)
 [![Conda package](https://anaconda.org/conda-forge/qrules/badges/version.svg)](https://anaconda.org/conda-forge/qrules)<br>
 Rule-based particle reaction problem solver on a quantum number level
 
@@ -43,7 +43,7 @@ Rule-based particle reaction problem solver on a quantum number level
 ^^^^^^^
 [![Documentation build status](https://readthedocs.org/projects/ampform/badge/?version=latest)](https://ampform.readthedocs.io)
 [![10.5281/zenodo.5526648](https://zenodo.org/badge/doi/10.5281/zenodo.5526648.svg)](https://doi.org/10.5281/zenodo.5526648)
-[![PyPI package](https://badge.fury.io/py/ampform.svg)](https://pypi.org/project/ampform)
+[![PyPI package](https://img.shields.io/pypi/pyversions/ampform)](https://pypi.org/project/ampform)
 [![Conda package](https://anaconda.org/conda-forge/ampform/badges/version.svg)](https://anaconda.org/conda-forge/ampform)<br>
 Automatically generate symbolic amplitude models for Partial Wave Analysis
 
@@ -57,7 +57,7 @@ Automatically generate symbolic amplitude models for Partial Wave Analysis
 ^^^^^^^
 [![Documentation build status](https://readthedocs.org/projects/tensorwaves/badge/?version=latest)](https://tensorwaves.readthedocs.io)
 [![10.5281/zenodo.5526650](https://zenodo.org/badge/doi/10.5281/zenodo.5526650.svg)](https://doi.org/10.5281/zenodo.5526650)
-[![PyPI package](https://badge.fury.io/py/tensorwaves.svg)](https://pypi.org/project/tensorwaves)
+[![PyPI package](https://img.shields.io/pypi/pyversions/tensorwaves)](https://pypi.org/project/tensorwaves)
 [![Conda package](https://anaconda.org/conda-forge/tensorwaves/badges/version.svg)](https://anaconda.org/conda-forge/tensorwaves)<br>
 Python fitter package for multiple computational back-ends
 
@@ -87,10 +87,10 @@ projects:
 
 <!-- cspell:ignore pycompwa -->
 
-- {doc}`ComPWA <ComPWA:index>`: a single framework for Partial Wave Analysis
-  written in C++.
-- {doc}`pycompwa <pycompwa:index>`: the Python interface of ComPWA, which also
-  hosted a first version of the PWA Expert System.
+- [ComPWA](https://compwa.readthedocs.io): a single framework for Partial Wave
+  Analysis written in C++.
+- [pycompwa](https://compwa.github.io): the Python interface of ComPWA, which
+  also hosted a first version of the PWA Expert System.
 - {doc}`PWA Expert System <expertsystem:index>` (split into
   {doc}`QRules <qrules:index>` and {doc}`AmpForm <ampform:index>`).
 
@@ -124,9 +124,11 @@ This situation however has a few major disadvantages:
 
 ComPWA attempts to break this with the following ideals:
 
-- Put {ref}`about:Developer Experience` before functionality.
-- Have everything {ref}`open source <about:Open source>`.
-- Remain collaboration-independent and general in applicability
+- Prioritize {ref}`about:Developer Experience` over functionality.
+- Have everything {ref}`open source <about:Open source>` and remain
+  collaboration-independent
+- Offer functionality in the form of modules (libraries) that can serve as
+  building blocks in more specialized scripts and frameworks
   ({ref}`about:Design`).
 - Record and share acquired knowledge through
   {ref}`modern, interlinked documentation <about:User Experience>`.
