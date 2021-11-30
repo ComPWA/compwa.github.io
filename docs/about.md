@@ -29,7 +29,7 @@ software.
 
 [![Documentation build status](https://readthedocs.org/projects/qrules/badge/?version=latest)](https://qrules.readthedocs.io)
 [![10.5281/zenodo.5526360](https://zenodo.org/badge/doi/10.5281/zenodo.5526360.svg)](https://doi.org/10.5281/zenodo.5526360)
-[![PyPI package](https://badge.fury.io/py/qrules.svg)](https://pypi.org/project/qrules)
+[![PyPI package](https://img.shields.io/pypi/pyversions/qrules)](https://pypi.org/project/qrules)
 [![Conda package](https://anaconda.org/conda-forge/qrules/badges/version.svg)](https://anaconda.org/conda-forge/qrules)<br>
 Rule-based particle reaction problem solver on a quantum number level
 
@@ -43,7 +43,7 @@ Rule-based particle reaction problem solver on a quantum number level
 ^^^^^^^
 [![Documentation build status](https://readthedocs.org/projects/ampform/badge/?version=latest)](https://ampform.readthedocs.io)
 [![10.5281/zenodo.5526648](https://zenodo.org/badge/doi/10.5281/zenodo.5526648.svg)](https://doi.org/10.5281/zenodo.5526648)
-[![PyPI package](https://badge.fury.io/py/ampform.svg)](https://pypi.org/project/ampform)
+[![PyPI package](https://img.shields.io/pypi/pyversions/ampform)](https://pypi.org/project/ampform)
 [![Conda package](https://anaconda.org/conda-forge/ampform/badges/version.svg)](https://anaconda.org/conda-forge/ampform)<br>
 Automatically generate symbolic amplitude models for Partial Wave Analysis
 
@@ -57,7 +57,7 @@ Automatically generate symbolic amplitude models for Partial Wave Analysis
 ^^^^^^^
 [![Documentation build status](https://readthedocs.org/projects/tensorwaves/badge/?version=latest)](https://tensorwaves.readthedocs.io)
 [![10.5281/zenodo.5526650](https://zenodo.org/badge/doi/10.5281/zenodo.5526650.svg)](https://doi.org/10.5281/zenodo.5526650)
-[![PyPI package](https://badge.fury.io/py/tensorwaves.svg)](https://pypi.org/project/tensorwaves)
+[![PyPI package](https://img.shields.io/pypi/pyversions/tensorwaves)](https://pypi.org/project/tensorwaves)
 [![Conda package](https://anaconda.org/conda-forge/tensorwaves/badges/version.svg)](https://anaconda.org/conda-forge/tensorwaves)<br>
 Python fitter package for multiple computational back-ends
 
