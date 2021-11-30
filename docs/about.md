@@ -87,10 +87,10 @@ projects:
 
 <!-- cspell:ignore pycompwa -->
 
-- {doc}`ComPWA <ComPWA:index>`: a single framework for Partial Wave Analysis
-  written in C++.
-- {doc}`pycompwa <pycompwa:index>`: the Python interface of ComPWA, which also
-  hosted a first version of the PWA Expert System.
+- [ComPWA](https://compwa.readthedocs.io): a single framework for Partial Wave
+  Analysis written in C++.
+- [pycompwa](https://compwa.github.io): the Python interface of ComPWA, which
+  also hosted a first version of the PWA Expert System.
 - {doc}`PWA Expert System <expertsystem:index>` (split into
   {doc}`QRules <qrules:index>` and {doc}`AmpForm <ampform:index>`).
 
