@@ -124,9 +124,11 @@ This situation however has a few major disadvantages:
 
 ComPWA attempts to break this with the following ideals:
 
-- Put {ref}`about:Developer Experience` before functionality.
-- Have everything {ref}`open source <about:Open source>`.
-- Remain collaboration-independent and general in applicability
+- Prioritize {ref}`about:Developer Experience` over functionality.
+- Have everything {ref}`open source <about:Open source>` and remain
+  collaboration-independent
+- Offer functionality in the form of modules (libraries) that can serve as
+  building blocks in more specialized scripts and frameworks
   ({ref}`about:Design`).
 - Record and share acquired knowledge through
   {ref}`modern, interlinked documentation <about:User Experience>`.
