@@ -698,8 +698,6 @@ branch".
 
 ### Release flow
 
-<!-- cspell:ignore setuptools -->
-
 Releases are managed with the
 [GitHub release page](https://docs.github.com/en/free-pro-team@latest/github/administering-a-repository/managing-releases-in-a-repository),
 see for instance

@@ -41,7 +41,7 @@ jobs:
           sudo apt-get -y install graphviz
       - name: Run notebooks with pytest (diff only)
         if: steps.git-diff.outputs.modified-notebooks != ''
-        run: pytest ${{join(steps.git-diff.outputs.*, '\n')}}
+        run: pytest --nbmake ${{join(steps.git-diff.outputs.*, '\n')}}
 
   pytest-demos:
     name: Test demo notebooks
@@ -62,4 +62,4 @@ jobs:
           pip install -c .constraints/py3.7.txt .[test]
           sudo apt-get -y install graphviz
       - name: Run demo notebooks
-        run: pytest demo
+        run: pytest --nbmake demo
