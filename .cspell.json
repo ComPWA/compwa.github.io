@@ -95,6 +95,7 @@
         "Zenodo"
     ],
     "ignoreWords": [
+        "Colab",
         "adrs",
         "allclose",
         "appmode",
@@ -117,7 +118,6 @@
         "cmath",
         "codegen",
         "codemirror",
-        "Colab",
         "colorbar",
         "commitlint",
         "compat",
@@ -175,6 +175,7 @@
         "multiline",
         "nbconvert",
         "nbformat",
+        "nbmake",
         "ncols",
         "nonlocal",
         "noqa",
