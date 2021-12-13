@@ -8,7 +8,6 @@ https://www.sphinx-doc.org/en/master/usage/configuration.html
 import os
 import re
 
-import nbformat  # pyright: reportMissingImports=false
 import requests
 from pybtex.database import Entry
 from pybtex.plugin import register_plugin
