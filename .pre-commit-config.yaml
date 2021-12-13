@@ -54,8 +54,7 @@ repos:
           (?x)^(
             docs/report/004.*|
             docs/report/005.*|
-            docs/report/007.*|
-            demo/.*
+            docs/report/007.*
           )$
 
   - repo: https://github.com/psf/black

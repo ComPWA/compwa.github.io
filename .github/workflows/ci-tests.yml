@@ -42,24 +42,3 @@ jobs:
       - name: Run notebooks with pytest (diff only)
         if: steps.git-diff.outputs.modified-notebooks != ''
         run: pytest --nbmake ${{join(steps.git-diff.outputs.*, '\n')}}
-
-  pytest-demos:
-    name: Test demo notebooks
-    runs-on: ${{ matrix.os }}
-    strategy:
-      matrix:
-        os: [ubuntu-20.04]
-        python-version: [3.7]
-    steps:
-      - uses: actions/checkout@master
-      - name: Set up Python ${{ matrix.python-version }}
-        uses: actions/setup-python@master
-        with:
-          python-version: ${{ matrix.python-version }}
-      - name: Install dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip install -c .constraints/py3.7.txt .[test]
-          sudo apt-get -y install graphviz
-      - name: Run demo notebooks
-        run: pytest --nbmake demo
