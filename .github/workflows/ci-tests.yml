@@ -20,7 +20,8 @@ jobs:
         python-version: [3.7]
     steps:
       - uses: actions/checkout@master
-      - run: git fetch origin
+        with:
+          fetch-depth: 0
       - name: Check modified notebooks
         id: git-diff
         run:
