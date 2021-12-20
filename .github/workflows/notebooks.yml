@@ -1,0 +1,19 @@
+name: Run all notebooks
+
+on:
+  workflow_dispatch:
+
+jobs:
+  pytest:
+    name: Test all notebooks
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@master
+      - uses: actions/setup-python@master
+        with:
+          python-version: "3.7"
+      - name: Install dependencies
+        run: |
+          sudo apt-get -y install graphviz
+          pip install -c .constraints/py3.7.txt .[test]
+      - run: pytest --nbmake

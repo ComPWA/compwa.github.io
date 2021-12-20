@@ -17,7 +17,7 @@ repository on your machine:
 
 ```shell
 conda env create
-conda activate ampform  # or corresponding environment name
+conda activate ampform
 pre-commit install
 ```
 
