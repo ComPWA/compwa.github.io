@@ -33,7 +33,6 @@ repos:
             .*\.svg|
             \.cspell\.json
           )$
-
       - id: mixed-line-ending
       - id: trailing-whitespace
         exclude: >
@@ -100,6 +99,7 @@ repos:
       - id: nbqa-pyupgrade
         args:
           - --py36-plus
+
   - repo: https://github.com/kynan/nbstripout
     rev: 0.5.0
     hooks:
