@@ -42,7 +42,7 @@ repos:
           )$
 
   - repo: https://github.com/ComPWA/repo-maintenance
-    rev: 0.0.93
+    rev: 0.0.96
     hooks:
       - id: check-dev-files
         args:
@@ -74,7 +74,7 @@ repos:
       - id: cspell
 
   - repo: https://github.com/editorconfig-checker/editorconfig-checker.python
-    rev: 2.3.54
+    rev: 2.4.0
     hooks:
       - id: editorconfig-checker
         exclude: >
@@ -126,7 +126,7 @@ repos:
       - id: prettier
 
   - repo: https://github.com/ComPWA/mirrors-pyright
-    rev: v1.1.192
+    rev: v1.1.197
     hooks:
       - id: pyright
 
