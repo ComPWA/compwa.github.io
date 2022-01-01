@@ -67,7 +67,7 @@ repos:
       - id: blacken-docs
 
   - repo: https://github.com/streetsidesoftware/cspell-cli
-    rev: v5.6.11
+    rev: v5.6.12
     hooks:
       - id: cspell
 
@@ -132,12 +132,12 @@ repos:
       - id: prettier
 
   - repo: https://github.com/ComPWA/mirrors-pyright
-    rev: v1.1.200
+    rev: v1.1.202
     hooks:
       - id: pyright
 
   - repo: https://github.com/asottile/pyupgrade
-    rev: v2.29.1
+    rev: v2.31.0
     hooks:
       - id: pyupgrade
         args:
