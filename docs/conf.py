@@ -79,6 +79,7 @@ extensions = [
     "sphinx.ext.intersphinx",
     "sphinx.ext.mathjax",
     "sphinx.ext.napoleon",
+    "sphinx_codeautolink",
     "sphinx_copybutton",
     "sphinx_issues",
     "sphinx_math_dollar",
@@ -109,6 +110,7 @@ autodoc_default_options = {
         ]
     ),
 }
+codeautolink_concat_default = True
 graphviz_output_format = "svg"
 html_copy_source = True  # needed for download notebook button
 html_css_files = ["custom.css"]
