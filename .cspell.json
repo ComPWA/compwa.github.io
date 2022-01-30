@@ -124,6 +124,7 @@
         "commitlint",
         "compat",
         "componentwise",
+        "concat",
         "coolwarm",
         "csqrt",
         "cstride",

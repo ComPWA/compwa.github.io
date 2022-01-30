@@ -47,6 +47,7 @@ repos:
         args:
           - --pin-requirements
       - id: fix-nbformat-version
+      - id: fix-first-nbcell
       - id: format-setup-cfg
       - id: pin-nb-requirements
         exclude: >
