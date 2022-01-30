@@ -10,7 +10,7 @@ class StateTransitionGraph:
 
 
 def hankel1(angular_momentum: sp.Symbol, x: sp.Symbol) -> sp.Expr:
-    x_squared = x ** 2
+    x_squared = x**2
     return sp.Piecewise(
         (
             1,
@@ -48,9 +48,9 @@ def two_body_momentum_squared(
     m_d: sp.Symbol, m_a: sp.Symbol, m_b: sp.Symbol
 ) -> sp.Expr:
     return (
-        (m_d ** 2 - (m_a + m_b) ** 2)
-        * (m_d ** 2 - (m_a - m_b) ** 2)
-        / (4 * m_d ** 2)
+        (m_d**2 - (m_a + m_b) ** 2)
+        * (m_d**2 - (m_a - m_b) ** 2)
+        / (4 * m_d**2)
     )
 
 
