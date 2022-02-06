@@ -225,7 +225,7 @@ intersphinx_mapping = {
     "numpy": (f"https://numpy.org/doc/{get_minor_version('numpy')}", None),
     "python": ("https://docs.python.org/3", None),
     "qrules": ("https://qrules.readthedocs.io/en/stable", None),
-    "scipy": ("https://docs.scipy.org/doc/scipy", None),
+    "scipy": ("https://docs.scipy.org/doc/scipy-1.7.0", None),
     "sympy": ("https://docs.sympy.org/latest", None),
     "tensorwaves": ("https://tensorwaves.readthedocs.io/en/stable", None),
 }
