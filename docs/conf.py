@@ -83,7 +83,6 @@ extensions = [
     "sphinx_comments",
     "sphinx_copybutton",
     "sphinx_issues",
-    "sphinx_math_dollar",
     "sphinx_panels",
     "sphinx_thebe",
     "sphinx_togglebutton",
