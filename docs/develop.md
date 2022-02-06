@@ -283,7 +283,8 @@ More thorough checks can be run in one go with the following command:
 :::{margin} Running jobs in parallel
 
 The {code}`-p` flag lets the jobs run in parallel. It also provides a nicer
-overview of the progress. See {ref}`tox:parallel_mode`.
+overview of the progress. See
+[`--parallel`](https://tox.wiki/en/latest/config.html#cmdoption-tox-p) flag.
 
 :::
 
