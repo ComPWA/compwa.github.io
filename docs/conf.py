@@ -113,6 +113,9 @@ autodoc_default_options = {
 }
 codeautolink_concat_default = True
 codeautolink_global_preface = """
+import matplotlib.pyplot as plt
+import numpy as np
+import sympy as sp
 from IPython.display import display
 """
 graphviz_output_format = "svg"
