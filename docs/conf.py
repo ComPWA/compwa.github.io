@@ -112,6 +112,9 @@ autodoc_default_options = {
     ),
 }
 codeautolink_concat_default = True
+codeautolink_global_preface = """
+from IPython.display import display
+"""
 graphviz_output_format = "svg"
 html_copy_source = True  # needed for download notebook button
 html_css_files = ["custom.css"]
