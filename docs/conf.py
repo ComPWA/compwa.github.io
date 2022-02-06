@@ -80,6 +80,7 @@ extensions = [
     "sphinx.ext.mathjax",
     "sphinx.ext.napoleon",
     "sphinx_codeautolink",
+    "sphinx_comments",
     "sphinx_copybutton",
     "sphinx_issues",
     "sphinx_math_dollar",
@@ -241,6 +242,16 @@ modify the parameters.
 """,
 }
 myst_update_mathjax = False
+
+# Settings for sphinx_comments
+comments_config = {
+    "hypothesis": True,
+    "utterances": {
+        "repo": f"ComPWA/{REPO_NAME}",
+        "issue-term": "pathname",
+        "label": "📝 Docs",
+    },
+}
 
 # Settings for sphinx-issues
 issues_github_path = "ComPWA/compwa-org"
