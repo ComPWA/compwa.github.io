@@ -223,6 +223,7 @@ intersphinx_mapping = {
         None,
     ),
     "numpy": (f"https://numpy.org/doc/{get_minor_version('numpy')}", None),
+    "pwa": ("https://pwa.readthedocs.io", None),
     "python": ("https://docs.python.org/3", None),
     "qrules": ("https://qrules.readthedocs.io/en/stable", None),
     "scipy": ("https://docs.scipy.org/doc/scipy-1.7.0", None),
