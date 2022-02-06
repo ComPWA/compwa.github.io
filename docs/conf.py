@@ -7,6 +7,7 @@ https://www.sphinx-doc.org/en/master/usage/configuration.html
 
 import os
 import re
+import sys
 
 import requests
 
@@ -35,11 +36,11 @@ copyright = "2021, ComPWA"  # noqa: A001
 author = "Common Partial Wave Analysis"
 
 # https://docs.readthedocs.io/en/stable/builds.html
-BRANCH = os.environ.get("READTHEDOCS_VERSION", default="stable")
+BRANCH = os.environ.get("READTHEDOCS_VERSION", default="main")
 if BRANCH == "latest":
     BRANCH = "main"
 if re.match(r"^\d+$", BRANCH):  # PR preview
-    BRANCH = "stable"
+    BRANCH = "main"
 
 
 # -- Fetch logo --------------------------------------------------------------
@@ -79,10 +80,10 @@ extensions = [
     "sphinx.ext.intersphinx",
     "sphinx.ext.mathjax",
     "sphinx.ext.napoleon",
+    "sphinx_codeautolink",
     "sphinx_comments",
     "sphinx_copybutton",
     "sphinx_issues",
-    "sphinx_math_dollar",
     "sphinx_panels",
     "sphinx_thebe",
     "sphinx_togglebutton",
@@ -110,6 +111,13 @@ autodoc_default_options = {
         ]
     ),
 }
+codeautolink_concat_default = True
+codeautolink_global_preface = """
+import matplotlib.pyplot as plt
+import numpy as np
+import sympy as sp
+from IPython.display import display
+"""
 graphviz_output_format = "svg"
 html_copy_source = True  # needed for download notebook button
 html_css_files = ["custom.css"]
@@ -149,20 +157,81 @@ primary_domain = "py"
 nitpicky = True  # warn if cross-references are missing
 
 # Intersphinx settings
+version_remapping = {
+    "matplotlib": {"3.5.1": "3.5.0"},
+}
+
+
+def get_version(package_name: str) -> str:
+    python_version = f"{sys.version_info.major}.{sys.version_info.minor}"
+    constraints_path = f"../.constraints/py{python_version}.txt"
+    package_name = package_name.lower()
+    with open(constraints_path) as stream:
+        constraints = stream.read()
+    for line in constraints.split("\n"):
+        line = line.split("#")[0]  # remove comments
+        line = line.strip()
+        line = line.lower()
+        if not line.startswith(package_name):
+            continue
+        if not line:
+            continue
+        line_segments = tuple(line.split("=="))
+        if len(line_segments) != 2:
+            continue
+        _, installed_version, *_ = line_segments
+        installed_version = installed_version.strip()
+        remapped_versions = version_remapping.get(package_name)
+        if remapped_versions is not None:
+            existing_version = remapped_versions.get(installed_version)
+            if existing_version is not None:
+                return existing_version
+        return installed_version
+    return "stable"
+
+
+def get_minor_version(package_name: str) -> str:
+    installed_version = get_version(package_name)
+    if installed_version == "stable":
+        return installed_version
+    matches = re.match(r"^([0-9]+\.[0-9]+).*$", installed_version)
+    if matches is None:
+        raise ValueError(
+            "Could not find documentation for"
+            f" {package_name} v{installed_version}"
+        )
+    return matches[1]
+
+
 intersphinx_mapping = {
+    "IPython": (
+        f"https://ipython.readthedocs.io/en/{get_version('IPython')}",
+        None,
+    ),
+    "attrs": (f"https://www.attrs.org/en/{get_version('attrs')}", None),
     "ampform": ("https://ampform.readthedocs.io/en/stable", None),
     "expertsystem": ("https://expertsystem.readthedocs.io/en/stable", None),
+    "graphviz": ("https://graphviz.readthedocs.io/en/stable", None),
+    "ipywidgets": (
+        f"https://ipywidgets.readthedocs.io/en/{get_version('ipywidgets')}",
+        None,
+    ),
     "jax": ("https://jax.readthedocs.io/en/latest", None),
-    "ipywidgets": ("https://ipywidgets.readthedocs.io/en/stable", None),
-    "matplotlib": ("https://matplotlib.org/stable", None),
-    "numpy": ("https://numpy.org/doc/stable", None),
+    "matplotlib": (
+        f"https://matplotlib.org/{get_version('matplotlib')}",
+        None,
+    ),
+    "mpl_interactions": (
+        f"https://mpl-interactions.readthedocs.io/en/{get_version('mpl-interactions')}",
+        None,
+    ),
+    "numpy": (f"https://numpy.org/doc/{get_minor_version('numpy')}", None),
     "pwa": ("https://pwa.readthedocs.io", None),
     "python": ("https://docs.python.org/3", None),
     "qrules": ("https://qrules.readthedocs.io/en/stable", None),
-    "scipy": ("https://docs.scipy.org/doc/scipy", None),
+    "scipy": ("https://docs.scipy.org/doc/scipy-1.7.0", None),
     "sympy": ("https://docs.sympy.org/latest", None),
     "tensorwaves": ("https://tensorwaves.readthedocs.io/en/stable", None),
-    "tox": ("https://tox.readthedocs.io/en/stable", None),
 }
 
 # Settings for autosectionlabel

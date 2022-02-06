@@ -41,7 +41,7 @@ repos:
           )$
 
   - repo: https://github.com/ComPWA/repo-maintenance
-    rev: 0.0.97
+    rev: 0.0.103
     hooks:
       - id: check-dev-files
         args:
@@ -55,9 +55,10 @@ repos:
             docs/report/005.*|
             docs/report/007.*
           )$
+      - id: set-nb-cells
 
   - repo: https://github.com/psf/black
-    rev: 21.12b0
+    rev: 22.1.0
     hooks:
       - id: black
 
@@ -67,7 +68,7 @@ repos:
       - id: blacken-docs
 
   - repo: https://github.com/streetsidesoftware/cspell-cli
-    rev: v5.6.12
+    rev: v5.8.1
     hooks:
       - id: cspell
 
@@ -86,14 +87,16 @@ repos:
       - id: isort
 
   - repo: https://github.com/igorshubovych/markdownlint-cli
-    rev: v0.30.0
+    rev: v0.31.0
     hooks:
       - id: markdownlint
 
   - repo: https://github.com/nbQA-dev/nbQA
-    rev: 1.2.2
+    rev: 1.2.3
     hooks:
       - id: nbqa-black
+        additional_dependencies:
+          - black>=22.1.0
       - id: nbqa-flake8
       - id: nbqa-isort
       - id: nbqa-pyupgrade
@@ -132,7 +135,7 @@ repos:
       - id: prettier
 
   - repo: https://github.com/ComPWA/mirrors-pyright
-    rev: v1.1.203
+    rev: v1.1.218
     hooks:
       - id: pyright
 
