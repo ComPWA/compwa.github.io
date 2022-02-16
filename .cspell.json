@@ -187,6 +187,7 @@
         "noqa",
         "noreply",
         "nrows",
+        "nsimplify",
         "numpycode",
         "operatorname",
         "pandoc",
