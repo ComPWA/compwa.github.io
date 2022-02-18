@@ -41,7 +41,7 @@ repos:
           )$
 
   - repo: https://github.com/ComPWA/repo-maintenance
-    rev: 0.0.106
+    rev: 0.0.107
     hooks:
       - id: check-dev-files
         args:
