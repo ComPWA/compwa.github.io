@@ -251,6 +251,7 @@ copybutton_prompt_text = r">>> |\.\.\. "  # doctest
 linkcheck_anchors = False
 linkcheck_ignore = [
     "http://127.0.0.1:8000",
+    "https://open.vscode.dev",
 ]
 
 # Settings for myst_nb
