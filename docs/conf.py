@@ -208,8 +208,8 @@ intersphinx_mapping = {
         f"https://ipython.readthedocs.io/en/{get_version('IPython')}",
         None,
     ),
+    "ampform": ("https://ampform--245.org.readthedocs.build/en/245", None),
     "attrs": (f"https://www.attrs.org/en/{get_version('attrs')}", None),
-    "ampform": ("https://ampform.readthedocs.io/en/stable", None),
     "expertsystem": ("https://expertsystem.readthedocs.io/en/stable", None),
     "graphviz": ("https://graphviz.readthedocs.io/en/stable", None),
     "ipywidgets": (
