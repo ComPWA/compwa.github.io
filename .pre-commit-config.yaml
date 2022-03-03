@@ -41,11 +41,11 @@ repos:
           )$
 
   - repo: https://github.com/ComPWA/repo-maintenance
-    rev: 0.0.107
+    rev: 0.0.112
     hooks:
       - id: check-dev-files
         args:
-          - --pin-requirements
+          - --pin-requirements=bimonthly
       - id: fix-nbformat-version
       - id: format-setup-cfg
       - id: pin-nb-requirements
@@ -69,7 +69,7 @@ repos:
       - id: blacken-docs
 
   - repo: https://github.com/streetsidesoftware/cspell-cli
-    rev: v5.8.1
+    rev: v5.8.4
     hooks:
       - id: cspell
 
@@ -136,7 +136,7 @@ repos:
       - id: prettier
 
   - repo: https://github.com/ComPWA/mirrors-pyright
-    rev: v1.1.222
+    rev: v1.1.225
     hooks:
       - id: pyright
 

@@ -560,13 +560,18 @@ also the place where you can
 ### Issue management
 
 We keep track of issue dependencies, time estimates, planning, pipeline
-statuses, et cetera with [ZenHub](https://app.zenhub.com). You can use your
-GitHub account to log in there and automatically get access to the issue boards
-of the packages once you are part of the
-[ComPWA organization](https://github.com/ComPWA).
+statuses, et cetera with GitHub project boards
+([GitHub Issues](https://github.com/features/issues)). The main project boards
+are:
 
-ZenHub issue information is only visible once you log in on ZenHub. Still
-publicly visible on GitHub are:
+- [Public roadmap](https://github.com/orgs/ComPWA/projects/4)
+- [Development planning](https://github.com/orgs/ComPWA/projects/5) [private]
+- [Infrastructure & Maintenance](https://github.com/orgs/ComPWA/projects/6)
+  [private]
+
+Some boards are not public. To get access, you can request to become member of
+the [ComPWA](https://github.com/ComPWA) GitHub organization. Other information
+that is publicly available are:
 
 - [Issue labels](https://github.com/ComPWA/ampform/labels): help to categorize
   issues by type (maintenance, enhancement, bug, etc.). The labels are also
