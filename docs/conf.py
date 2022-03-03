@@ -252,6 +252,8 @@ linkcheck_anchors = False
 linkcheck_ignore = [
     "http://127.0.0.1:8000",
     "https://open.vscode.dev",
+    "https://github.com/orgs/ComPWA/projects/5",  # private
+    "https://github.com/orgs/ComPWA/projects/6",  # private
 ]
 
 # Settings for myst_nb

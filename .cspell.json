@@ -85,6 +85,7 @@
         "pylint",
         "pytest",
         "qrules",
+        "roadmap",
         "Scikit",
         "scipy",
         "sympify",
