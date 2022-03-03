@@ -11,9 +11,9 @@ jobs:
       - uses: actions/checkout@master
       - uses: actions/setup-python@master
         with:
-          python-version: "3.7"
+          python-version: "3.8"
       - name: Install dependencies
         run: |
           sudo apt-get -y install graphviz
-          pip install -c .constraints/py3.7.txt .[test]
+          pip install -c .constraints/py3.8.txt .[test]
       - run: pytest --nbmake

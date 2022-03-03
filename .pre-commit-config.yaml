@@ -53,7 +53,8 @@ repos:
           (?x)^(
             docs/report/004.*|
             docs/report/005.*|
-            docs/report/007.*
+            docs/report/007.*|
+            docs/report/013.*
           )$
       - id: set-nb-cells
 
