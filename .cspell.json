@@ -257,6 +257,7 @@
         "timeit",
         "toctree",
         "treewise",
+        "unevaluatable",
         "unsrt",
         "venv",
         "vmax",
