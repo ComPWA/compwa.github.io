@@ -143,7 +143,6 @@ html_theme_options = {
         "thebe": True,
         "thebelab": True,
     },
-    "theme_dev_mode": True,
 }
 html_title = "Common Partial Wave Analysis Project"
 panels_add_bootstrap_css = False  # wider pages
