@@ -143,7 +143,6 @@ html_theme_options = {
         "thebe": True,
         "thebelab": True,
     },
-    "theme_dev_mode": True,
 }
 html_title = "Common Partial Wave Analysis Project"
 panels_add_bootstrap_css = False  # wider pages
@@ -208,7 +207,7 @@ intersphinx_mapping = {
         f"https://ipython.readthedocs.io/en/{get_version('IPython')}",
         None,
     ),
-    "ampform": ("https://ampform--245.org.readthedocs.build/en/245", None),
+    "ampform": ("https://ampform.readthedocs.io/en/stable", None),
     "attrs": (f"https://www.attrs.org/en/{get_version('attrs')}", None),
     "expertsystem": ("https://expertsystem.readthedocs.io/en/stable", None),
     "graphviz": ("https://graphviz.readthedocs.io/en/stable", None),
@@ -274,6 +273,7 @@ execution_excludepatterns = [
     "report/013*",
     "report/014*",
     "report/015*",
+    "report/016*",
 ]
 nb_output_stderr = "remove"
 nb_render_priority = {

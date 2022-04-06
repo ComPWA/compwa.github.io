@@ -1,9 +1,11 @@
+# cspell:ignore entrypoints
 name: compwa-org
 channels:
   - defaults
   - conda-forge
 dependencies:
   - appmode
+  - entrypoints==0.4
   - graphviz # for binder
   - pip
   - python==3.8.*
