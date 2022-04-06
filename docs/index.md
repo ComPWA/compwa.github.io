@@ -29,7 +29,7 @@ maxdepth: 2
 ---
 adr
 reports
-demo <https://github.com/ComPWA/demo/blob/main/README.md>
+Demo notebooks <https://github.com/ComPWA/demo/blob/main/README.md>
 references
 ```
 
