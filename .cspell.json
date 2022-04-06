@@ -160,6 +160,7 @@
         "gridspec",
         "hasattr",
         "heatmap",
+        "heli",
         "histtype",
         "imag",
         "infty",
