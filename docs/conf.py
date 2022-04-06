@@ -80,6 +80,7 @@ extensions = [
     "sphinx.ext.intersphinx",
     "sphinx.ext.mathjax",
     "sphinx.ext.napoleon",
+    "sphinx.ext.todo",
     "sphinx_codeautolink",
     "sphinx_comments",
     "sphinx_copybutton",
@@ -147,7 +148,7 @@ html_theme_options = {
 html_title = "Common Partial Wave Analysis Project"
 panels_add_bootstrap_css = False  # wider pages
 pygments_style = "sphinx"
-todo_include_todos = False
+todo_include_todos = True
 viewcode_follow_imported_members = True
 
 # Cross-referencing configuration
