@@ -20,6 +20,10 @@
   "cSpell.enabled": true,
   "editor.formatOnSave": true,
   "editor.rulers": [80],
+  "editor.unicodeHighlight.allowedCharacters": {
+    "ν": true,
+    "σ": true
+  },
   "files.watcherExclude": {
     "**/*_cache/**": true,
     "**/.eggs/**": true,
