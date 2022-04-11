@@ -250,6 +250,7 @@
         "seterr",
         "setuptools",
         "sharex",
+        "sharey",
         "showcode",
         "showmarkdowntxt",
         "showtags",
