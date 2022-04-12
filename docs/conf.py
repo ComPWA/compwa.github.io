@@ -144,6 +144,7 @@ html_theme_options = {
         "thebe": True,
         "thebelab": True,
     },
+    "show_toc_level": 2,
 }
 html_title = "Common Partial Wave Analysis Project"
 panels_add_bootstrap_css = False  # wider pages
