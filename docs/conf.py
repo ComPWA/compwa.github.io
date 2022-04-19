@@ -89,6 +89,7 @@ extensions = [
     "sphinx_togglebutton",
     "sphinxcontrib.bibtex",
     "sphinxcontrib.hep.pdgref",
+    "sphinxcontrib.needs",
 ]
 exclude_patterns = [
     "**.ipynb_checkpoints",
@@ -329,6 +330,27 @@ comments_config = {
 
 # Settings for sphinx-issues
 issues_github_path = "ComPWA/compwa-org"
+
+# Settings for sphinxcontrib.needs
+needs_id_regex = "^TR-[0-9][0-9][0-9]$"
+needs_id_required = True
+needs_services = {
+    "github-commits": {
+        "url": "https://api.github.com/",
+        "need_type": "spec",
+        "id_prefix": "GH_COMMIT_",
+    },
+    "github-issues": {
+        "url": "https://api.github.com/",
+        "need_type": "spec",
+        "id_prefix": "GH_ISSUE_",
+    },
+    "github-prs": {
+        "url": "https://api.github.com/",
+        "need_type": "spec",
+        "id_prefix": "GH_PR_",
+    },
+}
 
 # Settings for Thebe cell output
 thebe_config = {
