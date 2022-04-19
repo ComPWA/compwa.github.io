@@ -41,7 +41,7 @@ repos:
           )$
 
   - repo: https://github.com/ComPWA/repo-maintenance
-    rev: 0.0.118
+    rev: 0.0.120
     hooks:
       - id: check-dev-files
         args:
@@ -51,10 +51,7 @@ repos:
       - id: pin-nb-requirements
         exclude: >
           (?x)^(
-            docs/report/004.*|
-            docs/report/005.*|
-            docs/report/007.*|
-            docs/report/013.*
+            docs/report/007.*
           )$
       - id: set-nb-cells
 
