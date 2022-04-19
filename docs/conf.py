@@ -332,6 +332,21 @@ comments_config = {
 issues_github_path = "ComPWA/compwa-org"
 
 # Settings for sphinxcontrib.needs
+needs_css = "blank.css"
+needs_layouts = {
+    "technical_report": {
+        "grid": "simple",
+        "layout": {
+            "head": ['<<meta_id()>> **<<meta("title")>>**'],
+            "meta": [
+                '**status**: <<meta("status")>>',
+                '**tags**: <<meta("tags")>>',
+                '<<meta_links_all(prefix="**", postfix="**")>>',
+            ],
+        },
+    }
+}
+needs_default_layout = "technical_report"
 needs_id_regex = "^TR-[0-9][0-9][0-9]$"
 needs_id_required = True
 needs_services = {
