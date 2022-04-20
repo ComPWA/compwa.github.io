@@ -16,7 +16,7 @@ repos:
       - id: check-useless-excludes
 
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v4.1.0
+    rev: v4.2.0
     hooks:
       - id: check-ast
       - id: check-case-conflict
@@ -41,7 +41,7 @@ repos:
           )$
 
   - repo: https://github.com/ComPWA/repo-maintenance
-    rev: 0.0.118
+    rev: 0.0.123
     hooks:
       - id: check-dev-files
         args:
@@ -51,11 +51,7 @@ repos:
       - id: pin-nb-requirements
         exclude: >
           (?x)^(
-            docs/report/004.*|
-            docs/report/005.*|
-            docs/report/007.*|
-            docs/report/013.*|
-            docs/report/017.*
+            docs/report/007.*
           )$
       - id: set-nb-cells
 
@@ -70,7 +66,7 @@ repos:
       - id: blacken-docs
 
   - repo: https://github.com/streetsidesoftware/cspell-cli
-    rev: v5.9.0
+    rev: v5.9.1
     hooks:
       - id: cspell
 
@@ -100,10 +96,12 @@ repos:
         additional_dependencies:
           - black>=22.1.0
       - id: nbqa-flake8
+        additional_dependencies:
+          - flake8-future-annotations
       - id: nbqa-isort
       - id: nbqa-pyupgrade
         args:
-          - --py36-plus
+          - --py37-plus
 
   - repo: https://github.com/kynan/nbstripout
     rev: 0.5.0
@@ -118,11 +116,6 @@ repos:
             metadata.colab.name
             metadata.colab.provenance
             metadata.interpreter
-            metadata.language_info.codemirror_mode
-            metadata.language_info.file_extension
-            metadata.language_info.mimetype
-            metadata.language_info.nbconvert_exporter
-            metadata.language_info.pygments_lexer
             metadata.notify_time
             metadata.toc
             metadata.toc-autonumbering
@@ -137,16 +130,16 @@ repos:
       - id: prettier
 
   - repo: https://github.com/ComPWA/mirrors-pyright
-    rev: v1.1.234
+    rev: v1.1.238
     hooks:
       - id: pyright
 
   - repo: https://github.com/asottile/pyupgrade
-    rev: v2.31.1
+    rev: v2.32.0
     hooks:
       - id: pyupgrade
         args:
-          - --py36-plus
+          - --py37-plus
 
   # The following tools have to be install locally, because they can also be
   # used by code editors (e.g. linting and format-on-save).
