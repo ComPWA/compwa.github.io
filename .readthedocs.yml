@@ -14,7 +14,6 @@ build:
     python: "3.8"
   apt_packages:
     - graphviz
-    - plantuml
   jobs:
     post_install:
       - pip install -e .[doc] -c .constraints/py3.8.txt

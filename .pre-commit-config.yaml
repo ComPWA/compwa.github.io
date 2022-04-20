@@ -45,7 +45,6 @@ repos:
     hooks:
       - id: check-dev-files
         args:
-          - --no-docs
           - --pin-requirements=bimonthly
       - id: fix-nbformat-version
       - id: format-setup-cfg
