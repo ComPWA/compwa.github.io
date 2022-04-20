@@ -8,6 +8,7 @@ https://www.sphinx-doc.org/en/master/usage/configuration.html
 import os
 import re
 import sys
+from os.path import dirname, join
 
 import requests
 
@@ -89,6 +90,7 @@ extensions = [
     "sphinx_togglebutton",
     "sphinxcontrib.bibtex",
     "sphinxcontrib.hep.pdgref",
+    "sphinxcontrib.plantuml",
     "sphinxcontrib.needs",
 ]
 exclude_patterns = [
@@ -366,6 +368,14 @@ needs_services = {
         "id_prefix": "GH_PR_",
     },
 }
+# https://sphinxcontrib-needs.readthedocs.io/en/latest/installation.html#id1
+ON_RTD = os.environ.get("READTHEDOCS") == "True"
+if ON_RTD:
+    plantuml = (
+        "java -Djava.awt.headless=true -jar /usr/share/plantuml/plantuml.jar"
+    )
+else:
+    plantuml = f"java -jar {join(dirname(__file__)), 'utils', 'plantuml.jar'}"
 
 # Settings for Thebe cell output
 thebe_config = {
