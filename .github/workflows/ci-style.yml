@@ -31,5 +31,6 @@ jobs:
       - name: Run pre-commit hooks that don't work on pre-commit.ci
         # cspell:ignore editorconfig pyright
         run: |
+          pre-commit run check-dev-files -a --color always
           pre-commit run editorconfig-checker -a --color always
           pre-commit run pyright -a --color always
