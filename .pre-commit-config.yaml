@@ -6,7 +6,6 @@ ci:
     - flake8
     - pylint
     # hooks that don't work on pre-commit.ci
-    - check-dev-files
     - editorconfig-checker
     - pyright
 
