@@ -148,6 +148,7 @@
         "dotprint",
         "einsum",
         "elif",
+        "endswith",
         "eqnarray",
         "evaluatable",
         "expertsystem",
