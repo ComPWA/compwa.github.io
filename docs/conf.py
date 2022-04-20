@@ -367,6 +367,8 @@ needs_services = {
         "id_prefix": "GH_PR_",
     },
 }
+
+ON_RTD = os.environ.get("READTHEDOCS") is not None
 PLANTUML_PATH = os.path.join(
     os.path.dirname(__file__), "utils", "plantuml.jar"
 )
@@ -379,7 +381,14 @@ if not os.path.exists(PLANTUML_PATH):
     os.makedirs(os.path.dirname(PLANTUML_PATH), exist_ok=True)
     with open(PLANTUML_PATH, "wb") as stream:
         stream.write(online_content.content)
-plantuml = f"java -jar {PLANTUML_PATH}"
+
+if ON_RTD:
+    # https://github.com/useblocks/sphinxcontrib-needs/blob/d40897e/docs/conf.py#L254-L265
+    plantuml = f"java -Djava.awt.headless=true -jar {PLANTUML_PATH}"
+else:
+    plantuml = f"java -jar {PLANTUML_PATH}"
+plantuml_output_format = "svg_img"
+needs_table_style = "datatables"
 
 # Settings for Thebe cell output
 thebe_config = {
