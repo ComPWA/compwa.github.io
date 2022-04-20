@@ -24,10 +24,11 @@ jobs:
         with:
           python-version: "3.8"
       - name: Install dependencies
+        # cspell:ignore plantuml
         run: |
           python -m pip install --upgrade pip
           pip install -c .constraints/py3.8.txt .[doc]
-          sudo apt-get -y install graphviz pandoc
+          sudo apt-get -y install graphviz pandoc plantuml
       - name: Build documentation and run notebooks
         working-directory: docs
         env:

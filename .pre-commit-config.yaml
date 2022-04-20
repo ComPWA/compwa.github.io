@@ -41,10 +41,11 @@ repos:
           )$
 
   - repo: https://github.com/ComPWA/repo-maintenance
-    rev: 0.0.122
+    rev: 0.0.123
     hooks:
       - id: check-dev-files
         args:
+          - --no-docs
           - --pin-requirements=bimonthly
       - id: fix-nbformat-version
       - id: format-setup-cfg
