@@ -314,7 +314,7 @@ tox -av
 All {ref}`style checks <develop:Style checks>`, testing of the
 {ref}`documentation and links <develop:Documentation>`, and
 {ref}`unit tests <develop:Testing>` are performed upon each pull request
-through [GitHub Actions](https://github.com/features/actions) (see status
+through [GitHub Actions](https://docs.github.com/en/actions) (see status
 overview [here](https://github.com/ComPWA/ampform/actions)). The checks are
 defined under the
 [`.github`](https://github.com/ComPWA/ampform/blob/main/.github) folder. All
@@ -679,12 +679,14 @@ branch".
 - Before creating a pull request, run {ref}`develop:Tox`.
 
 - Also use a [conventional commit message](https://www.conventionalcommits.org)
-  style for the PR title. This is because we follow a linear commit history and
-  the PR title will become the eventual commit message. A linear commit history
-  is important for the {ref}`develop:Release flow` and it is easier to navigate
-  through changes once something goes wrong. In fact, in a linear commit
-  history, commits that a have been merged into the {ref}`main-branch` become
-  more like small intermediate patches between the minor and major releases.
+  style for the PR title. This is because we follow a
+  [linear commit history](https://docs.github.com/en/github/administering-a-repository/requiring-a-linear-commit-history)
+  and the PR title will become the eventual commit message. A linear commit
+  history is important for the {ref}`develop:Release flow` and it is easier to
+  navigate through changes once something goes wrong. In fact, in a linear
+  commit history, commits that a have been merged into the {ref}`main-branch`
+  become more like small intermediate patches between the minor and major
+  releases.
 
   Note that a conventional commit message style is
   {ref}`enforced through GitHub Actions <develop:GitHub Actions>`, as well as a
@@ -702,7 +704,9 @@ branch".
 
 ### Release flow
 
-Releases are managed with the release page of each repository, see for instance
+Releases are managed with the
+[GitHub release page](https://docs.github.com/en/free-pro-team@latest/github/administering-a-repository/managing-releases-in-a-repository),
+see for instance
 [the one for AmpForm](https://github.com/ComPWA/ampform/releases). The release
 notes there are
 [automatically generated from the PRs](https://github.com/release-drafter/release-drafter)
