@@ -258,6 +258,7 @@
         "showtags",
         "spflueger",
         "startswith",
+        "staticmethod",
         "subslide",
         "substack",
         "suptitle",
