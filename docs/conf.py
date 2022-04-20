@@ -8,7 +8,6 @@ https://www.sphinx-doc.org/en/master/usage/configuration.html
 import os
 import re
 import sys
-from os.path import dirname, join
 
 import requests
 
@@ -368,14 +367,19 @@ needs_services = {
         "id_prefix": "GH_PR_",
     },
 }
-# https://sphinxcontrib-needs.readthedocs.io/en/latest/installation.html#id1
-ON_RTD = os.environ.get("READTHEDOCS") == "True"
-if ON_RTD:
-    plantuml = (
-        "java -Djava.awt.headless=true -jar /usr/share/plantuml/plantuml.jar"
+PLANTUML_PATH = os.path.join(
+    os.path.dirname(__file__), "utils", "plantuml.jar"
+)
+if not os.path.exists(PLANTUML_PATH):
+    print("\033[93;1mDowloading plantuml\033[0m")
+    online_content = requests.get(
+        "https://sourceforge.net/projects/plantuml/files/latest/download",
+        allow_redirects=True,
     )
-else:
-    plantuml = f"java -jar {join(dirname(__file__)), 'utils', 'plantuml.jar'}"
+    os.makedirs(os.path.dirname(PLANTUML_PATH), exist_ok=True)
+    with open(PLANTUML_PATH, "wb") as stream:
+        stream.write(online_content.content)
+plantuml = f"java -jar {PLANTUML_PATH}"
 
 # Settings for Thebe cell output
 thebe_config = {
