@@ -35,6 +35,7 @@ prof/
 *venv/
 .tox/
 pyvenv*/
+env/
 
 # Settings
 .idea/
