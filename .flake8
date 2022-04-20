@@ -11,6 +11,8 @@ ignore =
     E231
     # https://github.com/psf/black#line-length
     E501
+    # ambiguous name l
+    E741
     # should be possible to use {} in latex strings
     FS003
     # block quote ends without a blank line (black formatting)
