@@ -542,7 +542,7 @@ Notebooks are automatically formatted through
 {ref}`pre-commit <develop:Pre-commit>` (see {ref}`develop:Formatting`). If you
 want to format the notebooks automatically as you're working, you can do so
 with
-[`jupyterlab-code-formatter`](https://jupyterlab-code-formatter.readthedocs.io),
+[`jupyterlab-code-formatter`](https://ryantam626.github.io/jupyterlab_code_formatter/index.html),
 which is automatically
 {ref}`installed with the dev requirements <develop:Optional dependencies>`.
 
