@@ -174,15 +174,15 @@ each version of Python that the package supports.
 :::
 
 ```shell
-python3 -m pip install -c .constraints/py-3.8.txt -e .
+python3 -m pip install -c .constraints/py3.8.txt -e .
 ```
 
 The syntax works just as well for {ref}`develop:Optional dependencies`:
 
 ```shell
-python3 -m pip install -c .constraints/py-3.8.txt -e .[doc,sty]
-python3 -m pip install -c .constraints/py-3.8.txt -e .[test]
-python3 -m pip install -c .constraints/py-3.8.txt -e .[dev]
+python3 -m pip install -c .constraints/py3.8.txt -e .[doc,sty]
+python3 -m pip install -c .constraints/py3.8.txt -e .[test]
+python3 -m pip install -c .constraints/py3.8.txt -e .[dev]
 ```
 
 The constraint files are updated automatically with
@@ -565,21 +565,17 @@ statuses, et cetera with GitHub project boards
 are:
 
 - [Public roadmap](https://github.com/orgs/ComPWA/projects/4)
-- [Development planning](https://github.com/orgs/ComPWA/projects/5) [private]
-- [Infrastructure & Maintenance](https://github.com/orgs/ComPWA/projects/6)
-  [private]
+- [Development planning](https://github.com/orgs/ComPWA/projects/5)
 
-Some boards are not public. To get access, you can request to become member of
+Some issues are not public. To get access, you can request to become member of
 the [ComPWA](https://github.com/ComPWA) GitHub organization. Other information
 that is publicly available are:
 
 - [Issue labels](https://github.com/ComPWA/ampform/labels): help to categorize
   issues by type (maintenance, enhancement, bug, etc.). The labels are also
   used to in the sub-sections of the release notes.
-
 - [Milestones](https://github.com/ComPWA/ampform/milestones?direction=asc&sort=title&state=open):
   way to bundle issues and PRs for upcoming releases.
-
 - [Releases](https://github.com/ComPWA/ampform/releases).
 
 All of these are important for the {ref}`develop:Release flow` and therefore
