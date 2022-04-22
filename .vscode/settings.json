@@ -27,13 +27,13 @@
     "**/.tox/**": true
   },
   "git.rebaseWhenSync": true,
-  "githubPullRequests.telemetry.enabled": false,
-  "gitlens.advanced.telemetry.enabled": false,
-  "markdown.extension.italic.indicator": "_",
+  "github-actions.workflows.pinned.workflows": [
+    ".github/workflows/ci-docs.yml",
+    ".github/workflows/linkcheck.yml"
+  ],
   "python.analysis.autoImportCompletions": false,
   "python.analysis.diagnosticMode": "workspace",
   "python.formatting.provider": "black",
-  "python.languageServer": "Pylance",
   "python.linting.banditEnabled": false,
   "python.linting.enabled": true,
   "python.linting.flake8Enabled": true,
@@ -42,7 +42,6 @@
   "python.linting.pylamaEnabled": false,
   "python.linting.pylintCategorySeverity.refactor": "Information",
   "python.linting.pylintEnabled": true,
-  "python.linting.pylintUseMinimalCheckers": false,
   "python.testing.pytestEnabled": false,
   "rewrap.wrappingColumn": 79,
   "search.exclude": {
@@ -50,6 +49,5 @@
     "*/.pydocstyle": true,
     ".constraints/*.txt": true
   },
-  "telemetry.enableCrashReporter": false,
-  "telemetry.enableTelemetry": false
+  "telemetry.telemetryLevel": "off"
 }
