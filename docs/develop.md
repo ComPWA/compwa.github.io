@@ -174,15 +174,15 @@ each version of Python that the package supports.
 :::
 
 ```shell
-python3 -m pip install -c .constraints/py-3.8.txt -e .
+python3 -m pip install -c .constraints/py3.8.txt -e .
 ```
 
 The syntax works just as well for {ref}`develop:Optional dependencies`:
 
 ```shell
-python3 -m pip install -c .constraints/py-3.8.txt -e .[doc,sty]
-python3 -m pip install -c .constraints/py-3.8.txt -e .[test]
-python3 -m pip install -c .constraints/py-3.8.txt -e .[dev]
+python3 -m pip install -c .constraints/py3.8.txt -e .[doc,sty]
+python3 -m pip install -c .constraints/py3.8.txt -e .[test]
+python3 -m pip install -c .constraints/py3.8.txt -e .[dev]
 ```
 
 The constraint files are updated automatically with
