@@ -49,10 +49,6 @@ repos:
       - id: fix-nbformat-version
       - id: format-setup-cfg
       - id: pin-nb-requirements
-        exclude: >
-          (?x)^(
-            docs/report/007.*
-          )$
       - id: set-nb-cells
 
   - repo: https://github.com/psf/black
