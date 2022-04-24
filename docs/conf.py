@@ -268,6 +268,7 @@ execution_excludepatterns = [
     "report/001*",
     "report/002*",
     "report/003*",
+    "report/005*",
     "report/006*",
     "report/008*",
     "report/009*",

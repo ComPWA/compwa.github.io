@@ -40,8 +40,18 @@ repos:
             .*\.svg
           )$
 
+  - repo: https://github.com/jumanjihouse/pre-commit-hooks
+    rev: 2.1.6
+    hooks:
+      - id: forbid-binary
+        always_run: true
+        exclude: >
+          (?x)^(
+            docs/_static/favicon.ico
+          )$
+
   - repo: https://github.com/ComPWA/repo-maintenance
-    rev: 0.0.123
+    rev: 0.0.124
     hooks:
       - id: check-dev-files
         args:
