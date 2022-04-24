@@ -40,6 +40,15 @@ repos:
             .*\.svg
           )$
 
+  - repo: https://github.com/jumanjihouse/pre-commit-hooks
+    rev: 2.1.6
+    hooks:
+      - id: forbid-binary
+        exclude: >
+          (?x)^(
+            docs/_static/favicon.ico
+          )$
+
   - repo: https://github.com/ComPWA/repo-maintenance
     rev: 0.0.124
     hooks:
