@@ -2,9 +2,6 @@ ci:
   autoupdate_commit_msg: "ci: autoupdate pre-commit hooks"
   autoupdate_schedule: quarterly
   skip:
-    # local hooks
-    - flake8
-    - pylint
     # hooks that don't work on pre-commit.ci
     - editorconfig-checker
     - pyright
@@ -136,7 +133,7 @@ repos:
       - id: prettier
 
   - repo: https://github.com/ComPWA/mirrors-pyright
-    rev: v1.1.238
+    rev: v1.1.239
     hooks:
       - id: pyright
 
@@ -146,25 +143,3 @@ repos:
       - id: pyupgrade
         args:
           - --py37-plus
-
-  # The following tools have to be install locally, because they can also be
-  # used by code editors (e.g. linting and format-on-save).
-
-  - repo: local
-    hooks:
-      - id: flake8
-        name: flake8
-        entry: flake8
-        language: system
-        types:
-          - python
-
-      - id: pylint
-        name: pylint
-        entry: pylint
-        args:
-          - --rcfile=.pylintrc
-          - --score=no
-        language: system
-        types:
-          - python

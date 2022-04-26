@@ -86,7 +86,6 @@
         "numpy",
         "parametrizations",
         "permutate",
-        "pylint",
         "pytest",
         "qrules",
         "roadmap",
