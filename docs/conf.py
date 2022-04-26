@@ -32,7 +32,7 @@ from pybtex.style.template import (
 # -- Project information -----------------------------------------------------
 project = "ComPWA Organization"
 REPO_NAME = "compwa-org"
-copyright = "2021, ComPWA"  # noqa: A001
+copyright = "2021, ComPWA"
 author = "Common Partial Wave Analysis"
 
 # https://docs.readthedocs.io/en/stable/builds.html
