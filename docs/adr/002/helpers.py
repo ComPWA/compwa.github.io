@@ -1,4 +1,3 @@
-# pylint: disable=import-error
 from __future__ import annotations
 
 import sympy as sp  # pyright: reportMissingImports=false
@@ -53,7 +52,7 @@ def two_body_momentum_squared(
     )
 
 
-def determine_attached_final_state(  # pylint: disable=unused-argument
+def determine_attached_final_state(
     graph: StateTransitionGraph,
     edge_id: int,
 ) -> list[int]:
