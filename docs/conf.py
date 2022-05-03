@@ -260,8 +260,8 @@ linkcheck_ignore = [
 ]
 
 # Settings for myst_nb
-execution_timeout = -1
-execution_excludepatterns = [
+nb_execution_timeout = -1
+nb_execution_excludepatterns = [
     "adr/001/*",
     "adr/002/*",
     "report/000*",
@@ -282,24 +282,11 @@ execution_excludepatterns = [
     "report/017*",
 ]
 nb_output_stderr = "remove"
-nb_render_priority = {
-    "html": (
-        "application/vnd.jupyter.widget-view+json",
-        "application/javascript",
-        "text/html",
-        "image/svg+xml",
-        "image/png",
-        "image/jpeg",
-        "text/markdown",
-        "text/latex",
-        "text/plain",
-    )
-}
 
-jupyter_execute_notebooks = "off"
+nb_execution_mode = "off"
 if "EXECUTE_NB" in os.environ:
     print("\033[93;1mWill run Jupyter notebooks!\033[0m")
-    jupyter_execute_notebooks = "force"
+    nb_execution_mode = "force"
 
 # Settings for myst-parser
 myst_enable_extensions = [
@@ -309,6 +296,7 @@ myst_enable_extensions = [
     "smartquotes",
     "substitution",
 ]
+myst_heading_anchors = 4
 BINDER_LINK = f"https://mybinder.org/v2/gh/ComPWA/{REPO_NAME}/{BRANCH}?filepath=docs/usage"
 myst_substitutions = {
     "branch": BRANCH,
