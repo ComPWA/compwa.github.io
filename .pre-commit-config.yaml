@@ -48,7 +48,7 @@ repos:
           )$
 
   - repo: https://github.com/ComPWA/repo-maintenance
-    rev: 0.0.124
+    rev: 0.0.127
     hooks:
       - id: check-dev-files
         args:
@@ -79,7 +79,9 @@ repos:
       - id: editorconfig-checker
         exclude: >
           (?x)^(
-            .*\.py
+            .*\.md|
+            .*\.py|
+            LICENSE
           )$
 
   - repo: https://github.com/pycqa/isort

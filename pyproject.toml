@@ -37,5 +37,5 @@ profile = "black"
 
 [tool.nbqa.addopts]
 flake8 = [
-    "--extend-ignore=E402,F821",
+    "--extend-ignore=E402,F404,F821",
 ]

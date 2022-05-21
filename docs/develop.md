@@ -454,19 +454,6 @@ You can quickly build the documentation with the command:
 tox -e doc
 ```
 
-:::{toggle}
-
-Alternatively, you can run
-[`sphinx-build`](https://www.sphinx-doc.org/en/master/man/sphinx-build.html)
-yourself as follows:
-
-```shell
-cd docs
-make html
-```
-
-:::
-
 <!-- cspell:ignore autobuild -->
 
 If you are doing a lot of work on the documentation,
