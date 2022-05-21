@@ -454,10 +454,6 @@ You can quickly build the documentation with the command:
 tox -e doc
 ```
 
-:::{toggle}
-
-:::
-
 <!-- cspell:ignore autobuild -->
 
 If you are doing a lot of work on the documentation,
