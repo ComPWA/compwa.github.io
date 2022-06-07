@@ -235,6 +235,7 @@ intersphinx_mapping = {
     "scipy": ("https://docs.scipy.org/doc/scipy-1.7.0", None),
     "sympy": ("https://docs.sympy.org/latest", None),
     "tensorwaves": ("https://tensorwaves.readthedocs.io/en/stable", None),
+    "zfit": ("https://zfit.readthedocs.io/en/latest", None),
 }
 
 # Settings for autosectionlabel
