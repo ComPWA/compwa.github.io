@@ -2,6 +2,11 @@ name: Run all notebooks
 
 on:
   workflow_dispatch:
+    inputs:
+      notebook-selector:
+        description: Relative path to notebooks
+        required: false
+        type: string
 
 jobs:
   pytest:
@@ -16,4 +21,5 @@ jobs:
         run: |
           sudo apt-get -y install graphviz
           pip install -c .constraints/py3.8.txt .[test]
-      - run: pytest --nbmake
+      - run: |
+          pytest --nbmake --nbmake-timeout=900 ${{ github.event.inputs.notebook-selector }}
