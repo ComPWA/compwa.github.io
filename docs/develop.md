@@ -8,10 +8,12 @@ This page describes some of the tools and conventions followed by
 [source code of the AmpForm repository](https://github.com/ComPWA/AmpForm) as example,
 because its file structure is comparable to that of other ComPWA repositories.
 
-::::{tip} To start developing, simply run the following from a cloned repository on your
-machine:
+:::::{tip} To start developing, simply run the following from a cloned repository on
+your machine:
 
-:::{tabbed} Conda
+::::{tab-set}
+
+:::{tab-item} Conda
 
 ```shell
 conda env create
@@ -21,7 +23,7 @@ pre-commit install
 
 :::
 
-:::{tabbed} Python venv
+:::{tab-item} Python venv
 
 ```shell
 python3 -m venv ./venv
@@ -34,9 +36,11 @@ Replace `3.8` with the Python version you use on your machine.
 
 :::
 
+::::
+
 See {ref}`develop:Virtual environment` for more info.
 
-::::
+:::::
 
 ## Local set-up
 
@@ -54,7 +58,9 @@ and [Python's built-in `venv`](https://docs.python.org/3/tutorial/venv.html). In
 case, you have to activate the environment whenever you want to run the framework or use
 the developer tools.
 
-:::{tabbed} Conda environment
+::::{tab-set}
+
+:::{tab-item} Conda environment
 
 [Conda/Anaconda](https://www.anaconda.com) can be installed without administrator
 rights, see instructions on
@@ -80,7 +86,7 @@ In addition, it will install the framework itself in
 
 :::
 
-:::{tabbed} Python venv
+:::{tab-item} Python venv
 
 If you have [Python's `venv`](https://docs.python.org/3/library/venv.html), available on
 your system, you can create a virtual environment with it. Navigate to some convenient
@@ -106,6 +112,8 @@ pip install -e .
 ```
 
 :::
+
+::::
 
 ### Editable installation
 

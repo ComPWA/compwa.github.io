@@ -16,14 +16,21 @@ intended to bring theory and code closer together. The PWA Pages takes that one 
 further: it is an independent and easy-to-maintain documentation project that can serve
 as a central place to gather links to PWA theory and software.
 
-:::{panels}
+<!-- prettier-ignore -->
+::::{grid} 1 2 2 2
+:gutter: 2
 
-```{link-button} https://github.com/ComPWA/qrules
-:text: QRules
-:classes: btn-block btn-outline-primary font-weight-bold
+:::{grid-item-card}
+
+```{button-link} https://github.com/ComPWA/qrules
+:color: primary
+:outline:
+QRules
 ```
 
-^^^^^^^
+:::
+
+:::{grid-item-card}
 
 [![Documentation build status](https://readthedocs.org/projects/qrules/badge/?version=latest)](https://qrules.readthedocs.io)
 [![10.5281/zenodo.5526360](https://zenodo.org/badge/doi/10.5281/zenodo.5526360.svg)](https://doi.org/10.5281/zenodo.5526360)
@@ -31,47 +38,54 @@ as a central place to gather links to PWA theory and software.
 [![Conda package](https://anaconda.org/conda-forge/qrules/badges/version.svg)](https://anaconda.org/conda-forge/qrules)<br>
 Rule-based particle reaction problem solver on a quantum number level
 
----
+:::
 
-```{link-button} https://github.com/ComPWA/ampform
-:text: AmpForm
-:classes: btn-block btn-outline-primary font-weight-bold
+:::{grid-item-card}
+
+```{button-link} https://github.com/ComPWA/ampform
+:color: primary
+:outline:
+AmpForm
 ```
 
-^^^^^^^
 [![Documentation build status](https://readthedocs.org/projects/ampform/badge/?version=latest)](https://ampform.readthedocs.io)
 [![10.5281/zenodo.5526648](https://zenodo.org/badge/doi/10.5281/zenodo.5526648.svg)](https://doi.org/10.5281/zenodo.5526648)
 [![PyPI package](https://img.shields.io/pypi/pyversions/ampform)](https://pypi.org/project/ampform)
 [![Conda package](https://anaconda.org/conda-forge/ampform/badges/version.svg)](https://anaconda.org/conda-forge/ampform)<br>
 Automatically generate symbolic amplitude models for Partial Wave Analysis
 
----
+:::
 
-```{link-button} https://github.com/ComPWA/tensorwaves
-:text: TensorWaves
-:classes: btn-block btn-outline-primary font-weight-bold
+:::{grid-item-card}
+
+```{button-link} https://github.com/ComPWA/tensorwaves
+:color: primary
+:outline:
+TensorWaves
 ```
 
-^^^^^^^
 [![Documentation build status](https://readthedocs.org/projects/tensorwaves/badge/?version=latest)](https://tensorwaves.readthedocs.io)
 [![10.5281/zenodo.5526650](https://zenodo.org/badge/doi/10.5281/zenodo.5526650.svg)](https://doi.org/10.5281/zenodo.5526650)
 [![PyPI package](https://img.shields.io/pypi/pyversions/tensorwaves)](https://pypi.org/project/tensorwaves)
 [![Conda package](https://anaconda.org/conda-forge/tensorwaves/badges/version.svg)](https://anaconda.org/conda-forge/tensorwaves)<br>
 Python fitter package for multiple computational back-ends
 
----
+:::
 
-```{link-button} https://github.com/ComPWA/PWA-pages
-:text: PWA Pages
-:classes: btn-block btn-outline-primary font-weight-bold
+:::{grid-item-card}
+
+```{button-link} https://github.com/ComPWA/PWA-pages
+:color: primary
+:outline:
+PWA Pages
 ```
-
-^^^^^^^
 
 [![Documentation build status](https://readthedocs.org/projects/pwa/badge/?version=latest)](https://pwa.readthedocs.io)<br>
 A central knowledge-base for Partial Wave Analysis theory and software
 
 :::
+
+::::
 
 Finally, the {doc}`technical reports </reports>` on these pages
 ([compwa-org.rtfd.io](https://compwa-org.readthedocs.io)) describe more general tips and

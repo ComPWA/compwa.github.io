@@ -20,7 +20,7 @@ jobs:
           git diff --name-only origin/$GITHUB_BASE_REF --output=diff.txt -- docs/**.ipynb
           echo "::set-output name=modified-notebooks::$(cat diff.txt)"
       - run: cat diff.txt
-      - uses: actions/setup-python@v3
+      - uses: actions/setup-python@v4
         if: steps.diff.outputs.modified-notebooks != ''
         with:
           python-version: "3.8"

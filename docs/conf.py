@@ -84,7 +84,7 @@ extensions = [
     "sphinx_comments",
     "sphinx_copybutton",
     "sphinx_issues",
-    "sphinx_panels",
+    "sphinx_design",
     "sphinx_thebe",
     "sphinx_togglebutton",
     "sphinxcontrib.bibtex",
@@ -149,7 +149,6 @@ html_theme_options = {
     "show_toc_level": 2,
 }
 html_title = "Common Partial Wave Analysis Project"
-panels_add_bootstrap_css = False  # wider pages
 pygments_style = "sphinx"
 todo_include_todos = False
 viewcode_follow_imported_members = True
