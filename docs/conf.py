@@ -200,8 +200,7 @@ def get_minor_version(package_name: str) -> str:
     matches = re.match(r"^([0-9]+\.[0-9]+).*$", installed_version)
     if matches is None:
         raise ValueError(
-            "Could not find documentation for"
-            f" {package_name} v{installed_version}"
+            f"Could not find documentation for {package_name} v{installed_version}"
         )
     return matches[1]
 
@@ -297,7 +296,9 @@ myst_enable_extensions = [
     "substitution",
 ]
 myst_heading_anchors = 4
-BINDER_LINK = f"https://mybinder.org/v2/gh/ComPWA/{REPO_NAME}/{BRANCH}?filepath=docs/usage"
+BINDER_LINK = (
+    f"https://mybinder.org/v2/gh/ComPWA/{REPO_NAME}/{BRANCH}?filepath=docs/usage"
+)
 myst_substitutions = {
     "branch": BRANCH,
     "run_interactive": f"""
@@ -360,9 +361,7 @@ needs_services = {
 }
 
 ON_RTD = os.environ.get("READTHEDOCS") is not None
-PLANTUML_PATH = os.path.join(
-    os.path.dirname(__file__), "utils", "plantuml.jar"
-)
+PLANTUML_PATH = os.path.join(os.path.dirname(__file__), "utils", "plantuml.jar")
 if not os.path.exists(PLANTUML_PATH):
     print("\033[93;1mDowloading plantuml\033[0m")
     online_content = requests.get(
@@ -427,9 +426,7 @@ class MyStyle(UnsrtStyle):
         super().__init__(abbreviate_names=True)
 
     def format_names(self, role, as_sentence=True) -> Node:
-        formatted_names = names(
-            role, sep=", ", sep2=" and ", last_sep=", and "
-        )
+        formatted_names = names(role, sep=", ", sep2=" and ", last_sep=", and ")
         if as_sentence:
             return sentence[formatted_names]
         else:
