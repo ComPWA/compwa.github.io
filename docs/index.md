@@ -13,10 +13,9 @@
 <!-- prettier-ignore-end -->
 
 This page is combines documentation on projects provided by the
-[ComPWA organization on GitHub](https://github.com/ComPWA). It is more
-technical than the [PWA Pages](https://pwa.rtfd.io) and focuses on the ComPWA
-organization only. Read more about our ideals and ongoing projects on the
-{doc}`/about` page.
+[ComPWA organization on GitHub](https://github.com/ComPWA). It is more technical than
+the [PWA Pages](https://pwa.rtfd.io) and focuses on the ComPWA organization only. Read
+more about our ideals and ongoing projects on the {doc}`/about` page.
 
 ```{rubric} Table of contents
 
