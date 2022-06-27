@@ -31,4 +31,4 @@ jobs:
           pip install -c .constraints/py3.8.txt .[test]
       - name: Run notebooks with pytest (diff only)
         if: steps.diff.outputs.modified-notebooks != ''
-        run: pytest --nbmake --nbmake-timeout=900 $(cat diff.txt)
+        run: pytest --nbmake --nbmake-timeout=1200 $(cat diff.txt)

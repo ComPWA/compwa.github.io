@@ -4,10 +4,12 @@ on:
   push:
     branches:
       - main
+      - epic/*
       - "[0-9]+.[0-9]+.x"
   pull_request:
     branches:
       - main
+      - epic/*
       - "[0-9]+.[0-9]+.x"
   workflow_dispatch:
 
@@ -18,7 +20,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Set up Python 3.8
-        uses: actions/setup-python@v3
+        uses: actions/setup-python@v4
         with:
           python-version: "3.8"
       - name: Install dependencies
