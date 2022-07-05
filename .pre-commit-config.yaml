@@ -1,5 +1,5 @@
 ci:
-  autoupdate_commit_msg: "ci: autoupdate pre-commit hooks"
+  autoupdate_commit_msg: "ci: update pip constraints and pre-commit config"
   autoupdate_schedule: quarterly
   skip:
     # hooks that don't work on pre-commit.ci
@@ -59,7 +59,7 @@ repos:
       - id: set-nb-cells
 
   - repo: https://github.com/psf/black
-    rev: 22.3.0
+    rev: 22.6.0
     hooks:
       - id: black
 
@@ -136,7 +136,7 @@ repos:
       - id: prettier
 
   - repo: https://github.com/ComPWA/mirrors-pyright
-    rev: v1.1.255
+    rev: v1.1.257
     hooks:
       - id: pyright
 
