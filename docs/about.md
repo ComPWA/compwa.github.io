@@ -28,10 +28,6 @@ as a central place to gather links to PWA theory and software.
 QRules
 ```
 
-:::
-
-:::{grid-item-card}
-
 [![Documentation build status](https://readthedocs.org/projects/qrules/badge/?version=latest)](https://qrules.readthedocs.io)
 [![10.5281/zenodo.5526360](https://zenodo.org/badge/doi/10.5281/zenodo.5526360.svg)](https://doi.org/10.5281/zenodo.5526360)
 [![PyPI package](https://img.shields.io/pypi/pyversions/qrules)](https://pypi.org/project/qrules)
