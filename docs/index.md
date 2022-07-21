@@ -250,27 +250,18 @@ This page is combines documentation on projects provided by the
 the [PWA Pages](https://pwa.rtfd.io) and focuses on the ComPWA organization only. Read
 more about our ideals and ongoing projects on the {doc}`main</index>` page.
 
-```{rubric} Table of contents
-
-```
+## Contents of this website
 
 ```{toctree}
 ---
 caption: Resources
 maxdepth: 2
 ---
+develop
 adr
 reports
-Demo notebooks <https://github.com/ComPWA/demo/blob/main/README.md>
 references
-```
-
-```{toctree}
----
-caption: Organization
-maxdepth: 2
----
-develop
+Demo notebooks <https://github.com/ComPWA/demo/blob/main/README.md>
 GitHub Repositories <https://github.com/ComPWA>
 ```
 
