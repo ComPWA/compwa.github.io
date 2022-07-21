@@ -36,6 +36,7 @@ as a central place to gather links to PWA theory and software.
 
 ```{button-link} https://github.com/ComPWA/qrules
 :color: primary
+:expand:
 :outline:
 QRules
 ```
@@ -52,6 +53,7 @@ Rule-based particle reaction problem solver on a quantum number level
 
 ```{button-link} https://github.com/ComPWA/ampform
 :color: primary
+:expand:
 :outline:
 AmpForm
 ```
@@ -68,6 +70,7 @@ Automatically generate symbolic amplitude models for Partial Wave Analysis
 
 ```{button-link} https://github.com/ComPWA/tensorwaves
 :color: primary
+:expand:
 :outline:
 TensorWaves
 ```
@@ -84,6 +87,7 @@ Python fitter package for multiple computational back-ends
 
 ```{button-link} https://github.com/ComPWA/PWA-pages
 :color: primary
+:expand:
 :outline:
 PWA Pages
 ```
