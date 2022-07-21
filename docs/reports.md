@@ -12,11 +12,8 @@ well.
 :style: datatables
 ```
 
----
-
 ```{toctree}
-:caption: Overview of all reports
-:maxdepth: 2
 :glob:
+:hidden:
 report/*
 ```

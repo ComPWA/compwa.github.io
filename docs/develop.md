@@ -67,7 +67,7 @@ rights, see instructions on
 [this page](https://conda.io/projects/conda/en/latest/user-guide/install/index.html). In
 addition, Conda can install more than just Python packages.
 
-All packages {ref}`maintained by the ComPWA organization <about:Main projects>` provide
+All packages {ref}`maintained by the ComPWA organization <index:Main projects>` provide
 a
 [Conda environment file](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html)
 ([`environment.yml`](https://github.com/ComPWA/ampform/blob/main/environment.yml)) that
