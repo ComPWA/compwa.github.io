@@ -1,0 +1,77 @@
+{
+  "access_right": "open",
+  "creators": [
+    {
+      "affiliation": "Ruhr University Bochum",
+      "name": "Fritsch, Miriam"
+    },
+    {
+      "affiliation": "Ruhr University Bochum",
+      "name": "Michel, Mathias"
+    },
+    {
+      "affiliation": "Ruhr University Bochum",
+      "name": "Pfl\u00fcger, Stefan"
+    },
+    {
+      "affiliation": "Ruhr University Bochum",
+      "name": "de Boer, Remco"
+    },
+    {
+      "affiliation": "Ruhr University Bochum",
+      "name": "Wollenberg, Leonard"
+    },
+    {
+      "affiliation": "Johannes Gutenberg University Mainz",
+      "name": "Gradl, Wolfgang"
+    },
+    {
+      "affiliation": "Johannes Gutenberg University Mainz",
+      "name": "Weidenkaff, Peter"
+    },
+    {
+      "affiliation": "GSI Helmholtzzentrum f\u00fcr Schwerionenforschung",
+      "name": "Peters, Klaus"
+    },
+    {
+      "affiliation": "GSI Helmholtzzentrum f\u00fcr Schwerionenforschung",
+      "name": "G\u00f6tzen, Klaus"
+    }
+  ],
+  "description": "<p>The <a href=\"https://github.com/ComPWA\">\"Common Partial Wave Analysis\"</a> organization (ComPWA) aims to make amplitude analysis accessible through transparent and interactive documentation, modern software development tools, and collaboration-independent frameworks.</p>",
+  "keywords": [
+    "particle physics",
+    "amplitude analysis",
+    "partial wave analysis",
+    "computer algebra system"
+  ],
+  "language": "eng",
+  "license": "GPL-3.0-or-later",
+  "references": [
+    "Fritsch et al. (2021). \"ComPWA/qrules: Rule-based particle reaction problem solver on a quantum number level\". https://doi.org/10.5281/zenodo.5526360.",
+    "Fritsch et al. (2021). \"ComPWA/ampform: Automatically generate symbolic amplitude models for Partial Wave Analysis\". https://doi.org/10.5281/zenodo.5526648.",
+    "Fritsch et al. (2021). \"ComPWA/tensorwaves: Python fitter package for multiple computational back-ends\". https://doi.org/10.5281/zenodo.5526361."
+  ],
+  "related_identifiers": [
+    {
+      "scheme": "doi",
+      "identifier": "10.5281/zenodo.5526648",
+      "relation": "references",
+      "resource_type": "software"
+    },
+    {
+      "scheme": "doi",
+      "identifier": "10.5281/zenodo.5526360",
+      "relation": "references",
+      "resource_type": "software"
+    },
+    {
+      "scheme": "doi",
+      "identifier": "10.5281/zenodo.5526361",
+      "relation": "references",
+      "resource_type": "software"
+    }
+  ],
+  "title": "Common Partial Wave Analysis: A collaboration-independent organisation for amplitude analysis software",
+  "upload_type": "software"
+}
