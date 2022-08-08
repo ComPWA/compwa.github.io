@@ -277,6 +277,7 @@ nb_execution_excludepatterns = [
     "report/015*",
     "report/016*",
     "report/017*",
+    "report/018*",
 ]
 nb_output_stderr = "remove"
 
