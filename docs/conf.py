@@ -251,9 +251,10 @@ copybutton_prompt_text = r">>> |\.\.\. "  # doctest
 linkcheck_anchors = False
 linkcheck_ignore = [
     "http://127.0.0.1:8000",
-    "https://open.vscode.dev",
+    "https://github.com/organizations/ComPWA/settings/repository-defaults",  # private
     "https://github.com/orgs/ComPWA/projects/5",  # private
     "https://github.com/orgs/ComPWA/projects/6",  # private
+    "https://open.vscode.dev",
 ]
 
 # Settings for myst_nb

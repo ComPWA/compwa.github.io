@@ -1,7 +1,7 @@
 # Help developing
 
 [![GitPod](https://img.shields.io/badge/Gitpod-ready--to--code-blue?logo=gitpod)](https://gitpod.io/#https://github.com/ComPWA/compwa-org)
-[![Open in Visual Studio Code](https://open.vscode.dev/badges/open-in-vscode.svg)](https://open.vscode.dev/ComPWA/compwa-org)
+[![Open in Visual Studio Code](https://img.shields.io/badge/vscode-open-blue?logo=visualstudiocode)](https://open.vscode.dev/ComPWA/compwa-org)
 
 This page describes some of the tools and conventions followed by
 [Common Partial Wave Analysis](https://github.com/ComPWA). Where possible, we use the
@@ -616,19 +616,35 @@ not have any CI or code review restrictions. We call this a "feature branch".
 ### Commit conventions
 
 - Please use [conventional commit messages](https://www.conventionalcommits.org): start
-  the commit with a semantic keyword (see e.g.
-  [Angular](https://github.com/angular/angular/blob/master/CONTRIBUTING.md#type) or
-  [these examples](https://seesparkbox.com/foundry/semantic_commit_messages)), followed
-  by [a column](https://git-scm.com/docs/git-interpret-trailers), then the message. The
-  message itself should be in imperative mood — just imagine the commit to give a
+  the commit with one of the semantic keywords below in UPPER CASE, followed by
+  [a column](https://git-scm.com/docs/git-interpret-trailers), then the commit header.
+  The message itself should be in imperative mood — just imagine the commit to give a
   command to the code framework. So for instance:
 
   ```none
-  ci: implement coverage report tools
-  fix: fix typo in raised ValueError
-  chore: remove redundant print statements
-  docs!: rewrite welcome pages
+  DX: implement coverage report tools
+  FIX: remove typo in raised `ValueError` message
+  MAINT: remove redundant print statements
+  DOC: rewrite welcome pages
+  BREAK: removed `formulate_model()` alias method
   ```
+
+  The allowed semantic keywords (commit types) are as follows:[^1]
+
+  <!-- markdownlint-disable -->
+
+  | [Commit type](https://www.conventionalcommits.org/en/v1.0.0/#specification) | [Repository label](https://github.com/organizations/ComPWA/settings/repository-defaults) | Description                                         |
+  | :-------------------------------------------------------------------------: | :--------------------------------------------------------------------------------------- | :-------------------------------------------------- |
+  |                                   `FEAT`                                    | ![#C2E0C6](https://via.placeholder.com/15/C2E0C6/C2E0C6.png) ✨ Feature                  | New feature added to the package                    |
+  |                                    `ENH`                                    | ![#C2E0C6](https://via.placeholder.com/15/C2E0C6/C2E0C6.png) ⚙️ Enhancement              | Improvements and optimizations of existing features |
+  |                                    `FIX`                                    | ![#e11d21](https://via.placeholder.com/15/e11d21/e11d21.png) 🐛 Bug                      | Bug has been fixed                                  |
+  |                                   `BREAK`                                   | ![#F9D0C4](https://via.placeholder.com/15/F9D0C4/F9D0C4.png) ⚠️ Interface                | Breaking changes to the API                         |
+  |                                 `BEHAVIOR`                                  | ![#F9D0C4](https://via.placeholder.com/15/F9D0C4/F9D0C4.png) ❗ Behavior                 | Changes that may affect the framework output        |
+  |                                    `DOC`                                    | ![#bfd4f2](https://via.placeholder.com/15/bfd4f2/bfd4f2.png) 📝 Docs                     | Improvements or additions to documentation          |
+  |                                   `MAINT`                                   | ![#FFCD8F](https://via.placeholder.com/15/FFCD8F/FFCD8F.png) 🔨 Maintenance              | Maintenance and upkeep improvements                 |
+  |                                    `DX`                                     | ![#FEF2C0](https://via.placeholder.com/15/FEF2C0/FEF2C0.png) 🖱️ DX                       | Improvements to the Developer Experience            |
+
+  <!-- markdownlint-enable -->
 
 - Keep pull requests small. If the issue you try to address is too big, discuss in the
   team whether the issue can be converted into an
@@ -658,6 +674,11 @@ not have any CI or code review restrictions. We call this a "feature branch".
   bullet points. See the
   [commit history](https://github.com/ComPWA/ampform/commits/main) for examples. This
   comes in especially handy when {ref}`drafting a release <develop:Release flow>`!
+
+<!-- prettier-ignore-start -->
+[^1]: See [ComPWA/.github#7](https://github.com/ComPWA/.github/issues/7) for a
+    discussion on these commit types.
+<!-- prettier-ignore-end -->
 
 ### Release flow
 
