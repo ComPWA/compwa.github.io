@@ -22,11 +22,19 @@ jobs:
       - uses: actions/setup-python@v4
         with:
           python-version: "3.8"
+      - uses: julia-actions/setup-julia@v1
+        with:
+          version: 1.7 # should match notebook kernel name
       - name: Install dependencies
         run: |
+          julia -e 'import Pkg; Pkg.add("IJulia")'
           python -m pip install --upgrade pip
           pip install -c .constraints/py3.8.txt .[doc] tox
           sudo apt-get -y install graphviz pandoc
+      - name: Install IJulia kernel
+        run: |
+          julia -e 'using IJulia; installkernel("julia")'
+        # cspell:ignore installkernel
       - name: Build documentation and run notebooks
         env:
           GITHUB_REPO: ${{ github.event.pull_request.head.repo.full_name }}

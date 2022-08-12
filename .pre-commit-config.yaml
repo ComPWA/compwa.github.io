@@ -53,6 +53,7 @@ repos:
       - id: check-dev-files
         args:
           - --no-cd
+          - --no-docs
           - --pin-requirements=bimonthly
       - id: fix-nbformat-version
       - id: format-setup-cfg
