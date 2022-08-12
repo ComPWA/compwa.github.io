@@ -33,7 +33,7 @@ jobs:
         if: steps.diff.outputs.modified-notebooks != ''
         run: |
           function run-nbmake() {
-            pytest --nbmake $(cat diff.txt)
+            (pytest --nbmake $(cat diff.txt))
             error_code=$?
             case $error_code in
               0|5) return 0;;
