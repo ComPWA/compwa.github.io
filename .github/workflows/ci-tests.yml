@@ -31,4 +31,11 @@ jobs:
           pip install -c .constraints/py3.8.txt .[test]
       - name: Run notebooks with pytest (diff only)
         if: steps.diff.outputs.modified-notebooks != ''
-        run: pytest --nbmake --nbmake-timeout=1200 $(cat diff.txt)
+        run: |
+          pytest --nbmake --nbmake-timeout=1200 $(cat diff.txt)
+          error_code=$?
+          case $error_code in
+            0|5) exit 0
+            *) exit $error_code
+          esac
+        # cspell:ignore esac
