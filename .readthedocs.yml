@@ -19,7 +19,8 @@ build:
     - |
       wget https://julialang-s3.julialang.org/bin/linux/x64/1.7/julia-1.7.3-linux-x86_64.tar.gz
     - tar xzf julia-1.7.3-linux-x86_64.tar.gz
-    - export PATH="$PWD/julia-1.7.3/bin:$PATH"
+    - mkdir ~/bin
+    - ln -s $PWD/julia-1.7.3/bin/julia ~/bin/julia
     - julia -e 'import Pkg; Pkg.add("IJulia")'
     - julia -e 'using IJulia; installkernel("julia")'
     # Install Python packages
