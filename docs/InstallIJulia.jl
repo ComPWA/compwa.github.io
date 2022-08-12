@@ -1,6 +1,3 @@
-"""
-Isolated script for installing an IJulia kernel on RTD.
-"""
 import Pkg
 Pkg.add("IJulia")
 
