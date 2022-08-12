@@ -1,5 +1,6 @@
 {
     "version": "0.2",
+    "allowCompoundWords": false,
     "enableFiletypes": [
         "git-commit",
         "julia",
@@ -55,6 +56,13 @@
         "typings"
     ],
     "language": "en-US",
+    "overrides": [
+        {
+            "allowCompoundWords": true,
+            "filename": "**/*.jl",
+            "languageId": "julia"
+        }
+    ],
     "words": [
         "aitchison",
         "ampform",
