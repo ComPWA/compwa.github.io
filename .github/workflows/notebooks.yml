@@ -22,7 +22,7 @@ jobs:
           sudo apt-get -y install graphviz
           pip install -c .constraints/py3.8.txt .[test]
       - run: |
-          pytest --nbmake --nbmake-timeout=1200 ${{ github.event.inputs.notebook-selector }}
+          (pytest --nbmake --nbmake-timeout=1200 ${{ github.event.inputs.notebook-selector }})
           error_code=$?
           case $error_code in
             0|5) exit 0
