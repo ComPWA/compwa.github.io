@@ -24,19 +24,11 @@ jobs:
         if: steps.diff.outputs.modified-notebooks != ''
         with:
           python-version: "3.8"
-      - uses: julia-actions/setup-julia@v1
-        with:
-          version: 1.7 # should match notebook kernel name
       - name: Install dependencies
         if: steps.diff.outputs.modified-notebooks != ''
         run: |
-          julia -e 'import Pkg; Pkg.add("IJulia")'
           sudo apt-get -y install graphviz
           pip install -c .constraints/py3.8.txt .[test]
-      - name: Install IJulia kernel
-        run: |
-          julia -e 'using IJulia; installkernel("julia")'
-        # cspell:ignore installkernel
       - name: Run notebooks with pytest (diff only)
         if: steps.diff.outputs.modified-notebooks != ''
         run: pytest --nbmake --nbmake-timeout=1200 $(cat diff.txt)
