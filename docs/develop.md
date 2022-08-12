@@ -280,6 +280,13 @@ sense though to commit both `Project.toml` and `Manifest.toml` files, so that th
 environment is reproducible for each commit (see also
 {ref}`develop:Pinning dependency versions`).
 
+:::{seealso}
+
+Have a look {ref}`here<develop:IJulia notebooks>` if you want to integrate Jupyter
+notebooks with Julia kernels into your {ref}`documentation<develop:Documentation>`.
+
+:::
+
 ## Automated coding conventions
 
 Where possible, we define and enforce our coding conventions through automated tools,
@@ -575,6 +582,75 @@ you're working, you can do so with
 [`jupyterlab-code-formatter`](https://ryantam626.github.io/jupyterlab_code_formatter/index.html),
 which is automatically
 {ref}`installed with the dev requirements <develop:Optional dependencies>`.
+
+:::
+
+#### IJulia notebooks
+
+It's also possible to execute and render Jupyter notebooks with Julia kernels. For this,
+{ref}`install Julia<develop:Julia>` and install
+[IJulia](https://julialang.github.io/IJulia.jl) _system-wide_ (not in a virtual
+environment):
+
+::::{tab-set}
+
+:::{tab-item} Shell
+
+```shell
+julia -e 'import Pkg; Pkg.add("IJulia")'
+```
+
+:::
+
+:::{tab-item} Julia
+
+```julia
+import Pkg
+Pkg.add("IJulia")
+```
+
+:::
+
+::::
+
+Next, install a Jupyter kernel:
+
+<!-- cspell:ignore installkernel -->
+
+::::{tab-set}
+
+:::{tab-item} Shell
+
+```shell
+julia -e 'using IJulia; installkernel("julia")'
+```
+
+:::
+
+:::{tab-item} Julia
+
+```julia
+using IJulia
+installkernel("julia")
+```
+
+:::
+
+::::
+
+and select it as kernel in the Jupyter notebook.
+
+:::{note}
+
+IJulia has to be installed system-wide to make Sphinx understand how to execute the
+notebook. You can however access the local environment from the notebook itself, e.g. by
+defining a cell:
+
+```julia
+using Pkg
+Pkg.activate(".")  # if environment is defined in this folder
+Pkg.instantiate()
+```
 
 :::
 
