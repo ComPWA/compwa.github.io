@@ -1,6 +1,9 @@
-# cspell:ignore installkernel
+"""
+Isolated script for installing an IJulia kernel on RTD.
+"""
 import Pkg
-using IJulia
-
 Pkg.add("IJulia")
-installkernel("julia")
+
+import IJulia
+IJulia.installkernel("julia")
+# cspell:ignore installkernel
