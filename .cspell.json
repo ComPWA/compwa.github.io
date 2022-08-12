@@ -81,6 +81,7 @@
         "lambdifying",
         "matplotlib",
         "miniconda",
+        "mkdir",
         "mypy",
         "numpy",
         "parametrizations",
