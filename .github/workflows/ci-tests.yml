@@ -37,6 +37,7 @@ jobs:
             pytest --nbmake $(cat diff.txt)
             error_code=$?
             set -e
+            echo "Pytest returned error code $error_code"
             case $error_code in
               0|5) return 0;;
               *) return $error_code;;
