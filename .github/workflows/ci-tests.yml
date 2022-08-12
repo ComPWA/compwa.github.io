@@ -32,8 +32,13 @@ jobs:
       - name: Run notebooks with pytest (diff only)
         if: steps.diff.outputs.modified-notebooks != ''
         run: |
-          case $(pytest --nbmake --nbmake-timeout=1200 $(cat diff.txt)) in
-            0|5) exit 0
-            *) exit $1
-          esac
+          function run-nbmake() {
+            pytest --nbmake --nbmake-timeout=1200 $(cat diff.txt)
+            error_code=$?
+            case $error_code in
+              0|5) return 0
+              *) return $error_code
+            esac
+          }
+          run-nbmake
         # cspell:ignore esac
