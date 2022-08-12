@@ -283,7 +283,8 @@ nb_execution_excludepatterns = [
 nb_output_stderr = "remove"
 
 nb_execution_mode = "off"
-if "EXECUTE_NB" in os.environ:
+EXECUTE_NB = "EXECUTE_NB" in os.environ
+if EXECUTE_NB:
     print("\033[93;1mWill run Jupyter notebooks!\033[0m")
     nb_execution_mode = "cache"
 
@@ -301,6 +302,12 @@ BINDER_LINK = (
 )
 myst_substitutions = {
     "branch": BRANCH,
+    "remark_019": (
+        "Notice how a new file [`019/Project.toml`](./019/Project.toml) and "
+        " [`019/Manifest.toml`](./019/Manifest.toml) are automatically generated."
+    )
+    if EXECUTE_NB
+    else "",
     "run_interactive": f"""
 ```{{margin}}
 Run this notebook [on Binder]({BINDER_LINK}) or

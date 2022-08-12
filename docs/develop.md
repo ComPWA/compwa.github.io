@@ -220,6 +220,73 @@ If you still have problems, it may be that certain dependencies have become redu
 In that case, trash the virtual environment and
 {ref}`create a new one <develop:Virtual environment>`.
 
+### Julia
+
+[Julia](https://julialang.org) is an upcoming programming language in High-Energy
+Physics. While ComPWA is mainly developed in Python, we try to taylor to new trends and
+are experimenting with Julia as well.
+
+Julia can be downloaded [here](https://julialang.org/downloads). To install Julia in
+Linux and Mac, you'll have to unpack the downloaded
+[tar](<https://en.wikipedia.org/wiki/Tar_(computing)>) file to a location that is easily
+accessible. Here's an example, where we also make the Julia executable available to the
+system:
+
+::::{tab-set}
+
+:::{tab-item} System-wide installation
+
+```shell
+cd ~/Downloads
+tar xzf julia-1.7.3-linux-x86_64.tar.gz
+sudo mv julia-1.7.3 /opt/
+sudo ln -s /opt/julia-1.7.3/bin/julia /usr/local/bin/julia
+```
+
+:::
+
+:::{tab-item} Home-folder installation
+
+```shell
+cd ~/Downloads
+tar xzf julia-1.7.3-linux-x86_64.tar.gz
+mkdir ~/opt ~/bin
+mv julia-1.7.3 ~/opt/
+ln -s ~/opt/julia-1.7.3/bin/julia ~/bin/julia
+```
+
+Make sure that `~/bin` is listed in the `PATH` environment variable, e.g. by updating it
+through your `.bashrc` file:
+
+```shell
+export PATH="~/bin:$PATH"
+```
+
+:::
+
+::::
+
+Just as in Python, it's safest to work with a
+{ref}`virtual environment <develop:Virtual environment>`. You can read more about Julia
+environments [here](https://pkgdocs.julialang.org/dev/environments). An environment is
+defined through a
+[`Project.toml` file](https://pkgdocs.julialang.org/dev/toml-files/#Project.toml) (which
+defines direct dependencies) and a
+[`Manifest.toml` file](https://pkgdocs.julialang.org/dev/toml-files/#Manifest.toml)
+(which exactly pins the installed versions of _all_ recursive dependencies). Don't touch
+these files―they are automatically managed by the
+[package manager](https://pkgdocs.julialang.org/dev/managing-packages). It does make
+sense though to commit both `Project.toml` and `Manifest.toml` files, so that the
+environment is reproducible for each commit (see also
+{ref}`develop:Pinning dependency versions`).
+
+:::{seealso}
+
+Have a look {ref}`here<develop:IJulia notebooks>` if you want to integrate Jupyter
+notebooks with Julia kernels into your {ref}`documentation<develop:Documentation>`.
+
+:::
+
 ## Automated coding conventions
 
 Where possible, we define and enforce our coding conventions through automated tools,
@@ -515,6 +582,75 @@ you're working, you can do so with
 [`jupyterlab-code-formatter`](https://ryantam626.github.io/jupyterlab_code_formatter/index.html),
 which is automatically
 {ref}`installed with the dev requirements <develop:Optional dependencies>`.
+
+:::
+
+#### IJulia notebooks
+
+It's also possible to execute and render Jupyter notebooks with Julia kernels. For this,
+{ref}`install Julia<develop:Julia>` and install
+[IJulia](https://julialang.github.io/IJulia.jl) _system-wide_ (not in a virtual
+environment):
+
+::::{tab-set}
+
+:::{tab-item} Shell
+
+```shell
+julia -e 'import Pkg; Pkg.add("IJulia")'
+```
+
+:::
+
+:::{tab-item} Julia
+
+```julia
+import Pkg
+Pkg.add("IJulia")
+```
+
+:::
+
+::::
+
+Next, install a Jupyter kernel:
+
+<!-- cspell:ignore installkernel -->
+
+::::{tab-set}
+
+:::{tab-item} Shell
+
+```shell
+julia -e 'using IJulia; installkernel("julia")'
+```
+
+:::
+
+:::{tab-item} Julia
+
+```julia
+using IJulia
+installkernel("julia")
+```
+
+:::
+
+::::
+
+and select it as kernel in the Jupyter notebook.
+
+:::{note}
+
+IJulia has to be installed system-wide to make Sphinx understand how to execute the
+notebook. You can however access the local environment from the notebook itself, e.g. by
+defining a cell:
+
+```julia
+using Pkg
+Pkg.activate(".")  # if environment is defined in this folder
+Pkg.instantiate()
+```
 
 :::
 

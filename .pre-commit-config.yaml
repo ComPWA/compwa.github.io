@@ -48,11 +48,12 @@ repos:
           )$
 
   - repo: https://github.com/ComPWA/repo-maintenance
-    rev: 0.0.138
+    rev: 0.0.142
     hooks:
       - id: check-dev-files
         args:
           - --no-cd
+          - --no-docs
           - --pin-requirements=bimonthly
       - id: fix-nbformat-version
       - id: format-setup-cfg
@@ -130,6 +131,7 @@ repos:
             metadata.toc-showmarkdowntxt
             metadata.toc-showtags
             metadata.varInspector
+            metadata.vscode
 
   - repo: https://github.com/pre-commit/mirrors-prettier
     rev: v2.7.1
