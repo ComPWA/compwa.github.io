@@ -22,8 +22,16 @@ jobs:
           sudo apt-get -y install graphviz
           pip install -c .constraints/py3.8.txt .[test]
       - run: |
-          case $(pytest --nbmake ${{ github.event.inputs.notebook-selector }}) in
-            0|5) exit 0
-            *) exit $1
-          esac
+          function run-nbmake() {
+            set +e
+            pytest --nbmake ${{ github.event.inputs.notebook-selector }}
+            error_code=$?
+            set -e
+            echo "Pytest returned error code $error_code"
+            case $error_code in
+              0|5) return 0;;
+              *) return $error_code;;
+            esac
+          }
+          run-nbmake
         # cspell:ignore esac
