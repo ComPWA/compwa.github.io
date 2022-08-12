@@ -21,8 +21,7 @@ build:
     - tar xzf julia-1.7.3-linux-x86_64.tar.gz
     - mkdir bin
     - ln -s $PWD/julia-1.7.3/bin/julia bin/julia
-    - ./bin/julia -e 'import Pkg; Pkg.add("IJulia")'
-    - ./bin/julia -e 'using IJulia; installkernel("julia")'
+    - ./bin/julia docs/InstallIJulia.jl
     # Install Python packages
     - pip install -e .[doc] -c .constraints/py3.8.txt
     - cat docs/conf.py
