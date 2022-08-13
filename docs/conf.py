@@ -7,6 +7,7 @@ https://www.sphinx-doc.org/en/master/usage/configuration.html
 
 import os
 import re
+import shutil
 import sys
 
 import requests
@@ -258,6 +259,10 @@ linkcheck_ignore = [
 ]
 
 # Settings for myst_nb
+JULIA_NOTEBOOKS = [
+    "report/019*",
+]
+
 nb_execution_timeout = -1
 nb_execution_excludepatterns = [
     "adr/001/*",
@@ -280,6 +285,10 @@ nb_execution_excludepatterns = [
     "report/017*",
     "report/018*",
 ]
+if shutil.which("julia") is None:
+    nb_execution_excludepatterns.extend(JULIA_NOTEBOOKS)
+
+
 nb_output_stderr = "remove"
 
 nb_execution_mode = "off"
