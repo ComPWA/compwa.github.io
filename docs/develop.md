@@ -652,6 +652,8 @@ Pkg.activate(".")  # if environment is defined in this folder
 Pkg.instantiate()
 ```
 
+See {doc}`/report/019` for an example.
+
 :::
 
 ## Collaboration
