@@ -268,14 +268,14 @@ export PATH="~/bin:$PATH"
 
 Just as in Python, it's safest to work with a
 {ref}`virtual environment <develop:Virtual environment>`. You can read more about Julia
-environments [here](https://pkgdocs.julialang.org/dev/environments). An environment is
+environments [here](https://pkgdocs.julialang.org/v1/environments). An environment is
 defined through a
-[`Project.toml` file](https://pkgdocs.julialang.org/dev/toml-files/#Project.toml) (which
+[`Project.toml` file](https://pkgdocs.julialang.org/v1/toml-files/#Project.toml) (which
 defines direct dependencies) and a
-[`Manifest.toml` file](https://pkgdocs.julialang.org/dev/toml-files/#Manifest.toml)
+[`Manifest.toml` file](https://pkgdocs.julialang.org/v1/toml-files/#Manifest.toml)
 (which exactly pins the installed versions of _all_ recursive dependencies). Don't touch
 these files―they are automatically managed by the
-[package manager](https://pkgdocs.julialang.org/dev/managing-packages). It does make
+[package manager](https://pkgdocs.julialang.org/v1/managing-packages). It does make
 sense though to commit both `Project.toml` and `Manifest.toml` files, so that the
 environment is reproducible for each commit (see also
 {ref}`develop:Pinning dependency versions`).
