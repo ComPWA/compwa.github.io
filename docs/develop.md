@@ -268,14 +268,14 @@ export PATH="~/bin:$PATH"
 
 Just as in Python, it's safest to work with a
 {ref}`virtual environment <develop:Virtual environment>`. You can read more about Julia
-environments [here](https://pkgdocs.julialang.org/dev/environments). An environment is
+environments [here](https://pkgdocs.julialang.org/v1/environments). An environment is
 defined through a
-[`Project.toml` file](https://pkgdocs.julialang.org/dev/toml-files/#Project.toml) (which
+[`Project.toml` file](https://pkgdocs.julialang.org/v1/toml-files/#Project.toml) (which
 defines direct dependencies) and a
-[`Manifest.toml` file](https://pkgdocs.julialang.org/dev/toml-files/#Manifest.toml)
+[`Manifest.toml` file](https://pkgdocs.julialang.org/v1/toml-files/#Manifest.toml)
 (which exactly pins the installed versions of _all_ recursive dependencies). Don't touch
 these files―they are automatically managed by the
-[package manager](https://pkgdocs.julialang.org/dev/managing-packages). It does make
+[package manager](https://pkgdocs.julialang.org/v1/managing-packages). It does make
 sense though to commit both `Project.toml` and `Manifest.toml` files, so that the
 environment is reproducible for each commit (see also
 {ref}`develop:Pinning dependency versions`).
@@ -652,6 +652,8 @@ Pkg.activate(".")  # if environment is defined in this folder
 Pkg.instantiate()
 ```
 
+See {doc}`/report/019` for an example.
+
 :::
 
 ## Collaboration
@@ -769,16 +771,16 @@ not have any CI or code review restrictions. We call this a "feature branch".
 
   <!-- markdownlint-disable -->
 
-  | [Commit type](https://www.conventionalcommits.org/en/v1.0.0/#specification) | [Repository label](https://github.com/organizations/ComPWA/settings/repository-defaults) | Description                                         |
-  | :-------------------------------------------------------------------------: | :--------------------------------------------------------------------------------------- | :-------------------------------------------------- |
-  |                                   `FEAT`                                    | ![#C2E0C6](https://via.placeholder.com/15/C2E0C6/C2E0C6.png) ✨ Feature                  | New feature added to the package                    |
-  |                                    `ENH`                                    | ![#C2E0C6](https://via.placeholder.com/15/C2E0C6/C2E0C6.png) ⚙️ Enhancement              | Improvements and optimizations of existing features |
-  |                                    `FIX`                                    | ![#e11d21](https://via.placeholder.com/15/e11d21/e11d21.png) 🐛 Bug                      | Bug has been fixed                                  |
-  |                                   `BREAK`                                   | ![#F9D0C4](https://via.placeholder.com/15/F9D0C4/F9D0C4.png) ⚠️ Interface                | Breaking changes to the API                         |
-  |                                 `BEHAVIOR`                                  | ![#F9D0C4](https://via.placeholder.com/15/F9D0C4/F9D0C4.png) ❗ Behavior                 | Changes that may affect the framework output        |
-  |                                    `DOC`                                    | ![#bfd4f2](https://via.placeholder.com/15/bfd4f2/bfd4f2.png) 📝 Docs                     | Improvements or additions to documentation          |
-  |                                   `MAINT`                                   | ![#FFCD8F](https://via.placeholder.com/15/FFCD8F/FFCD8F.png) 🔨 Maintenance              | Maintenance and upkeep improvements                 |
-  |                                    `DX`                                     | ![#FEF2C0](https://via.placeholder.com/15/FEF2C0/FEF2C0.png) 🖱️ DX                       | Improvements to the Developer Experience            |
+  | [Commit type](https://www.conventionalcommits.org/en/v1.0.0/#specification) | [Repository label](https://github.com/organizations/ComPWA/settings/repository-defaults)                                                                                                             | Description                                         |
+  | :-------------------------------------------------------------------------: | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :-------------------------------------------------- |
+  |                                   `FEAT`                                    | ![#C2E0C6](https://via.placeholder.com/15/C2E0C6/C2E0C6.png) [✨ Feature](https://github.com/search?o=desc&s=created&type=Issues&q=user%3AComPWA+label%3A%22%E2%9C%A8%20Feature%22)                  | New feature added to the package                    |
+  |                                    `ENH`                                    | ![#C2E0C6](https://via.placeholder.com/15/C2E0C6/C2E0C6.png) [⚙️ Enhancement](https://github.com/search?o=desc&s=created&type=Issues&q=user%3AComPWA+label%3A%22%E2%9A%99%EF%B8%8F%20Enhancement%22) | Improvements and optimizations of existing features |
+  |                                    `FIX`                                    | ![#e11d21](https://via.placeholder.com/15/e11d21/e11d21.png) [🐛 Bug](https://github.com/search?o=desc&s=created&type=Issues&q=user%3AComPWA+label%3A%22%F0%9F%90%9B+Bug%22)                         | Bug has been fixed                                  |
+  |                                   `BREAK`                                   | ![#F9D0C4](https://via.placeholder.com/15/F9D0C4/F9D0C4.png) [⚠️ Interface](https://github.com/search?o=desc&s=created&type=Issues&q=user%3AComPWA+label%3A%22%E2%9A%A0%EF%B8%8F%20Interface%22)     | Breaking changes to the API                         |
+  |                                 `BEHAVIOR`                                  | ![#F9D0C4](https://via.placeholder.com/15/F9D0C4/F9D0C4.png) [❗ Behavior](https://github.com/search?o=desc&s=created&type=Issues&q=user%3AComPWA+label%3A%22%E2%9D%97%20Behavior%22)                | Changes that may affect the framework output        |
+  |                                    `DOC`                                    | ![#bfd4f2](https://via.placeholder.com/15/bfd4f2/bfd4f2.png) [📝 Docs](https://github.com/search?o=desc&s=created&type=Issues&q=user%3AComPWA+label%3A%22%F0%9F%93%9D%20Docs%22)                     | Improvements or additions to documentation          |
+  |                                   `MAINT`                                   | ![#FFCD8F](https://via.placeholder.com/15/FFCD8F/FFCD8F.png) [🔨 Maintenance](https://github.com/search?o=desc&s=created&type=Issues&q=user%3AComPWA+label%3A%22%F0%9F%94%A8%20Maintenance%22)       | Maintenance and upkeep improvements                 |
+  |                                    `DX`                                     | ![#FEF2C0](https://via.placeholder.com/15/FEF2C0/FEF2C0.png) [🖱️ DX](https://github.com/search?o=desc&s=created&type=Issues&q=user%3AComPWA+label%3A%22%F0%9F%96%B1%EF%B8%8F%20DX%22)                | Improvements to the Developer Experience            |
 
   <!-- markdownlint-enable -->
 
