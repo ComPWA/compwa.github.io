@@ -1,6 +1,2 @@
-# Hide rendered DOT files
-*
-!/*.*
-
 *.png
 *.svg
