@@ -302,7 +302,7 @@ nb_output_stderr = "remove"
 JULIA_NOTEBOOKS = [
     "report/019*",
 ]
-if shutil.which("julia") is None:
+if "READTHEDOCS" not in os.environ and shutil.which("julia") is None:
     nb_execution_excludepatterns.extend(JULIA_NOTEBOOKS)
 
 # Settings for myst-parser
