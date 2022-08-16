@@ -9,6 +9,7 @@ import os
 import re
 import shutil
 import sys
+from functools import lru_cache
 
 import requests
 
@@ -261,11 +262,16 @@ linkcheck_ignore = [
 # Settings for myst_nb
 def get_execution_mode() -> str:
     if "FORCE_EXECUTE_NB" in os.environ:
-        print("\033[93;1mWill run ALL Jupyter notebooks!\033[0m")
+        print_once("\033[93;1mWill run ALL Jupyter notebooks!\033[0m")
         return "force"
     if "EXECUTE_NB" in os.environ:
         return "cache"
     return "off"
+
+
+@lru_cache(maxsize=None)
+def print_once(message: str) -> None:
+    print(message)
 
 
 nb_execution_mode = get_execution_mode()
@@ -296,7 +302,7 @@ nb_output_stderr = "remove"
 JULIA_NOTEBOOKS = [
     "report/019*",
 ]
-if shutil.which("julia") is None:
+if "READTHEDOCS" not in os.environ and shutil.which("julia") is None:
     nb_execution_excludepatterns.extend(JULIA_NOTEBOOKS)
 
 # Settings for myst-parser
