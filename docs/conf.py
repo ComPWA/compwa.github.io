@@ -7,7 +7,9 @@ https://www.sphinx-doc.org/en/master/usage/configuration.html
 
 import os
 import re
+import shutil
 import sys
+from functools import lru_cache
 
 import requests
 
@@ -84,7 +86,7 @@ extensions = [
     "sphinx_comments",
     "sphinx_copybutton",
     "sphinx_issues",
-    "sphinx_panels",
+    "sphinx_design",
     "sphinx_thebe",
     "sphinx_togglebutton",
     "sphinxcontrib.bibtex",
@@ -131,7 +133,6 @@ html_sourcelink_suffix = ""
 html_static_path = ["_static"]
 html_theme = "sphinx_book_theme"
 html_theme_options = {
-    "extra_navbar": "",
     "repository_url": f"https://github.com/ComPWA/{REPO_NAME}",
     "repository_branch": BRANCH,
     "path_to_docs": "docs",
@@ -149,7 +150,6 @@ html_theme_options = {
     "show_toc_level": 2,
 }
 html_title = "Common Partial Wave Analysis Project"
-panels_add_bootstrap_css = False  # wider pages
 pygments_style = "sphinx"
 todo_include_todos = False
 viewcode_follow_imported_members = True
@@ -200,8 +200,7 @@ def get_minor_version(package_name: str) -> str:
     matches = re.match(r"^([0-9]+\.[0-9]+).*$", installed_version)
     if matches is None:
         raise ValueError(
-            "Could not find documentation for"
-            f" {package_name} v{installed_version}"
+            f"Could not find documentation for {package_name} v{installed_version}"
         )
     return matches[1]
 
@@ -255,12 +254,28 @@ copybutton_prompt_text = r">>> |\.\.\. "  # doctest
 linkcheck_anchors = False
 linkcheck_ignore = [
     "http://127.0.0.1:8000",
-    "https://open.vscode.dev",
+    "https://github.com/organizations/ComPWA/settings/repository-defaults",  # private
     "https://github.com/orgs/ComPWA/projects/5",  # private
     "https://github.com/orgs/ComPWA/projects/6",  # private
+    "https://open.vscode.dev",
 ]
 
 # Settings for myst_nb
+def get_execution_mode() -> str:
+    if "FORCE_EXECUTE_NB" in os.environ:
+        print_once("\033[93;1mWill run ALL Jupyter notebooks!\033[0m")
+        return "force"
+    if "EXECUTE_NB" in os.environ:
+        return "cache"
+    return "off"
+
+
+@lru_cache(maxsize=None)
+def print_once(message: str) -> None:
+    print(message)
+
+
+nb_execution_mode = get_execution_mode()
 nb_execution_timeout = -1
 nb_execution_excludepatterns = [
     "adr/001/*",
@@ -281,13 +296,15 @@ nb_execution_excludepatterns = [
     "report/015*",
     "report/016*",
     "report/017*",
+    "report/018*",
 ]
 nb_output_stderr = "remove"
 
-nb_execution_mode = "off"
-if "EXECUTE_NB" in os.environ:
-    print("\033[93;1mWill run Jupyter notebooks!\033[0m")
-    nb_execution_mode = "cache"
+JULIA_NOTEBOOKS = [
+    "report/019*",
+]
+if "READTHEDOCS" not in os.environ and shutil.which("julia") is None:
+    nb_execution_excludepatterns.extend(JULIA_NOTEBOOKS)
 
 # Settings for myst-parser
 myst_enable_extensions = [
@@ -298,9 +315,17 @@ myst_enable_extensions = [
     "substitution",
 ]
 myst_heading_anchors = 4
-BINDER_LINK = f"https://mybinder.org/v2/gh/ComPWA/{REPO_NAME}/{BRANCH}?filepath=docs/usage"
+BINDER_LINK = (
+    f"https://mybinder.org/v2/gh/ComPWA/{REPO_NAME}/{BRANCH}?filepath=docs/usage"
+)
 myst_substitutions = {
     "branch": BRANCH,
+    "remark_019": (
+        "Notice how a new file [`019/Project.toml`](./019/Project.toml) and "
+        " [`019/Manifest.toml`](./019/Manifest.toml) are automatically generated."
+    )
+    if get_execution_mode() != "off"
+    else "",
     "run_interactive": f"""
 ```{{margin}}
 Run this notebook [on Binder]({BINDER_LINK}) or
@@ -361,9 +386,7 @@ needs_services = {
 }
 
 ON_RTD = os.environ.get("READTHEDOCS") is not None
-PLANTUML_PATH = os.path.join(
-    os.path.dirname(__file__), "utils", "plantuml.jar"
-)
+PLANTUML_PATH = os.path.join(os.path.dirname(__file__), "utils", "plantuml.jar")
 if not os.path.exists(PLANTUML_PATH):
     print("\033[93;1mDowloading plantuml\033[0m")
     online_content = requests.get(
@@ -428,9 +451,7 @@ class MyStyle(UnsrtStyle):
         super().__init__(abbreviate_names=True)
 
     def format_names(self, role, as_sentence=True) -> Node:
-        formatted_names = names(
-            role, sep=", ", sep2=" and ", last_sep=", and "
-        )
+        formatted_names = names(role, sep=", ", sep2=" and ", last_sep=", and ")
         if as_sentence:
             return sentence[formatted_names]
         else:

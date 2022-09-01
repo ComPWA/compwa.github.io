@@ -19,12 +19,15 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v3
-      - name: Set up Python 3.8
-        uses: actions/setup-python@v3
+      - uses: actions/setup-python@v4
         with:
           python-version: "3.8"
+      - uses: julia-actions/setup-julia@v1
+        with:
+          version: 1.7 # should match notebook kernel name
       - name: Install dependencies
         run: |
+          julia docs/InstallIJulia.jl
           python -m pip install --upgrade pip
           pip install -c .constraints/py3.8.txt .[doc] tox
           sudo apt-get -y install graphviz pandoc
@@ -39,6 +42,14 @@ jobs:
         # cspell:ignore printf
         run: |
           for log_file in $(ls docs/_build/html/reports/*); do
+            for i in $(seq 6); do echo; done
+            printf '%45s\n' | tr ' ' =
+            echo "$log_file"
+            printf '%45s\n' | tr ' ' =
+            echo
+            cat "$log_file"
+          done
+          for log_file in $(ls /tmp/sphinx-*.log); do
             for i in $(seq 6); do echo; done
             printf '%45s\n' | tr ' ' =
             echo "$log_file"

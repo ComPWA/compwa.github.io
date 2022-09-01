@@ -1,7 +1,9 @@
 {
     "version": "0.2",
+    "allowCompoundWords": false,
     "enableFiletypes": [
         "git-commit",
+        "julia",
         "jupyter"
     ],
     "flagWords": [
@@ -44,6 +46,9 @@
         "docs/adr/*/*",
         "docs/conf.py",
         "labels.toml",
+        "Makefile",
+        "Manifest.toml",
+        "Project.toml",
         "pyproject.toml",
         "pyrightconfig.json",
         "pytest.ini",
@@ -54,6 +59,13 @@
         "typings"
     ],
     "language": "en-US",
+    "overrides": [
+        {
+            "allowCompoundWords": true,
+            "filename": "**/*.jl",
+            "languageId": "julia"
+        }
+    ],
     "words": [
         "aitchison",
         "ampform",
@@ -82,6 +94,7 @@
         "lambdifying",
         "matplotlib",
         "miniconda",
+        "mkdir",
         "mypy",
         "numpy",
         "parametrizations",
@@ -145,6 +158,7 @@
         "cstride",
         "darkred",
         "dasharray",
+        "deepcopy",
         "displaystyle",
         "docstrings",
         "dotprint",
@@ -163,6 +177,7 @@
         "getitem",
         "getsource",
         "graphviz",
+        "griddata",
         "gridspec",
         "hasattr",
         "heatmap",
@@ -170,6 +185,7 @@
         "hspace",
         "imag",
         "infty",
+        "ioff",
         "iplt",
         "ipykernel",
         "ipympl",
@@ -194,6 +210,7 @@
         "linspace",
         "livereveal",
         "lstrip",
+        "MAINT",
         "marangotto",
         "markdownlint",
         "mathbb",
@@ -228,6 +245,7 @@
         "pmatrix",
         "preorder",
         "prereleased",
+        "println",
         "py's",
         "pycode",
         "pygments",

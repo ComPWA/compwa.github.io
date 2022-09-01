@@ -14,7 +14,7 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@master
-      - uses: actions/setup-python@v3
+      - uses: actions/setup-python@v4
         with:
           python-version: "3.8"
       - name: Install dependencies
@@ -22,4 +22,16 @@ jobs:
           sudo apt-get -y install graphviz
           pip install -c .constraints/py3.8.txt .[test]
       - run: |
-          pytest --nbmake --nbmake-timeout=900 ${{ github.event.inputs.notebook-selector }}
+          function run-nbmake() {
+            set +e
+            pytest --nbmake ${{ github.event.inputs.notebook-selector }}
+            error_code=$?
+            set -e
+            echo "Pytest returned error code $error_code"
+            case $error_code in
+              0|5) return 0;;
+              *) return $error_code;;
+            esac
+          }
+          run-nbmake
+        # cspell:ignore esac
