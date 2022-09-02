@@ -664,6 +664,13 @@ and developer set-up with GitHub issues (see for instance
 [here](https://github.com/ComPWA/ampform/issues)). This is also the place where you can
 [report bugs](https://github.com/ComPWA/ampform/issues/new/choose).
 
+:::{tip}
+
+If you are new to working with GitHub, have a look at the tutorials on
+[GitHub Skills](https://skills.github.com).
+
+:::
+
 ### Issue management
 
 We keep track of issue dependencies, time estimates, planning, pipeline statuses, et
