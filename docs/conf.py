@@ -335,6 +335,12 @@ modify the parameters.
 """,
 }
 myst_update_mathjax = False
+suppress_warnings = [
+    # Skipping unknown output mime type: application/json
+    # https://github.com/ComPWA/compwa-org/runs/8157614768?check_suite_focus=true#step:6:121
+    # Better solution would be https://github.com/tqdm/tqdm/issues/1364
+    "mystnb.unknown_mime_type",
+]
 
 # Settings for sphinx_comments
 comments_config = {
