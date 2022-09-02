@@ -64,8 +64,8 @@ the developer tools.
 
 [Conda/Anaconda](https://www.anaconda.com) can be installed without administrator
 rights, see instructions on
-[this page](https://conda.io/projects/conda/en/latest/user-guide/install/index.html). In
-addition, Conda can install more than just Python packages.
+[this page](https://docs.conda.io/projects/conda/en/latest/user-guide/install/index.html).
+In addition, Conda can install more than just Python packages.
 
 All packages {ref}`maintained by the ComPWA organization <index:Main projects>` provide
 a
@@ -663,6 +663,13 @@ and [GitHub](https://github.com). We keep track of issues with the code, documen
 and developer set-up with GitHub issues (see for instance
 [here](https://github.com/ComPWA/ampform/issues)). This is also the place where you can
 [report bugs](https://github.com/ComPWA/ampform/issues/new/choose).
+
+:::{tip}
+
+If you are new to working with GitHub, have a look at the tutorials on
+[GitHub Skills](https://skills.github.com).
+
+:::
 
 ### Issue management
 
