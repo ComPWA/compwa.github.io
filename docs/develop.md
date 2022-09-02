@@ -64,8 +64,8 @@ the developer tools.
 
 [Conda/Anaconda](https://www.anaconda.com) can be installed without administrator
 rights, see instructions on
-[this page](https://conda.io/projects/conda/en/latest/user-guide/install/index.html). In
-addition, Conda can install more than just Python packages.
+[this page](https://docs.conda.io/projects/conda/en/latest/user-guide/install/index.html).
+In addition, Conda can install more than just Python packages.
 
 All packages {ref}`maintained by the ComPWA organization <index:Main projects>` provide
 a
