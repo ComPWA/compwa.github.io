@@ -214,6 +214,7 @@ intersphinx_mapping = {
     "attrs": (f"https://www.attrs.org/en/{get_version('attrs')}", None),
     "expertsystem": ("https://expertsystem.readthedocs.io/en/stable", None),
     "graphviz": ("https://graphviz.readthedocs.io/en/stable", None),
+    "hepstats": ("https://scikit-hep.org/hepstats", None),
     "ipywidgets": (
         f"https://ipywidgets.readthedocs.io/en/{get_version('ipywidgets')}",
         None,
