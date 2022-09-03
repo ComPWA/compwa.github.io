@@ -160,6 +160,7 @@
         "dasharray",
         "deepcopy",
         "displaystyle",
+        "docnb",
         "docstrings",
         "dotprint",
         "einsum",
