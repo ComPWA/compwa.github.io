@@ -48,7 +48,7 @@ repos:
           )$
 
   - repo: https://github.com/ComPWA/repo-maintenance
-    rev: 0.0.145
+    rev: 0.0.146
     hooks:
       - id: check-dev-files
         args:
@@ -144,7 +144,7 @@ repos:
       - id: pyright
 
   - repo: https://github.com/asottile/pyupgrade
-    rev: v2.38.4
+    rev: v3.0.0
     hooks:
       - id: pyupgrade
         args:
