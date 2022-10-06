@@ -277,9 +277,6 @@ def print_once(message: str) -> None:
     print(message)
 
 
-nb_execution_mode = get_execution_mode()
-nb_execution_show_tb = True
-nb_execution_timeout = -1
 nb_execution_excludepatterns = [
     "adr/001/*",
     "adr/002/*",
@@ -303,7 +300,9 @@ nb_execution_excludepatterns = [
     "report/020*",
     "report/021*",
 ]
+nb_execution_mode = get_execution_mode()
 nb_execution_show_tb = True
+nb_execution_timeout = -1
 nb_output_stderr = "remove"
 
 JULIA_NOTEBOOKS = [
