@@ -14,15 +14,12 @@ build:
     - graphviz
   tools:
     python: "3.8"
-  commands:
-    # Install Julia and IJulia kernel
-    - |
-      wget https://julialang-s3.julialang.org/bin/linux/x64/1.7/julia-1.7.3-linux-x86_64.tar.gz
-    - tar xzf julia-1.7.3-linux-x86_64.tar.gz
-    - mkdir bin
-    - ln -s $PWD/julia-1.7.3/bin/julia bin/julia
-    - ./bin/julia docs/InstallIJulia.jl
-    # Install Python packages
-    - pip install -e .[doc] -c .constraints/py3.8.txt
-    - cat docs/conf.py
-    - sphinx-build --keep-going -TW -b html docs/ _readthedocs/html
+  jobs:
+    post_install:
+      - |
+        wget https://julialang-s3.julialang.org/bin/linux/x64/1.7/julia-1.7.3-linux-x86_64.tar.gz
+      - tar xzf julia-1.7.3-linux-x86_64.tar.gz
+      - mkdir bin
+      - ln -s $PWD/julia-1.7.3/bin/julia bin/julia
+      - ./bin/julia docs/InstallIJulia.jl
+      - pip install -e .[doc] -c .constraints/py3.8.txt
