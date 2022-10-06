@@ -255,6 +255,7 @@ copybutton_prompt_text = r">>> |\.\.\. "  # doctest
 linkcheck_anchors = False
 linkcheck_ignore = [
     "http://127.0.0.1:8000",
+    "https://atom.io",  # often instable
     "https://github.com/organizations/ComPWA/settings/repository-defaults",  # private
     "https://github.com/orgs/ComPWA/projects/5",  # private
     "https://github.com/orgs/ComPWA/projects/6",  # private
@@ -277,6 +278,7 @@ def print_once(message: str) -> None:
 
 
 nb_execution_mode = get_execution_mode()
+nb_execution_show_tb = True
 nb_execution_timeout = -1
 nb_execution_excludepatterns = [
     "adr/001/*",
