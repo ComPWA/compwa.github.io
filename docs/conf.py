@@ -301,6 +301,7 @@ nb_execution_excludepatterns = [
     "report/017*",
     "report/018*",
     "report/020*",
+    "report/021*",
 ]
 nb_execution_show_tb = True
 nb_output_stderr = "remove"
