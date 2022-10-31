@@ -182,6 +182,7 @@
         "fontcolor",
         "fontsize",
         "framealpha",
+        "funcs",
         "getitem",
         "getsource",
         "graphviz",
