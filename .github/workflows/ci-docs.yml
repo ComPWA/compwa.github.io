@@ -18,35 +18,25 @@ jobs:
     name: Build documentation and run notebooks
     runs-on: ubuntu-20.04
     steps:
-      - uses: actions/checkout@v2
-      - name: Set up Python 3.8
-        uses: actions/setup-python@v2
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v4
         with:
           python-version: "3.8"
+      - uses: julia-actions/setup-julia@v1
+        with:
+          version: 1.7 # should match notebook kernel name
       - name: Install dependencies
         run: |
+          julia docs/InstallIJulia.jl
           python -m pip install --upgrade pip
-          pip install -c .constraints/py3.8.txt .[doc]
+          pip install -c .constraints/py3.8.txt .[doc] tox
           sudo apt-get -y install graphviz pandoc
       - name: Build documentation and run notebooks
-        working-directory: docs
         env:
-          EXECUTE_NB: YES
+          GITHUB_REPO: ${{ github.event.pull_request.head.repo.full_name }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: make html
-      - name: Print error logs with color
-        if: ${{ failure() }}
-        # cspell:ignore printf
-        run: |
-          for log_file in $(ls docs/_build/html/reports/*); do
-            for i in $(seq 6); do echo; done
-            printf '%45s\n' | tr ' ' =
-            echo "$log_file"
-            printf '%45s\n' | tr ' ' =
-            echo
-            cat "$log_file"
-          done
-      - uses: actions/upload-artifact@v2
+        run: tox -e docnb
+      - uses: actions/upload-artifact@v3
         if: ${{ always() }}
         with:
           name: html

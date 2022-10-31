@@ -2,18 +2,36 @@ name: Run all notebooks
 
 on:
   workflow_dispatch:
+    inputs:
+      notebook-selector:
+        description: Relative path to notebooks
+        required: false
+        type: string
 
 jobs:
   pytest:
     name: Test all notebooks
     runs-on: ubuntu-20.04
     steps:
-      - uses: actions/checkout@master
-      - uses: actions/setup-python@master
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v4
         with:
           python-version: "3.8"
       - name: Install dependencies
         run: |
           sudo apt-get -y install graphviz
           pip install -c .constraints/py3.8.txt .[test]
-      - run: pytest --nbmake
+      - run: |
+          function run-nbmake() {
+            set +e
+            pytest --nbmake ${{ github.event.inputs.notebook-selector }}
+            error_code=$?
+            set -e
+            echo "Pytest returned error code $error_code"
+            case $error_code in
+              0|5) return 0;;
+              *) return $error_code;;
+            esac
+          }
+          run-nbmake
+        # cspell:ignore esac

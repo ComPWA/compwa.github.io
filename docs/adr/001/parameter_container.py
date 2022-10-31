@@ -1,11 +1,11 @@
-import attr
+from attrs import define, frozen
 
 
 # the new FitParameter class would have this structure
-@attr.s
+@define
 class Parameter:
-    value: float = attr.ib()
-    fix: bool = attr.ib(default=False)
+    value: float
+    fix: bool = False
 
 
 # the new FitParameters collection would have such a structure
@@ -20,9 +20,9 @@ class Dynamics:
     pass
 
 
-@attr.s
+@frozen
 class CustomDynamics(Dynamics):
-    par: str = attr.ib(on_setattr=attr.setters.frozen, kw_only=True)
+    par: str
 
 
 dyn1 = CustomDynamics(par="par1")

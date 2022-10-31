@@ -1,17 +1,11 @@
-# cspell:ignore entrypoints
 name: compwa-org
 channels:
   - defaults
-  - conda-forge
 dependencies:
-  - appmode
-  - entrypoints==0.4
-  - graphviz # for binder
-  - pip
   - python==3.8.*
+  - pip
+  - graphviz # for binder
   - pip:
-      - notebook # https://github.com/kirbs-/hide_code/issues/97
-      - hide-code
       - |
         -c .constraints/py3.8.txt
         -e .[dev]

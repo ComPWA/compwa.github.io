@@ -1,8 +1,0 @@
-#!/bin/bash
-# cspell:ignore nbextension serverextension splitcell
-set -e
-jupyter contrib nbextension install --user
-jupyter nbextension install --py hide_code --user
-jupyter nbextension enable --py hide_code --user
-jupyter nbextension enable splitcell/splitcell --user
-jupyter serverextension enable --py hide_code --user

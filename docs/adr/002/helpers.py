@@ -1,4 +1,3 @@
-# pylint: disable=import-error
 from __future__ import annotations
 
 import sympy as sp  # pyright: reportMissingImports=false
@@ -47,13 +46,11 @@ def two_body_momentum_squared(
     m_d: sp.Symbol, m_a: sp.Symbol, m_b: sp.Symbol
 ) -> sp.Expr:
     return (
-        (m_d**2 - (m_a + m_b) ** 2)
-        * (m_d**2 - (m_a - m_b) ** 2)
-        / (4 * m_d**2)
+        (m_d**2 - (m_a + m_b) ** 2) * (m_d**2 - (m_a - m_b) ** 2) / (4 * m_d**2)
     )
 
 
-def determine_attached_final_state(  # pylint: disable=unused-argument
+def determine_attached_final_state(
     graph: StateTransitionGraph,
     edge_id: int,
 ) -> list[int]:

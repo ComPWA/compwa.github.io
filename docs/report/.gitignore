@@ -1,6 +1,8 @@
-# Hide rendered DOT files
-*
-!/*.*
-
+*.csv
 *.png
 *.svg
+
+002-*-tree
+002-*-graph
+013-graph?
+018-graph

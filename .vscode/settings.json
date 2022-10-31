@@ -19,7 +19,7 @@
   },
   "cSpell.enabled": true,
   "editor.formatOnSave": true,
-  "editor.rulers": [80],
+  "editor.rulers": [88],
   "editor.unicodeHighlight.allowedCharacters": {
     "ν": true,
     "σ": true
@@ -35,19 +35,24 @@
     ".github/workflows/ci-docs.yml",
     ".github/workflows/linkcheck.yml"
   ],
+  "json.schemas": [
+    {
+      "fileMatch": [".zenodo.json"],
+      "url": "https://zenodo.org/schemas/deposits/records/legacyrecord.json"
+    }
+  ],
   "python.analysis.autoImportCompletions": false,
   "python.analysis.diagnosticMode": "workspace",
   "python.formatting.provider": "black",
   "python.linting.banditEnabled": false,
   "python.linting.enabled": true,
-  "python.linting.flake8Enabled": true,
+  "python.linting.flake8Enabled": false,
   "python.linting.mypyEnabled": false,
   "python.linting.pydocstyleEnabled": false,
   "python.linting.pylamaEnabled": false,
-  "python.linting.pylintCategorySeverity.refactor": "Information",
-  "python.linting.pylintEnabled": true,
+  "python.linting.pylintEnabled": false,
   "python.testing.pytestEnabled": false,
-  "rewrap.wrappingColumn": 79,
+  "rewrap.wrappingColumn": 88,
   "search.exclude": {
     "**/tests/**/__init__.py": true,
     "*/.pydocstyle": true,
