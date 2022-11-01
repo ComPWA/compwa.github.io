@@ -40,3 +40,6 @@ black = [
 flake8 = [
     "--extend-ignore=E402,F404,F821",
 ]
+isort = [
+    "--line-length=85",
+]

@@ -79,7 +79,8 @@ TensorWaves
 [![10.5281/zenodo.5526650](https://zenodo.org/badge/doi/10.5281/zenodo.5526650.svg)](https://doi.org/10.5281/zenodo.5526650)
 [![PyPI package](https://img.shields.io/pypi/pyversions/tensorwaves)](https://pypi.org/project/tensorwaves)
 [![Conda package](https://anaconda.org/conda-forge/tensorwaves/badges/version.svg)](https://anaconda.org/conda-forge/tensorwaves)<br>
-Python fitter package for multiple computational back-ends
+Convert large symbolic expressions to numerical differentiable functions for performing
+fast fits on large data samples
 
 :::
 

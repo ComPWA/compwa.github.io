@@ -14,15 +14,15 @@ from functools import lru_cache
 import requests
 
 # pyright: reportMissingImports=false
-# pyright: reportMissingModuleSource=false
+# pyright: reportMissingTypeStubs=false
 from pybtex.database import Entry
 from pybtex.plugin import register_plugin
 from pybtex.richtext import Tag, Text
 from pybtex.style.formatting.unsrt import Style as UnsrtStyle
+from pybtex.style.template import _format_list  # pyright: ignore[reportPrivateUsage]
 from pybtex.style.template import (
     FieldIsMissing,
     Node,
-    _format_list,
     field,
     href,
     join,
@@ -38,11 +38,16 @@ copyright = "2021, ComPWA"
 author = "Common Partial Wave Analysis"
 
 # https://docs.readthedocs.io/en/stable/builds.html
-BRANCH = os.environ.get("READTHEDOCS_VERSION", default="main")
-if BRANCH == "latest":
-    BRANCH = "main"
-if re.match(r"^\d+$", BRANCH):  # PR preview
-    BRANCH = "main"
+def get_branch_name() -> str:
+    branch_name = os.environ.get("READTHEDOCS_VERSION", "stable")
+    if branch_name == "latest":
+        return "main"
+    if re.match(r"^\d+$", branch_name):  # PR preview
+        return "stable"
+    return branch_name
+
+
+BRANCH = get_branch_name()
 
 
 # -- Fetch logo --------------------------------------------------------------
@@ -277,9 +282,6 @@ def print_once(message: str) -> None:
     print(message)
 
 
-nb_execution_mode = get_execution_mode()
-nb_execution_show_tb = True
-nb_execution_timeout = -1
 nb_execution_excludepatterns = [
     "adr/001/*",
     "adr/002/*",
@@ -301,8 +303,11 @@ nb_execution_excludepatterns = [
     "report/017*",
     "report/018*",
     "report/020*",
+    "report/021*",
 ]
+nb_execution_mode = get_execution_mode()
 nb_execution_show_tb = True
+nb_execution_timeout = -1
 nb_output_stderr = "remove"
 
 JULIA_NOTEBOOKS = [
@@ -340,12 +345,6 @@ modify the parameters.
 """,
 }
 myst_update_mathjax = False
-suppress_warnings = [
-    # Skipping unknown output mime type: application/json
-    # https://github.com/ComPWA/compwa-org/runs/8157614768?check_suite_focus=true#step:6:121
-    # Better solution would be https://github.com/tqdm/tqdm/issues/1364
-    "mystnb.unknown_mime_type",
-]
 
 # Settings for sphinx_comments
 comments_config = {
@@ -468,7 +467,7 @@ class MyStyle(UnsrtStyle):
         else:
             return formatted_names
 
-    def format_eprint(self, e):
+    def format_eprint(self, e):  # pyright: ignore[reportIncompatibleMethodOverride]
         if "doi" in e.fields:
             return ""
         return super().format_eprint(e)

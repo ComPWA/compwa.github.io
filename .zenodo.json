@@ -2,6 +2,7 @@
   "access_right": "open",
   "creators": [
     {
+      "orcid": "0000-0002-6463-8295",
       "affiliation": "Ruhr University Bochum",
       "name": "Fritsch, Miriam"
     },
@@ -14,6 +15,7 @@
       "name": "Pfl\u00fcger, Stefan"
     },
     {
+      "orcid": "0000-0001-5846-2206",
       "affiliation": "Ruhr University Bochum",
       "name": "de Boer, Remco"
     },
@@ -22,18 +24,22 @@
       "name": "Wollenberg, Leonard"
     },
     {
+      "orcid": "0000-0002-9974-8320",
       "affiliation": "Johannes Gutenberg University Mainz",
       "name": "Gradl, Wolfgang"
     },
     {
+      "orcid": "0000-0002-5529-438X",
       "affiliation": "Johannes Gutenberg University Mainz",
       "name": "Weidenkaff, Peter"
     },
     {
+      "orcid": "0000-0001-7133-0662",
       "affiliation": "GSI Helmholtzzentrum f\u00fcr Schwerionenforschung",
       "name": "Peters, Klaus"
     },
     {
+      "orcid": "0000-0002-0782-3806",
       "affiliation": "GSI Helmholtzzentrum f\u00fcr Schwerionenforschung",
       "name": "G\u00f6tzen, Klaus"
     }
