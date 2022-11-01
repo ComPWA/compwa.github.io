@@ -1,7 +1,12 @@
 {
   "exclude": [".git", ".tox", "docs/_build"],
   "reportGeneralTypeIssues": false,
+  "reportMissingParameterType": false,
   "reportUnboundVariable": false,
+  "reportUnknownMemberType": false,
+  "reportUnknownParameterType": false,
+  "reportUnknownVariableType": false,
+  "reportUnknownArgumentType": false,
   "reportUnusedClass": true,
   "reportUnusedFunction": true,
   "reportUnusedImport": true,
