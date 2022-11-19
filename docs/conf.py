@@ -456,7 +456,7 @@ def names(children, context, role, **kwargs):
     return et_al(**kwargs)[formatted_names].format_data(context)
 
 
-class MyStyle(UnsrtStyle):
+class MyStyle(UnsrtStyle):  # type: ignore[reportUntypedBaseClass]
     def __init__(self):
         super().__init__(abbreviate_names=True)
 
