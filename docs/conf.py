@@ -37,6 +37,7 @@ REPO_NAME = "compwa-org"
 copyright = "2021, ComPWA"
 author = "Common Partial Wave Analysis"
 
+
 # https://docs.readthedocs.io/en/stable/builds.html
 def get_branch_name() -> str:
     branch_name = os.environ.get("READTHEDOCS_VERSION", "stable")
@@ -266,6 +267,7 @@ linkcheck_ignore = [
     "https://github.com/orgs/ComPWA/projects/6",  # private
     "https://open.vscode.dev",
 ]
+
 
 # Settings for myst_nb
 def get_execution_mode() -> str:
