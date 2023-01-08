@@ -55,6 +55,8 @@ repos:
           - --no-cd
           - --no-docs
           - --pin-requirements=bimonthly
+          - --repo-name=compwa-org
+          - --repo-title=ComPWA Organization Documentation
       - id: fix-nbformat-version
       - id: format-setup-cfg
       - id: pin-nb-requirements
