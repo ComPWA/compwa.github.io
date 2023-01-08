@@ -167,6 +167,10 @@ nitpicky = True  # warn if cross-references are missing
 
 # Intersphinx settings
 version_remapping = {
+    "ipywidgets": {
+        "8.0.3": "8.0.2",
+        "8.0.4": "8.0.2",
+    },
     "matplotlib": {"3.5.1": "3.5.0"},
 }
 
