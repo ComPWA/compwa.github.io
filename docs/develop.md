@@ -776,8 +776,6 @@ not have any CI or code review restrictions. We call this a "feature branch".
 
   The allowed semantic keywords (commit types) are as follows:[^1]
 
-  <!-- markdownlint-disable -->
-
   | [Commit type](https://www.conventionalcommits.org/en/v1.0.0/#specification) | [Repository label](https://github.com/organizations/ComPWA/settings/repository-defaults)                                                                                                             | Description                                         |
   | :-------------------------------------------------------------------------: | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :-------------------------------------------------- |
   |                                   `FEAT`                                    | ![#C2E0C6](https://via.placeholder.com/15/C2E0C6/C2E0C6.png) [✨ Feature](https://github.com/search?o=desc&s=created&type=Issues&q=user%3AComPWA+label%3A%22%E2%9C%A8%20Feature%22)                  | New feature added to the package                    |
@@ -788,8 +786,6 @@ not have any CI or code review restrictions. We call this a "feature branch".
   |                                    `DOC`                                    | ![#bfd4f2](https://via.placeholder.com/15/bfd4f2/bfd4f2.png) [📝 Docs](https://github.com/search?o=desc&s=created&type=Issues&q=user%3AComPWA+label%3A%22%F0%9F%93%9D%20Docs%22)                     | Improvements or additions to documentation          |
   |                                   `MAINT`                                   | ![#FFCD8F](https://via.placeholder.com/15/FFCD8F/FFCD8F.png) [🔨 Maintenance](https://github.com/search?o=desc&s=created&type=Issues&q=user%3AComPWA+label%3A%22%F0%9F%94%A8%20Maintenance%22)       | Maintenance and upkeep improvements                 |
   |                                    `DX`                                     | ![#FEF2C0](https://via.placeholder.com/15/FEF2C0/FEF2C0.png) [🖱️ DX](https://github.com/search?o=desc&s=created&type=Issues&q=user%3AComPWA+label%3A%22%F0%9F%96%B1%EF%B8%8F%20DX%22)                | Improvements to the Developer Experience            |
-
-  <!-- markdownlint-enable -->
 
 - Keep pull requests small. If the issue you try to address is too big, discuss in the
   team whether the issue can be converted into an
