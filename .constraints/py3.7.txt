@@ -153,7 +153,7 @@ tinycss2==1.2.1
 tomli==2.0.1
 tornado==6.2
 tox==4.2.6
-traitlets==5.8.0
+traitlets==5.8.1
 typed-ast==1.5.4
 typing-extensions==4.4.0
 urllib3==1.26.13
