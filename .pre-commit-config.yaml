@@ -37,18 +37,8 @@ repos:
             .*\.svg
           )$
 
-  - repo: https://github.com/jumanjihouse/pre-commit-hooks
-    rev: 3.0.0
-    hooks:
-      - id: forbid-binary
-        always_run: true
-        exclude: >
-          (?x)^(
-            docs/_static/favicon.ico
-          )$
-
   - repo: https://github.com/ComPWA/repo-maintenance
-    rev: 0.0.163
+    rev: 0.0.164
     hooks:
       - id: check-dev-files
         args:
@@ -61,6 +51,20 @@ repos:
       - id: format-setup-cfg
       - id: pin-nb-requirements
       - id: set-nb-cells
+
+  - repo: https://github.com/nbQA-dev/nbQA
+    rev: 1.6.0
+    hooks:
+      - id: nbqa-black
+        additional_dependencies:
+          - black>=22.1.0
+      - id: nbqa-flake8
+        additional_dependencies:
+          - flake8-future-annotations
+      - id: nbqa-isort
+      - id: nbqa-pyupgrade
+        args:
+          - --py37-plus
 
   - repo: https://github.com/psf/black
     rev: 22.12.0
@@ -87,24 +91,20 @@ repos:
             .*\.py
           )$
 
+  - repo: https://github.com/jumanjihouse/pre-commit-hooks
+    rev: 3.0.0
+    hooks:
+      - id: forbid-binary
+        always_run: true
+        exclude: >
+          (?x)^(
+            docs/_static/favicon.ico
+          )$
+
   - repo: https://github.com/pycqa/isort
     rev: 5.11.4
     hooks:
       - id: isort
-
-  - repo: https://github.com/nbQA-dev/nbQA
-    rev: 1.6.0
-    hooks:
-      - id: nbqa-black
-        additional_dependencies:
-          - black>=22.1.0
-      - id: nbqa-flake8
-        additional_dependencies:
-          - flake8-future-annotations
-      - id: nbqa-isort
-      - id: nbqa-pyupgrade
-        args:
-          - --py37-plus
 
   - repo: https://github.com/kynan/nbstripout
     rev: 0.6.1
