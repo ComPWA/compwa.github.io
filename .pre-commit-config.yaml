@@ -3,7 +3,6 @@ ci:
   autoupdate_schedule: quarterly
   skip:
     # hooks that don't work on pre-commit.ci
-    - editorconfig-checker
     - pyright
 
 repos:
@@ -38,13 +37,13 @@ repos:
           )$
 
   - repo: https://github.com/ComPWA/repo-maintenance
-    rev: 0.0.159
+    rev: 70029d3
     hooks:
       - id: check-dev-files
         args:
-          - --no-cd
-          - --no-docs
           - --pin-requirements=bimonthly
+          - --repo-name=compwa-org
+          - --repo-title=ComPWA Organization Documentation
       - id: fix-nbformat-version
       - id: format-setup-cfg
       - id: pin-nb-requirements
