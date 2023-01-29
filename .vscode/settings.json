@@ -59,5 +59,8 @@
     "*/.pydocstyle": true,
     ".constraints/*.txt": true
   },
-  "telemetry.telemetryLevel": "off"
+  "telemetry.telemetryLevel": "off",
+  "yaml.schemas": {
+    "https://json.schemastore.org/github-workflow.json": "./.github/workflows/requirements.yml"
+  }
 }
