@@ -3,7 +3,6 @@ ci:
   autoupdate_schedule: quarterly
   skip:
     # hooks that don't work on pre-commit.ci
-    - editorconfig-checker
     - pyright
 
 repos:
@@ -37,28 +36,32 @@ repos:
             .*\.svg
           )$
 
-  - repo: https://github.com/jumanjihouse/pre-commit-hooks
-    rev: 3.0.0
-    hooks:
-      - id: forbid-binary
-        always_run: true
-        exclude: >
-          (?x)^(
-            docs/_static/favicon.ico
-          )$
-
   - repo: https://github.com/ComPWA/repo-maintenance
-    rev: 0.0.159
+    rev: 0.0.166
     hooks:
       - id: check-dev-files
         args:
-          - --no-cd
-          - --no-docs
           - --pin-requirements=bimonthly
+          - --repo-name=compwa-org
+          - --repo-title=ComPWA Organization Documentation
       - id: fix-nbformat-version
       - id: format-setup-cfg
       - id: pin-nb-requirements
       - id: set-nb-cells
+
+  - repo: https://github.com/nbQA-dev/nbQA
+    rev: 1.5.3
+    hooks:
+      - id: nbqa-black
+        additional_dependencies:
+          - black>=22.1.0
+      - id: nbqa-flake8
+        additional_dependencies:
+          - flake8-future-annotations
+      - id: nbqa-isort
+      - id: nbqa-pyupgrade
+        args:
+          - --py37-plus
 
   - repo: https://github.com/psf/black
     rev: 22.10.0
@@ -85,6 +88,16 @@ repos:
             .*\.py
           )$
 
+  - repo: https://github.com/jumanjihouse/pre-commit-hooks
+    rev: 3.0.0
+    hooks:
+      - id: forbid-binary
+        always_run: true
+        exclude: >
+          (?x)^(
+            docs/_static/favicon.ico
+          )$
+
   - repo: https://github.com/pycqa/isort
     rev: 5.10.1
     hooks:
@@ -94,20 +107,6 @@ repos:
     rev: v0.32.2
     hooks:
       - id: markdownlint
-
-  - repo: https://github.com/nbQA-dev/nbQA
-    rev: 1.5.3
-    hooks:
-      - id: nbqa-black
-        additional_dependencies:
-          - black>=22.1.0
-      - id: nbqa-flake8
-        additional_dependencies:
-          - flake8-future-annotations
-      - id: nbqa-isort
-      - id: nbqa-pyupgrade
-        args:
-          - --py37-plus
 
   - repo: https://github.com/kynan/nbstripout
     rev: 0.6.1
