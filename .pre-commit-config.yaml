@@ -12,7 +12,7 @@ repos:
       - id: check-useless-excludes
 
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v4.3.0
+    rev: v4.4.0
     hooks:
       - id: check-ast
       - id: check-case-conflict
@@ -37,7 +37,7 @@ repos:
           )$
 
   - repo: https://github.com/ComPWA/repo-maintenance
-    rev: 0.0.166
+    rev: 0.0.167
     hooks:
       - id: check-dev-files
         args:
@@ -50,7 +50,7 @@ repos:
       - id: set-nb-cells
 
   - repo: https://github.com/nbQA-dev/nbQA
-    rev: 1.5.3
+    rev: 1.6.1
     hooks:
       - id: nbqa-black
         additional_dependencies:
@@ -64,22 +64,22 @@ repos:
           - --py37-plus
 
   - repo: https://github.com/psf/black
-    rev: 22.10.0
+    rev: 22.12.0
     hooks:
       - id: black
 
   - repo: https://github.com/asottile/blacken-docs
-    rev: v1.12.1
+    rev: 1.13.0
     hooks:
       - id: blacken-docs
 
   - repo: https://github.com/streetsidesoftware/cspell-cli
-    rev: v6.14.1
+    rev: v6.19.2
     hooks:
       - id: cspell
 
   - repo: https://github.com/editorconfig-checker/editorconfig-checker.python
-    rev: 2.6.1
+    rev: 2.7.1
     hooks:
       - id: editorconfig-checker
         exclude: >
@@ -99,14 +99,9 @@ repos:
           )$
 
   - repo: https://github.com/pycqa/isort
-    rev: 5.10.1
+    rev: 5.12.0
     hooks:
       - id: isort
-
-  - repo: https://github.com/igorshubovych/markdownlint-cli
-    rev: v0.32.2
-    hooks:
-      - id: markdownlint
 
   - repo: https://github.com/kynan/nbstripout
     rev: 0.6.1
@@ -136,12 +131,12 @@ repos:
       - id: prettier
 
   - repo: https://github.com/ComPWA/mirrors-pyright
-    rev: v1.1.280
+    rev: v1.1.291
     hooks:
       - id: pyright
 
   - repo: https://github.com/asottile/pyupgrade
-    rev: v3.2.2
+    rev: v3.3.1
     hooks:
       - id: pyupgrade
         args:
