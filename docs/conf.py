@@ -340,9 +340,9 @@ myst_substitutions = {
     "remark_019": (
         "Notice how a new file [`019/Project.toml`](./019/Project.toml) and "
         " [`019/Manifest.toml`](./019/Manifest.toml) are automatically generated."
-    )
-    if get_execution_mode() != "off"
-    else "",
+        if get_execution_mode() != "off"
+        else ""
+    ),
     "run_interactive": f"""
 ```{{margin}}
 Run this notebook [on Binder]({BINDER_LINK}) or
