@@ -91,14 +91,14 @@ extensions = [
     "sphinx_codeautolink",
     "sphinx_comments",
     "sphinx_copybutton",
-    "sphinx_issues",
     "sphinx_design",
+    "sphinx_issues",
+    "sphinx_needs",
     "sphinx_thebe",
     "sphinx_togglebutton",
     "sphinxcontrib.bibtex",
     "sphinxcontrib.hep.pdgref",
     "sphinxcontrib.plantuml",
-    "sphinxcontrib.needs",
 ]
 exclude_patterns = [
     "**.ipynb_checkpoints",
