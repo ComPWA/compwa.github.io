@@ -266,6 +266,7 @@ linkcheck_anchors = False
 linkcheck_ignore = [
     "http://127.0.0.1:8000",
     "https://atom.io",  # often instable
+    "https://doi.org/10.1002/andp.19955070504",  # 403 for onlinelibrary.wiley.com
     "https://github.com/organizations/ComPWA/settings/repository-defaults",  # private
     "https://github.com/orgs/ComPWA/projects/5",  # private
     "https://github.com/orgs/ComPWA/projects/6",  # private
