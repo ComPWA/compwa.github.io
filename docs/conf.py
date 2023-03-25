@@ -272,6 +272,7 @@ linkcheck_ignore = [
     "https://github.com/orgs/ComPWA/projects/5",  # private
     "https://github.com/orgs/ComPWA/projects/6",  # private
     "https://open.vscode.dev",
+    "https://www.andiamo.co.uk/resources/iso-language-codes",  # 443, but works
 ]
 
 
