@@ -2,8 +2,8 @@ ci:
   autoupdate_commit_msg: "MAINT: update pip constraints and pre-commit"
   autoupdate_schedule: quarterly
   skip:
-    # hooks that don't work on pre-commit.ci
     - pyright
+    - taplo
 
 repos:
   - repo: meta
@@ -37,7 +37,7 @@ repos:
           )$
 
   - repo: https://github.com/ComPWA/repo-maintenance
-    rev: 0.0.169
+    rev: 0.0.170
     hooks:
       - id: check-dev-files
         args:
