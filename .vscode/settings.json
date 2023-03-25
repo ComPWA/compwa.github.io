@@ -21,8 +21,8 @@
   "editor.formatOnSave": true,
   "editor.rulers": [88],
   "editor.unicodeHighlight.allowedCharacters": {
-    "ν": true,
-    "σ": true
+    "\u03bd": true,
+    "\u03c3": true
   },
   "files.watcherExclude": {
     "**/*_cache/**": true,
@@ -41,6 +41,7 @@
       "url": "https://zenodo.org/schemas/deposits/records/legacyrecord.json"
     }
   ],
+  "livePreview.defaultPreviewPath": "docs/_build/html",
   "python.analysis.autoImportCompletions": false,
   "python.analysis.diagnosticMode": "workspace",
   "python.analysis.typeCheckingMode": "strict",
@@ -59,7 +60,6 @@
     "*/.pydocstyle": true,
     ".constraints/*.txt": true
   },
-  "telemetry.telemetryLevel": "off",
   "yaml.schemas": {
     "https://json.schemastore.org/github-workflow.json": "./.github/workflows/requirements.yml"
   }
