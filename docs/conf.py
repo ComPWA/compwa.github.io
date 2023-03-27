@@ -91,14 +91,14 @@ extensions = [
     "sphinx_codeautolink",
     "sphinx_comments",
     "sphinx_copybutton",
-    "sphinx_issues",
     "sphinx_design",
+    "sphinx_issues",
+    "sphinx_needs",
     "sphinx_thebe",
     "sphinx_togglebutton",
     "sphinxcontrib.bibtex",
     "sphinxcontrib.hep.pdgref",
     "sphinxcontrib.plantuml",
-    "sphinxcontrib.needs",
 ]
 exclude_patterns = [
     "**.ipynb_checkpoints",
@@ -132,6 +132,7 @@ graphviz_output_format = "svg"
 html_copy_source = True  # needed for download notebook button
 html_css_files = ["custom.css"]
 html_favicon = "_static/favicon.ico"
+html_last_updated_fmt = "%-d %B %Y"
 html_show_copyright = False
 html_show_sourcelink = False
 html_show_sphinx = False
@@ -271,6 +272,7 @@ linkcheck_ignore = [
     "https://github.com/orgs/ComPWA/projects/5",  # private
     "https://github.com/orgs/ComPWA/projects/6",  # private
     "https://open.vscode.dev",
+    "https://www.andiamo.co.uk/resources/iso-language-codes",  # 443, but works
 ]
 
 
@@ -340,9 +342,9 @@ myst_substitutions = {
     "remark_019": (
         "Notice how a new file [`019/Project.toml`](./019/Project.toml) and "
         " [`019/Manifest.toml`](./019/Manifest.toml) are automatically generated."
-    )
-    if get_execution_mode() != "off"
-    else "",
+        if get_execution_mode() != "off"
+        else ""
+    ),
     "run_interactive": f"""
 ```{{margin}}
 Run this notebook [on Binder]({BINDER_LINK}) or
