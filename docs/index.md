@@ -1,13 +1,11 @@
-# ComPWA Organization
+# Common Partial Wave Analysis
 
 ```{title} Welcome
 
 ```
 
 <!-- prettier-ignore-start -->
-[![10.5281/zenodo.6908149](https://zenodo.org/badge/DOI/10.5281/zenodo.6908149.svg)](https://doi.org/10.5281/zenodo.6908149)
-{{ '[![Google Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/ComPWA/compwa-org/blob/{})'.format(branch) }}
-{{ '[![Binder](https://static.mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/ComPWA/compwa-org/{}?filepath=docs/usage)'.format(branch) }}
+{{ '[![Google Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/ComPWA/compwa-org/blob/{})'.format(branch) }} {{ '[![Binder](https://static.mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/ComPWA/compwa-org/{}?filepath=docs/usage)'.format(branch) }}
 <!-- prettier-ignore-end -->
 
 The ["Common Partial Wave Analysis"](https://github.com/ComPWA) organization (ComPWA)
