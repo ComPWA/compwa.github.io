@@ -1,4 +1,4 @@
-# ComPWA Organization
+# Common Partial Wave Analysis
 
 ```{title} Welcome
 

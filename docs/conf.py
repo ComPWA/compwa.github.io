@@ -140,6 +140,7 @@ html_sourcelink_suffix = ""
 html_static_path = ["_static"]
 html_theme = "sphinx_book_theme"
 html_theme_options = {
+    "logo": {"text": "The ComPWA project"},
     "repository_url": f"https://github.com/ComPWA/{REPO_NAME}",
     "repository_branch": BRANCH,
     "path_to_docs": "docs",
