@@ -140,6 +140,19 @@ html_sourcelink_suffix = ""
 html_static_path = ["_static"]
 html_theme = "sphinx_book_theme"
 html_theme_options = {
+    "icon_links": [
+        {
+            "name": "GitHub",
+            "url": f"https://github.com/ComPWA",
+            "icon": "fa-brands fa-github",
+        },
+        {
+            "name": "Zenodo",
+            "url": "https://doi.org/10.5281/zenodo.6908149",
+            "icon": "https://zenodo.org/badge/DOI/10.5281/zenodo.6908149.svg",
+            "type": "url",
+        },
+    ],
     "logo": {"text": "The ComPWA project"},
     "repository_url": f"https://github.com/ComPWA/{REPO_NAME}",
     "repository_branch": BRANCH,
