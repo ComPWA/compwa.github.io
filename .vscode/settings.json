@@ -31,10 +31,7 @@
     "**/.tox/**": true
   },
   "git.rebaseWhenSync": true,
-  "github-actions.workflows.pinned.workflows": [
-    ".github/workflows/ci-docs.yml",
-    ".github/workflows/linkcheck.yml"
-  ],
+  "github-actions.workflows.pinned.workflows": [".github/workflows/ci.yml"],
   "json.schemas": [
     {
       "fileMatch": [".zenodo.json"],
