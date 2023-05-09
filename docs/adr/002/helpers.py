@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-import sympy as sp  # pyright: reportMissingImports=false
+import sympy as sp  # pyright: ignore[reportMissingImports]
 
 
 class StateTransitionGraph:
