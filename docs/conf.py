@@ -182,6 +182,9 @@ nitpicky = True  # warn if cross-references are missing
 
 # Intersphinx settings
 version_remapping = {
+    "ipython": {
+        "8.12.2": "8.13.2",
+    },
     "ipywidgets": {
         "8.0.3": "8.0.5",
         "8.0.4": "8.0.5",
