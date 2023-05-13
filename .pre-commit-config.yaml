@@ -133,7 +133,7 @@ repos:
       - id: prettier
 
   - repo: https://github.com/ComPWA/mirrors-pyright
-    rev: v1.1.307
+    rev: v1.1.308
     hooks:
       - id: pyright
 
