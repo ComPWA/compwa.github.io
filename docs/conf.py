@@ -182,6 +182,9 @@ nitpicky = True  # warn if cross-references are missing
 
 # Intersphinx settings
 version_remapping = {
+    "ipython": {
+        "8.12.2": "8.13.2",
+    },
     "ipywidgets": {
         "8.0.3": "8.0.5",
         "8.0.4": "8.0.5",
@@ -258,6 +261,7 @@ intersphinx_mapping = {
     "pwa": ("https://pwa.readthedocs.io", None),
     "python": ("https://docs.python.org/3", None),
     "qrules": ("https://qrules.readthedocs.io/en/stable", None),
+    "qrules-0.9.x": ("https://qrules.readthedocs.io/en/0.9.x", None),
     "scipy": ("https://docs.scipy.org/doc/scipy-1.7.0", None),
     "sympy": ("https://docs.sympy.org/latest", None),
     "tensorwaves": ("https://tensorwaves.readthedocs.io/en/stable", None),
@@ -286,6 +290,7 @@ linkcheck_ignore = [
     "https://github.com/organizations/ComPWA/settings/repository-defaults",  # private
     "https://github.com/orgs/ComPWA/projects/5",  # private
     "https://github.com/orgs/ComPWA/projects/6",  # private
+    "https://ieeexplore.ieee.org/document/6312940",  # 401
     "https://open.vscode.dev",
     "https://www.andiamo.co.uk/resources/iso-language-codes",  # 443, but works
 ]
