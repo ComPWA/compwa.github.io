@@ -181,6 +181,7 @@
     "facecolors",
     "figsize",
     "filterwarnings",
+    "fmin",
     "fontcolor",
     "fontsize",
     "framealpha",
