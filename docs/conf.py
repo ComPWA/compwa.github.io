@@ -333,6 +333,7 @@ nb_execution_excludepatterns = [
     "report/018*",
     "report/020*",
     "report/021*",
+    "report/022*",
 ]
 nb_execution_mode = get_execution_mode()
 nb_execution_show_tb = True
