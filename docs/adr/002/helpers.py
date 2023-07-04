@@ -54,5 +54,4 @@ def determine_attached_final_state(
     graph: StateTransitionGraph,
     edge_id: int,
 ) -> list[int]:
-    mock = [3, 4]
-    return mock
+    return [3, 4]
