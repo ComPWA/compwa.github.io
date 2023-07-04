@@ -40,7 +40,6 @@
   ],
   "livePreview.defaultPreviewPath": "docs/_build/html",
   "python.analysis.autoImportCompletions": false,
-  "python.analysis.diagnosticMode": "workspace",
   "python.analysis.typeCheckingMode": "strict",
   "python.formatting.provider": "black",
   "python.linting.banditEnabled": false,
@@ -52,6 +51,8 @@
   "python.linting.pylintEnabled": false,
   "python.testing.pytestEnabled": false,
   "rewrap.wrappingColumn": 88,
+  "ruff.enable": true,
+  "ruff.organizeImports": true,
   "search.exclude": {
     "**/tests/**/__init__.py": true,
     "*/.pydocstyle": true,

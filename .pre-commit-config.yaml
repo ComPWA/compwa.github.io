@@ -55,13 +55,13 @@ repos:
       - id: nbqa-black
         additional_dependencies:
           - black>=22.1.0
-      - id: nbqa-flake8
-        additional_dependencies:
-          - flake8-future-annotations
-      - id: nbqa-isort
       - id: nbqa-pyupgrade
         args:
           - --py37-plus
+
+      - id: nbqa-ruff
+        args:
+          - --fix
 
   - repo: https://github.com/psf/black
     rev: 23.3.0
@@ -98,11 +98,6 @@ repos:
           (?x)^(
             docs/_static/favicon.ico
           )$
-
-  - repo: https://github.com/pycqa/isort
-    rev: 5.12.0
-    hooks:
-      - id: isort
 
   - repo: https://github.com/kynan/nbstripout
     rev: 0.6.1
@@ -144,6 +139,13 @@ repos:
       - id: pyupgrade
         args:
           - --py37-plus
+
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: ""
+    hooks:
+      - id: ruff
+        args:
+          - --fix
 
   - repo: https://github.com/ComPWA/mirrors-taplo
     rev: v0.8.0
