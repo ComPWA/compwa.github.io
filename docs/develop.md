@@ -295,11 +295,8 @@ commit files locally (see {ref}`develop:Pre-commit`), when
 {ref}`running tox <develop:tox>`, and when you make a
 {ref}`pull request <develop:Collaboration>`.
 
-<!-- cspell:ignore pylintrc pyproject -->
-
-The tools are configured through files such as
+The tools are mainly configured through
 [`pyproject.toml`](https://github.com/ComPWA/ampform/blob/main/pyproject.toml),
-[`.pylintrc`](https://github.com/ComPWA/ampform/blob/main/.pylintrc), and
 [`tox.ini`](https://github.com/ComPWA/ampform/blob/main/tox.ini), and the workflow files
 under [`.github`](https://github.com/ComPWA/ampform/blob/main/.github). If you run into
 persistent linting errors, this may mean we need to further specify our conventions. In
@@ -393,7 +390,8 @@ this speeds up your own programming, but these tools are particularly important 
 conflicts in Git and makes diffs in code review easier to read.
 
 For the Python source code, we use [`black`](https://black.readthedocs.io) and
-[`isort`](https://isort.readthedocs.io). For other code, we use
+[`isort`](https://isort.readthedocs.io) ([through
+Ruff](https://beta.ruff.rs/docs/rules/#isort-i)). For other code, we use
 [Prettier](https://prettier.io). All of these formatters are "opinionated formatters":
 they offer only limited configuration options, as to make formatting as conform as
 possible.
@@ -409,7 +407,8 @@ of any output cells with [`nbstripout`](https://github.com/kynan/nbstripout).
 Linters point out when certain style conventions are not correctly followed. Unlike with
 {ref}`formatters <develop:Formatting>`, you have to fix the errors yourself. As
 mentioned in {ref}`develop:Automated coding conventions`, style conventions are
-formulated in config files.
+formulated in config files. The main linter that ComPWA projects use, is
+[Ruff](https://ruff.rs).
 
 ### Spelling
 
@@ -852,7 +851,8 @@ name as the release tag are automatically closed.
 Even though we try to standardize the developer set-up of the repositories, we encourage
 you to use the code editors that you feel comfortable with. Where possible, we therefore
 define settings of linters, formatters, etc in config files that are specific to those
-tools (such as `.pylintrc`), not in the configuration files of the editors.
+tools (using `pyproject.toml` where possible), not in the configuration files of the
+editors.
 
 Still, where code editor settings can be shared through configuration files in the
 repository, we provide recommended settings for the code editor as well. This is

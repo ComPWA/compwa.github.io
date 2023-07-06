@@ -97,6 +97,7 @@
     "parametrizations",
     "pathlib",
     "permutate",
+    "pyproject",
     "pytest",
     "PYTHONHASHSEED",
     "qrules",
