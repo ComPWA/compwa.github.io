@@ -209,7 +209,7 @@ def get_version(package_name: str) -> str:
         if not line:
             continue
         line_segments = tuple(line.split("=="))
-        if len(line_segments) != 2:
+        if len(line_segments) != 2:  # noqa: PLR2004
             continue
         _, installed_version, *_ = line_segments
         installed_version = installed_version.strip()
@@ -461,12 +461,11 @@ def et_al(children, data, sep="", sep2=None, last_sep=None):
     parts = [part for part in _format_list(children, data) if part]
     if len(parts) <= 1:
         return Text(*parts)
-    elif len(parts) == 2:
+    if len(parts) == 2:  # noqa: PLR2004
         return Text(sep2).join(parts)
-    elif len(parts) == 3:
+    if len(parts) == 3:  # noqa: PLR2004
         return Text(last_sep).join([Text(sep).join(parts[:-1]), parts[-1]])
-    else:
-        return Text(parts[0], Tag("em", " et al"))
+    return Text(parts[0], Tag("em", " et al"))
 
 
 @node
@@ -476,7 +475,7 @@ def names(children, context, role, **kwargs):
     try:
         persons = context["entry"].persons[role]
     except KeyError:
-        raise FieldIsMissing(role, context["entry"])
+        raise FieldIsMissing(role, context["entry"]) from None
 
     style = context["style"]
     formatted_names = [
@@ -493,8 +492,7 @@ class MyStyle(UnsrtStyle):  # type: ignore[reportUntypedBaseClass]
         formatted_names = names(role, sep=", ", sep2=" and ", last_sep=", and ")
         if as_sentence:
             return sentence[formatted_names]
-        else:
-            return formatted_names
+        return formatted_names
 
     def format_eprint(self, e):  # pyright: ignore[reportIncompatibleMethodOverride]
         if "doi" in e.fields:

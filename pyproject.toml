@@ -33,19 +33,27 @@ target-version = [
 ]
 
 [tool.nbqa.addopts]
-black = [
-    "--line-length=85",
-]
+black = ["--line-length=85"]
 ruff = [
+    "--extend-ignore=A003",
+    "--extend-ignore=B008",
     "--extend-ignore=B018",
     "--extend-ignore=C90",
     "--extend-ignore=D",
+    "--extend-ignore=F404",
+    "--extend-ignore=F821",    # cell magic
+    "--extend-ignore=ISC003",
+    "--extend-ignore=N802",
+    "--extend-ignore=N803",
     "--extend-ignore=N806",
+    "--extend-ignore=N807",
+    "--extend-ignore=N815",
     "--extend-ignore=N816",
     "--extend-ignore=PLR09",
     "--extend-ignore=PLR2004",
     "--extend-ignore=PLW0602",
     "--extend-ignore=PLW0603",
+    "--extend-ignore=PLW2901",
     "--line-length=85",
 ]
 
@@ -155,11 +163,16 @@ task-tags = ["cspell"]
 
 [tool.ruff.per-file-ignores]
 "docs/*" = [
+    "D",
     "E402",
     "INP001",
     "S101",
     "S113",
     "T201",
+]
+"docs/conf.py" = [
+    "A001",
+    "PLW2901",
 ]
 "setup.py" = ["D100"]
 
