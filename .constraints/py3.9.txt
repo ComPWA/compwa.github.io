@@ -10,11 +10,11 @@ aiosqlite==0.19.0
 alabaster==0.7.13
 anyio==3.7.1
 appdirs==1.4.4
-aquirdturtle-collapsible-headings==3.1.0
 argon2-cffi==21.3.0
 argon2-cffi-bindings==21.2.0
 arrow==1.2.3
 asttokens==2.2.1
+async-lru==2.0.2
 attrs==23.1.0
 babel==2.12.1
 backcall==0.2.0
@@ -71,12 +71,10 @@ jupyter-client==8.3.0
 jupyter-console==6.6.3
 jupyter-core==5.3.1
 jupyter-events==0.6.3
+jupyter-lsp==2.2.0
 jupyter-server==2.7.0
-jupyter-server-fileid==0.9.0
 jupyter-server-terminals==0.4.4
-jupyter-server-ydoc==0.8.0
-jupyter-ydoc==0.2.4
-jupyterlab==3.6.5
+jupyterlab==4.0.2
 jupyterlab-code-formatter==2.2.1
 jupyterlab-myst==2.0.1
 jupyterlab-pygments==0.2.2
@@ -115,7 +113,7 @@ pathspec==0.11.1
 pexpect==4.8.0
 pickleshare==0.7.5
 pillow==10.0.0
-platformdirs==3.8.0
+platformdirs==3.8.1
 pluggy==1.2.0
 pre-commit==3.3.3
 prometheus-client==0.17.0
