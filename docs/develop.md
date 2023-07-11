@@ -18,7 +18,7 @@ your machine:
 ```shell
 conda env create
 conda activate ampform
-pre-commit install
+pre-commit install --install-hooks
 ```
 
 :::
@@ -29,7 +29,7 @@ pre-commit install
 python3 -m venv ./venv
 source ./venv/bin/activate
 python3 -m pip install -c .constraints/py3.8.txt -e .[dev]
-pre-commit install
+pre-commit install --install-hooks
 ```
 
 Replace `3.8` with the Python version you use on your machine.
@@ -311,7 +311,7 @@ All {ref}`style checks <develop:Style checks>` are enforced through a tool calle
 as well. This has to be done only once, after you clone the repository:
 
 ```shell
-pre-commit install
+pre-commit install --install-hooks
 ```
 
 :::{margin} Initializing pre-commit
