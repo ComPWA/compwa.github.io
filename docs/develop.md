@@ -62,10 +62,11 @@ the developer tools.
 
 :::{tab-item} Conda environment
 
-[Conda/Anaconda](https://www.anaconda.com) can be installed without administrator
-rights, see instructions on
-[this page](https://docs.conda.io/projects/conda/en/latest/user-guide/install/index.html).
-In addition, Conda can install more than just Python packages.
+[Conda](https://www.anaconda.com) can be installed without administrator rights. It is
+recommended to [download
+Miniconda](https://docs.conda.io/en/latest/miniconda.html#linux-installers), as it is
+much smaller than Anaconda. In addition, Conda can install more than just Python
+packages.
 
 All packages {ref}`maintained by the ComPWA organization <index:Main projects>` provide
 a
