@@ -32,16 +32,149 @@ target-version = [
     "py39",
 ]
 
-[tool.isort]
-profile = "black"
-
 [tool.nbqa.addopts]
-black = [
+black = ["--line-length=85"]
+ruff = [
+    "--extend-ignore=A003",
+    "--extend-ignore=B008",
+    "--extend-ignore=B018",
+    "--extend-ignore=C90",
+    "--extend-ignore=D",
+    "--extend-ignore=F404",
+    "--extend-ignore=F821",    # cell magic
+    "--extend-ignore=ISC003",
+    "--extend-ignore=N802",
+    "--extend-ignore=N803",
+    "--extend-ignore=N806",
+    "--extend-ignore=N807",
+    "--extend-ignore=N815",
+    "--extend-ignore=N816",
+    "--extend-ignore=PLR09",
+    "--extend-ignore=PLR2004",
+    "--extend-ignore=PLW0602",
+    "--extend-ignore=PLW0603",
+    "--extend-ignore=PLW2901",
     "--line-length=85",
 ]
-flake8 = [
-    "--extend-ignore=E402,F404,F821",
+
+[tool.pyright]
+exclude = [
+    "**/.git",
+    "**/.ipynb_checkpoints",
+    "**/.mypy_cache",
+    "**/.pytest_cache",
+    "**/.tox",
+    "**/__pycache__",
+    "**/_build",
 ]
-isort = [
-    "--line-length=85",
+reportGeneralTypeIssues = false
+reportIncompatibleMethodOverride = false
+reportMissingParameterType = false
+reportMissingTypeArgument = false
+reportMissingTypeStubs = false
+reportOverlappingOverload = false
+reportPrivateImportUsage = false
+reportPrivateUsage = false
+reportUnboundVariable = false
+reportUnknownArgumentType = false
+reportUnknownLambdaType = false
+reportUnknownMemberType = false
+reportUnknownParameterType = false
+reportUnknownVariableType = false
+reportUnnecessaryComparison = false
+reportUnnecessaryContains = false
+reportUnnecessaryIsInstance = false
+reportUntypedFunctionDecorator = false
+reportUnusedClass = true
+reportUnusedFunction = true
+reportUnusedImport = true
+reportUnusedVariable = true
+typeCheckingMode = "strict"
+
+[tool.pytest.ini_options]
+addopts = """
+--color=yes
+--durations=0
+--ignore-glob=*/.ipynb_checkpoints/*
+--ignore=docs/adr/001/sympy.ipynb
+--ignore=docs/conf.py
+--nbmake-timeout=1200
+-k='not docs/report/019.ipynb'"""
+filterwarnings = [
+    "error",
+    "ignore:Passing a schema to Validator.iter_errors is deprecated.*:DeprecationWarning",
+    "ignore:The .* argument to NotebookFile is deprecated.*:pytest.PytestRemovedIn8Warning",
+    "ignore:open_text is deprecated.*:DeprecationWarning",
+    "ignore:read_text is deprecated.*:DeprecationWarning",
+    "ignore:unclosed .*:ResourceWarning",
 ]
+norecursedirs = ["_build"]
+testpaths = ["docs"]
+
+[tool.ruff]
+extend-select = [
+    "A",
+    "B",
+    "BLE",
+    "C4",
+    "C90",
+    "D",
+    "EM",
+    "ERA",
+    "FA",
+    "I",
+    "ICN",
+    "INP",
+    "ISC",
+    "N",
+    "NPY",
+    "PGH",
+    "PIE",
+    "PL",
+    "Q",
+    "RET",
+    "RSE",
+    "RUF",
+    "S",
+    "SIM",
+    "T20",
+    "TCH",
+    "TID",
+    "TRY",
+    "UP",
+    "YTT",
+]
+ignore = [
+    "D101",
+    "D102",
+    "D103",
+    "D105",
+    "D107",
+    "D203",
+    "D213",
+    "D407",
+    "D416",
+    "E501",
+    "SIM108",
+]
+show-fixes = true
+target-version = "py37"
+task-tags = ["cspell"]
+
+[tool.ruff.per-file-ignores]
+"docs/*" = [
+    "D",
+    "E402",
+    "INP001",
+    "S101",
+    "S113",
+    "T201",
+]
+"docs/conf.py" = [
+    "A001",
+    "PLW2901",
+]
+"setup.py" = ["D100"]
+
+[tool.ruff.pydocstyle]
+convention = "google"

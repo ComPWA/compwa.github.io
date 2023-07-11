@@ -5,6 +5,7 @@ list see the documentation:
 https://www.sphinx-doc.org/en/master/usage/configuration.html
 """
 
+import contextlib
 import os
 import re
 import shutil
@@ -19,10 +20,10 @@ from pybtex.database import Entry
 from pybtex.plugin import register_plugin
 from pybtex.richtext import Tag, Text
 from pybtex.style.formatting.unsrt import Style as UnsrtStyle
-from pybtex.style.template import _format_list  # pyright: ignore[reportPrivateUsage]
 from pybtex.style.template import (
     FieldIsMissing,
     Node,
+    _format_list,  # pyright: ignore[reportPrivateUsage]
     field,
     href,
     join,
@@ -61,13 +62,12 @@ def fetch_logo(url: str, output_path: str) -> None:
 
 
 LOGO_PATH = "_static/logo.svg"
-try:
+with contextlib.suppress(requests.exceptions.ConnectionError):
     fetch_logo(
         url="https://raw.githubusercontent.com/ComPWA/ComPWA/04e5199/doc/images/logo.svg",
         output_path=LOGO_PATH,
     )
-except requests.exceptions.ConnectionError:
-    pass
+
 if os.path.exists(LOGO_PATH):
     html_logo = LOGO_PATH
 
@@ -143,7 +143,7 @@ html_theme_options = {
     "icon_links": [
         {
             "name": "GitHub",
-            "url": f"https://github.com/ComPWA",
+            "url": "https://github.com/ComPWA",
             "icon": "fa-brands fa-github",
         },
         {
@@ -209,7 +209,7 @@ def get_version(package_name: str) -> str:
         if not line:
             continue
         line_segments = tuple(line.split("=="))
-        if len(line_segments) != 2:
+        if len(line_segments) != 2:  # noqa: PLR2004
             continue
         _, installed_version, *_ = line_segments
         installed_version = installed_version.strip()
@@ -228,9 +228,8 @@ def get_minor_version(package_name: str) -> str:
         return installed_version
     matches = re.match(r"^([0-9]+\.[0-9]+).*$", installed_version)
     if matches is None:
-        raise ValueError(
-            f"Could not find documentation for {package_name} v{installed_version}"
-        )
+        msg = f"Could not find documentation for {package_name} v{installed_version}"
+        raise ValueError(msg)
     return matches[1]
 
 
@@ -462,12 +461,11 @@ def et_al(children, data, sep="", sep2=None, last_sep=None):
     parts = [part for part in _format_list(children, data) if part]
     if len(parts) <= 1:
         return Text(*parts)
-    elif len(parts) == 2:
+    if len(parts) == 2:  # noqa: PLR2004
         return Text(sep2).join(parts)
-    elif len(parts) == 3:
+    if len(parts) == 3:  # noqa: PLR2004
         return Text(last_sep).join([Text(sep).join(parts[:-1]), parts[-1]])
-    else:
-        return Text(parts[0], Tag("em", " et al"))
+    return Text(parts[0], Tag("em", " et al"))
 
 
 @node
@@ -477,7 +475,7 @@ def names(children, context, role, **kwargs):
     try:
         persons = context["entry"].persons[role]
     except KeyError:
-        raise FieldIsMissing(role, context["entry"])
+        raise FieldIsMissing(role, context["entry"]) from None
 
     style = context["style"]
     formatted_names = [
@@ -494,8 +492,7 @@ class MyStyle(UnsrtStyle):  # type: ignore[reportUntypedBaseClass]
         formatted_names = names(role, sep=", ", sep2=" and ", last_sep=", and ")
         if as_sentence:
             return sentence[formatted_names]
-        else:
-            return formatted_names
+        return formatted_names
 
     def format_eprint(self, e):  # pyright: ignore[reportIncompatibleMethodOverride]
         if "doi" in e.fields:
