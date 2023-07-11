@@ -143,11 +143,26 @@ They can be installed with
 [`pip`'s "extras" syntax](https://packaging.python.org/tutorials/installing-packages/#installing-setuptools-extras).
 Some examples would be:
 
+::::{tab-set}
+:::{tab-item} Bash
+
 ```shell
 pip install tensorwaves[jax,scipy]
 pip install .[test]  # local directory, not editable
 pip install -e .[dev]  #  editable + all dev requirements
 ```
+
+:::
+:::{tab-item} Z shell
+
+```shell
+pip install "tensorwaves[jax,scipy]"
+pip install ".[test]"  # local directory, not editable
+pip install -e ".[dev]"  #  editable + all dev requirements
+```
+
+:::
+::::
 
 Developers require several additional tools besides the dependencies required to run the
 package itself (see {ref}`develop:Automated coding conventions`). All those additional
@@ -171,11 +186,26 @@ python3 -m pip install -c .constraints/py3.8.txt -e .
 
 The syntax works just as well for {ref}`develop:Optional dependencies`:
 
+::::{tab-set}
+:::{tab-item} Bash
+
 ```shell
 python3 -m pip install -c .constraints/py3.8.txt -e .[doc,sty]
 python3 -m pip install -c .constraints/py3.8.txt -e .[test]
 python3 -m pip install -c .constraints/py3.8.txt -e .[dev]
 ```
+
+:::
+:::{tab-item} Z shell
+
+```shell
+python3 -m pip install -c .constraints/py3.8.txt -e ".[doc,sty]"
+python3 -m pip install -c .constraints/py3.8.txt -e ".[test]"
+python3 -m pip install -c .constraints/py3.8.txt -e ".[dev]"
+```
+
+:::
+::::
 
 The constraint files are updated automatically with
 [`pip-tools`](https://github.com/jazzband/pip-tools) through
@@ -197,11 +227,26 @@ way out of ["dependency hell"](https://en.wikipedia.org/wiki/Dependency_hell).
 It may be that new commits in the repository modify the dependencies. In that case, you
 have to rerun this command after pulling new commits from the repository:
 
+::::{tab-set}
+:::{tab-item} Bash
+
 ```shell
 git checkout main
 git pull
 pip install -c .constraints/py3.8.txt -e .[dev]
 ```
+
+:::
+:::{tab-item} Z shell
+
+```shell
+git checkout main
+git pull
+pip install -c .constraints/py3.8.txt -e ".[dev]"
+```
+
+:::
+::::
 
 If you still have problems, it may be that certain dependencies have become redundant.
 In that case, trash the virtual environment and
