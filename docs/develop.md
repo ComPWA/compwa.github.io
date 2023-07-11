@@ -8,11 +8,9 @@ This page describes some of the tools and conventions followed by
 [source code of the AmpForm repository](https://github.com/ComPWA/AmpForm) as example,
 because its file structure is comparable to that of other ComPWA repositories.
 
-:::::{tip} To start developing, simply run the following from a cloned repository on
-your machine:
-
+:::::{tip}
+To start developing, simply run the following from a cloned repository on your machine:
 ::::{tab-set}
-
 :::{tab-item} Conda
 
 ```shell
@@ -22,7 +20,6 @@ pre-commit install --install-hooks
 ```
 
 :::
-
 :::{tab-item} Python venv
 
 ```shell
@@ -35,11 +32,8 @@ pre-commit install --install-hooks
 Replace `3.8` with the Python version you use on your machine.
 
 :::
-
 ::::
-
 See {ref}`develop:Virtual environment` for more info.
-
 :::::
 
 ## Local set-up
@@ -59,7 +53,6 @@ case, you have to activate the environment whenever you want to run the framewor
 the developer tools.
 
 ::::{tab-set}
-
 :::{tab-item} Conda environment
 
 [Conda](https://www.anaconda.com) can be installed without administrator rights. It is
@@ -86,7 +79,6 @@ In addition, it will install the framework itself in
 ["editable" mode](#editable-installation), so that you can start developing right away.
 
 :::
-
 :::{tab-item} Python venv
 
 If you have [Python's `venv`](https://docs.python.org/3/library/venv.html), available on
@@ -113,7 +105,6 @@ pip install -e .
 ```
 
 :::
-
 ::::
 
 ### Editable installation
@@ -134,7 +125,6 @@ python3 -m pip install -e .
 ```
 
 :::{toggle}
-
 Internally, this calls:
 
 ```shell
@@ -171,10 +161,8 @@ developer requirements, some of the repositories provide
 files can be used to 'pin' all versions of installed packages as follows:
 
 :::{margin}
-
 Requirements may differ per Python version, so there is one constraint file for each
 version of Python that the package supports.
-
 :::
 
 ```shell
@@ -197,13 +185,11 @@ and
 [`requirements-cron.yml`](https://github.com/ComPWA/ampform/actions/workflows/requirements-cron.yml).
 
 :::{note}
-
 Constraint files ensure that the framework is _deterministic and reproducible_ (up to
 testing) _for all commits and versions_, which is vital for both users (doing analysis)
 and for developers (for instance with
 {ref}`continuous integration <develop:GitHub Actions>`). In other words, it provides a
 way out of ["dependency hell"](https://en.wikipedia.org/wiki/Dependency_hell).
-
 :::
 
 ### Updating
@@ -234,7 +220,6 @@ accessible. Here's an example, where we also make the Julia executable available
 system:
 
 ::::{tab-set}
-
 :::{tab-item} System-wide installation
 
 ```shell
@@ -245,7 +230,6 @@ sudo ln -s /opt/julia-1.7.3/bin/julia /usr/local/bin/julia
 ```
 
 :::
-
 :::{tab-item} Home-folder installation
 
 ```shell
@@ -264,7 +248,6 @@ export PATH="~/bin:$PATH"
 ```
 
 :::
-
 ::::
 
 Just as in Python, it's safest to work with a
@@ -282,10 +265,8 @@ environment is reproducible for each commit (see also
 {ref}`develop:Pinning dependency versions`).
 
 :::{seealso}
-
 Have a look {ref}`here<develop:IJulia notebooks>` if you want to integrate Jupyter
 notebooks with Julia kernels into your {ref}`documentation<develop:Documentation>`.
-
 :::
 
 ## Automated coding conventions
@@ -316,10 +297,8 @@ pre-commit install --install-hooks
 ```
 
 :::{margin} Initializing pre-commit
-
 The first time you run {command}`pre-commit` after installing or updating its checks, it
 may take some time to initialize.
-
 :::
 
 Upon committing, {command}`pre-commit` runs a set of checks as defined in the file
@@ -343,11 +322,9 @@ of these tools.
 More thorough checks can be run in one go with the following command:
 
 :::{margin} Running jobs in parallel
-
 The {code}`-p` flag lets the jobs run in parallel. It also provides a nicer overview of
 the progress. See [`--parallel`](https://tox.wiki/en/latest/config.html#cmdoption-tox-p)
 flag.
-
 :::
 
 ```shell
@@ -450,15 +427,11 @@ The flag {command}`-n auto` causes {code}`pytest` to
 [run with a distributed strategy](https://pypi.org/project/pytest-xdist).
 
 ::::{margin}
-
 :::{tip}
-
 In VScode, you can visualize test coverage are covered with
 [Coverage Gutters](https://marketplace.visualstudio.com/items?itemName=ryanluker.vscode-coverage-gutters).
 For this you need to run {command}`pytest` with the flag {command}`--cov-report=xml`).
-
 :::
-
 ::::
 
 <!-- cspell:ignore htmlcov -->
@@ -480,10 +453,8 @@ pytest --profile-svg
 and check the stats and the {file}`prof/combined.svg` output file.
 
 :::{note}
-
 Jupyter notebooks can also be used as tests. See more info
 {ref}`here <develop:Jupyter Notebooks>`.
-
 :::
 
 ## Documentation
@@ -533,15 +504,11 @@ or just click "details" under the RTD check once you submit your PR.
 ### Jupyter Notebooks
 
 ::::{margin}
-
 :::{tip}
-
 Sometimes it happens that your Jupyter installation does not recognize your
 {ref}`virtual environment <develop:Virtual environment>`. In that case, have a look at
 [these instructions](https://ipython.readthedocs.io/en/stable/install/kernel_install.html#kernels-for-different-environments).
-
 :::
-
 ::::
 
 The [docs](https://github.com/ComPWA/ampform/tree/main/docs) folder can also contain
@@ -575,14 +542,12 @@ EXECUTE_NB= tox -e doclive
 ```
 
 :::{tip}
-
 Notebooks are automatically formatted through {ref}`pre-commit <develop:Pre-commit>`
 (see {ref}`develop:Formatting`). If you want to format the notebooks automatically as
 you're working, you can do so with
 [`jupyterlab-code-formatter`](https://ryantam626.github.io/jupyterlab_code_formatter/index.html),
 which is automatically
 {ref}`installed with the dev requirements <develop:Optional dependencies>`.
-
 :::
 
 #### IJulia notebooks
@@ -593,7 +558,6 @@ It's also possible to execute and render Jupyter notebooks with Julia kernels. F
 environment):
 
 ::::{tab-set}
-
 :::{tab-item} Shell
 
 ```shell
@@ -601,7 +565,6 @@ julia -e 'import Pkg; Pkg.add("IJulia")'
 ```
 
 :::
-
 :::{tab-item} Julia
 
 ```julia
@@ -610,7 +573,6 @@ Pkg.add("IJulia")
 ```
 
 :::
-
 ::::
 
 Next, install a Jupyter kernel:
@@ -618,7 +580,6 @@ Next, install a Jupyter kernel:
 <!-- cspell:ignore installkernel -->
 
 ::::{tab-set}
-
 :::{tab-item} Shell
 
 ```shell
@@ -626,7 +587,6 @@ julia -e 'using IJulia; installkernel("julia")'
 ```
 
 :::
-
 :::{tab-item} Julia
 
 ```julia
@@ -635,13 +595,10 @@ installkernel("julia")
 ```
 
 :::
-
 ::::
 
 and select it as kernel in the Jupyter notebook.
-
 :::{note}
-
 IJulia has to be installed system-wide to make Sphinx understand how to execute the
 notebook. You can however access the local environment from the notebook itself, e.g. by
 defining a cell:
@@ -653,7 +610,6 @@ Pkg.instantiate()
 ```
 
 See {doc}`/report/019` for an example.
-
 :::
 
 ## Collaboration
@@ -665,10 +621,8 @@ and developer set-up with GitHub issues (see for instance
 [report bugs](https://github.com/ComPWA/ampform/issues/new/choose).
 
 :::{tip}
-
 If you are new to working with GitHub, have a look at the tutorials on
 [GitHub Skills](https://skills.github.com).
-
 :::
 
 ### Issue management
@@ -727,10 +681,8 @@ found on RTD under "latest", see e.g.
 #### Epic branches
 
 :::{margin}
-
 The word ["epic"](https://www.atlassian.com/agile/project-management/epics) is used in
 [agile software development](https://en.wikipedia.org/wiki/Agile_software_development).
-
 :::
 
 When working on a feature or larger refactoring that may take a longer time (think of
@@ -870,7 +822,6 @@ We are open to other code editors as well. An example would be maintaining a
 [IntelliJ with Python](https://www.jetbrains.com/help/idea/plugin-overview.html#b370507b).
 So we'll gladly integrate your editor settings where possible as you
 [contribute](#collaboration) to the frameworks!
-
 :::
 
 ### Visual Studio code
@@ -895,7 +846,6 @@ You can still specify your own settings in
 as the VSCode settings that come with this are folder settings.
 
 :::{dropdown} Conda and VSCode
-
 ComPWA projects are best developed {ref}`with Conda <develop:Virtual environment>` and
 VSCode. The complete developer install procedure then becomes:
 
@@ -918,17 +868,14 @@ developing the code-base. Below you can find some resources we highly recommend 
 be familiar with.
 
 :::{margin}
-
 Do you have other recommendations? Edit this page
 [here](https://github.com/ComPWA/compwa-org/edit/main/docs/develop.md)!
-
 :::
 
 <!-- cspell:ignore Coursera Hynek Schlawack Sedgewick Slatkin subclassing testdriven Vlissides -->
 
-```{rubric} Software development in Python
-
-```
+:::{rubric} Software development in Python
+:::
 
 - [Complete Python Development Guide ― testdriven.io](https://testdriven.io/guides/complete-python)
 - _Effective Python: 90 Specific Ways to Write Better Python_ (2019) by Brett Slatkin
@@ -936,9 +883,8 @@ Do you have other recommendations? Edit this page
   [its website](https://effectivepython.com).
 - [Scikit-HEP Developer Information](https://scikit-hep.org/developer)
 
-```{rubric} Clean Code
-
-```
+:::{rubric} Clean Code
+:::
 
 - [Clean Code lesson series by "Uncle Bob" on YouTube](https://youtu.be/7EmboKQH8lM)
 - _Clean Code: A Handbook of Agile Software Craftsmanship_ (2009) by Robert Martin
@@ -946,9 +892,8 @@ Do you have other recommendations? Edit this page
 - [This gist](https://gist.github.com/wojteklu/73c6914cc446146b8b533c0988cf8d29) with a
   comprehensive summary of the core principles of Martin's _Clean Code_
 
-```{rubric} Test-Driven Development
-
-```
+:::{rubric} Test-Driven Development
+:::
 
 - _Test-Driven Development with Python_ (2017) by Harry Percival
   {cite}`percivalTestDrivenDevelopmentPython2017`
@@ -957,9 +902,8 @@ Do you have other recommendations? Edit this page
 - [The different types of software testing ― Atlassian](https://www.atlassian.com/continuous-delivery/software-testing/types-of-software-testing)
 - [Types of Software Testing: 100 Examples of Different Testing Types ― Guru99](https://www.guru99.com/types-of-software-testing.html)
 
-```{rubric} Software Design
-
-```
+:::{rubric} Software Design
+:::
 
 - [Design Patterns in Python ― refactoring.guru](https://refactoring.guru/design-patterns/python)
 - [SourceMaking](https://sourcemaking.com):
@@ -977,9 +921,8 @@ Do you have other recommendations? Edit this page
   while this document provides intended for C++ developers, it is an excellent,
   up-to-date set of guidelines that apply to any programming language.
 
-```{rubric} Algorithms
-
-```
+:::{rubric} Algorithms
+:::
 
 - _Algorithms_ (2011) by Robert Sedgewick and Kevin Wayne
   {cite}`sedgewickAlgorithms2011`. See also
