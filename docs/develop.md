@@ -297,10 +297,10 @@ juliaup default release
 
 ```shell
 cd ~/Downloads
-tar xzf julia-1.7.3-linux-x86_64.tar.gz
+tar xzf julia-1.9.2-linux-x86_64.tar.gz
 mkdir ~/opt ~/bin
-mv julia-1.7.3 ~/opt/
-ln -s ~/opt/julia-1.7.3/bin/julia ~/bin/julia
+mv julia-1.9.2 ~/opt/
+ln -s ~/opt/julia-1.9.2/bin/julia ~/bin/julia
 ```
 
 Make sure that `~/bin` is listed in the `PATH` environment variable, e.g. by updating it
@@ -315,9 +315,9 @@ export PATH="~/bin:$PATH"
 
 ```shell
 cd ~/Downloads
-tar xzf julia-1.7.3-linux-x86_64.tar.gz
-sudo mv julia-1.7.3 /opt/
-sudo ln -s /opt/julia-1.7.3/bin/julia /usr/local/bin/julia
+tar xzf julia-1.9.2-linux-x86_64.tar.gz
+sudo mv julia-1.9.2 /opt/
+sudo ln -s /opt/julia-1.9.2/bin/julia /usr/local/bin/julia
 ```
 
 ::::
