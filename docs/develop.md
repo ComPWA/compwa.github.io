@@ -258,24 +258,42 @@ In that case, trash the virtual environment and
 Physics. While ComPWA is mainly developed in Python, we try to taylor to new trends and
 are experimenting with Julia as well.
 
-Julia can be downloaded [here](https://julialang.org/downloads). To install Julia in
-Linux and Mac, you'll have to unpack the downloaded
+Julia can be downloaded [here](https://julialang.org/downloads) or can be installed
+within your virtual environment with [juliaup](https://github.com/JuliaLang/juliaup). To
+install Julia system-wide in Linux and Mac, you'll have to unpack the downloaded
 [tar](<https://en.wikipedia.org/wiki/Tar_(computing)>) file to a location that is easily
 accessible. Here's an example, where we also make the Julia executable available to the
 system:
 
-::::{tab-set}
-:::{tab-item} System-wide installation
+:::::{tab-set}
+::::{tab-item} Conda
+
+Install [juliaup](https://github.com/JuliaLang/juliaup) for installing and managing
+Julia versions.
 
 ```shell
-cd ~/Downloads
-tar xzf julia-1.7.3-linux-x86_64.tar.gz
-sudo mv julia-1.7.3 /opt/
-sudo ln -s /opt/julia-1.7.3/bin/julia /usr/local/bin/julia
+conda install juliaup -c conda-forge
+```
+
+:::{dropdown} Optional: select Julia version
+By default, this provides you with the latest Julia release. **Optionally**, you can
+switch versions as follows:
+
+```shell
+conda install juliaup -c conda-forge
+juliaup add 1.7
+juliaup default 1.7
+```
+
+You can switch back to the latest version with:
+
+```shell
+juliaup default release
 ```
 
 :::
-:::{tab-item} Home-folder installation
+::::
+::::{tab-item} Home-folder
 
 ```shell
 cd ~/Downloads
@@ -292,8 +310,18 @@ through your `.bashrc` file:
 export PATH="~/bin:$PATH"
 ```
 
-:::
 ::::
+::::{tab-item} System-wide
+
+```shell
+cd ~/Downloads
+tar xzf julia-1.7.3-linux-x86_64.tar.gz
+sudo mv julia-1.7.3 /opt/
+sudo ln -s /opt/julia-1.7.3/bin/julia /usr/local/bin/julia
+```
+
+::::
+:::::
 
 Just as in Python, it's safest to work with a
 {ref}`virtual environment <develop:Virtual environment>`. You can read more about Julia
@@ -599,8 +627,7 @@ which is automatically
 
 It's also possible to execute and render Jupyter notebooks with Julia kernels. For this,
 {ref}`install Julia<develop:Julia>` and install
-[IJulia](https://julialang.github.io/IJulia.jl) _system-wide_ (not in a virtual
-environment):
+[IJulia](https://julialang.github.io/IJulia.jl):
 
 ::::{tab-set}
 :::{tab-item} Shell
@@ -620,7 +647,8 @@ Pkg.add("IJulia")
 :::
 ::::
 
-Next, install a Jupyter kernel:
+Usually, this also installs a Jupyter kernel directly. **Optionally**, you can define a
+Jupyter kernel manually:
 
 <!-- cspell:ignore installkernel -->
 
@@ -643,10 +671,12 @@ installkernel("julia")
 ::::
 
 and select it as kernel in the Jupyter notebook.
+
 :::{note}
-IJulia has to be installed system-wide to make Sphinx understand how to execute the
-notebook. You can however access the local environment from the notebook itself, e.g. by
-defining a cell:
+As mentioned in {ref}`develop:Julia`, Julia can be installed within your Conda
+environment through [`juliaup`](https://anaconda.org/conda-forge/juliaup). This is,
+however, not yet a virtual environment for Julia itself. You can create a virtual
+environment for Julia itself by for instance defining it through a code cell like this:
 
 ```julia
 using Pkg
