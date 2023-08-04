@@ -281,8 +281,8 @@ switch versions as follows:
 
 ```shell
 conda install juliaup -c conda-forge
-juliaup add 1.7
-juliaup default 1.7
+juliaup add 1.9
+juliaup default 1.9
 ```
 
 You can switch back to the latest version with:
