@@ -1,10 +1,12 @@
 name: compwa-org
 channels:
   - defaults
+  - conda-forge
 dependencies:
-  - python==3.8.*
-  - pip
   - graphviz # for binder
+  - juliaup
+  - pip
+  - python==3.8.*
   - pip:
       - |
         -c .constraints/py3.8.txt

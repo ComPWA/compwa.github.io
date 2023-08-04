@@ -209,6 +209,8 @@
     "isinstance",
     "isort",
     "jaxlib",
+    "joinpath",
+    "juliaup",
     "jupyterlab",
     "kernelspec",
     "kutschke",
