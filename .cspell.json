@@ -213,7 +213,7 @@
     "ipywidgets",
     "isinstance",
     "isort",
-    "jacrev",
+    "jacfwd",
     "jaxlib",
     "joinpath",
     "juliaup",
