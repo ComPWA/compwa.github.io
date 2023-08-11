@@ -215,6 +215,8 @@
     "isort",
     "jacrev",
     "jaxlib",
+    "joinpath",
+    "juliaup",
     "jupyterlab",
     "kernelspec",
     "kutschke",
