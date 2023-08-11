@@ -213,6 +213,7 @@
     "ipywidgets",
     "isinstance",
     "isort",
+    "jacrev",
     "jaxlib",
     "jupyterlab",
     "kernelspec",
