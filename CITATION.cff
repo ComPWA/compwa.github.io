@@ -1,0 +1,52 @@
+cff-version: 1.2.0
+message: If you use this software, please cite it as below.
+title: >-
+  Common Partial Wave Analysis: A collaboration-independent organisation for amplitude analysis
+  software
+abstract: |-
+  The ["Common Partial Wave Analysis"](https://github.com/ComPWA) organization (ComPWA) aims to make amplitude analysis accessible through transparent and interactive documentation, modern software development tools, and collaboration-independent frameworks.
+
+authors:
+  - family-names: Fritsch
+    given-names: Miriam
+    affiliation: Ruhr University Bochum
+    orcid: https://orcid.org/0000-0002-6463-8295
+  - family-names: Michel
+    given-names: Mathias
+    affiliation: Ruhr University Bochum
+  - family-names: Pflüger
+    given-names: Stefan
+    affiliation: Ruhr University Bochum
+  - family-names: de Boer
+    given-names: Remco E.
+    affiliation: Ruhr University Bochum
+    orcid: https://orcid.org/0000-0001-5846-2206
+  - family-names: Wollenberg
+    given-names: Leonard
+    affiliation: Ruhr University Bochum
+  - family-names: Gradl
+    given-names: Wolfgang
+    affiliation: Johannes Gutenberg University Mainz
+    orcid: https://orcid.org/0000-0002-9974-8320
+  - family-names: Weidenkaff
+    given-names: Peter
+    affiliation: Johannes Gutenberg University Mainz
+    orcid: https://orcid.org/0000-0002-5529-438X
+  - family-names: Peters
+    given-names: Klaus
+    affiliation: GSI Helmholtzzentrum für Schwerionenforschung
+    orcid: https://orcid.org/0000-0001-7133-0662
+  - family-names: Götzen
+    given-names: Klaus
+    affiliation: GSI Helmholtzzentrum für Schwerionenforschung
+    orcid: https://orcid.org/0000-0002-0782-3806
+doi: 10.5281/zenodo.6908149
+keywords:
+  - particle physics
+  - amplitude analysis
+  - partial wave analysis
+  - computer algebra system
+license: GPL-3.0-or-later
+repository-code: https://github.com/ComPWA/compwa-org
+type: software
+url: https://compwa-org.readthedocs.io
