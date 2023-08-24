@@ -23,8 +23,8 @@
   "editor.formatOnSave": true,
   "editor.rulers": [88],
   "editor.unicodeHighlight.allowedCharacters": {
-    "\u03bd": true,
-    "\u03c3": true
+    "ν": true,
+    "σ": true
   },
   "files.watcherExclude": {
     "**/*_cache/**": true,
