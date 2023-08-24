@@ -21,9 +21,7 @@
   "black-formatter.importStrategy": "fromEnvironment",
   "cSpell.enabled": true,
   "editor.formatOnSave": true,
-  "editor.rulers": [
-    88
-  ],
+  "editor.rulers": [88],
   "editor.unicodeHighlight.allowedCharacters": {
     "\u03bd": true,
     "\u03c3": true
@@ -35,14 +33,10 @@
     "**/.tox/**": true
   },
   "git.rebaseWhenSync": true,
-  "github-actions.workflows.pinned.workflows": [
-    ".github/workflows/ci.yml"
-  ],
+  "github-actions.workflows.pinned.workflows": [".github/workflows/ci.yml"],
   "json.schemas": [
     {
-      "fileMatch": [
-        ".zenodo.json"
-      ],
+      "fileMatch": [".zenodo.json"],
       "url": "https://zenodo.org/schemas/deposits/records/legacyrecord.json"
     }
   ],
