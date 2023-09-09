@@ -40,6 +40,7 @@ ruff = [
     "--extend-ignore=B018",
     "--extend-ignore=C90",
     "--extend-ignore=D",
+    "--extend-ignore=E741",
     "--extend-ignore=F404",
     "--extend-ignore=F821",    # cell magic
     "--extend-ignore=ISC003",
