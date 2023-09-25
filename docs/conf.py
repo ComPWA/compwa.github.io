@@ -132,6 +132,9 @@ graphviz_output_format = "svg"
 html_copy_source = True  # needed for download notebook button
 html_css_files = ["custom.css"]
 html_favicon = "_static/favicon.ico"
+html_js_files = [
+    "https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js",
+]
 html_last_updated_fmt = "%-d %B %Y"
 html_show_copyright = False
 html_show_sourcelink = False
@@ -274,6 +277,7 @@ autosectionlabel_prefix_document = True
 bibtex_bibfiles = ["bibliography.bib"]
 suppress_warnings = [
     "myst.domains",
+    "mystnb.unknown_mime_type",
 ]
 
 # Settings for copybutton
