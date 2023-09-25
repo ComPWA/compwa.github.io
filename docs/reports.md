@@ -17,3 +17,8 @@ well.
 :hidden:
 report/*
 ```
+
+````{dropdown} Execution times
+```{nb-exec-table}
+```
+````
