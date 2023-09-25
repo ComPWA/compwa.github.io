@@ -912,7 +912,7 @@ especially the case for [VSCode](#visual-studio-code).
 
 We are open to other code editors as well. An example would be maintaining a
 [local vimrc](https://github.com/embear/vim-localvimrc) for users who prefer
-[VIM](https://www.vim.org). Other IDEs we'd like to support are
+[VIM](<https://en.wikipedia.org/wiki/Vim_(text_editor)>). Other IDEs we'd like to support are
 [PyCharm](https://www.jetbrains.com/pycharm), [Atom](https://atom.io),
 [IntelliJ with Python](https://www.jetbrains.com/help/idea/plugin-overview.html#b370507b).
 So we'll gladly integrate your editor settings where possible as you
