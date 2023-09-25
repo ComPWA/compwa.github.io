@@ -97,6 +97,7 @@
     "parametrizations",
     "pathlib",
     "permutate",
+    "Plotly",
     "pyproject",
     "pytest",
     "PYTHONHASHSEED",
