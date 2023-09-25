@@ -330,6 +330,7 @@ nb_execution_excludepatterns = [
     "report/016*",
     "report/017*",
     "report/018*",
+    "report/019*",
     "report/020*",
     "report/021*",
     "report/022*",
