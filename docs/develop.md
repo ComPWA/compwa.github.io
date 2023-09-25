@@ -687,6 +687,26 @@ Pkg.instantiate()
 See {doc}`/report/019` for an example.
 :::
 
+Additionally, you can install a [Language Server](https://jupyterlab-lsp.readthedocs.io/en/latest/Language%20Servers.html) for Julia in Jupyter Lab. To do so, run:
+
+::::{tab-set}
+:::{tab-item} Shell
+
+```shell
+julia -e 'import Pkg; Pkg.add("LanguageServer")'
+```
+
+:::
+:::{tab-item} Julia
+
+```julia
+using Pkg
+Pkg.add("LanguageServer")
+```
+
+:::
+::::
+
 ## Collaboration
 
 The source code of all ComPWA repositories is maintained with [Git](https://git-scm.com)
