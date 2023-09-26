@@ -92,12 +92,10 @@ extensions = [
     "sphinx_comments",
     "sphinx_copybutton",
     "sphinx_design",
-    "sphinx_needs",
     "sphinx_thebe",
     "sphinx_togglebutton",
     "sphinxcontrib.bibtex",
     "sphinxcontrib.hep.pdgref",
-    "sphinxcontrib.plantuml",
 ]
 exclude_patterns = [
     "**.ipynb_checkpoints",
@@ -376,62 +374,6 @@ comments_config = {
         "label": "📝 Docs",
     },
 }
-
-# Settings for sphinxcontrib.needs
-needs_css = "blank.css"
-needs_layouts = {
-    "technical_report": {
-        "grid": "simple",
-        "layout": {
-            "head": ['<<meta_id()>> **<<meta("title")>>**'],
-            "meta": [
-                '**status**: <<meta("status")>>',
-                '**tags**: <<meta("tags")>>',
-                '<<meta_links_all(prefix="**", postfix="**")>>',
-            ],
-        },
-    }
-}
-needs_default_layout = "technical_report"
-needs_id_regex = "^TR-[0-9][0-9][0-9]$"
-needs_id_required = True
-needs_services = {
-    "github-commits": {
-        "url": "https://api.github.com/",
-        "need_type": "spec",
-        "id_prefix": "GH_COMMIT_",
-    },
-    "github-issues": {
-        "url": "https://api.github.com/",
-        "need_type": "spec",
-        "id_prefix": "GH_ISSUE_",
-    },
-    "github-prs": {
-        "url": "https://api.github.com/",
-        "need_type": "spec",
-        "id_prefix": "GH_PR_",
-    },
-}
-
-ON_RTD = os.environ.get("READTHEDOCS") is not None
-PLANTUML_PATH = os.path.join(os.path.dirname(__file__), "utils", "plantuml.jar")
-if not os.path.exists(PLANTUML_PATH):
-    print("\033[93;1mDowloading plantuml\033[0m")
-    online_content = requests.get(
-        "https://sourceforge.net/projects/plantuml/files/latest/download",
-        allow_redirects=True,
-    )
-    os.makedirs(os.path.dirname(PLANTUML_PATH), exist_ok=True)
-    with open(PLANTUML_PATH, "wb") as stream:
-        stream.write(online_content.content)
-
-if ON_RTD:
-    # https://github.com/useblocks/sphinxcontrib-needs/blob/d40897e/docs/conf.py#L254-L265
-    plantuml = f"java -Djava.awt.headless=true -jar {PLANTUML_PATH}"
-else:
-    plantuml = f"java -jar {PLANTUML_PATH}"
-plantuml_output_format = "svg_img"
-needs_table_style = "datatables"
 
 # Settings for Thebe cell output
 thebe_config = {

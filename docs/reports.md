@@ -5,16 +5,9 @@ These pages are a collection of findings while working on ComPWA packages such a
 implemented, but may become relevant later on or could be useful to other frameworks as
 well.
 
-<!-- cspell:ignore datatables needtable -->
-
-```{needtable}
-:columns: id;title;status;tags
-:style: datatables
-```
-
 ```{toctree}
 :glob:
-:hidden:
+:maxdepth: 1
 report/*
 ```
 
