@@ -9,20 +9,51 @@ well.
 
 ```
 
-<!-- DataTables to make the table above look nice -->
 <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
 <script type="text/javascript" src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
 
+<style>
+td.details-control {
+    background: url('https://www.datatables.net/examples/resources/details_open.png') no-repeat center center;
+    cursor: pointer;
+}
+tr.shown td.details-control {
+    background: url('https://www.datatables.net/examples/resources/details_close.png') no-repeat center center;
+}
+</style>
+
 <script>
-$(document).ready( function () {
-    $('table').DataTable( {
-        "columnDefs": [
-            { "width": "3em", "targets": 0 },
-            { "width": "10em", "targets": 2 }
-        ],
-        "pageLength": 100,
-    });
-} );
+function format(d) {
+    return d[3] + d[4];
+}
+
+let table = new DataTable('table', {
+    "columnDefs": [
+        { "visible": false, "targets": [3, 4] },
+        {
+            "className": 'details-control',
+            "orderable": false,
+            "data": null,
+            "defaultContent": '',
+            "targets": 0
+        },
+        { "width": "10em", "targets": 5 },
+    ],
+    "order": [[1, 'asc']],
+    "pageLength": 100,
+});
+
+table.on('click', 'td.details-control', function (e) {
+    var tr = $(this).closest('tr');
+    var row = table.row( tr );
+    if ( row.child.isShown() ) {
+        row.child.hide();
+        tr.removeClass('shown');
+    } else {
+        row.child( format(row.data()) ).show();
+        tr.addClass('shown');
+    }
+});
 </script>
 
 ````{dropdown} Execution times

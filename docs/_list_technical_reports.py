@@ -24,39 +24,29 @@ def main() -> int:
 def _create_tr_table() -> str:
     notebook_paths = _get_technical_report_paths()
     src = dedent("""
-    | TR | Title | Status |
-    |:--:|:------|:-------|
+    |    | TR | Title | Details | Tags | Status |
+    |:--:|:--:|:------|:--------|:-----|:-------|
     """).strip()
     for notebook in notebook_paths:
         card_info = _get_card_info(notebook)
         tr = card_info["tr"]
         title = card_info["title"]
-        tags = sorted(card_info["tags"])
-        details = card_info.get("details")
-        if tags:
-            tags = " ".join(_to_badge(tag) for tag in tags)
-            if details is None:
-                details = f"_Tags_: {tags}"
-            else:
-                details = f"{details}<br>_Tags_: {tags}"
-        if details is not None:
-            details = re.sub(
-                r"\[([^\]]+)\]\((\./)?(\d\d\d)\.ipynb\)",
-                r"[\1](report/\3.ipynb)",
-                details,
-            )
-            title = f"<details><summary>{title}</summary>{details}</details>"
-        src += f"\n| [TR&#8209;{tr}](report/{tr}.ipynb) | {title} |"
-        footer = card_info.get("footer")
-        if footer is not None:
-            footer = footer.splitlines()[0]
-            footer = footer.replace("-", "&#8209;")
-            src += f" {footer} |"
+        details = re.sub(
+            r"\[([^\]]+)\]\((\./)?(\d\d\d)\.ipynb\)",
+            r"[\1](report/\3.ipynb)",
+            card_info.get("details", ""),
+        )
+        tags = " ".join(_to_badge(tag) for tag in sorted(card_info["tags"]))
+        status = card_info.get("footer", "\n").splitlines()[0].replace("-", "&#8209;")
+        src += (
+            f"\n| | [TR&#8209;{tr}](report/{tr}.ipynb) | {title} | {details} | {tags} |"
+            f" {status} |"
+        )
     return src
 
 
 def _to_badge(tag: str) -> str:
-    return f"{{bdg-info}}`{tag}`"
+    return f"{{bdg-info-line}}`{tag}`"
 
 
 def _get_technical_report_paths() -> list[str]:
