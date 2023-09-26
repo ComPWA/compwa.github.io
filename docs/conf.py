@@ -93,6 +93,7 @@ extensions = [
     "sphinx_copybutton",
     "sphinx_design",
     "sphinx_issues",
+    "sphinx_needs",
     "sphinx_thebe",
     "sphinx_togglebutton",
     "sphinxcontrib.bibtex",
