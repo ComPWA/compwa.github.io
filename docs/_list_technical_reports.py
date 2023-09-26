@@ -37,7 +37,11 @@ def _create_tr_table() -> str:
             card_info.get("details", ""),
         )
         tags = " ".join(_to_badge(tag) for tag in sorted(card_info["tags"]))
-        status = card_info.get("footer", "\n").splitlines()[0].replace("-", "&#8209;")
+        status = re.sub(
+            r"\[([^\]]+)\-([^\]]+)\]\(([^\)]+)\)",
+            r"[\1&#8209;\2](\3)",
+            card_info.get("footer", "\n").splitlines()[0],
+        )
         src += (
             f"\n| | [TR&#8209;{tr}](report/{tr}.ipynb) | {title} | {details} | {tags} |"
             f" {status} |"
