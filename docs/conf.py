@@ -98,6 +98,7 @@ extensions = [
     "sphinx_comments",
     "sphinx_copybutton",
     "sphinx_design",
+    "sphinx_remove_toctrees",
     "sphinx_thebe",
     "sphinx_togglebutton",
     "sphinxcontrib.bibtex",
@@ -174,6 +175,10 @@ html_theme_options = {
 }
 html_title = "Common Partial Wave Analysis Project"
 pygments_style = "sphinx"
+remove_from_toctrees = [
+    "adr/*",
+    "report/*",
+]
 todo_include_todos = False
 viewcode_follow_imported_members = True
 
