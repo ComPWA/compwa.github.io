@@ -27,8 +27,8 @@ Summary of problems with the existing design, possibly with some snippets.
 If available, list and link related issues, PRs, or ADRs that led up to this
 ADR:
 
-- {issue}`000`
-- {issue}`ComPWA/ampform#1`
+- [ComPWA/ampform#1](https://github.com/ComPWA/ampform/issues/1)
+- [ComPWA/tensorwaves#2](https://github.com/ComPWA/tensorwaves/issues/2)
 -->
 
 ## Decision drivers
