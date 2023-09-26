@@ -32,6 +32,12 @@ from pybtex.style.template import (
     words,
 )
 
+this_dir = os.path.dirname(__file__)
+sys.path.insert(0, os.path.abspath(this_dir))
+import _list_technical_reports
+
+_list_technical_reports.main()
+
 # -- Project information -----------------------------------------------------
 project = "ComPWA Organization"
 REPO_NAME = "compwa-org"
