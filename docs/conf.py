@@ -32,6 +32,12 @@ from pybtex.style.template import (
     words,
 )
 
+this_dir = os.path.dirname(__file__)
+sys.path.insert(0, os.path.abspath(this_dir))
+import _list_technical_reports
+
+_list_technical_reports.main()
+
 # -- Project information -----------------------------------------------------
 project = "ComPWA Organization"
 REPO_NAME = "compwa-org"
@@ -92,13 +98,11 @@ extensions = [
     "sphinx_comments",
     "sphinx_copybutton",
     "sphinx_design",
-    "sphinx_issues",
-    "sphinx_needs",
+    "sphinx_remove_toctrees",
     "sphinx_thebe",
     "sphinx_togglebutton",
     "sphinxcontrib.bibtex",
     "sphinxcontrib.hep.pdgref",
-    "sphinxcontrib.plantuml",
 ]
 exclude_patterns = [
     "**.ipynb_checkpoints",
@@ -130,7 +134,6 @@ from IPython.display import display
 """
 graphviz_output_format = "svg"
 html_copy_source = True  # needed for download notebook button
-html_css_files = ["custom.css"]
 html_favicon = "_static/favicon.ico"
 html_js_files = [
     "https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js",
@@ -175,6 +178,10 @@ html_theme_options = {
 }
 html_title = "Common Partial Wave Analysis Project"
 pygments_style = "sphinx"
+remove_from_toctrees = [
+    "adr/*",
+    "report/*",
+]
 todo_include_todos = False
 viewcode_follow_imported_members = True
 
@@ -192,6 +199,7 @@ version_remapping = {
         "8.0.3": "8.0.5",
         "8.0.4": "8.0.5",
         "8.0.6": "8.0.5",
+        "8.1.1": "8.1.2",
     },
     "matplotlib": {"3.5.1": "3.5.0"},
 }
@@ -380,65 +388,6 @@ comments_config = {
         "label": "📝 Docs",
     },
 }
-
-# Settings for sphinx-issues
-issues_github_path = "ComPWA/compwa-org"
-
-# Settings for sphinxcontrib.needs
-needs_css = "blank.css"
-needs_layouts = {
-    "technical_report": {
-        "grid": "simple",
-        "layout": {
-            "head": ['<<meta_id()>> **<<meta("title")>>**'],
-            "meta": [
-                '**status**: <<meta("status")>>',
-                '**tags**: <<meta("tags")>>',
-                '<<meta_links_all(prefix="**", postfix="**")>>',
-            ],
-        },
-    }
-}
-needs_default_layout = "technical_report"
-needs_id_regex = "^TR-[0-9][0-9][0-9]$"
-needs_id_required = True
-needs_services = {
-    "github-commits": {
-        "url": "https://api.github.com/",
-        "need_type": "spec",
-        "id_prefix": "GH_COMMIT_",
-    },
-    "github-issues": {
-        "url": "https://api.github.com/",
-        "need_type": "spec",
-        "id_prefix": "GH_ISSUE_",
-    },
-    "github-prs": {
-        "url": "https://api.github.com/",
-        "need_type": "spec",
-        "id_prefix": "GH_PR_",
-    },
-}
-
-ON_RTD = os.environ.get("READTHEDOCS") is not None
-PLANTUML_PATH = os.path.join(os.path.dirname(__file__), "utils", "plantuml.jar")
-if not os.path.exists(PLANTUML_PATH):
-    print("\033[93;1mDowloading plantuml\033[0m")
-    online_content = requests.get(
-        "https://sourceforge.net/projects/plantuml/files/latest/download",
-        allow_redirects=True,
-    )
-    os.makedirs(os.path.dirname(PLANTUML_PATH), exist_ok=True)
-    with open(PLANTUML_PATH, "wb") as stream:
-        stream.write(online_content.content)
-
-if ON_RTD:
-    # https://github.com/useblocks/sphinxcontrib-needs/blob/d40897e/docs/conf.py#L254-L265
-    plantuml = f"java -Djava.awt.headless=true -jar {PLANTUML_PATH}"
-else:
-    plantuml = f"java -jar {PLANTUML_PATH}"
-plantuml_output_format = "svg_img"
-needs_table_style = "datatables"
 
 # Settings for Thebe cell output
 thebe_config = {
