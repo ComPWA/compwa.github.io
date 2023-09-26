@@ -92,7 +92,6 @@ extensions = [
     "sphinx_comments",
     "sphinx_copybutton",
     "sphinx_design",
-    "sphinx_issues",
     "sphinx_needs",
     "sphinx_thebe",
     "sphinx_togglebutton",
@@ -377,9 +376,6 @@ comments_config = {
         "label": "📝 Docs",
     },
 }
-
-# Settings for sphinx-issues
-issues_github_path = "ComPWA/compwa-org"
 
 # Settings for sphinxcontrib.needs
 needs_css = "blank.css"
