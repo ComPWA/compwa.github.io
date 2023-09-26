@@ -56,13 +56,13 @@ table.on('click', 'td.details-control', function (e) {
 });
 </script>
 
-````{dropdown} Execution times
-```{nb-exec-table}
-```
-````
-
 ```{toctree}
 :glob:
 :hidden:
 report/*
 ```
+
+````{dropdown} Execution times
+```{nb-exec-table}
+```
+````
