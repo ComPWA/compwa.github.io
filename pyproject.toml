@@ -38,6 +38,7 @@ ruff = [
     "--extend-ignore=A003",
     "--extend-ignore=B008",
     "--extend-ignore=B018",
+    "--extend-ignore=C408",
     "--extend-ignore=C90",
     "--extend-ignore=D",
     "--extend-ignore=E741",
