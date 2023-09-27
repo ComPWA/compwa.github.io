@@ -135,6 +135,10 @@ from IPython.display import display
 graphviz_output_format = "svg"
 html_copy_source = True  # needed for download notebook button
 html_favicon = "_static/favicon.ico"
+html_js_files = [
+    "https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js",
+    "https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js",
+]
 html_last_updated_fmt = "%-d %B %Y"
 html_show_copyright = False
 html_show_sourcelink = False
@@ -265,6 +269,7 @@ intersphinx_mapping = {
         None,
     ),
     "numpy": (f"https://numpy.org/doc/{get_minor_version('numpy')}", None),
+    "plotly": ("https://plotly.com/python-api-reference/", None),
     "pwa": ("https://pwa.readthedocs.io", None),
     "python": ("https://docs.python.org/3", None),
     "qrules": ("https://qrules.readthedocs.io/en/stable", None),
@@ -282,6 +287,7 @@ autosectionlabel_prefix_document = True
 bibtex_bibfiles = ["bibliography.bib"]
 suppress_warnings = [
     "myst.domains",
+    "mystnb.unknown_mime_type",
 ]
 
 # Settings for copybutton
@@ -326,7 +332,6 @@ nb_execution_excludepatterns = [
     "report/002*",
     "report/003*",
     "report/005*",
-    "report/006*",
     "report/008*",
     "report/009*",
     "report/01*",
