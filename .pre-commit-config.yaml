@@ -38,13 +38,14 @@ repos:
           )$
 
   - repo: https://github.com/ComPWA/repo-maintenance
-    rev: 0.0.198
+    rev: 0.0.199
     hooks:
       - id: check-dev-files
         args:
           - --pin-requirements=bimonthly
           - --repo-name=compwa-org
           - --repo-title=ComPWA Organization Documentation
+      - id: colab-toc-visible
       - id: fix-nbformat-version
       - id: format-setup-cfg
       - id: pin-nb-requirements
