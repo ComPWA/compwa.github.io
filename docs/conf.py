@@ -98,11 +98,11 @@ extensions = [
     "sphinx_comments",
     "sphinx_copybutton",
     "sphinx_design",
+    "sphinx_hep_pdgref",
     "sphinx_remove_toctrees",
     "sphinx_thebe",
     "sphinx_togglebutton",
     "sphinxcontrib.bibtex",
-    "sphinxcontrib.hep.pdgref",
 ]
 exclude_patterns = [
     "**.ipynb_checkpoints",
