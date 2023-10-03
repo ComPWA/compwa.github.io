@@ -15,14 +15,14 @@ classifiers = [
     "License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)",
     "Natural Language :: English",
     "Operating System :: OS Independent",
-    "Programming Language :: Python",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
     "Programming Language :: Python :: 3.7",
     "Programming Language :: Python :: 3.8",
     "Programming Language :: Python :: 3.9",
-    "Programming Language :: Python :: 3.10",
-    "Programming Language :: Python :: 3.11",
-    "Topic :: Scientific/Engineering",
+    "Programming Language :: Python",
     "Topic :: Scientific/Engineering :: Physics",
+    "Topic :: Scientific/Engineering",
 ]
 dependencies = [
     "graphviz",
@@ -47,9 +47,9 @@ dev = [
     "tox >=1.9", # for skip_install, use_develop
 ]
 doc = [
+    "Sphinx >=3",
     "docutils !=0.18.*, !=0.19.*", # https://github.com/executablebooks/jupyter-book/issues/2026#issuecomment-1636657741
     "myst-nb >=0.14", # nb_ configuration prefixes
-    "Sphinx >=3",
     "sphinx-book-theme",
     "sphinx-codeautolink[ipython]",
     "sphinx-comments",
@@ -77,9 +77,9 @@ lint = [
     "ruff",
 ]
 sty = [
+    "attrs", # https://github.com/ComPWA/compwa-org/runs/8127821070?check_suite_focus=true#step:5:52
     "compwa-org[format]",
     "compwa-org[lint]",
-    "attrs", # https://github.com/ComPWA/compwa-org/runs/8127821070?check_suite_focus=true#step:5:52
     "nbformat",
     "pre-commit >=1.4.0",
 ]
