@@ -353,11 +353,17 @@ commit files locally (see {ref}`develop:Pre-commit`), when
 The tools are mainly configured through
 [`pyproject.toml`](https://github.com/ComPWA/ampform/blob/main/pyproject.toml),
 [`tox.ini`](https://github.com/ComPWA/ampform/blob/main/tox.ini), and the workflow files
-under [`.github`](https://github.com/ComPWA/ampform/blob/main/.github). If you run into
-persistent linting errors, this may mean we need to further specify our conventions. In
-that case, it's best to {ref}`create an issue <develop:Issue management>` or a
-{ref}`pull request <develop:Collaboration>` and propose a policy change that can be
-formulated through those config files.
+under [`.github`](https://github.com/ComPWA/ampform/blob/main/.github). These
+configuration files are kept up to date through the
+[ComPWA/repo-maintenance](https://compwa.github.io/repo-maintenance) repository, which
+essentially defines the developer environment across [all ComPWA
+repositories](https://github.com/orgs/ComPWA/repositories?q=archived%3Ano&type=all&language=&sort=name).
+
+If you run into persistent linting errors, this may mean we need to further specify our
+conventions. In that case, it's best to {ref}`create an issue <develop:Issue
+management>` or a {ref}`pull request <develop:Collaboration>` at
+[ComPWA/repo-maintenance](https://github.com/ComPWA/repo-maintenance) and propose a
+policy change that can be formulated through those config files.
 
 ### Pre-commit
 
