@@ -857,11 +857,12 @@ not have any CI or code review restrictions. We call this a "feature branch".
   patches between the minor and major releases.
 
   Note that a conventional commit message style is
-  {ref}`enforced through GitHub Actions <develop:GitHub Actions>`, as well as a check on
-  {ref}`PR labels <develop:Issue management>` (see overview
+  {ref}`enforced through GitHub Actions <develop:GitHub Actions>` with
+  [`commitlint`](https://github.com/conventional-changelog/commitlint), as well as a
+  check on {ref}`PR labels <develop:Issue management>` (see example
   [here](https://github.com/ComPWA/ampform/actions?query=workflow%3A%22PR+linting%22)).
-  The corresponding configuration file is
-  [`commitlint.config.js`](https://github.com/ComPWA/ampform/blob/main/commitlint.config.js).
+  The commit messages are centrally defined for the ComPWA organization at
+  [ComPWA/commitlint-config](https://github.com/ComPWA/commitlint-config).
 
 - PRs can only be merged through 'squash and merge'. There, you will see a summary based
   on the separate commits that constitute this PR. Leave the relevant commits in as
@@ -870,8 +871,10 @@ not have any CI or code review restrictions. We call this a "feature branch".
   comes in especially handy when {ref}`drafting a release <develop:Release flow>`!
 
 <!-- prettier-ignore-start -->
-[^1]: See [ComPWA/.github#7](https://github.com/ComPWA/.github/issues/7) for a
-    discussion on these commit types.
+[^1]: The commit types for the ComPWA organization are defined
+    [here](https://github.com/ComPWA/commitlint-config/blob/main/index.js). See also
+    [ComPWA/.github#7](https://github.com/ComPWA/.github/issues/7) for a discussion on
+    these commit types.
 <!-- prettier-ignore-end -->
 
 ### Release flow
