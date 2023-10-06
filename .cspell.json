@@ -40,6 +40,7 @@
     "docs/adr/*/*",
     "docs/conf.py",
     "labels.toml",
+    "labels/*.toml",
     "Makefile",
     "Manifest.toml",
     "Project.toml",
