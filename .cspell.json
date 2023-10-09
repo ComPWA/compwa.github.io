@@ -18,6 +18,8 @@
   "ignorePaths": [
     "**/*.bib",
     "**/.cspell.json",
+    "**/Manifest.toml",
+    "**/Project.toml",
     ".constraints/*.txt",
     ".editorconfig",
     ".gitignore",
