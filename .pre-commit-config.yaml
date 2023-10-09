@@ -38,10 +38,11 @@ repos:
           )$
 
   - repo: https://github.com/ComPWA/repo-maintenance
-    rev: 0.1.0rc2
+    rev: 0.1.0rc6
     hooks:
       - id: check-dev-files
         args:
+          - --no-prettierrc
           - --pin-requirements=bimonthly
           - --repo-name=compwa-org
           - --repo-title=ComPWA Organization Documentation
