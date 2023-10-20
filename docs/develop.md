@@ -353,11 +353,17 @@ commit files locally (see {ref}`develop:Pre-commit`), when
 The tools are mainly configured through
 [`pyproject.toml`](https://github.com/ComPWA/ampform/blob/main/pyproject.toml),
 [`tox.ini`](https://github.com/ComPWA/ampform/blob/main/tox.ini), and the workflow files
-under [`.github`](https://github.com/ComPWA/ampform/blob/main/.github). If you run into
-persistent linting errors, this may mean we need to further specify our conventions. In
-that case, it's best to {ref}`create an issue <develop:Issue management>` or a
-{ref}`pull request <develop:Collaboration>` and propose a policy change that can be
-formulated through those config files.
+under [`.github`](https://github.com/ComPWA/ampform/blob/main/.github). These
+configuration files are kept up to date through the
+[ComPWA/repo-maintenance](https://compwa.github.io/repo-maintenance) repository, which
+essentially defines the developer environment across [all ComPWA
+repositories](https://github.com/orgs/ComPWA/repositories?q=archived%3Ano&type=all&language=&sort=name).
+
+If you run into persistent linting errors, this may mean we need to further specify our
+conventions. In that case, it's best to {ref}`create an issue <develop:Issue
+management>` or a {ref}`pull request <develop:Collaboration>` at
+[ComPWA/repo-maintenance](https://github.com/ComPWA/repo-maintenance) and propose a
+policy change that can be formulated through those config files.
 
 ### Pre-commit
 
@@ -687,6 +693,26 @@ Pkg.instantiate()
 See {doc}`/report/019` for an example.
 :::
 
+Additionally, you can install a [Language Server](https://jupyterlab-lsp.readthedocs.io/en/latest/Language%20Servers.html) for Julia in Jupyter Lab. To do so, run:
+
+::::{tab-set}
+:::{tab-item} Shell
+
+```shell
+julia -e 'import Pkg; Pkg.add("LanguageServer")'
+```
+
+:::
+:::{tab-item} Julia
+
+```julia
+using Pkg
+Pkg.add("LanguageServer")
+```
+
+:::
+::::
+
 ## Collaboration
 
 The source code of all ComPWA repositories is maintained with [Git](https://git-scm.com)
@@ -831,11 +857,12 @@ not have any CI or code review restrictions. We call this a "feature branch".
   patches between the minor and major releases.
 
   Note that a conventional commit message style is
-  {ref}`enforced through GitHub Actions <develop:GitHub Actions>`, as well as a check on
-  {ref}`PR labels <develop:Issue management>` (see overview
+  {ref}`enforced through GitHub Actions <develop:GitHub Actions>` with
+  [`commitlint`](https://github.com/conventional-changelog/commitlint), as well as a
+  check on {ref}`PR labels <develop:Issue management>` (see example
   [here](https://github.com/ComPWA/ampform/actions?query=workflow%3A%22PR+linting%22)).
-  The corresponding configuration file is
-  [`commitlint.config.js`](https://github.com/ComPWA/ampform/blob/main/commitlint.config.js).
+  The commit messages are centrally defined for the ComPWA organization at
+  [ComPWA/commitlint-config](https://github.com/ComPWA/commitlint-config).
 
 - PRs can only be merged through 'squash and merge'. There, you will see a summary based
   on the separate commits that constitute this PR. Leave the relevant commits in as
@@ -844,8 +871,10 @@ not have any CI or code review restrictions. We call this a "feature branch".
   comes in especially handy when {ref}`drafting a release <develop:Release flow>`!
 
 <!-- prettier-ignore-start -->
-[^1]: See [ComPWA/.github#7](https://github.com/ComPWA/.github/issues/7) for a
-    discussion on these commit types.
+[^1]: The commit types for the ComPWA organization are defined
+    [here](https://github.com/ComPWA/commitlint-config/blob/main/index.js). See also
+    [ComPWA/.github#7](https://github.com/ComPWA/.github/issues/7) for a discussion on
+    these commit types.
 <!-- prettier-ignore-end -->
 
 ### Release flow
@@ -892,7 +921,7 @@ especially the case for [VSCode](#visual-studio-code).
 
 We are open to other code editors as well. An example would be maintaining a
 [local vimrc](https://github.com/embear/vim-localvimrc) for users who prefer
-[VIM](https://www.vim.org). Other IDEs we'd like to support are
+[VIM](<https://en.wikipedia.org/wiki/Vim_(text_editor)>). Other IDEs we'd like to support are
 [PyCharm](https://www.jetbrains.com/pycharm), [Atom](https://atom.io),
 [IntelliJ with Python](https://www.jetbrains.com/help/idea/plugin-overview.html#b370507b).
 So we'll gladly integrate your editor settings where possible as you
