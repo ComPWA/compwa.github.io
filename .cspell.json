@@ -156,6 +156,7 @@
     "docnb",
     "docstrings",
     "dotprint",
+    "dtype",
     "einsum",
     "elif",
     "endswith",
