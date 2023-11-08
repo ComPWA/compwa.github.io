@@ -118,12 +118,10 @@ autodoc_default_options = {
     "members": True,
     "undoc-members": True,
     "show-inheritance": True,
-    "special-members": ", ".join(
-        [
-            "__call__",
-            "__eq__",
-        ]
-    ),
+    "special-members": ", ".join([
+        "__call__",
+        "__eq__",
+    ]),
 }
 codeautolink_concat_default = True
 codeautolink_global_preface = """
