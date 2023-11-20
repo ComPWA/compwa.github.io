@@ -1,4 +1,8 @@
 {
+  "[git-commit]": {
+    "editor.rulers": [72],
+    "rewrap.wrappingColumn": 72
+  },
   "[json]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
@@ -6,25 +10,25 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[markdown]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.wordWrap": "off"
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[python]": {
     "editor.codeActionsOnSave": {
       "source.organizeImports": true
     },
-    "editor.defaultFormatter": "ms-python.black-formatter"
+    "editor.defaultFormatter": "ms-python.black-formatter",
+    "editor.rulers": [88]
   },
   "[yaml]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "black-formatter.importStrategy": "fromEnvironment",
   "cSpell.enabled": true,
+  "diffEditor.experimental.showMoves": true,
   "editor.formatOnSave": true,
-  "editor.rulers": [88],
   "editor.unicodeHighlight.allowedCharacters": {
-    "ν": true,
-    "σ": true
+    "\u03bd": true,
+    "\u03c3": true
   },
   "files.watcherExclude": {
     "**/*_cache/**": true,
@@ -41,6 +45,7 @@
     }
   ],
   "livePreview.defaultPreviewPath": "docs/_build/html",
+  "notebook.gotoSymbols.showAllSymbols": true,
   "python.analysis.autoImportCompletions": false,
   "python.analysis.typeCheckingMode": "strict",
   "python.testing.pytestEnabled": false,
