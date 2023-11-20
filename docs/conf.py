@@ -98,11 +98,11 @@ extensions = [
     "sphinx_comments",
     "sphinx_copybutton",
     "sphinx_design",
+    "sphinx_hep_pdgref",
     "sphinx_remove_toctrees",
     "sphinx_thebe",
     "sphinx_togglebutton",
     "sphinxcontrib.bibtex",
-    "sphinxcontrib.hep.pdgref",
 ]
 exclude_patterns = [
     "**.ipynb_checkpoints",
@@ -118,12 +118,10 @@ autodoc_default_options = {
     "members": True,
     "undoc-members": True,
     "show-inheritance": True,
-    "special-members": ", ".join(
-        [
-            "__call__",
-            "__eq__",
-        ]
-    ),
+    "special-members": ", ".join([
+        "__call__",
+        "__eq__",
+    ]),
 }
 codeautolink_concat_default = True
 codeautolink_global_preface = """
@@ -194,7 +192,8 @@ nitpicky = True  # warn if cross-references are missing
 # Intersphinx settings
 version_remapping = {
     "ipython": {
-        "8.12.2": "8.13.2",
+        "8.12.2": "8.12.1",
+        "8.12.3": "8.12.1",
     },
     "ipywidgets": {
         "8.0.3": "8.0.5",
@@ -305,6 +304,8 @@ linkcheck_ignore = [
     "https://github.com/orgs/ComPWA/projects/6",  # private
     "https://ieeexplore.ieee.org/document/6312940",  # 401
     "https://open.vscode.dev",
+    "https://rosettacode.org",
+    "https://via.placeholder.com",  # irregular timeout
     "https://www.andiamo.co.uk/resources/iso-language-codes",  # 443, but works
 ]
 
