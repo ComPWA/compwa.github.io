@@ -824,7 +824,7 @@ not have any CI or code review restrictions. We call this a "feature branch".
   FIX: remove typo in raised `ValueError` message
   MAINT: remove redundant print statements
   DOC: rewrite welcome pages
-  BREAK: removed `formulate_model()` alias method
+  BREAK: remove `formulate_model()` alias method
   ```
 
   The allowed semantic keywords (commit types) are as follows:[^1]
