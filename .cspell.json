@@ -50,6 +50,7 @@
     "argand",
     "Atlassian",
     "autograd",
+    "baccf",
     "blatt",
     "breit",
     "cmin",
@@ -104,6 +105,7 @@
     "vectorize",
     "weisskopf",
     "wigners",
+    "ytick",
     "Zenodo"
   ],
   "ignoreWords": [
