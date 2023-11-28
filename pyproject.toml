@@ -150,6 +150,7 @@ ruff = [
     "--extend-ignore=PLW0602",
     "--extend-ignore=PLW0603",
     "--extend-ignore=PLW2901",
+    "--extend-ignore=RUF001",
     "--line-length=85",
 ]
 
