@@ -300,13 +300,13 @@ linkcheck_ignore = [
     "https://atom.io",  # often instable
     "https://doi.org/10.1002/andp.19955070504",  # 403 for onlinelibrary.wiley.com
     "https://github.com/organizations/ComPWA/settings/repository-defaults",  # private
-    "https://github.com/orgs/ComPWA/projects/5",  # private
-    "https://github.com/orgs/ComPWA/projects/6",  # private
     "https://ieeexplore.ieee.org/document/6312940",  # 401
     "https://open.vscode.dev",
     "https://rosettacode.org",
     "https://via.placeholder.com",  # irregular timeout
     "https://www.andiamo.co.uk/resources/iso-language-codes",  # 443, but works
+    r"https://github.com/ComPWA/RUB-EP1-AG/.*",  # private
+    r"https://github.com/orgs/ComPWA/projects/\d+",  # private
 ]
 
 
