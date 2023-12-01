@@ -3,6 +3,7 @@ ci:
   autoupdate_schedule: quarterly
   skip:
     - check-jsonschema
+    - prettier
     - pyright
     - taplo
 
