@@ -36,7 +36,7 @@ distlib==0.3.7
 docstring-to-markdown==0.13
 docutils==0.17.1
 entrypoints==0.4
-exceptiongroup==1.1.3
+exceptiongroup==1.2.0
 fastjsonschema==2.19.0
 filelock==3.12.2
 fonttools==4.38.0
@@ -44,7 +44,7 @@ fqdn==1.5.1
 graphviz==0.20.1
 greenlet==3.0.1
 identify==2.5.24
-idna==3.4
+idna==3.6
 imagesize==1.4.1
 importlib-metadata==6.7.0
 importlib-resources==5.12.0
@@ -88,7 +88,7 @@ matplotlib-inline==0.1.6
 mdit-py-plugins==0.3.5
 mdurl==0.1.2
 mistune==3.0.2
-mpl-interactions==0.23.2
+mpl-interactions==0.24.1
 mypy-extensions==1.0.0
 myst-nb==0.17.2
 myst-parser==0.18.1
@@ -106,11 +106,11 @@ packaging==23.2
 pandocfilters==1.5.0
 parso==0.8.3
 pathspec==0.11.2
-pexpect==4.8.0
+pexpect==4.9.0
 pickleshare==0.7.5
 pillow==9.5.0
 pkgutil-resolve-name==1.3.10
-platformdirs==3.11.0
+platformdirs==4.0.0
 pluggy==1.2.0
 pre-commit==2.21.0
 prometheus-client==0.17.1
@@ -122,7 +122,7 @@ pybtex-docutils==1.0.3
 pycparser==2.21
 pydantic==1.10.13
 pydata-sphinx-theme==0.13.3
-pygments==2.17.1
+pygments==2.17.2
 pyparsing==3.1.1
 pyproject-api==1.5.3
 pyrsistent==0.19.3
@@ -178,12 +178,12 @@ typing-extensions==4.7.1
 ujson==5.7.0
 uri-template==1.3.0
 urllib3==2.0.7
-virtualenv==20.24.6
-wcwidth==0.2.10
+virtualenv==20.25.0
+wcwidth==0.2.12
 webcolors==1.13
 webencodings==0.5.1
 websocket-client==1.6.1
-wheel==0.41.3
+wheel==0.42.0
 widgetsnbextension==4.0.9
 y-py==0.5.9
 ypy-websocket==0.8.2
