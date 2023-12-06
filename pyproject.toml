@@ -241,7 +241,6 @@ task-tags = ["cspell"]
 [tool.ruff.per-file-ignores]
 "*.ipynb" = [
     "A003",
-    "B008",
     "B018",
     "C408",
     "C90",
@@ -249,8 +248,6 @@ task-tags = ["cspell"]
     "E402",
     "E703",
     "F404",
-    "F821",
-    "ISC003",
     "N802",
     "N803",
     "N806",
@@ -263,7 +260,7 @@ task-tags = ["cspell"]
     "PLW0603",
     "PLW2901",
     "S101",
-    "T201",
+    "T20",
     "TCH00",
 ]
 "docs/*" = [
@@ -278,6 +275,12 @@ task-tags = ["cspell"]
     "A001",
     "PLW2901",
 ]
+"docs/report/002.ipynb" = ["F821"]
+"docs/report/003.ipynb" = ["F821"]
+"docs/report/005.ipynb" = ["F821"]
+"docs/report/011.ipynb" = ["F821"]
+"docs/report/020.ipynb" = ["F821"]
+"docs/report/022.ipynb" = ["F821"]
 "setup.py" = ["D100"]
 
 [tool.ruff.pydocstyle]
