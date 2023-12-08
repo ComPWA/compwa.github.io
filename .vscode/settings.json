@@ -1,8 +1,6 @@
 {
   "[git-commit]": {
-    "editor.rulers": [
-      72
-    ],
+    "editor.rulers": [72],
     "rewrap.wrappingColumn": 72
   },
   "[json]": {
@@ -19,9 +17,7 @@
       "source.organizeImports": "explicit"
     },
     "editor.defaultFormatter": "ms-python.black-formatter",
-    "editor.rulers": [
-      88
-    ]
+    "editor.rulers": [88]
   },
   "[yaml]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
@@ -41,14 +37,10 @@
     "**/.tox/**": true
   },
   "git.rebaseWhenSync": true,
-  "github-actions.workflows.pinned.workflows": [
-    ".github/workflows/ci.yml"
-  ],
+  "github-actions.workflows.pinned.workflows": [".github/workflows/ci.yml"],
   "json.schemas": [
     {
-      "fileMatch": [
-        ".zenodo.json"
-      ],
+      "fileMatch": [".zenodo.json"],
       "url": "https://zenodo.org/schemas/deposits/records/legacyrecord.json"
     }
   ],
