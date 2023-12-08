@@ -308,6 +308,7 @@ linkcheck_ignore = [
     "https://rosettacode.org",
     "https://via.placeholder.com",  # irregular timeout
     "https://www.andiamo.co.uk/resources/iso-language-codes",  # 443, but works
+    "https://www.bookfinder.com",
 ]
 
 
