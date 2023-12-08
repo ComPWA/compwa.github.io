@@ -22,6 +22,7 @@
   ],
   "ignorePaths": [
     "**/*.bib",
+    "**/*.rst_t",
     "**/.cspell.json",
     "**/Manifest.toml",
     "**/Project.toml",
