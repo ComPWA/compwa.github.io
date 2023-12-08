@@ -276,6 +276,12 @@ task-tags = ["cspell"]
     "A001",
     "PLW2901",
 ]
+"docs/report/002.ipynb" = ["F821"]
+"docs/report/003.ipynb" = ["F821"]
+"docs/report/005.ipynb" = ["F821"]
+"docs/report/011.ipynb" = ["F821"]
+"docs/report/020.ipynb" = ["F821"]
+"docs/report/022.ipynb" = ["F821"]
 "setup.py" = ["D100"]
 
 [tool.ruff.pydocstyle]
