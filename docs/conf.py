@@ -1,8 +1,7 @@
 """Configuration file for the Sphinx documentation builder.
 
-This file only contains a selection of the most common options. For a full
-list see the documentation:
-https://www.sphinx-doc.org/en/master/usage/configuration.html
+This file only contains a selection of the most common options. For a full list see the
+documentation: https://www.sphinx-doc.org/en/master/usage/configuration.html
 """
 
 from __future__ import annotations
@@ -95,7 +94,7 @@ from IPython.display import display
 comments_config = {
     "hypothesis": True,
     "utterances": {
-        "repo": f"ComPWA/{REPO_NAME}",
+        "repo": f"{ORGANIZATION}/{REPO_NAME}",
         "issue-term": "pathname",
         "label": "📝 Docs",
     },
@@ -151,7 +150,7 @@ html_theme_options = {
     "icon_links": [
         {
             "name": "GitHub",
-            "url": "https://github.com/ComPWA",
+            "url": f"https://github.com/{ORGANIZATION}",
             "icon": "fa-brands fa-github",
         },
         {
