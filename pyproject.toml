@@ -49,14 +49,15 @@ dev = [
 ]
 doc = [
     "Sphinx >=3",
-    "docutils !=0.18.*, !=0.19.*", # https://github.com/executablebooks/jupyter-book/issues/2026#issuecomment-1636657741
     "myst-nb >=0.14", # nb_ configuration prefixes
+    "sphinx-api-relink >=0.0.4",
     "sphinx-book-theme",
     "sphinx-codeautolink[ipython]",
     "sphinx-comments",
     "sphinx-copybutton",
     "sphinx-design",
     "sphinx-hep-pdgref",
+    "sphinx-pybtex-etal-style",
     "sphinx-remove-toctrees",
     "sphinx-thebe",
     "sphinx-togglebutton",
