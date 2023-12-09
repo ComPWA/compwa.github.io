@@ -63,9 +63,7 @@ doc = [
     "sphinx-togglebutton",
     "sphinxcontrib-bibtex >=2",
 ]
-format = [
-    "black",
-]
+format = ["black"]
 jupyter = [
     "compwa-org[doc]",
     "isort",
@@ -78,15 +76,14 @@ jupyter = [
     "python-lsp-server[rope]",
     'ypy-websocket <0.8.3; python_version <"3.8.0"',
 ]
-lint = [
-    "ruff",
-]
+lint = ["ruff"]
 sty = [
     "attrs", # https://github.com/ComPWA/compwa-org/runs/8127821070?check_suite_focus=true#step:5:52
     "compwa-org[format]",
     "compwa-org[lint]",
     "nbformat",
     "pre-commit >=1.4.0",
+    "sphinx-api-relink >=0.0.4",
 ]
 test = [
     "jupyter",
