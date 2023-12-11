@@ -9,17 +9,17 @@ formats:
   - htmlzip
 
 build:
-  os: ubuntu-20.04
+  os: ubuntu-22.04
   apt_packages:
     - graphviz
   tools:
     python: "3.8"
   jobs:
     post_install:
+      - pip install -c .constraints/py3.8.txt -e .[doc]
       - |
         wget https://julialang-s3.julialang.org/bin/linux/x64/1.9/julia-1.9.2-linux-x86_64.tar.gz
       - tar xzf julia-1.9.2-linux-x86_64.tar.gz
       - mkdir bin
       - ln -s $PWD/julia-1.9.2/bin/julia bin/julia
       - ./bin/julia docs/InstallIJulia.jl
-      - pip install -e .[doc] -c .constraints/py3.8.txt
