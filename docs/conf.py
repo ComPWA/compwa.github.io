@@ -212,6 +212,7 @@ linkcheck_ignore = [
     "https://github.com/orgs/ComPWA/projects/5",  # private
     "https://github.com/orgs/ComPWA/projects/6",  # private
     "https://ieeexplore.ieee.org/document/6312940",  # 401
+    "https://mybinder.org",  # often instable
     "https://open.vscode.dev",
     "https://rosettacode.org",
     "https://via.placeholder.com",  # irregular timeout
