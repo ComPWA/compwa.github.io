@@ -174,7 +174,6 @@ html_theme_options = {
         "deepnote_url": "https://deepnote.com",
         "notebook_interface": "jupyterlab",
         "thebe": True,
-        "thebelab": True,
     },
     "show_toc_level": 2,
 }
