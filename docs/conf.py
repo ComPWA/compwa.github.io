@@ -73,15 +73,6 @@ BINDER_LINK = (
 
 add_module_names = False
 author = "Common Partial Wave Analysis"
-autodoc_default_options = {
-    "members": True,
-    "undoc-members": True,
-    "show-inheritance": True,
-    "special-members": ", ".join([
-        "__call__",
-        "__eq__",
-    ]),
-}
 autosectionlabel_prefix_document = True
 bibtex_bibfiles = ["bibliography.bib"]
 codeautolink_concat_default = True
@@ -112,7 +103,6 @@ exclude_patterns = [
 ]
 extensions = [
     "myst_nb",
-    "sphinx.ext.autodoc",
     "sphinx.ext.autosectionlabel",
     "sphinx.ext.intersphinx",
     "sphinx.ext.mathjax",
