@@ -71,8 +71,6 @@ BINDER_LINK = (
     f"https://mybinder.org/v2/gh/ComPWA/{REPO_NAME}/{BRANCH}?filepath=docs/usage"
 )
 
-add_module_names = False
-author = "Common Partial Wave Analysis"
 autosectionlabel_prefix_document = True
 bibtex_bibfiles = ["bibliography.bib"]
 codeautolink_concat_default = True
@@ -130,9 +128,6 @@ html_logo = (
     "https://raw.githubusercontent.com/ComPWA/ComPWA/04e5199/doc/images/logo.svg"
 )
 html_show_copyright = False
-html_show_sourcelink = False
-html_show_sphinx = False
-html_sourcelink_suffix = ""
 html_static_path = ["_static"]
 html_theme = "sphinx_book_theme"
 html_theme_options = {
@@ -209,7 +204,6 @@ linkcheck_ignore = [
     "https://www.andiamo.co.uk/resources/iso-language-codes",  # 443, but works
     "https://www.bookfinder.com",
 ]
-master_doc = "index"
 myst_enable_extensions = [
     "amsmath",
     "colon_fence",
