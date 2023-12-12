@@ -168,6 +168,7 @@ html_theme_options = {
     "use_edit_page_button": True,
     "use_issues_button": True,
     "use_repository_button": True,
+    "use_source_button": True,
     "launch_buttons": {
         "binderhub_url": "https://mybinder.org",
         "colab_url": "https://colab.research.google.com",
