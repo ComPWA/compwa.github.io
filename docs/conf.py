@@ -243,7 +243,6 @@ nb_output_stderr = "remove"
 nitpicky = True
 primary_domain = "py"
 project = REPO_TITLE
-pygments_style = "sphinx"
 remove_from_toctrees = [
     "adr/*",
     "report/*",
