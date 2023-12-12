@@ -130,7 +130,6 @@ extensions = [
     "sphinxcontrib.bibtex",
 ]
 graphviz_output_format = "svg"
-html_copy_source = True  # needed for download notebook button
 html_favicon = "_static/favicon.ico"
 html_js_files = [
     "https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js",
@@ -164,7 +163,7 @@ html_theme_options = {
     "repository_url": f"https://github.com/{ORGANIZATION}/{REPO_NAME}",
     "repository_branch": BRANCH,
     "path_to_docs": "docs",
-    "use_download_button": True,
+    "use_download_button": False,
     "use_edit_page_button": True,
     "use_issues_button": True,
     "use_repository_button": True,
