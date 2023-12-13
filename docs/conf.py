@@ -71,19 +71,9 @@ BINDER_LINK = (
     f"https://mybinder.org/v2/gh/ComPWA/{REPO_NAME}/{BRANCH}?filepath=docs/usage"
 )
 
-add_module_names = False
-author = "Common Partial Wave Analysis"
-autodoc_default_options = {
-    "members": True,
-    "undoc-members": True,
-    "show-inheritance": True,
-    "special-members": ", ".join([
-        "__call__",
-        "__eq__",
-    ]),
-}
 autosectionlabel_prefix_document = True
 bibtex_bibfiles = ["bibliography.bib"]
+bibtex_reference_style = "author_year"
 codeautolink_concat_default = True
 codeautolink_global_preface = """
 import matplotlib.pyplot as plt
@@ -112,7 +102,6 @@ exclude_patterns = [
 ]
 extensions = [
     "myst_nb",
-    "sphinx.ext.autodoc",
     "sphinx.ext.autosectionlabel",
     "sphinx.ext.intersphinx",
     "sphinx.ext.mathjax",
@@ -130,7 +119,6 @@ extensions = [
     "sphinxcontrib.bibtex",
 ]
 graphviz_output_format = "svg"
-html_copy_source = True  # needed for download notebook button
 html_favicon = "_static/favicon.ico"
 html_js_files = [
     "https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js",
@@ -141,9 +129,6 @@ html_logo = (
     "https://raw.githubusercontent.com/ComPWA/ComPWA/04e5199/doc/images/logo.svg"
 )
 html_show_copyright = False
-html_show_sourcelink = False
-html_show_sphinx = False
-html_sourcelink_suffix = ""
 html_static_path = ["_static"]
 html_theme = "sphinx_book_theme"
 html_theme_options = {
@@ -164,16 +149,17 @@ html_theme_options = {
     "repository_url": f"https://github.com/{ORGANIZATION}/{REPO_NAME}",
     "repository_branch": BRANCH,
     "path_to_docs": "docs",
-    "use_download_button": True,
+    "use_download_button": False,
     "use_edit_page_button": True,
     "use_issues_button": True,
     "use_repository_button": True,
+    "use_source_button": True,
     "launch_buttons": {
         "binderhub_url": "https://mybinder.org",
         "colab_url": "https://colab.research.google.com",
+        "deepnote_url": "https://deepnote.com",
         "notebook_interface": "jupyterlab",
         "thebe": True,
-        "thebelab": True,
     },
     "show_toc_level": 2,
 }
@@ -219,7 +205,6 @@ linkcheck_ignore = [
     "https://www.andiamo.co.uk/resources/iso-language-codes",  # 443, but works
     "https://www.bookfinder.com",
 ]
-master_doc = "index"
 myst_enable_extensions = [
     "amsmath",
     "colon_fence",
@@ -253,7 +238,6 @@ nb_output_stderr = "remove"
 nitpicky = True
 primary_domain = "py"
 project = REPO_TITLE
-pygments_style = "sphinx"
 remove_from_toctrees = [
     "adr/*",
     "report/*",

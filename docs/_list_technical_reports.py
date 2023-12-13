@@ -36,6 +36,7 @@ def _create_tr_table() -> str:
             r"[\1](report/\3.ipynb)",
             card_info.get("details", ""),
         )
+        details = re.sub(r"<!---* (.*?) -*-->(<br>)?", "", details)
         tags = " ".join(_to_badge(tag) for tag in sorted(card_info["tags"]))
         status = re.sub(
             r"\[([^\]]+)\-([^\]]+)\]\(([^\)]+)\)",
