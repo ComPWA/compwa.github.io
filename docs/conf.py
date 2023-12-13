@@ -73,6 +73,7 @@ BINDER_LINK = (
 
 autosectionlabel_prefix_document = True
 bibtex_bibfiles = ["bibliography.bib"]
+bibtex_reference_style = "author_year"
 codeautolink_concat_default = True
 codeautolink_global_preface = """
 import matplotlib.pyplot as plt
