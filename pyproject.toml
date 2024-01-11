@@ -173,7 +173,8 @@ addopts = """
 --ignore=docs/adr/001/sympy.ipynb
 --ignore=docs/conf.py
 --nbmake-timeout=1200
--k='not docs/report/019.ipynb'"""
+-k='not docs/report/019.ipynb'
+"""
 filterwarnings = [
     "error",
     "ignore:Passing a schema to Validator.iter_errors is deprecated.*:DeprecationWarning",
@@ -273,6 +274,7 @@ task-tags = ["cspell"]
 ]
 "docs/conf.py" = [
     "A001",
+    "D100",
     "PLW2901",
 ]
 "docs/report/002.ipynb" = ["F821"]
