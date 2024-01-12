@@ -8,21 +8,13 @@
 {{ '[![Google Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/ComPWA/compwa.github.io/blob/{})'.format(branch) }} {{ '[![Binder](https://static.mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/ComPWA/compwa.github.io/{}?filepath=docs/usage)'.format(branch) }}
 <!-- prettier-ignore-end -->
 
-The ["Common Partial Wave Analysis"](https://github.com/ComPWA) organization (ComPWA)
-aims to make amplitude analysis accessible through transparent and interactive
-documentation, modern software development tools, and collaboration-independent
-frameworks. **Contact details** can be found [here](https://github.com/ComPWA).
+The ["Common Partial Wave Analysis"](https://github.com/ComPWA) organization (ComPWA) aims to make amplitude analysis accessible through transparent and interactive documentation, modern software development tools, and collaboration-independent frameworks. **Contact details** can be found [here](https://github.com/ComPWA).
 
 ## Main projects
 
-ComPWA maintains **three main Python packages** with which you can do a full partial
-wave analysis. The packages are designed as **libraries**, so that they can be used
-separately by other projects.
+ComPWA maintains **three main Python packages** with which you can do a full partial wave analysis. The packages are designed as **libraries**, so that they can be used separately by other projects.
 
-Each of these libraries come with **interactive and interlinked documentation** that is
-intended to bring theory and code closer together. The PWA Pages takes that one step
-further: it is an independent and easy-to-maintain documentation project that can serve
-as a central place to gather links to PWA theory and software.
+Each of these libraries come with **interactive and interlinked documentation** that is intended to bring theory and code closer together. The PWA Pages takes that one step further: it is an independent and easy-to-maintain documentation project that can serve as a central place to gather links to PWA theory and software.
 
 <!-- prettier-ignore -->
 ::::{grid} 1 2 2 2
