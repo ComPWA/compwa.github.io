@@ -119,6 +119,9 @@ extensions = [
     "sphinxcontrib.bibtex",
 ]
 graphviz_output_format = "svg"
+html_css_files = [
+    "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css",
+]
 html_favicon = "_static/favicon.ico"
 html_js_files = [
     "https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js",
