@@ -344,26 +344,11 @@ notebooks with Julia kernels into your {ref}`documentation<develop:Documentation
 
 ## Automated coding conventions
 
-Where possible, we define and enforce our coding conventions through automated tools,
-instead of describing them in documentation. These tools perform their checks when you
-commit files locally (see {ref}`develop:Pre-commit`), when
-{ref}`running tox <develop:tox>`, and when you make a
-{ref}`pull request <develop:Collaboration>`.
+Where possible, we define and enforce our coding conventions through automated tools, instead of describing them in documentation. These tools perform their checks when you commit files locally (see {ref}`develop:Pre-commit`), when {ref}`running tox <develop:tox>`, and when you make a {ref}`pull request <develop:Collaboration>`.
 
-The tools are mainly configured through
-[`pyproject.toml`](https://github.com/ComPWA/ampform/blob/main/pyproject.toml),
-[`tox.ini`](https://github.com/ComPWA/ampform/blob/main/tox.ini), and the workflow files
-under [`.github`](https://github.com/ComPWA/ampform/blob/main/.github). These
-configuration files are kept up to date through the
-[ComPWA/repo-maintenance](https://compwa.github.io/repo-maintenance) repository, which
-essentially defines the developer environment across [all ComPWA
-repositories](https://github.com/orgs/ComPWA/repositories?q=archived%3Ano&type=all&language=&sort=name).
+The tools are mainly configured through [`pyproject.toml`](https://github.com/ComPWA/ampform/blob/main/pyproject.toml), [`tox.ini`](https://github.com/ComPWA/ampform/blob/main/tox.ini), and the workflow files under [`.github`](https://github.com/ComPWA/ampform/blob/main/.github). These configuration files are kept up to date through the [ComPWA/policy](https://compwa.github.io/policy) repository, which essentially defines the developer environment across [all ComPWA repositories](https://github.com/orgs/ComPWA/repositories?q=archived%3Ano&type=all&language=&sort=name).
 
-If you run into persistent linting errors, this may mean we need to further specify our
-conventions. In that case, it's best to {ref}`create an issue <develop:Issue
-management>` or a {ref}`pull request <develop:Collaboration>` at
-[ComPWA/repo-maintenance](https://github.com/ComPWA/repo-maintenance) and propose a
-policy change that can be formulated through those config files.
+If you run into persistent linting errors, this may mean we need to further specify our conventions. In that case, it's best to {ref}`create an issue <develop:Issue management>` or a {ref}`pull request <develop:Collaboration>` at [ComPWA/policy](https://github.com/ComPWA/policy) and propose a policy change that can be formulated through those config files.
 
 ### Pre-commit
 
