@@ -106,12 +106,9 @@ The main packages listed above originate from the following, deprecated projects
 
 <!-- cspell:ignore pycompwa -->
 
-- [ComPWA](https://compwa.readthedocs.io): a single framework for Partial Wave Analysis
-  written in C++.
-- [pycompwa](https://compwa.github.io): the Python interface of ComPWA, which also
-  hosted a first version of the PWA Expert System.
-- {doc}`PWA Expert System <expertsystem:index>` (split into {doc}`QRules <qrules:index>`
-  and {doc}`AmpForm <ampform:index>`).
+- [ComPWA](https://compwa.readthedocs.io): a single framework for Partial Wave Analysis written in C++.
+- [pycompwa](https://github.com/ComPWA/pycompwa): the Python interface of ComPWA, which also hosted a first version of the PWA Expert System.
+- {doc}`PWA Expert System <expertsystem:index>` (split into {doc}`QRules <qrules:index>` and {doc}`AmpForm <ampform:index>`).
 
 :::
 
