@@ -78,7 +78,7 @@ jupyter = [
 ]
 lint = ["ruff"]
 sty = [
-    "attrs", # https://github.com/ComPWA/compwa-org/runs/8127821070?check_suite_focus=true#step:5:52
+    "attrs", # https://github.com/ComPWA/compwa.github.io/runs/8127821070?check_suite_focus=true#step:5:52
     "compwa-org[format]",
     "compwa-org[lint]",
     "nbformat",
@@ -96,9 +96,9 @@ content-type = "text/markdown"
 file = "README.md"
 
 [project.urls]
-Documentation = "https://compwa-org.rtfd.io"
-Source = "https://github.com/ComPWA/compwa-org"
-Tracker = "https://github.com/ComPWA/compwa-org/issues"
+Documentation = "https://compwa.github.io"
+Source = "https://github.com/ComPWA/compwa.github.io"
+Tracker = "https://github.com/ComPWA/compwa.github.io/issues"
 
 [tool.setuptools]
 include-package-data = false

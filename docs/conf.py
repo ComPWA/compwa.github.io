@@ -64,7 +64,7 @@ set_intersphinx_version_remapping({
 
 BRANCH = get_branch_name()
 ORGANIZATION = "ComPWA"
-REPO_NAME = "compwa-org"
+REPO_NAME = "compwa.github.io"
 REPO_TITLE = "ComPWA Organization"
 
 BINDER_LINK = (

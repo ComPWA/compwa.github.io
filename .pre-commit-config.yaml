@@ -21,8 +21,8 @@ repos:
           - --github-pages
           - --no-prettierrc
           - --pin-requirements=bimonthly
-          - --repo-name=compwa-org
-          - --repo-title=ComPWA Organization Documentation
+          - --repo-name=compwa.github.io
+          - --repo-title=ComPWA Organization
       - id: colab-toc-visible
       - id: fix-nbformat-version
       - id: pin-nb-requirements
