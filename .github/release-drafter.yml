@@ -32,8 +32,6 @@ replacers:
 sort-direction: ascending
 
 template: |
-  _See all documentation for this version [here](https://compwa-org.rtfd.io/en/$NEXT_PATCH_VERSION)._
-
   $CHANGES
 
   _The full changelog as commits can be found [here](https://github.com/ComPWA/compwa-org/compare/$PREVIOUS_TAG...$NEXT_PATCH_VERSION)._
