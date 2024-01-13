@@ -14,14 +14,15 @@ repos:
       - id: check-useless-excludes
 
   - repo: https://github.com/ComPWA/policy
-    rev: 0.2.0
+    rev: 0.2.1
     hooks:
       - id: check-dev-files
         args:
+          - --github-pages
           - --no-prettierrc
           - --pin-requirements=bimonthly
-          - --repo-name=compwa-org
-          - --repo-title=ComPWA Organization Documentation
+          - --repo-name=compwa.github.io
+          - --repo-title=ComPWA Organization
       - id: colab-toc-visible
       - id: fix-nbformat-version
       - id: pin-nb-requirements

@@ -1,7 +1,7 @@
 # Help developing
 
-[![GitPod](https://img.shields.io/badge/Gitpod-ready--to--code-blue?logo=gitpod)](https://gitpod.io/#https://github.com/ComPWA/compwa-org)
-[![Open in Visual Studio Code](https://img.shields.io/badge/vscode-open-blue?logo=visualstudiocode)](https://open.vscode.dev/ComPWA/compwa-org)
+[![GitPod](https://img.shields.io/badge/Gitpod-ready--to--code-blue?logo=gitpod)](https://gitpod.io/#https://github.com/ComPWA/compwa.github.io)
+[![Open in Visual Studio Code](https://img.shields.io/badge/vscode-open-blue?logo=visualstudiocode)](https://open.vscode.dev/ComPWA/compwa.github.io)
 
 This page describes some of the tools and conventions followed by
 [Common Partial Wave Analysis](https://github.com/ComPWA). Where possible, we use the
@@ -958,7 +958,7 @@ be familiar with.
 
 :::{margin}
 Do you have other recommendations? Edit this page
-[here](https://github.com/ComPWA/compwa-org/edit/main/docs/develop.md)!
+[here](https://github.com/ComPWA/compwa.github.io/edit/main/docs/develop.md)!
 :::
 
 <!-- cspell:ignore Coursera Hynek Schlawack Sedgewick Slatkin subclassing testdriven Vlissides -->

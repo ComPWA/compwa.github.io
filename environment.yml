@@ -1,4 +1,4 @@
-name: compwa-org
+name: compwa.github.io
 channels:
   - defaults
   - conda-forge

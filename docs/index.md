@@ -5,7 +5,7 @@
 ```
 
 <!-- prettier-ignore-start -->
-{{ '[![Google Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/ComPWA/compwa-org/blob/{})'.format(branch) }} {{ '[![Binder](https://static.mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/ComPWA/compwa-org/{}?filepath=docs/usage)'.format(branch) }}
+{{ '[![Google Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/ComPWA/compwa.github.io/blob/{})'.format(branch) }} {{ '[![Binder](https://static.mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/ComPWA/compwa.github.io/{}?filepath=docs/usage)'.format(branch) }}
 <!-- prettier-ignore-end -->
 
 The ["Common Partial Wave Analysis"](https://github.com/ComPWA) organization (ComPWA)
@@ -97,7 +97,7 @@ A central knowledge-base for Partial Wave Analysis theory and software
 ::::
 
 Finally, the {doc}`technical reports </reports>` on these pages
-([compwa-org.rtfd.io](https://compwa-org.readthedocs.io)) describe more general tips and
+([compwa.github.io](https://compwa.github.io)) describe more general tips and
 tricks, some of which can be of interest to general Python users as well!
 
 :::{dropdown} Deprecated projects
@@ -106,7 +106,7 @@ The main packages listed above originate from the following, deprecated projects
 
 <!-- cspell:ignore pycompwa -->
 
-- [ComPWA](https://compwa.readthedocs.io): a single framework for Partial Wave Analysis written in C++.
+- [ComPWA](https://compwa.github.io/legacy): a single framework for Partial Wave Analysis written in C++.
 - [pycompwa](https://github.com/ComPWA/pycompwa): the Python interface of ComPWA, which also hosted a first version of the PWA Expert System.
 - {doc}`PWA Expert System <expertsystem:index>` (split into {doc}`QRules <qrules:index>` and {doc}`AmpForm <ampform:index>`).
 
