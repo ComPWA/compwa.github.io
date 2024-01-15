@@ -708,7 +708,13 @@ and developer set-up with GitHub issues (see for instance
 
 :::{tip}
 If you are new to working with GitHub, have a look at the tutorials on
-[GitHub Skills](https://skills.github.com).
+[GitHub Skills](https://skills.github.com). For good tutorials on Git, see:
+
+- [freeCodeCamp's "Gitting Things Done"](https://www.freecodecamp.org/news/gitting-things-done-book)
+  <!-- cspell:ignore gitting -->
+- [HSF Software Training Center](https://swcarpentry.github.io/git-novice)
+- The [Pro Git](https://git-scm.com/book/en/v2) book
+
 :::
 
 ### Issue management
@@ -939,7 +945,7 @@ ComPWA projects are best developed {ref}`with Conda <develop:Virtual environment
 VSCode. The complete developer install procedure then becomes:
 
 ```shell
-git clone https://github.com/ComPWA/ampform.git  # or some other repo
+git clone https://github.com/ComPWA/ampform  # or some other repo
 cd ampform
 conda env create
 conda activate pwa  # or whatever the environment name is
