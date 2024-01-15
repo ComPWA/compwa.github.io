@@ -32,6 +32,7 @@ jobs:
       pages: write
       id-token: write
     with:
+      gh-pages: true
       specific-pip-packages: ${{ inputs.specific-pip-packages }}
   style:
     if: inputs.specific-pip-packages == ''
