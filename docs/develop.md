@@ -939,7 +939,7 @@ ComPWA projects are best developed {ref}`with Conda <develop:Virtual environment
 VSCode. The complete developer install procedure then becomes:
 
 ```shell
-git clone https://github.com/ComPWA/ampform.git  # or some other repo
+git clone https://github.com/ComPWA/ampform  # or some other repo
 cd ampform
 conda env create
 conda activate pwa  # or whatever the environment name is
