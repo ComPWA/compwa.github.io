@@ -206,6 +206,7 @@
     "ipython",
     "ipywidgets",
     "isinstance",
+    "isnan",
     "isort",
     "jaxlib",
     "joinpath",
