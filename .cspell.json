@@ -342,6 +342,7 @@
     "xticklabels",
     "xticks",
     "yaxis",
+    "ydata",
     "ylabel",
     "ylim",
     "yticks",
