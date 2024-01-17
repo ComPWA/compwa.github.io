@@ -17,3 +17,21 @@ We want to quickly formulate a wide range of amplitude models, given the latest 
 :::{card} {material-regular}`school` Transparency
 It must be easy to understand the mathematics behind the implemented model, so that the analysis can be reproduced or compared to comparable experiments.
 :::
+
+## {material-regular}`speed` Performance
+
+### Array-oriented programming
+
+### High-performance numerical computing
+
+## {material-regular}`edit` Flexibility
+
+### Computer Algebra System
+
+### Symbolic expressions as template
+
+## {material-regular}`school` Transparency
+
+### Self-documenting workflow
+
+### Model preservation
