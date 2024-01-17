@@ -6,9 +6,9 @@ dependencies:
   - graphviz # for binder
   - juliaup
   - pip
-  - python==3.8.*
+  - python==3.10.*
   - pip:
-      - -c .constraints/py3.8.txt -e .[dev]
+      - -c .constraints/py3.10.txt -e .[dev]
 variables:
   PRETTIER_LEGACY_CLI: "1"
   PYTHONHASHSEED: 0
