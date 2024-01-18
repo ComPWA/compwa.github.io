@@ -342,6 +342,7 @@
     "ydata",
     "ylabel",
     "ylim",
+    "yticklabels",
     "yticks",
     "zaxis",
     "zfit",
