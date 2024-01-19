@@ -83,6 +83,7 @@
     "Mikhasenko",
     "miniconda",
     "mkdir",
+    "multivalued",
     "mypy",
     "numpy",
     "parametrizations",
@@ -116,8 +117,10 @@
   "ignoreWords": [
     "Basdevant",
     "Colab",
+    "Danilkin",
     "Deineka",
     "MAINT",
+    "Tiator",
     "absl",
     "adrs",
     "allclose",
