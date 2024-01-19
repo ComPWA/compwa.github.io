@@ -319,6 +319,8 @@
     "theano",
     "threebody",
     "ticklabels",
+    "ticktext",
+    "tickvals",
     "timeit",
     "toctree",
     "tqdm",
