@@ -185,6 +185,7 @@
     "filterwarnings",
     "fontcolor",
     "fontsize",
+    "forall",
     "framealpha",
     "funcs",
     "getitem",
