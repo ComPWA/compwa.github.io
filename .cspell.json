@@ -222,6 +222,7 @@
     "linspace",
     "livereveal",
     "lstrip",
+    "makedirs",
     "marangotto",
     "mathbb",
     "mathbf",
