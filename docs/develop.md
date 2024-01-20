@@ -1,7 +1,7 @@
 # Help developing
 
-[![GitPod](https://img.shields.io/badge/Gitpod-ready--to--code-blue?logo=gitpod)](https://gitpod.io/#https://github.com/ComPWA/compwa-org)
-[![Open in Visual Studio Code](https://img.shields.io/badge/vscode-open-blue?logo=visualstudiocode)](https://open.vscode.dev/ComPWA/compwa-org)
+[![GitPod](https://img.shields.io/badge/Gitpod-ready--to--code-blue?logo=gitpod)](https://gitpod.io/#https://github.com/ComPWA/compwa.github.io)
+[![Open in Visual Studio Code](https://img.shields.io/badge/vscode-open-blue?logo=visualstudiocode)](https://open.vscode.dev/ComPWA/compwa.github.io)
 
 This page describes some of the tools and conventions followed by
 [Common Partial Wave Analysis](https://github.com/ComPWA). Where possible, we use the
@@ -344,26 +344,11 @@ notebooks with Julia kernels into your {ref}`documentation<develop:Documentation
 
 ## Automated coding conventions
 
-Where possible, we define and enforce our coding conventions through automated tools,
-instead of describing them in documentation. These tools perform their checks when you
-commit files locally (see {ref}`develop:Pre-commit`), when
-{ref}`running tox <develop:tox>`, and when you make a
-{ref}`pull request <develop:Collaboration>`.
+Where possible, we define and enforce our coding conventions through automated tools, instead of describing them in documentation. These tools perform their checks when you commit files locally (see {ref}`develop:Pre-commit`), when {ref}`running tox <develop:tox>`, and when you make a {ref}`pull request <develop:Collaboration>`.
 
-The tools are mainly configured through
-[`pyproject.toml`](https://github.com/ComPWA/ampform/blob/main/pyproject.toml),
-[`tox.ini`](https://github.com/ComPWA/ampform/blob/main/tox.ini), and the workflow files
-under [`.github`](https://github.com/ComPWA/ampform/blob/main/.github). These
-configuration files are kept up to date through the
-[ComPWA/repo-maintenance](https://compwa.github.io/repo-maintenance) repository, which
-essentially defines the developer environment across [all ComPWA
-repositories](https://github.com/orgs/ComPWA/repositories?q=archived%3Ano&type=all&language=&sort=name).
+The tools are mainly configured through [`pyproject.toml`](https://github.com/ComPWA/ampform/blob/main/pyproject.toml), [`tox.ini`](https://github.com/ComPWA/ampform/blob/main/tox.ini), and the workflow files under [`.github`](https://github.com/ComPWA/ampform/blob/main/.github). These configuration files are kept up to date through the [ComPWA/policy](https://compwa.github.io/policy) repository, which essentially defines the developer environment across [all ComPWA repositories](https://github.com/orgs/ComPWA/repositories?q=archived%3Ano&type=all&language=&sort=name).
 
-If you run into persistent linting errors, this may mean we need to further specify our
-conventions. In that case, it's best to {ref}`create an issue <develop:Issue
-management>` or a {ref}`pull request <develop:Collaboration>` at
-[ComPWA/repo-maintenance](https://github.com/ComPWA/repo-maintenance) and propose a
-policy change that can be formulated through those config files.
+If you run into persistent linting errors, this may mean we need to further specify our conventions. In that case, it's best to {ref}`create an issue <develop:Issue management>` or a {ref}`pull request <develop:Collaboration>` at [ComPWA/policy](https://github.com/ComPWA/policy) and propose a policy change that can be formulated through those config files.
 
 ### Pre-commit
 
@@ -723,7 +708,13 @@ and developer set-up with GitHub issues (see for instance
 
 :::{tip}
 If you are new to working with GitHub, have a look at the tutorials on
-[GitHub Skills](https://skills.github.com).
+[GitHub Skills](https://skills.github.com). For good tutorials on Git, see:
+
+- [freeCodeCamp's "Gitting Things Done"](https://www.freecodecamp.org/news/gitting-things-done-book)
+  <!-- cspell:ignore gitting -->
+- [HSF Software Training Center](https://swcarpentry.github.io/git-novice)
+- The [Pro Git](https://git-scm.com/book/en/v2) book
+
 :::
 
 ### Issue management
@@ -954,7 +945,7 @@ ComPWA projects are best developed {ref}`with Conda <develop:Virtual environment
 VSCode. The complete developer install procedure then becomes:
 
 ```shell
-git clone https://github.com/ComPWA/ampform.git  # or some other repo
+git clone https://github.com/ComPWA/ampform  # or some other repo
 cd ampform
 conda env create
 conda activate pwa  # or whatever the environment name is
@@ -973,7 +964,7 @@ be familiar with.
 
 :::{margin}
 Do you have other recommendations? Edit this page
-[here](https://github.com/ComPWA/compwa-org/edit/main/docs/develop.md)!
+[here](https://github.com/ComPWA/compwa.github.io/edit/main/docs/develop.md)!
 :::
 
 <!-- cspell:ignore Coursera Hynek Schlawack Sedgewick Slatkin subclassing testdriven Vlissides -->

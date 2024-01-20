@@ -11,12 +11,12 @@ import shutil
 import sys
 
 from sphinx_api_relink.helpers import (
-    get_branch_name,
     get_execution_mode,
     pin,
     pin_minor,
     set_intersphinx_version_remapping,
 )
+from sphinx_api_relink.linkcode import _get_commit_sha
 
 sys.path.insert(0, os.path.abspath("."))
 import _list_technical_reports
@@ -62,9 +62,9 @@ set_intersphinx_version_remapping({
     "mpl-interactions": {"0.24.1": "0.24.0"},
 })
 
-BRANCH = get_branch_name()
+BRANCH = _get_commit_sha()
 ORGANIZATION = "ComPWA"
-REPO_NAME = "compwa-org"
+REPO_NAME = "compwa.github.io"
 REPO_TITLE = "ComPWA Organization"
 
 BINDER_LINK = (

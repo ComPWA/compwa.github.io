@@ -47,6 +47,6 @@ keywords:
   - partial wave analysis
   - computer algebra system
 license: GPL-3.0-or-later
-repository-code: https://github.com/ComPWA/compwa-org
+repository-code: https://github.com/ComPWA/compwa.github.io
 type: software
-url: https://compwa-org.readthedocs.io
+url: https://compwa.github.io
