@@ -29,7 +29,6 @@ def get_nb_exclusion_patterns() -> list[str]:
         "report/000*",
         "report/001*",
         "report/002*",
-        "report/003*",
         "report/005*",
         "report/008*",
         "report/009*",
