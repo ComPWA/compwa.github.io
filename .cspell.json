@@ -62,6 +62,8 @@
     "conda",
     "Dalitz",
     "defaultdict",
+    "dummifies",
+    "dummify",
     "eval",
     "flatté",
     "functools",
