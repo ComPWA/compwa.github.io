@@ -29,11 +29,18 @@ def get_nb_exclusion_patterns() -> list[str]:
         "report/000*",
         "report/001*",
         "report/002*",
-        "report/003*",
         "report/005*",
         "report/008*",
         "report/009*",
-        "report/01*",
+        "report/010*",
+        "report/011*",
+        "report/012*",
+        "report/013*",
+        "report/014*",
+        "report/015*",
+        "report/017*",
+        "report/018*",
+        "report/019*",
         "report/020*",
         "report/021*",
         "report/022*",
@@ -198,6 +205,7 @@ linkcheck_ignore = [
     "https://github.com/orgs/ComPWA/projects/5",  # private
     "https://github.com/orgs/ComPWA/projects/6",  # private
     "https://ieeexplore.ieee.org/document/6312940",  # 401
+    "https://indico.ific.uv.es/event/6803",  # SSL error
     "https://mybinder.org",  # often instable
     "https://open.vscode.dev",
     "https://rosettacode.org",
