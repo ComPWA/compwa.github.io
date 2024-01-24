@@ -7,16 +7,24 @@ The complicated nature of the strong force makes it difficult to derive intensit
 Given these challenges, we can identify **three major requirements that amplitude analysis software should satisfy**:
 
 :::{card} {material-regular}`speed` Performance
+:link: performance
+:link-type: ref
 We want to evaluate likelihood function as fast as possible over large data samples, so that we can optimize our model parameters for several hypotheses.
 :::
 
 :::{card} {material-regular}`draw` Flexibility
+:link: flexibility
+:link-type: ref
 We want to quickly formulate a wide range of amplitude models, given the latest theoretical and experimental insights.
 :::
 
 :::{card} {material-regular}`school` Transparency
+:link: transparency
+:link-type: ref
 It must be easy to understand the mathematics behind the implemented model, so that the analysis can be reproduced or compared to comparable experiments.
 :::
+
+(performance)=
 
 ## {material-regular}`speed` Performance
 
@@ -24,11 +32,15 @@ It must be easy to understand the mathematics behind the implemented model, so t
 
 ### High-performance numerical computing
 
+(flexibility)=
+
 ## {material-regular}`draw` Flexibility
 
 ### Computer Algebra System
 
 ### Symbolic expressions as template
+
+(transparency)=
 
 ## {material-regular}`school` Transparency
 
