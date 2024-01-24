@@ -10,7 +10,7 @@ Given these challenges, we can identify **three major requirements that amplitud
 We want to evaluate likelihood function as fast as possible over large data samples, so that we can optimize our model parameters for several hypotheses.
 :::
 
-:::{card} {material-regular}`edit` Flexibility
+:::{card} {material-regular}`draw` Flexibility
 We want to quickly formulate a wide range of amplitude models, given the latest theoretical and experimental insights.
 :::
 
@@ -24,7 +24,7 @@ It must be easy to understand the mathematics behind the implemented model, so t
 
 ### High-performance numerical computing
 
-## {material-regular}`edit` Flexibility
+## {material-regular}`draw` Flexibility
 
 ### Computer Algebra System
 
