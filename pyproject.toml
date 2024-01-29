@@ -238,6 +238,7 @@ target-version = "py37"
 task-tags = ["cspell"]
 
 [tool.ruff.per-file-ignores]
+"**/003.ipynb" = ["B023"]
 "**/024.ipynb" = ["E731", "E741", "PGH001", "S307"]
 "**/025.ipynb" = ["E731"]
 "*.ipynb" = [
