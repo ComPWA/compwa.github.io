@@ -253,7 +253,6 @@ more about our ideals and ongoing projects on the {doc}`main</index>` page.
 caption: Resources
 hidden:
 ---
-test
 symbolics
 develop
 adr
