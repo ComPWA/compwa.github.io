@@ -8,7 +8,7 @@
 {{ '[![Google Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/ComPWA/compwa.github.io/blob/{})'.format(branch) }} {{ '[![Binder](https://static.mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/ComPWA/compwa.github.io/{}?filepath=docs/usage)'.format(branch) }}
 <!-- prettier-ignore-end -->
 
-The ["Common Partial Wave Analysis"](https://github.com/ComPWA) organization (ComPWA) aims to make amplitude analysis accessible through transparent and interactive documentation, modern software development tools, and collaboration-independent frameworks. One major novelty is that we [formulate amplitude models symbolically](./symbolics.md) with a Computer Algebra System, which results in a **self-documenting workflow** with high-performance, **backend-agnostic computations**.
+The ["Common Partial Wave Analysis"](https://github.com/ComPWA) organization (ComPWA) aims to make amplitude analysis accessible through transparent and interactive documentation, modern software development tools, and collaboration-independent frameworks. One major novelty is that we [formulate amplitude models symbolically](./symbolics.ipynb) with a Computer Algebra System, which results in a **self-documenting workflow** with high-performance, **backend-agnostic computations**.
 
 Contact details can be found [here](https://github.com/ComPWA) on our GitHub organization page.
 
@@ -253,6 +253,7 @@ more about our ideals and ongoing projects on the {doc}`main</index>` page.
 caption: Resources
 hidden:
 ---
+test
 symbolics
 develop
 adr
