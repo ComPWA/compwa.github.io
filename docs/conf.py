@@ -113,6 +113,7 @@ extensions = [
     "sphinx.ext.intersphinx",
     "sphinx.ext.mathjax",
     "sphinx.ext.napoleon",
+    "sphinx.ext.todo",
     "sphinx_api_relink",
     "sphinx_codeautolink",
     "sphinx_comments",
@@ -188,6 +189,7 @@ intersphinx_mapping = {
         f"https://mpl-interactions.readthedocs.io/en/{pin('mpl-interactions')}",
         None,
     ),
+    "numba": ("https://numba.pydata.org/numba-doc/latest", None),
     "numpy": (f"https://numpy.org/doc/{pin_minor('numpy')}", None),
     "plotly": ("https://plotly.com/python-api-reference/", None),
     "pwa": ("https://pwa.readthedocs.io", None),
@@ -197,6 +199,7 @@ intersphinx_mapping = {
     "scipy": ("https://docs.scipy.org/doc/scipy-1.7.0", None),
     "sympy": ("https://docs.sympy.org/latest", None),
     "tensorwaves": ("https://tensorwaves.readthedocs.io/en/stable", None),
+    "torch": ("https://pytorch.org/docs/stable", None),
     "zfit": ("https://zfit.readthedocs.io/en/latest", None),
 }
 linkcheck_anchors = False
@@ -265,3 +268,4 @@ thebe_config = {
     "repository_url": html_theme_options["repository_url"],
     "repository_branch": html_theme_options["repository_branch"],
 }
+todo_include_todos = True
