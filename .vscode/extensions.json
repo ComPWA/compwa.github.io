@@ -16,11 +16,10 @@
     "ms-vscode.live-server",
     "ms-vsliveshare.vsliveshare",
     "redhat.vscode-yaml",
-    "Soulcode.vscode-unwanted-extensions",
+    "soulcode.vscode-unwanted-extensions",
     "stkb.rewrap",
     "streetsidesoftware.code-spell-checker",
     "tamasfe.even-better-toml",
-    "tyriar.sort-lines",
     "yzhang.markdown-all-in-one"
   ],
   "unwantedRecommendations": [
@@ -31,6 +30,7 @@
     "ms-python.isort",
     "ms-python.mypy-type-checker",
     "ms-python.pylint",
-    "travisillig.vscode-json-stable-stringify"
+    "travisillig.vscode-json-stable-stringify",
+    "tyriar.sort-lines"
   ]
 }

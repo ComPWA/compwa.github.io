@@ -23,10 +23,12 @@ def main() -> int:
 
 def _create_tr_table() -> str:
     notebook_paths = _get_technical_report_paths()
-    src = dedent("""
+    src = dedent(
+        """
     |    | TR | Title | Details | Tags | Status |
     |:--:|:--:|:------|:--------|:-----|:-------|
-    """).strip()
+    """
+    ).strip()
     for notebook in notebook_paths:
         card_info = _get_card_info(notebook)
         tr = card_info["tr"]
