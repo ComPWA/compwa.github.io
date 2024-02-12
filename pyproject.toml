@@ -63,9 +63,8 @@ doc = [
     "sphinx-togglebutton",
     "sphinxcontrib-bibtex >=2",
 ]
-format = ["black"]
 jupyter = [
-    "compwa-org[doc]",
+    "black",
     "isort",
     "jupyterlab",
     "jupyterlab-code-formatter",
@@ -76,19 +75,20 @@ jupyter = [
     "python-lsp-server[rope]",
     'ypy-websocket <0.8.3; python_version <"3.8.0"',
 ]
-lint = ["ruff"]
 sty = [
-    "attrs", # https://github.com/ComPWA/compwa.github.io/runs/8127821070?check_suite_focus=true#step:5:52
-    "compwa-org[format]",
-    "compwa-org[lint]",
-    "nbformat",
+    "compwa-org[types]",
     "pre-commit >=1.4.0",
-    "sphinx-api-relink >=0.0.4",
+    "ruff",
 ]
 test = [
     "jupyter",
     "nbmake",
     'nbmake <1.3; python_version=="3.7.*"',
+]
+types = [
+    "attrs",
+    "nbformat",
+    "sphinx-api-relink >=0.0.4",
 ]
 
 [project.readme]
@@ -106,31 +106,6 @@ include-package-data = false
 [tool.setuptools_scm]
 write_to = "version.py"
 
-[tool.black]
-exclude = '''
-/(
-    .*\.egg-info
-    | .*build
-    | \.eggs
-    | \.git
-    | \.pytest_cache
-    | \.tox
-    | \.venv
-    | \.vscode
-    | dist
-)/
-'''
-include = '\.pyi?$'
-preview = true
-target-version = [
-    "py310",
-    "py311",
-    "py312",
-    "py37",
-    "py38",
-    "py39",
-]
-
 [tool.pyright]
 exclude = [
     "**/.git",
@@ -146,6 +121,7 @@ reportIncompatibleMethodOverride = false
 reportMissingParameterType = false
 reportMissingTypeArgument = false
 reportMissingTypeStubs = false
+reportOperatorIssue = false
 reportOverlappingOverload = false
 reportPrivateImportUsage = false
 reportPrivateUsage = false
@@ -184,7 +160,11 @@ filterwarnings = [
     "ignore:read_text is deprecated.*:DeprecationWarning",
     "ignore:unclosed .*:ResourceWarning",
 ]
-norecursedirs = ["_build"]
+norecursedirs = [
+    ".ipynb_checkpoints",
+    ".virtual_documents",
+    "_build",
+]
 testpaths = ["docs"]
 
 [tool.ruff]
@@ -192,6 +172,10 @@ extend-include = ["*.ipynb"]
 preview = true
 show-fixes = true
 target-version = "py37"
+
+[tool.ruff.format]
+docstring-code-format = true
+line-ending = "lf"
 
 [tool.ruff.lint]
 extend-select = [
@@ -237,6 +221,7 @@ ignore = [
     "D407",
     "D416",
     "E501",
+    "ISC001",
     "PLW1514",
     "SIM108",
 ]
@@ -246,7 +231,7 @@ task-tags = ["cspell"]
 split-on-trailing-comma = false
 
 [tool.ruff.lint.per-file-ignores]
-"**/003.ipynb" = ["B023", "PLC2701"] # conflict with black-jupyter
+"**/003.ipynb" = ["B023", "PLC2701"]
 "**/011.ipynb" = ["PLC2701", "PLR6301"]
 "**/014.ipynb" = ["PLC2701"]
 "**/016.ipynb" = ["PLC2701"]
