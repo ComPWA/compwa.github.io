@@ -184,7 +184,11 @@ filterwarnings = [
     "ignore:read_text is deprecated.*:DeprecationWarning",
     "ignore:unclosed .*:ResourceWarning",
 ]
-norecursedirs = ["_build"]
+norecursedirs = [
+    ".ipynb_checkpoints",
+    ".virtual_documents",
+    "_build",
+]
 testpaths = ["docs"]
 
 [tool.ruff]
