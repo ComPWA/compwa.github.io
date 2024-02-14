@@ -1,5 +1,6 @@
 ### A Pluto.jl notebook ###
 # v0.19.38
+# cspell:disable
 
 using Markdown
 using InteractiveUtils
