@@ -239,7 +239,7 @@ split-on-trailing-comma = false
 "**/022.ipynb" = ["PLC2701"]
 "**/024.ipynb" = ["E731", "E741", "S307"]
 "**/025.ipynb" = ["E731"]
-"**/98*.ipynb" = ["E731"]
+"**/98*.ipynb" = ["E731", "PLR6301"]
 "*.ipynb" = [
     "A003",
     "B008",
