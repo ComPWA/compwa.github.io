@@ -53,10 +53,6 @@ repos:
       - id: colab-toc-visible
       - id: fix-nbformat-version
       - id: pin-nb-requirements
-        exclude: >
-          (?x)^(
-            docs/symbolics\.ipynb
-          )$
       - id: set-nb-cells
 
   - repo: https://github.com/astral-sh/ruff-pre-commit
