@@ -346,6 +346,7 @@
     "vmax",
     "vmin",
     "wspace",
+    "xanchor",
     "xaxis",
     "xdata",
     "xlabel",
