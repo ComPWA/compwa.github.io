@@ -99,6 +99,7 @@
     "pytest",
     "PYTHONHASHSEED",
     "qrules",
+    "Reana",
     "roadmap",
     "Scikit",
     "scipy",
