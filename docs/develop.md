@@ -25,11 +25,11 @@ pre-commit install --install-hooks
 ```shell
 python3 -m venv ./venv
 source ./venv/bin/activate
-python3 -m pip install -c .constraints/py3.8.txt -e .[dev]
+python3 -m pip install -c .constraints/py3.10.txt -e .[dev]
 pre-commit install --install-hooks
 ```
 
-Replace `3.8` with the Python version you use on your machine.
+Replace `3.10` with the Python version you use on your machine.
 
 :::
 ::::
@@ -181,7 +181,7 @@ version of Python that the package supports.
 :::
 
 ```shell
-python3 -m pip install -c .constraints/py3.8.txt -e .
+python3 -m pip install -c .constraints/py3.10.txt -e .
 ```
 
 The syntax works just as well for {ref}`develop:Optional dependencies`:
@@ -190,18 +190,18 @@ The syntax works just as well for {ref}`develop:Optional dependencies`:
 :::{tab-item} Bash
 
 ```shell
-python3 -m pip install -c .constraints/py3.8.txt -e .[doc,sty]
-python3 -m pip install -c .constraints/py3.8.txt -e .[test]
-python3 -m pip install -c .constraints/py3.8.txt -e .[dev]
+python3 -m pip install -c .constraints/py3.10.txt -e .[doc,sty]
+python3 -m pip install -c .constraints/py3.10.txt -e .[test]
+python3 -m pip install -c .constraints/py3.10.txt -e .[dev]
 ```
 
 :::
 :::{tab-item} Z shell
 
 ```shell
-python3 -m pip install -c .constraints/py3.8.txt -e ".[doc,sty]"
-python3 -m pip install -c .constraints/py3.8.txt -e ".[test]"
-python3 -m pip install -c .constraints/py3.8.txt -e ".[dev]"
+python3 -m pip install -c .constraints/py3.10.txt -e ".[doc,sty]"
+python3 -m pip install -c .constraints/py3.10.txt -e ".[test]"
+python3 -m pip install -c .constraints/py3.10.txt -e ".[dev]"
 ```
 
 :::
@@ -233,7 +233,7 @@ have to rerun this command after pulling new commits from the repository:
 ```shell
 git checkout main
 git pull
-pip install -c .constraints/py3.8.txt -e .[dev]
+pip install -c .constraints/py3.10.txt -e .[dev]
 ```
 
 :::
@@ -242,7 +242,7 @@ pip install -c .constraints/py3.8.txt -e .[dev]
 ```shell
 git checkout main
 git pull
-pip install -c .constraints/py3.8.txt -e ".[dev]"
+pip install -c .constraints/py3.10.txt -e ".[dev]"
 ```
 
 :::
