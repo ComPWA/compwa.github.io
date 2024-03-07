@@ -46,6 +46,10 @@
   ],
   "livePreview.defaultPreviewPath": "docs/_build/html",
   "multiDiffEditor.experimental.enabled": true,
+  "notebook.codeActionsOnSave": {
+    "notebook.source.organizeImports": "explicit"
+  },
+  "notebook.formatOnSave.enabled": true,
   "notebook.gotoSymbols.showAllSymbols": true,
   "python.analysis.autoImportCompletions": false,
   "python.analysis.typeCheckingMode": "strict",
@@ -53,6 +57,7 @@
   "redhat.telemetry.enabled": false,
   "rewrap.wrappingColumn": 88,
   "ruff.enable": true,
+  "ruff.importStrategy": "fromEnvironment",
   "ruff.organizeImports": true,
   "search.exclude": {
     "**/tests/**/__init__.py": true,
