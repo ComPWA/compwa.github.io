@@ -206,6 +206,7 @@ linkcheck_ignore = [
     "https://github.com/orgs/ComPWA/projects/6",  # private
     "https://ieeexplore.ieee.org/document/6312940",  # 401
     "https://indico.ific.uv.es/event/6803",  # SSL error
+    "https://leetcode.com",
     "https://mybinder.org",  # often instable
     "https://open.vscode.dev",
     "https://rosettacode.org",
