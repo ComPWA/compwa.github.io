@@ -190,6 +190,7 @@
     "fontcolor",
     "fontsize",
     "framealpha",
+    "fromdecay",
     "funcs",
     "gdown",
     "getitem",
