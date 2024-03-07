@@ -46,7 +46,7 @@ httpx==0.27.0
 identify==2.5.35
 idna==3.6
 imagesize==1.4.1
-importlib-metadata==7.0.1
+importlib-metadata==7.0.2
 iniconfig==2.0.0
 ipykernel==6.29.3
 ipympl==0.9.3
@@ -98,7 +98,7 @@ nbclient==0.6.8
 nbconvert==7.16.2
 nbdime==4.0.1
 nbformat==5.9.2
-nbmake==1.5.2
+nbmake==1.5.3
 nest-asyncio==1.6.0
 nodeenv==1.8.0
 notebook==7.1.1
