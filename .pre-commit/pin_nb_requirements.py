@@ -5,6 +5,7 @@ should specify which package versions should be used to run the notebook. This h
 checks whether a notebook has such install statements and whether they comply with the
 expected formatting.
 """
+# cspell:ignore oneline precommit
 
 from __future__ import annotations
 
