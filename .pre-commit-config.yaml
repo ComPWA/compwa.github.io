@@ -3,6 +3,7 @@ ci:
   autoupdate_schedule: quarterly
   skip:
     - check-jsonschema
+    - pin-nb-requirements
     - prettier
     - pyright
     - taplo
@@ -52,7 +53,6 @@ repos:
           - --repo-title=ComPWA Organization
       - id: colab-toc-visible
       - id: fix-nbformat-version
-      - id: pin-nb-requirements
       - id: set-nb-cells
 
   - repo: https://github.com/astral-sh/ruff-pre-commit
@@ -144,6 +144,18 @@ repos:
           (?x)^(
             docs/_static/favicon.ico
           )$
+
+  - repo: local
+    hooks:
+      - id: pin-nb-requirements
+        name: Check whether notebook contains a pip install line
+        description:
+          Specify which packages to install specifically in order to run
+          this notebook.
+        entry: python3 .pre-commit/pin_nb_requirements.py
+        language: system
+        types:
+          - jupyter
 
   - repo: https://github.com/ComPWA/mirrors-pyright
     rev: v1.1.352
