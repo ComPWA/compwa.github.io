@@ -117,6 +117,7 @@
   "ignoreWords": [
     "Colab",
     "MAINT",
+    "Precommit",
     "absl",
     "adrs",
     "allclose",
@@ -260,6 +261,7 @@
     "nrows",
     "nsimplify",
     "numpycode",
+    "oneline",
     "operatorname",
     "pandoc",
     "pcolormesh",
