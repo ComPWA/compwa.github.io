@@ -76,7 +76,9 @@ jupyter = [
     'ypy-websocket <0.8.3; python_version <"3.8.0"',
 ]
 sty = [
+    "attrs",
     "compwa-org[types]",
+    "nbformat",
     "pre-commit >=1.4.0",
     "ruff",
 ]
@@ -86,8 +88,6 @@ test = [
     'nbmake <1.3; python_version=="3.7.*"',
 ]
 types = [
-    "attrs",
-    "nbformat",
     "sphinx-api-relink >=0.0.4",
 ]
 
@@ -145,12 +145,14 @@ typeCheckingMode = "strict"
 [tool.pytest.ini_options]
 addopts = [
     "--color=yes",
+    "--doctest-continue-on-failure",
+    "--doctest-modules",
     "--durations=0",
     "--ignore-glob=*/.ipynb_checkpoints/*",
     "--ignore=docs/adr/001/sympy.ipynb",
     "--ignore=docs/conf.py",
     "--nbmake-timeout=1200",
-    "-k='not docs/report/019.ipynb'",
+    "-k not docs/report/019.ipynb",
 ]
 filterwarnings = [
     "error",
@@ -164,8 +166,12 @@ norecursedirs = [
     ".ipynb_checkpoints",
     ".virtual_documents",
     "_build",
+    "docs/adr",
 ]
-testpaths = ["docs"]
+testpaths = [
+    ".pre-commit",
+    "docs",
+]
 
 [tool.ruff]
 extend-include = ["*.ipynb"]
@@ -289,6 +295,7 @@ split-on-trailing-comma = false
 "docs/report/020.ipynb" = ["F821"]
 "docs/report/022.ipynb" = ["F821"]
 "docs/report/024.ipynb" = ["F821", "S102"]
+"pin_nb_requirements.py" = ["INP001", "PLW2901"]
 "setup.py" = ["D100"]
 
 [tool.ruff.lint.pydocstyle]
