@@ -172,12 +172,13 @@ html_theme_options = {
 }
 html_title = "Common Partial Wave Analysis Project"
 intersphinx_mapping = {
-    "IPython": (f"https://ipython.readthedocs.io/en/{pin('IPython')}", None),
+    "ampform-0.14.x": ("https://ampform.readthedocs.io/en/stable", None),
     "ampform": ("https://ampform.readthedocs.io/en/stable", None),
     "attrs": (f"https://www.attrs.org/en/{pin('attrs')}", None),
     "expertsystem": ("https://expertsystem.readthedocs.io/en/stable", None),
     "graphviz": ("https://graphviz.readthedocs.io/en/stable", None),
     "hepstats": ("https://scikit-hep.org/hepstats", None),
+    "IPython": (f"https://ipython.readthedocs.io/en/{pin('IPython')}", None),
     "ipywidgets": (f"https://ipywidgets.readthedocs.io/en/{pin('ipywidgets')}", None),
     "jax": ("https://jax.readthedocs.io/en/latest", None),
     "matplotlib": (f"https://matplotlib.org/{pin('matplotlib')}", None),
@@ -189,8 +190,8 @@ intersphinx_mapping = {
     "plotly": ("https://plotly.com/python-api-reference/", None),
     "pwa": ("https://pwa.readthedocs.io", None),
     "python": ("https://docs.python.org/3", None),
-    "qrules": ("https://qrules.readthedocs.io/en/stable", None),
     "qrules-0.9.x": ("https://qrules.readthedocs.io/en/0.9.x", None),
+    "qrules": ("https://qrules.readthedocs.io/en/stable", None),
     "scipy": ("https://docs.scipy.org/doc/scipy-1.7.0", None),
     "sympy": ("https://docs.sympy.org/latest", None),
     "tensorwaves": ("https://tensorwaves.readthedocs.io/en/stable", None),
