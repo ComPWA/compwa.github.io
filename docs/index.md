@@ -200,7 +200,7 @@ In order to close this gap as best as possible, ComPWA follows the following ide
 ### Design
 
 - Code modularity and transparency. For example, separation of {mod}`qrules`,
-  {mod}`ampform`, and {mod}`tensorwaves`. The former two include all of the physics,
+  {external+ampform:mod}`ampform`, and {mod}`tensorwaves`. The former two include all of the physics,
   while {mod}`tensorwaves` can use these amplitude models and perform fits, but aims to
   keep physics logic contained upstream.
 - Keep the code simple by sticking to the core responsibility: construct amplitude
