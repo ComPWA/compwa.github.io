@@ -104,7 +104,7 @@ repos:
     hooks:
       - id: toml-sort
         args: [--in-place]
-        exclude: (?x)^(.*(Manifest|Project)\.toml)$
+        exclude: (?x)^(.*/Manifest\.toml|.*/Project\.toml)$
 
   - repo: https://github.com/python-jsonschema/check-jsonschema
     rev: 0.28.0
@@ -149,8 +149,7 @@ repos:
     hooks:
       - id: pin-nb-requirements
         name: Check whether notebook contains a pip install line
-        description:
-          Specify which packages to install specifically in order to run
+        description: Specify which packages to install specifically in order to run
           this notebook.
         entry: python3 .pre-commit/pin_nb_requirements.py
         language: system
