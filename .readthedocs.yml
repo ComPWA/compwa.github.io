@@ -19,3 +19,9 @@ build:
       - curl -LsSf https://astral.sh/uv/install.sh | sh
       - |-
         /home/docs/.cargo/bin/uv pip install --system -c .constraints/py3.10.txt -e .[doc]
+      - |
+        wget https://julialang-s3.julialang.org/bin/linux/x64/1.9/julia-1.9.2-linux-x86_64.tar.gz
+      - tar xzf julia-1.9.2-linux-x86_64.tar.gz
+      - mkdir bin
+      - ln -s $PWD/julia-1.9.2/bin/julia bin/julia
+      - ./bin/julia docs/InstallIJulia.jl
