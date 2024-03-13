@@ -149,7 +149,8 @@ repos:
     hooks:
       - id: pin-nb-requirements
         name: Check whether notebook contains a pip install line
-        description: Specify which packages to install specifically in order to run
+        description:
+          Specify which packages to install specifically in order to run
           this notebook.
         entry: python3 .pre-commit/pin_nb_requirements.py
         language: system
