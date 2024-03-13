@@ -172,7 +172,7 @@ html_theme_options = {
 }
 html_title = "Common Partial Wave Analysis Project"
 intersphinx_mapping = {
-    "ampform-0.14.x": ("https://ampform.readthedocs.io/stable", None),
+    "ampform-0.14.x": ("https://ampform.readthedocs.io/0.14.x", None),
     "ampform": ("https://ampform.readthedocs.io/stable", None),
     "attrs": (f"https://www.attrs.org/en/{pin('attrs')}", None),
     "expertsystem": ("https://expertsystem.readthedocs.io/en/stable", None),
