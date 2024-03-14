@@ -20,16 +20,26 @@ pre-commit install --install-hooks
 ```
 
 :::
+:::{tab-item} uv
+
+```shell
+uv venv -p 3.10
+source .venv/bin/activate
+uv pip install -c .constraints/py3.10.txt -e '.[dev]'
+pre-commit install --install-hooks
+```
+
+:::
 :::{tab-item} Python venv
 
 ```shell
 python3 -m venv ./venv
 source ./venv/bin/activate
-python3 -m pip install -c .constraints/py3.8.txt -e .[dev]
+python3 -m pip install -c .constraints/py3.10.txt -e '.[dev]'
 pre-commit install --install-hooks
 ```
 
-Replace `3.8` with the Python version you use on your machine.
+Replace `3.10` with the Python version you use on your machine.
 
 :::
 ::::
@@ -47,10 +57,7 @@ in case something goes wrong with the dependencies: just trash the environment a
 recreate it. In addition, you can easily install other versions of the dependencies,
 without affecting other packages you may be working on.
 
-Two common tools to manage virtual environments are [Conda](https://www.anaconda.com)
-and [Python's built-in `venv`](https://docs.python.org/3/tutorial/venv.html). In either
-case, you have to activate the environment whenever you want to run the framework or use
-the developer tools.
+Somme common tools to manage virtual environments are [Conda](https://www.anaconda.com), [`uv`](https://github.com/astral-sh/uv) and [Python's built-in `venv`](https://docs.python.org/3/tutorial/venv.html). In any of these cases, you have to activate the environment whenever you want to run the framework or use the developer tools.
 
 ::::{tab-set}
 :::{tab-item} Conda environment
@@ -103,6 +110,29 @@ Now you can safely install the package you want to work on (see
 ```shell
 pip install -e .
 ```
+
+:::
+:::{tab-item} uv
+
+An upcoming and super fast Python package installer is [`uv`](https://github.com/astral-sh/uv?tab=readme-ov-file#getting-started). It can be installed without administrator rights and comes with its own `venv` command to manage virtual environments. Here's how to do it for a specific Python version:[^deadsnakes]
+
+```shell
+uv venv -p 3.10
+```
+
+This creates a folder called {file}`.venv` where all Python packages will be contained. To activate the environment, run:
+
+```shell
+source .venv/bin/activate
+```
+
+You can safely install the package you want to work on (see ["editable" mode](#editable-installation)), as well as any additional required packages (see [optional dependencies](#optional-dependencies)):
+
+```shell
+uv pip install -e .
+```
+
+[^deadsnakes]: To install a specific Python version on Ubuntu, use [deadsnakes](https://launchpad.net/~deadsnakes/+archive/ubuntu/ppa).
 
 :::
 ::::
@@ -181,7 +211,7 @@ version of Python that the package supports.
 :::
 
 ```shell
-python3 -m pip install -c .constraints/py3.8.txt -e .
+python3 -m pip install -c .constraints/py3.10.txt -e .
 ```
 
 The syntax works just as well for {ref}`develop:Optional dependencies`:
@@ -190,18 +220,18 @@ The syntax works just as well for {ref}`develop:Optional dependencies`:
 :::{tab-item} Bash
 
 ```shell
-python3 -m pip install -c .constraints/py3.8.txt -e .[doc,sty]
-python3 -m pip install -c .constraints/py3.8.txt -e .[test]
-python3 -m pip install -c .constraints/py3.8.txt -e .[dev]
+python3 -m pip install -c .constraints/py3.10.txt -e .[doc,sty]
+python3 -m pip install -c .constraints/py3.10.txt -e .[test]
+python3 -m pip install -c .constraints/py3.10.txt -e .[dev]
 ```
 
 :::
 :::{tab-item} Z shell
 
 ```shell
-python3 -m pip install -c .constraints/py3.8.txt -e ".[doc,sty]"
-python3 -m pip install -c .constraints/py3.8.txt -e ".[test]"
-python3 -m pip install -c .constraints/py3.8.txt -e ".[dev]"
+python3 -m pip install -c .constraints/py3.10.txt -e ".[doc,sty]"
+python3 -m pip install -c .constraints/py3.10.txt -e ".[test]"
+python3 -m pip install -c .constraints/py3.10.txt -e ".[dev]"
 ```
 
 :::
@@ -233,7 +263,7 @@ have to rerun this command after pulling new commits from the repository:
 ```shell
 git checkout main
 git pull
-pip install -c .constraints/py3.8.txt -e .[dev]
+pip install -c .constraints/py3.10.txt -e .[dev]
 ```
 
 :::
@@ -242,7 +272,7 @@ pip install -c .constraints/py3.8.txt -e .[dev]
 ```shell
 git checkout main
 git pull
-pip install -c .constraints/py3.8.txt -e ".[dev]"
+pip install -c .constraints/py3.10.txt -e ".[dev]"
 ```
 
 :::

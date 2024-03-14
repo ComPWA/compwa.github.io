@@ -176,12 +176,13 @@ html_theme_options = {
 }
 html_title = "Common Partial Wave Analysis Project"
 intersphinx_mapping = {
-    "IPython": (f"https://ipython.readthedocs.io/en/{pin('IPython')}", None),
-    "ampform": ("https://ampform.readthedocs.io/en/stable", None),
+    "ampform-0.14.x": ("https://ampform.readthedocs.io/0.14.x", None),
+    "ampform": ("https://ampform.readthedocs.io/stable", None),
     "attrs": (f"https://www.attrs.org/en/{pin('attrs')}", None),
     "expertsystem": ("https://expertsystem.readthedocs.io/en/stable", None),
     "graphviz": ("https://graphviz.readthedocs.io/en/stable", None),
     "hepstats": ("https://scikit-hep.org/hepstats", None),
+    "IPython": (f"https://ipython.readthedocs.io/en/{pin('IPython')}", None),
     "ipywidgets": (f"https://ipywidgets.readthedocs.io/en/{pin('ipywidgets')}", None),
     "jax": ("https://jax.readthedocs.io/en/latest", None),
     "matplotlib": (f"https://matplotlib.org/{pin('matplotlib')}", None),
@@ -194,11 +195,11 @@ intersphinx_mapping = {
     "plotly": ("https://plotly.com/python-api-reference/", None),
     "pwa": ("https://pwa.readthedocs.io", None),
     "python": ("https://docs.python.org/3", None),
-    "qrules": ("https://qrules.readthedocs.io/en/stable", None),
-    "qrules-0.9.x": ("https://qrules.readthedocs.io/en/0.9.x", None),
+    "qrules-0.9.x": ("https://qrules.readthedocs.io/0.9.x", None),
+    "qrules": ("https://qrules.readthedocs.io/stable", None),
     "scipy": ("https://docs.scipy.org/doc/scipy-1.7.0", None),
     "sympy": ("https://docs.sympy.org/latest", None),
-    "tensorwaves": ("https://tensorwaves.readthedocs.io/en/stable", None),
+    "tensorwaves": ("https://tensorwaves.readthedocs.io/stable", None),
     "torch": ("https://pytorch.org/docs/stable", None),
     "zfit": ("https://zfit.readthedocs.io/en/latest", None),
 }
@@ -212,6 +213,7 @@ linkcheck_ignore = [
     "https://github.com/orgs/ComPWA/projects/6",  # private
     "https://ieeexplore.ieee.org/document/6312940",  # 401
     "https://indico.ific.uv.es/event/6803",  # SSL error
+    "https://leetcode.com",
     "https://mybinder.org",  # often instable
     "https://open.vscode.dev",
     "https://rosettacode.org",
