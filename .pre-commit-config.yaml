@@ -3,6 +3,7 @@ ci:
   autoupdate_schedule: quarterly
   skip:
     - check-jsonschema
+    - pin-nb-requirements
     - prettier
     - pyright
     - taplo
@@ -39,7 +40,7 @@ repos:
             metadata.vscode
 
   - repo: https://github.com/ComPWA/policy
-    rev: 0.2.5
+    rev: 0.3.2
     hooks:
       - id: check-dev-files
         args:
@@ -52,11 +53,10 @@ repos:
           - --repo-title=ComPWA Organization
       - id: colab-toc-visible
       - id: fix-nbformat-version
-      - id: pin-nb-requirements
       - id: set-nb-cells
 
   - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.2.1
+    rev: v0.3.2
     hooks:
       - id: ruff
         args: [--fix]
@@ -104,7 +104,7 @@ repos:
     hooks:
       - id: toml-sort
         args: [--in-place]
-        exclude: (?x)^(.*(Manifest|Project)\.toml)$
+        exclude: (?x)^(.*/Manifest\.toml|.*/Project\.toml)$
 
   - repo: https://github.com/python-jsonschema/check-jsonschema
     rev: 0.28.0
@@ -120,7 +120,7 @@ repos:
         pass_filenames: false
 
   - repo: https://github.com/streetsidesoftware/cspell-cli
-    rev: v8.3.0
+    rev: v8.6.0
     hooks:
       - id: cspell
 
@@ -145,7 +145,19 @@ repos:
             docs/_static/favicon.ico
           )$
 
+  - repo: local
+    hooks:
+      - id: pin-nb-requirements
+        name: Check whether notebook contains a pip install line
+        description:
+          Specify which packages to install specifically in order to run
+          this notebook.
+        entry: python3 .pre-commit/pin_nb_requirements.py
+        language: system
+        types:
+          - jupyter
+
   - repo: https://github.com/ComPWA/mirrors-pyright
-    rev: v1.1.350
+    rev: v1.1.353
     hooks:
       - id: pyright
