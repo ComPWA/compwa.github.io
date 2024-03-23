@@ -53,7 +53,6 @@ repos:
           - --repo-title=ComPWA Organization
       - id: colab-toc-visible
       - id: fix-nbformat-version
-      - id: set-nb-cells
 
   - repo: https://github.com/astral-sh/ruff-pre-commit
     rev: v0.3.2
