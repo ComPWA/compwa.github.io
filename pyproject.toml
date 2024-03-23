@@ -297,6 +297,7 @@ split-on-trailing-comma = false
 "docs/report/020.ipynb" = ["F821"]
 "docs/report/022.ipynb" = ["F821"]
 "docs/report/024.ipynb" = ["F821", "S102"]
+"docs/report/027.ipynb" = ["PLW1510", "S404", "S603"]
 "pin_nb_requirements.py" = ["INP001", "PLW2901"]
 "setup.py" = ["D100"]
 
