@@ -101,6 +101,7 @@
     "pathlib",
     "permutate",
     "Plotly",
+    "PyPA",
     "pyproject",
     "pytest",
     "PYTHONHASHSEED",
