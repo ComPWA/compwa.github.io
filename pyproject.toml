@@ -243,8 +243,9 @@ split-on-trailing-comma = false
 "**/016.ipynb" = ["PLC2701"]
 "**/021.ipynb" = ["I001"]
 "**/022.ipynb" = ["PLC2701"]
-"**/024.ipynb" = ["E731", "E741", "PGH001", "S307"]
+"**/024.ipynb" = ["E731", "E741", "S307"]
 "**/025.ipynb" = ["E731"]
+"**/98*.ipynb" = ["E731", "PLR6301"]
 "*.ipynb" = [
     "A003",
     "B008",
@@ -254,6 +255,7 @@ split-on-trailing-comma = false
     "D",
     "E402",
     "E703",
+    "E741",
     "F404",
     "N802",
     "N803",
@@ -271,6 +273,7 @@ split-on-trailing-comma = false
     "RUF001",
     "RUF027", # for _latex_repr_
     "S101",
+    "S307",
     "T20",
     "TCH00",
 ]
@@ -289,12 +292,20 @@ split-on-trailing-comma = false
     "PLW2901",
 ]
 "docs/report/002.ipynb" = ["F821"]
-"docs/report/003.ipynb" = ["F821"]
-"docs/report/005.ipynb" = ["F821"]
+"docs/report/003.ipynb" = ["F821", "S404", "S603"]
+"docs/report/004.ipynb" = ["S404", "S603"]
+"docs/report/005.ipynb" = ["F821", "S404", "S603"]
+"docs/report/006.ipynb" = ["S404", "S603"]
+"docs/report/009.ipynb" = ["S404", "S603"]
+"docs/report/010.ipynb" = ["S404", "S603"]
 "docs/report/011.ipynb" = ["F821"]
+"docs/report/017.ipynb" = ["S404", "S603"]
 "docs/report/020.ipynb" = ["F821"]
+"docs/report/021.ipynb" = ["S404", "S603"]
 "docs/report/022.ipynb" = ["F821"]
 "docs/report/024.ipynb" = ["F821", "S102"]
+"docs/report/025.ipynb" = ["S404", "S603"]
+"docs/report/027.ipynb" = ["PLW1510", "S404", "S603"]
 "pin_nb_requirements.py" = ["INP001", "PLW2901"]
 "setup.py" = ["D100"]
 
