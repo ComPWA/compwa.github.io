@@ -113,6 +113,7 @@ extensions = [
     "sphinx.ext.intersphinx",
     "sphinx.ext.mathjax",
     "sphinx.ext.napoleon",
+    "sphinx.ext.todo",
     "sphinx_api_relink",
     "sphinx_codeautolink",
     "sphinx_comments",
@@ -126,6 +127,9 @@ extensions = [
     "sphinxcontrib.bibtex",
 ]
 graphviz_output_format = "svg"
+html_css_files = [
+    "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css",
+]
 html_favicon = "_static/favicon.ico"
 html_js_files = [
     "https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js",
@@ -172,12 +176,13 @@ html_theme_options = {
 }
 html_title = "Common Partial Wave Analysis Project"
 intersphinx_mapping = {
-    "IPython": (f"https://ipython.readthedocs.io/en/{pin('IPython')}", None),
-    "ampform": ("https://ampform.readthedocs.io/en/stable", None),
+    "ampform-0.14.x": ("https://ampform.readthedocs.io/0.14.x", None),
+    "ampform": ("https://ampform.readthedocs.io/stable", None),
     "attrs": (f"https://www.attrs.org/en/{pin('attrs')}", None),
     "expertsystem": ("https://expertsystem.readthedocs.io/en/stable", None),
     "graphviz": ("https://graphviz.readthedocs.io/en/stable", None),
     "hepstats": ("https://scikit-hep.org/hepstats", None),
+    "IPython": (f"https://ipython.readthedocs.io/en/{pin('IPython')}", None),
     "ipywidgets": (f"https://ipywidgets.readthedocs.io/en/{pin('ipywidgets')}", None),
     "jax": ("https://jax.readthedocs.io/en/latest", None),
     "matplotlib": (f"https://matplotlib.org/{pin('matplotlib')}", None),
@@ -185,15 +190,17 @@ intersphinx_mapping = {
         f"https://mpl-interactions.readthedocs.io/en/{pin('mpl-interactions')}",
         None,
     ),
+    "numba": ("https://numba.pydata.org/numba-doc/latest", None),
     "numpy": (f"https://numpy.org/doc/{pin_minor('numpy')}", None),
     "plotly": ("https://plotly.com/python-api-reference/", None),
     "pwa": ("https://pwa.readthedocs.io", None),
     "python": ("https://docs.python.org/3", None),
-    "qrules": ("https://qrules.readthedocs.io/en/stable", None),
-    "qrules-0.9.x": ("https://qrules.readthedocs.io/en/0.9.x", None),
+    "qrules-0.9.x": ("https://qrules.readthedocs.io/0.9.x", None),
+    "qrules": ("https://qrules.readthedocs.io/stable", None),
     "scipy": ("https://docs.scipy.org/doc/scipy-1.7.0", None),
     "sympy": ("https://docs.sympy.org/latest", None),
-    "tensorwaves": ("https://tensorwaves.readthedocs.io/en/stable", None),
+    "tensorwaves": ("https://tensorwaves.readthedocs.io/stable", None),
+    "torch": ("https://pytorch.org/docs/stable", None),
     "zfit": ("https://zfit.readthedocs.io/en/latest", None),
 }
 linkcheck_anchors = False
@@ -210,6 +217,7 @@ linkcheck_ignore = [
     "https://mybinder.org",  # often instable
     "https://open.vscode.dev",
     "https://rosettacode.org",
+    "https://stackoverflow.com",
     "https://via.placeholder.com",  # irregular timeout
     "https://www.andiamo.co.uk/resources/iso-language-codes",  # 443, but works
     "https://www.bookfinder.com",
@@ -263,3 +271,4 @@ thebe_config = {
     "repository_url": html_theme_options["repository_url"],
     "repository_branch": html_theme_options["repository_branch"],
 }
+todo_include_todos = True

@@ -53,10 +53,9 @@ repos:
           - --repo-title=ComPWA Organization
       - id: colab-toc-visible
       - id: fix-nbformat-version
-      - id: set-nb-cells
 
   - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.3.1
+    rev: v0.3.5
     hooks:
       - id: ruff
         args: [--fix]
@@ -107,7 +106,7 @@ repos:
         exclude: (?x)^(.*/Manifest\.toml|.*/Project\.toml)$
 
   - repo: https://github.com/python-jsonschema/check-jsonschema
-    rev: 0.28.0
+    rev: 0.28.1
     hooks:
       - id: check-jsonschema
         name: Check CITATION.cff
@@ -120,7 +119,7 @@ repos:
         pass_filenames: false
 
   - repo: https://github.com/streetsidesoftware/cspell-cli
-    rev: v8.6.0
+    rev: v8.6.1
     hooks:
       - id: cspell
 
@@ -158,6 +157,6 @@ repos:
           - jupyter
 
   - repo: https://github.com/ComPWA/mirrors-pyright
-    rev: v1.1.352
+    rev: v1.1.357
     hooks:
       - id: pyright
