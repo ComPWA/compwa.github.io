@@ -22,6 +22,7 @@ version.py
 # Temporary files
 *.pyc
 *condaenv.*
+.DS_Store
 .coverage
 .coverage.*
 .ipynb_checkpoints/
@@ -55,4 +56,3 @@ pyvenv*/
 !codecov.yml
 !environment.yml
 !pyrightconfig.json
-.jupyter_ystore.db
