@@ -192,6 +192,7 @@ intersphinx_mapping = {
     ),
     "numba": ("https://numba.pydata.org/numba-doc/latest", None),
     "numpy": (f"https://numpy.org/doc/{pin_minor('numpy')}", None),
+    "pdg": ("https://pdgapi.lbl.gov/doc", None),
     "plotly": ("https://plotly.com/python-api-reference/", None),
     "pwa": ("https://pwa.readthedocs.io", None),
     "python": ("https://docs.python.org/3", None),
