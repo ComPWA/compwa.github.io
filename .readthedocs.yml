@@ -15,15 +15,9 @@ build:
   tools:
     python: "3.10"
   jobs:
+    pre_install:
+      - ./docs/install-julia-on-rtd.sh
     post_install:
       - curl -LsSf https://astral.sh/uv/install.sh | sh
       - |-
         /home/docs/.cargo/bin/uv pip install --system -c .constraints/py3.10.txt -e .[doc]
-      - version=$(sed -n '3p' docs/report/019/Manifest.toml)
-      - version=${version:17:-1}
-      - major_version=${version:0:-2}
-      - filename=julia-${version}-linux-x86_64.tar.gz
-      - wget -q https://julialang-s3.julialang.org/bin/linux/x64/${major_version}/${filename}
-      - mkdir julia
-      - tar xzf ${filename} -C ~/.local --strip-components=1
-      - julia docs/InstallIJulia.jl
