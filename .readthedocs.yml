@@ -25,5 +25,5 @@ build:
       - filename=julia-${version}-linux-x86_64.tar.gz
       - wget -q https://julialang-s3.julialang.org/bin/linux/x64/${major_version}/${filename}
       - mkdir julia
-      - tar xzf ${filename} -C julia --strip-components=1
-      - ./julia/bin/julia docs/InstallIJulia.jl
+      - tar xzf ${filename} -C ~/.local --strip-components=1
+      - julia docs/InstallIJulia.jl

@@ -8,6 +8,7 @@ from __future__ import annotations
 
 import os
 import shutil
+import subprocess  # noqa: S404
 import sys
 
 from sphinx_api_relink.helpers import (
@@ -52,7 +53,15 @@ def get_nb_exclusion_patterns() -> list[str]:
     return exclusions
 
 
+def install_ijulia() -> None:
+    if shutil.which("julia") is None:
+        return
+    if "EXECUTE_NB" in os.environ or "FORCE_EXECUTE_NB" in os.environ:
+        subprocess.check_call(["julia", "InstallIJulia.jl"])  # noqa: S603, S607
+
+
 _list_technical_reports.main()
+install_ijulia()
 set_intersphinx_version_remapping({
     "ipython": {
         "8.12.2": "8.12.1",
