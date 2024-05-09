@@ -2,8 +2,7 @@
 # julia docs/InstallIJulia.jl
 
 using Pkg
-Pkg.activate(@__DIR__)
-Pkg.instantiate()
+Pkg.add("IJulia")
 
 import IJulia
 IJulia.installkernel("julia-compwa.github.io")
