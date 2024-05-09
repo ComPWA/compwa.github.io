@@ -1,5 +1,9 @@
-import Pkg
-Pkg.add("IJulia")
+# Run as
+# julia docs/InstallIJulia.jl
+
+using Pkg
+Pkg.activate(@__DIR__)
+Pkg.instantiate()
 
 import IJulia
 IJulia.installkernel("julia")
