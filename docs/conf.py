@@ -47,7 +47,7 @@ def get_nb_exclusion_patterns() -> list[str]:
     julia_notebooks = [
         "report/019*",
     ]
-    if "READTHEDOCS" not in os.environ and shutil.which("julia") is None:
+    if shutil.which("julia") is None:
         exclusions.extend(julia_notebooks)
     return exclusions
 
