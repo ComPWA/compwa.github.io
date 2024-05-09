@@ -24,7 +24,7 @@ import _list_technical_reports
 
 
 def get_nb_exclusion_patterns() -> list[str]:
-    exclusions = [
+    exclusions = {
         "adr/001/*",
         "adr/002/*",
         "report/000*",
@@ -44,13 +44,13 @@ def get_nb_exclusion_patterns() -> list[str]:
         "report/020*",
         "report/021*",
         "report/022*",
-    ]
-    julia_notebooks = [
+    }
+    julia_notebooks = {
         "report/019*",
-    ]
+    }
     if shutil.which("julia") is None or "READTHEDOCS" in os.environ:
-        exclusions.extend(julia_notebooks)
-    return exclusions
+        exclusions.update(julia_notebooks)
+    return sorted(exclusions)
 
 
 def install_ijulia() -> None:
