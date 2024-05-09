@@ -1,6 +1,5 @@
 name: compwa.github.io
 channels:
-  - defaults
   - conda-forge
 dependencies:
   - graphviz # for binder
