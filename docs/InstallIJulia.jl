@@ -1,7 +1,4 @@
-# Run as
-# julia docs/InstallIJulia.jl
-
-using Pkg
+import Pkg
 Pkg.add("IJulia")
 
 import IJulia
