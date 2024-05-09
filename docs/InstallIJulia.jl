@@ -6,4 +6,4 @@ Pkg.activate(@__DIR__)
 Pkg.instantiate()
 
 import IJulia
-IJulia.installkernel("julia")
+IJulia.installkernel("julia-compwa.github.io")
