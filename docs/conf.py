@@ -8,6 +8,7 @@ from __future__ import annotations
 
 import os
 import shutil
+import subprocess  # noqa: S404
 import sys
 
 from sphinx_api_relink.helpers import (
@@ -23,7 +24,7 @@ import _list_technical_reports
 
 
 def get_nb_exclusion_patterns() -> list[str]:
-    exclusions = [
+    exclusions = {
         "adr/001/*",
         "adr/002/*",
         "report/000*",
@@ -40,20 +41,27 @@ def get_nb_exclusion_patterns() -> list[str]:
         "report/015*",
         "report/017*",
         "report/018*",
-        "report/019*",
         "report/020*",
         "report/021*",
         "report/022*",
-    ]
-    julia_notebooks = [
+    }
+    julia_notebooks = {
         "report/019*",
-    ]
-    if "READTHEDOCS" not in os.environ and shutil.which("julia") is None:
-        exclusions.extend(julia_notebooks)
-    return exclusions
+    }
+    if shutil.which("julia") is None or "READTHEDOCS" in os.environ:
+        exclusions.update(julia_notebooks)
+    return sorted(exclusions)
+
+
+def install_ijulia() -> None:
+    if shutil.which("julia") is None:
+        return
+    if "EXECUTE_NB" in os.environ or "FORCE_EXECUTE_NB" in os.environ:
+        subprocess.check_call(["julia", "InstallIJulia.jl"])  # noqa: S603, S607
 
 
 _list_technical_reports.main()
+install_ijulia()
 set_intersphinx_version_remapping({
     "ipython": {
         "8.12.2": "8.12.1",
@@ -113,6 +121,7 @@ extensions = [
     "sphinx.ext.intersphinx",
     "sphinx.ext.mathjax",
     "sphinx.ext.napoleon",
+    "sphinx.ext.todo",
     "sphinx_api_relink",
     "sphinx_codeautolink",
     "sphinx_comments",
@@ -126,6 +135,9 @@ extensions = [
     "sphinxcontrib.bibtex",
 ]
 graphviz_output_format = "svg"
+html_css_files = [
+    "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css",
+]
 html_favicon = "_static/favicon.ico"
 html_js_files = [
     "https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js",
@@ -186,7 +198,9 @@ intersphinx_mapping = {
         f"https://mpl-interactions.readthedocs.io/en/{pin('mpl-interactions')}",
         None,
     ),
+    "numba": ("https://numba.pydata.org/numba-doc/latest", None),
     "numpy": (f"https://numpy.org/doc/{pin_minor('numpy')}", None),
+    "pdg": ("https://pdgapi.lbl.gov/doc", None),
     "plotly": ("https://plotly.com/python-api-reference/", None),
     "pwa": ("https://pwa.readthedocs.io", None),
     "python": ("https://docs.python.org/3", None),
@@ -195,6 +209,7 @@ intersphinx_mapping = {
     "scipy": ("https://docs.scipy.org/doc/scipy-1.7.0", None),
     "sympy": ("https://docs.sympy.org/latest", None),
     "tensorwaves": ("https://tensorwaves.readthedocs.io/stable", None),
+    "torch": ("https://pytorch.org/docs/stable", None),
     "zfit": ("https://zfit.readthedocs.io/en/latest", None),
 }
 linkcheck_anchors = False
@@ -211,6 +226,7 @@ linkcheck_ignore = [
     "https://mybinder.org",  # often instable
     "https://open.vscode.dev",
     "https://rosettacode.org",
+    "https://stackoverflow.com",
     "https://via.placeholder.com",  # irregular timeout
     "https://www.andiamo.co.uk/resources/iso-language-codes",  # 443, but works
     "https://www.bookfinder.com",
@@ -264,3 +280,4 @@ thebe_config = {
     "repository_url": html_theme_options["repository_url"],
     "repository_branch": html_theme_options["repository_branch"],
 }
+todo_include_todos = True
