@@ -8,6 +8,7 @@ from __future__ import annotations
 
 import os
 import shutil
+import subprocess  # noqa: S404
 import sys
 
 from sphinx_api_relink.helpers import (
@@ -23,7 +24,7 @@ import _list_technical_reports
 
 
 def get_nb_exclusion_patterns() -> list[str]:
-    exclusions = [
+    exclusions = {
         "adr/001/*",
         "adr/002/*",
         "report/000*",
@@ -40,20 +41,27 @@ def get_nb_exclusion_patterns() -> list[str]:
         "report/015*",
         "report/017*",
         "report/018*",
-        "report/019*",
         "report/020*",
         "report/021*",
         "report/022*",
-    ]
-    julia_notebooks = [
+    }
+    julia_notebooks = {
         "report/019*",
-    ]
-    if "READTHEDOCS" not in os.environ and shutil.which("julia") is None:
-        exclusions.extend(julia_notebooks)
-    return exclusions
+    }
+    if shutil.which("julia") is None or "READTHEDOCS" in os.environ:
+        exclusions.update(julia_notebooks)
+    return sorted(exclusions)
+
+
+def install_ijulia() -> None:
+    if shutil.which("julia") is None:
+        return
+    if "EXECUTE_NB" in os.environ or "FORCE_EXECUTE_NB" in os.environ:
+        subprocess.check_call(["julia", "InstallIJulia.jl"])  # noqa: S603, S607
 
 
 _list_technical_reports.main()
+install_ijulia()
 set_intersphinx_version_remapping({
     "ipython": {
         "8.12.2": "8.12.1",
