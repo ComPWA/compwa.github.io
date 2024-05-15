@@ -253,7 +253,6 @@ split-on-trailing-comma = false
     "C408",
     "C90",
     "D",
-    "E402",
     "E703",
     "E741",
     "F404",
@@ -270,7 +269,7 @@ split-on-trailing-comma = false
     "PLW0602",
     "PLW0603",
     "PLW2901",
-    "RUF027", # for _latex_repr_
+    "RUF027",
     "S101",
     "S307",
     "T20",
@@ -278,7 +277,6 @@ split-on-trailing-comma = false
 ]
 "docs/*" = [
     "D",
-    "E402",
     "INP001",
     "S101",
     "S113",
