@@ -80,6 +80,7 @@
     "itertools",
     "JHEP",
     "JPAC",
+    "Ketzer",
     "kwargs",
     "Källén",
     "lambdification",
