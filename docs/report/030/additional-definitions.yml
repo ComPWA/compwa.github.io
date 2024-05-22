@@ -1,5 +1,47 @@
 # Imported from ComPWA/PWA-JPsi2pbarSigmaKS@a0aba08
 particles:
+  - name: N**1
+    pid: 20240522001
+    latex: N^{**}_1
+    spin: 1.5
+    mass: 1.82
+    width: 0.6
+    charge: 1
+    isospin:
+      magnitude: 0.5
+      projection: 0.5
+    baryon_number: 1
+    parity:
+      value: 1
+
+  - name: N**2
+    pid: 20240522002
+    latex: N^{**}_2
+    spin: 0.5
+    mass: 1.65
+    width: 0.6
+    charge: 1
+    isospin:
+      magnitude: 0.5
+      projection: 0.5
+    baryon_number: 1
+    parity:
+      value: -1
+
+  - name: N**3
+    pid: 20240522003
+    latex: N^{**}_3
+    spin: 0.5
+    mass: 1.75
+    width: 0.6
+    charge: 1
+    isospin:
+      magnitude: 0.5
+      projection: 0.5
+    baryon_number: 1
+    parity:
+      value: -1
+
   - name: N(1875)+
     pid: 200002
     latex: N(1875)^+
@@ -34,48 +76,6 @@ particles:
     spin: 0.5
     mass: 1.895
     width: 0.12
-    charge: 1
-    isospin:
-      magnitude: 0.5
-      projection: 0.5
-    baryon_number: 1
-    parity:
-      value: -1
-
-  - name: N(Fakestar)+
-    pid: 20047545456003
-    latex: N(Fakestar)^+
-    spin: 1.5
-    mass: 1.82
-    width: 0.6
-    charge: 1
-    isospin:
-      magnitude: 0.5
-      projection: 0.5
-    baryon_number: 1
-    parity:
-      value: 1
-
-  - name: N(Fakestar1)+
-    pid: 2004754545864656786003
-    latex: N(Fakestar1)^+
-    spin: 0.5
-    mass: 1.65
-    width: 0.6
-    charge: 1
-    isospin:
-      magnitude: 0.5
-      projection: 0.5
-    baryon_number: 1
-    parity:
-      value: -1
-
-  - name: N(Fakestar2)+
-    pid: 20047545458356789764656786003
-    latex: N(Fakestar2)^+
-    spin: 0.5
-    mass: 1.75
-    width: 0.6
     charge: 1
     isospin:
       magnitude: 0.5
