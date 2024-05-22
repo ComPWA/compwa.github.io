@@ -28,6 +28,7 @@ classifiers = [
 dependencies = [
     "graphviz",
     "ipympl",
+    "matplotlib <3.9.0", # https://github.com/ComPWA/compwa.github.io/actions/runs/9189453016/job/25271564131?pr=274
     "matplotlib",
     "mpl-interactions",
 ]
