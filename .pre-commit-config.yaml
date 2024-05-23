@@ -57,7 +57,7 @@ repos:
       - id: fix-nbformat-version
 
   - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.4.4
+    rev: v0.4.5
     hooks:
       - id: ruff
         args: [--fix]
@@ -159,6 +159,6 @@ repos:
           - jupyter
 
   - repo: https://github.com/ComPWA/mirrors-pyright
-    rev: v1.1.363
+    rev: v1.1.364
     hooks:
       - id: pyright
