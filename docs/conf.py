@@ -187,7 +187,7 @@ intersphinx_mapping = {
     "ampform-0.14.x": ("https://ampform.readthedocs.io/0.14.x", None),
     "ampform": ("https://ampform.readthedocs.io/stable", None),
     "attrs": (f"https://www.attrs.org/en/{pin('attrs')}", None),
-    "expertsystem": ("https://expertsystem.readthedocs.io/en/stable", None),
+    "expertsystem": ("https://expertsystem.readthedocs.io/stable", None),
     "graphviz": ("https://graphviz.readthedocs.io/en/stable", None),
     "hepstats": ("https://scikit-hep.org/hepstats", None),
     "IPython": (f"https://ipython.readthedocs.io/en/{pin('IPython')}", None),
