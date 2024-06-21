@@ -187,7 +187,7 @@ intersphinx_mapping = {
     "ampform-0.14.x": ("https://ampform.readthedocs.io/0.14.x", None),
     "ampform": ("https://ampform.readthedocs.io/stable", None),
     "attrs": (f"https://www.attrs.org/en/{pin('attrs')}", None),
-    "expertsystem": ("https://expertsystem.readthedocs.io/en/stable", None),
+    "expertsystem": ("https://expertsystem.readthedocs.io/stable", None),
     "graphviz": ("https://graphviz.readthedocs.io/en/stable", None),
     "hepstats": ("https://scikit-hep.org/hepstats", None),
     "IPython": (f"https://ipython.readthedocs.io/en/{pin('IPython')}", None),
@@ -217,6 +217,8 @@ linkcheck_ignore = [
     "http://127.0.0.1:8000",
     "https://atom.io",  # often instable
     "https://doi.org/10.1002/andp.19955070504",  # 403 for onlinelibrary.wiley.com
+    "https://doi.org/10.1155/2020/6674595",  # 403 hindawi.com
+    "https://downloads.hindawi.com",  # 403
     "https://github.com/organizations/ComPWA/settings/repository-defaults",  # private
     "https://github.com/orgs/ComPWA/projects/5",  # private
     "https://github.com/orgs/ComPWA/projects/6",  # private
