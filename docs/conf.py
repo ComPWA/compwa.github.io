@@ -187,7 +187,7 @@ intersphinx_mapping = {
     "ampform-0.14.x": ("https://ampform.readthedocs.io/0.14.x", None),
     "ampform": ("https://ampform.readthedocs.io/stable", None),
     "attrs": (f"https://www.attrs.org/en/{pin('attrs')}", None),
-    "expertsystem": ("https://expertsystem.readthedocs.io/en/stable", None),
+    "expertsystem": ("https://expertsystem.readthedocs.io/stable", None),
     "graphviz": ("https://graphviz.readthedocs.io/en/stable", None),
     "hepstats": ("https://scikit-hep.org/hepstats", None),
     "IPython": (f"https://ipython.readthedocs.io/en/{pin('IPython')}", None),
@@ -218,6 +218,8 @@ linkcheck_ignore = [
     "https://atom.io",  # often instable
     "https://doi.org/10.1002/andp.19955070504",  # 403 for onlinelibrary.wiley.com
     "https://doi.org/10.7566/JPSCP.26.022002",  # 403 for journals.jps.jp
+    "https://doi.org/10.1155/2020/6674595",  # 403 hindawi.com
+    "https://downloads.hindawi.com",  # 403
     "https://github.com/organizations/ComPWA/settings/repository-defaults",  # private
     "https://ieeexplore.ieee.org/document/6312940",  # 401
     "https://indico.ific.uv.es/event/6803",  # SSL error

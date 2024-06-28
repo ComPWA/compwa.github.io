@@ -218,7 +218,7 @@ In order to close this gap as best as possible, ComPWA follows the following ide
 
 ComPWA repositories are intended to be collaboration-independent. As such, they are
 always public and open source and free to try out and re-use under the
-[GPLv3+ license](https://www.gnu.org/licenses/gpl-3.0-standalone.html).
+[Apache license](https://www.apache.org/licenses/LICENSE-2.0).
 
 At the same time, open source projects come with many challenges: it is crucial to
 {ref}`maintain strict standards for the code-base <develop:Automated coding conventions>`
