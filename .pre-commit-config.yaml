@@ -57,7 +57,7 @@ repos:
       - id: fix-nbformat-version
 
   - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.4.5
+    rev: v0.5.0
     hooks:
       - id: ruff
         args: [--fix]
@@ -108,7 +108,7 @@ repos:
         exclude: (?x)^(.*/Manifest\.toml|.*/Project\.toml)$
 
   - repo: https://github.com/python-jsonschema/check-jsonschema
-    rev: 0.28.4
+    rev: 0.28.6
     hooks:
       - id: check-jsonschema
         name: Check CITATION.cff
@@ -121,7 +121,7 @@ repos:
         pass_filenames: false
 
   - repo: https://github.com/streetsidesoftware/cspell-cli
-    rev: v8.8.1
+    rev: v8.9.0
     hooks:
       - id: cspell
 
@@ -159,6 +159,6 @@ repos:
           - jupyter
 
   - repo: https://github.com/ComPWA/mirrors-pyright
-    rev: v1.1.364
+    rev: v1.1.369
     hooks:
       - id: pyright
