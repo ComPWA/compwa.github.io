@@ -44,6 +44,7 @@ def get_nb_exclusion_patterns() -> list[str]:
         "report/020*",
         "report/021*",
         "report/022*",
+        "report/033*",
     }
     julia_notebooks = {
         "report/019*",
@@ -218,12 +219,12 @@ linkcheck_ignore = [
     "https://atom.io",  # often instable
     "https://doi.org/10.1002/andp.19955070504",  # 403 for onlinelibrary.wiley.com
     "https://doi.org/10.1155/2020/6674595",  # 403 hindawi.com
+    "https://doi.org/10.7566/JPSCP.26.022002",  # 403 for journals.jps.jp
     "https://downloads.hindawi.com",  # 403
     "https://github.com/organizations/ComPWA/settings/repository-defaults",  # private
-    "https://github.com/orgs/ComPWA/projects/5",  # private
-    "https://github.com/orgs/ComPWA/projects/6",  # private
     "https://ieeexplore.ieee.org/document/6312940",  # 401
     "https://indico.ific.uv.es/event/6803",  # SSL error
+    "https://journals.aps.org",
     "https://leetcode.com",
     "https://mybinder.org",  # often instable
     "https://open.vscode.dev",
@@ -232,6 +233,8 @@ linkcheck_ignore = [
     "https://via.placeholder.com",  # irregular timeout
     "https://www.andiamo.co.uk/resources/iso-language-codes",  # 443, but works
     "https://www.bookfinder.com",
+    r"https://github.com/ComPWA/RUB-EP1-AG/.*",  # private
+    r"https://github.com/orgs/ComPWA/projects/\d+",  # private
 ]
 myst_enable_extensions = [
     "amsmath",
