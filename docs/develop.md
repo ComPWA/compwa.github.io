@@ -637,6 +637,27 @@ EXECUTE_NB= tox -e doclive
 
 :::{tip}
 Notebooks are automatically formatted through {ref}`pre-commit <develop:Pre-commit>` (see {ref}`develop:Formatting`). If you want to format the notebooks automatically as you're working, you can do so with [`jupyterlab-code-formatter`](https://jupyterlab-code-formatter.readthedocs.io), which is automatically {ref}`installed with the dev requirements <develop:Optional dependencies>`.
+
+For this, you need to set Ruff as the formatter (see [](#formatting)) for `jupyterlab-code-formatter`:
+
+1. Open Jupyter Lab Settings ({kbd}`Ctrl+,`).
+2. Select the "Jupyterlab Code Formatter" plugin from the left sidebar.
+3. Under `default_formatter`, list two Python formatters: `ruffformat` and `ruff`. The first is the actual [Ruff formatter](https://docs.astral.sh/ruff/formatter) that mimics `black`, the second is for Ruff auto-fixes of linting rules. <!-- cspell:ignore ruffformat -->
+4. **Optional:** Activate format-on-save by ticking "Auto format config".
+
+Alternatively, you can open the settings for the "Jupyterlab Code Formatter" as JSON and set it to:
+
+```json
+{
+  "preferences": {
+    "default_formatter": {
+      "python": ["ruffformat", "ruff"]
+    }
+  },
+  "formatOnSave": true
+}
+```
+
 :::
 
 #### IJulia notebooks
