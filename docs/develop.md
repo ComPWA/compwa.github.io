@@ -642,7 +642,7 @@ For this, you need to set Ruff as the formatter (see [](#formatting)) for `jupyt
 
 1. Open Jupyter Lab Settings ({kbd}`Ctrl+,` / {kbd}`Command+,`).
 2. Select the "Jupyterlab Code Formatter" plugin from the left sidebar.
-3. Under `default_formatter`, list two Python formatters: `ruffformat` and `ruff`. The first is the actual [Ruff formatter](https://docs.astral.sh/ruff/formatter) that mimics `black`, the second is for Ruff auto-fixes of linting rules. <!-- cspell:ignore ruffformat -->
+3. Under `default_formatter`, list two Python formatters: `ruffformat` and `ruff`. The first is the actual [Ruff formatter](https://docs.astral.sh/ruff/formatter) that mimics `black`, the second is for Ruff auto-fixes of linting rules. (The default formatters are `isort` and `black`—you should overwrite these.) <!-- cspell:ignore ruffformat -->
 4. **Optional:** Activate format-on-save by ticking "Auto format config".
 
 Alternatively, you can open the settings for the "Jupyterlab Code Formatter" as JSON and set it to:
