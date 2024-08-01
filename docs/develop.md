@@ -406,7 +406,7 @@ pre-commit run -a
 
 Whenever you {ref}`submit a pull request <develop:Collaboration>`, this command is
 automatically run
-[on GitHub actions](https://github.com/ComPWA/ampform/actions/workflows/ci-style.yml)
+[on GitHub actions](https://github.com/ComPWA/ampform/actions/workflows/ci.yml)
 and [on pre-commit.ci](https://results.pre-commit.ci/install/github/18435973) , ensuring
 that all files in the repository follow the same conventions as set in the config files
 of these tools.
