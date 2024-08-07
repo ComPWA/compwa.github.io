@@ -37,7 +37,7 @@ def main(argv: Sequence[str] | None = None) -> int:
     for filename in args.filenames:
         try:
             check_pinned_requirements(filename)
-        except PrecommitError as exception:
+        except PrecommitError as exception:  # noqa: PERF203
             errors.append(exception)
     if errors:
         for error in errors:
