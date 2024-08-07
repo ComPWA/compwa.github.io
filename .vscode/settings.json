@@ -30,6 +30,9 @@
     "\u03bd": true,
     "\u03c3": true
   },
+  "files.associations": {
+    "**/.constraints/py*.txt": "pip-requirements"
+  },
   "files.watcherExclude": {
     "**/*_cache/**": true,
     "**/.eggs/**": true,
