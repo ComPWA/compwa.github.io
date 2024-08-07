@@ -31,6 +31,7 @@ dependencies = [
     "matplotlib <3.9.0", # https://github.com/ComPWA/compwa.github.io/actions/runs/9189453016/job/25271564131?pr=274
     "matplotlib",
     "mpl-interactions",
+    "numpy==1.*",
 ]
 description = "Source code for the ComPWA Organization pages"
 dynamic = ["version"]
