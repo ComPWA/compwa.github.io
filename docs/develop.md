@@ -137,6 +137,10 @@ uv pip install -e .
 :::
 ::::
 
+:::{tip}
+[Install `direnv`](https://direnv.net/docs/installation.html) if a repository contains a {file}`.envrc` file. This ensures that the appropriate environment is activates once you navigate into the repository!
+:::
+
 ### Editable installation
 
 When developing a package, it is most convenient if you install it in
