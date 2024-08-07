@@ -30,6 +30,9 @@
     "\u03bd": true,
     "\u03c3": true
   },
+  "files.associations": {
+    "**/.constraints/py*.txt": "pip-requirements"
+  },
   "files.watcherExclude": {
     "**/*_cache/**": true,
     "**/.eggs/**": true,
@@ -54,6 +57,7 @@
   "notebook.gotoSymbols.showAllSymbols": true,
   "python.analysis.autoImportCompletions": false,
   "python.analysis.typeCheckingMode": "strict",
+  "python.terminal.activateEnvironment": false,
   "python.testing.pytestEnabled": false,
   "redhat.telemetry.enabled": false,
   "rewrap.wrappingColumn": 88,
