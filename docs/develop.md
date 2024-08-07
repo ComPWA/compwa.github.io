@@ -406,7 +406,7 @@ pre-commit run -a
 
 Whenever you {ref}`submit a pull request <develop:Collaboration>`, this command is
 automatically run
-[on GitHub actions](https://github.com/ComPWA/ampform/actions/workflows/ci-style.yml)
+[on GitHub actions](https://github.com/ComPWA/ampform/actions/workflows/ci.yml)
 and [on pre-commit.ci](https://results.pre-commit.ci/install/github/18435973) , ensuring
 that all files in the repository follow the same conventions as set in the config files
 of these tools.
@@ -636,12 +636,28 @@ EXECUTE_NB= tox -e doclive
 ```
 
 :::{tip}
-Notebooks are automatically formatted through {ref}`pre-commit <develop:Pre-commit>`
-(see {ref}`develop:Formatting`). If you want to format the notebooks automatically as
-you're working, you can do so with
-[`jupyterlab-code-formatter`](https://ryantam626.github.io/jupyterlab_code_formatter/index.html),
-which is automatically
-{ref}`installed with the dev requirements <develop:Optional dependencies>`.
+Notebooks are automatically formatted through {ref}`pre-commit <develop:Pre-commit>` (see {ref}`develop:Formatting`). If you want to format the notebooks automatically as you're working, you can do so with [`jupyterlab-code-formatter`](https://jupyterlab-code-formatter.readthedocs.io), which is automatically {ref}`installed with the dev requirements <develop:Optional dependencies>`.
+
+For this, you need to set Ruff as the formatter (see [](#formatting)) for `jupyterlab-code-formatter`:
+
+1. Open Jupyter Lab Settings ({kbd}`Ctrl+,` / {kbd}`⌘+,`).
+2. Select the "Jupyterlab Code Formatter" plugin from the left sidebar.
+3. Under `default_formatter`, list two Python formatters: `ruffformat` and `ruff`. The first is the actual [Ruff formatter](https://docs.astral.sh/ruff/formatter) that mimics `black`, the second is for Ruff auto-fixes of linting rules. (The default formatters are `isort` and `black`—you should overwrite these.) <!-- cspell:ignore ruffformat -->
+4. **Optional:** Activate format-on-save by ticking "Auto format config".
+
+Alternatively, you can open the settings for the "Jupyterlab Code Formatter" as JSON and set it to:
+
+```json
+{
+  "preferences": {
+    "default_formatter": {
+      "python": ["ruffformat", "ruff"]
+    }
+  },
+  "formatOnSave": true
+}
+```
+
 :::
 
 #### IJulia notebooks
