@@ -199,7 +199,7 @@ intersphinx_mapping = {
         f"https://mpl-interactions.readthedocs.io/en/{pin('mpl-interactions')}",
         None,
     ),
-    "numba": ("https://numba.pydata.org/numba-doc/latest", None),
+    "numba": (f"https://numba.readthedocs.io/en/{pin('numba')}", None),
     "numpy": (f"https://numpy.org/doc/{pin_minor('numpy')}", None),
     "pdg": ("https://pdgapi.lbl.gov/doc", None),
     "plotly": ("https://plotly.com/python-api-reference/", None),
