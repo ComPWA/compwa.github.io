@@ -9,6 +9,7 @@
     "github.vscode-github-actions",
     "github.vscode-pull-request-github",
     "julialang.language-julia",
+    "mhutchie.git-graph",
     "ms-python.python",
     "ms-python.vscode-pylance",
     "ms-toolsai.vscode-jupyter-cell-tags",
