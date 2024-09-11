@@ -137,10 +137,10 @@ depends_on = ["docnb", "linkcheck", "sty"]
 [tool.pixi.feature.dev.tasks.doc]
 cmd = """
 sphinx-build \
-    --color \
+    --builder html \
+    --fail-on-warning \
     --keep-going \
-    -TW \
-    -b html \
+    --show-traceback \
     docs/ docs/_build/html
 """
 env = {FORCE_COLOR = "1", PYTHONWARNINGS = "", ZFIT_DISABLE_TF_WARNINGS = "1"}
@@ -185,9 +185,8 @@ env = {EXECUTE_NB = "yes", FORCE_COLOR = "1", PYTHONWARNINGS = "", TF_CPP_MIN_LO
 [tool.pixi.feature.dev.tasks.linkcheck]
 cmd = """
 sphinx-build \
-    --color \
-    -T \
-    -b linkcheck \
+    --builder linkcheck \
+    --show-traceback \
     docs/ docs/_build/linkcheck
 """
 env = {FORCE_COLOR = "1"}
