@@ -4,9 +4,7 @@ ci:
   skip:
     - check-jsonschema
     - pin-nb-requirements
-    - prettier
     - pyright
-    - taplo
 
 repos:
   - repo: meta
@@ -14,11 +12,28 @@ repos:
       - id: check-hooks-apply
       - id: check-useless-excludes
 
+  - repo: https://github.com/ComPWA/policy
+    rev: 0.4.0
+    hooks:
+      - id: check-dev-files
+        args:
+          - --doc-apt-packages=graphviz
+          - --dev-python-version=3.12
+          - --github-pages
+          - --no-prettierrc
+          - --pin-requirements=bimonthly
+          - --repo-name=compwa.github.io
+          - --repo-title=ComPWA Organization
+      - id: colab-toc-visible
+      - id: fix-nbformat-version
+      - id: remove-empty-tags
+
   - repo: https://github.com/kynan/nbstripout
     rev: 0.7.1
     hooks:
       - id: nbstripout
         args:
+          - --drop-empty-cells
           - --extra-keys
           - |
             cell.attachments
@@ -40,22 +55,6 @@ repos:
             metadata.toc-showtags
             metadata.varInspector
             metadata.vscode
-
-  - repo: https://github.com/ComPWA/policy
-    rev: 0.4.0
-    hooks:
-      - id: check-dev-files
-        args:
-          - --doc-apt-packages=graphviz
-          - --dev-python-version=3.12
-          - --github-pages
-          - --no-prettierrc
-          - --pin-requirements=bimonthly
-          - --repo-name=compwa.github.io
-          - --repo-title=ComPWA Organization
-      - id: colab-toc-visible
-      - id: fix-nbformat-version
-      - id: remove-empty-tags
 
   - repo: https://github.com/astral-sh/ruff-pre-commit
     rev: v0.6.4
