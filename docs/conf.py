@@ -75,7 +75,10 @@ set_intersphinx_version_remapping({
         "8.1.1": "8.1.2",
     },
     "matplotlib": {"3.5.1": "3.5.0"},
-    "mpl-interactions": {"0.24.1": "0.24.0"},
+    "mpl-interactions": {
+        "0.24.1": "0.24.0",
+        "0.24.2": "0.24.0",
+    },
 })
 
 BRANCH = _get_commit_sha()
