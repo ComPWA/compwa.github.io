@@ -6,3 +6,5 @@
 002-*-graph
 013-graph?
 018-graph
+
+!030/*.yml

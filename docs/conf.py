@@ -8,6 +8,7 @@ from __future__ import annotations
 
 import os
 import shutil
+import subprocess  # noqa: S404
 import sys
 
 from sphinx_api_relink.helpers import (
@@ -23,7 +24,7 @@ import _list_technical_reports
 
 
 def get_nb_exclusion_patterns() -> list[str]:
-    exclusions = [
+    exclusions = {
         "adr/001/*",
         "adr/002/*",
         "report/000*",
@@ -40,20 +41,28 @@ def get_nb_exclusion_patterns() -> list[str]:
         "report/015*",
         "report/017*",
         "report/018*",
-        "report/019*",
         "report/020*",
         "report/021*",
         "report/022*",
-    ]
-    julia_notebooks = [
+        "report/033*",
+    }
+    julia_notebooks = {
         "report/019*",
-    ]
-    if "READTHEDOCS" not in os.environ and shutil.which("julia") is None:
-        exclusions.extend(julia_notebooks)
-    return exclusions
+    }
+    if shutil.which("julia") is None or "READTHEDOCS" in os.environ:
+        exclusions.update(julia_notebooks)
+    return sorted(exclusions)
+
+
+def install_ijulia() -> None:
+    if shutil.which("julia") is None:
+        return
+    if "EXECUTE_NB" in os.environ or "FORCE_EXECUTE_NB" in os.environ:
+        subprocess.check_call(["julia", "InstallIJulia.jl"])  # noqa: S603, S607
 
 
 _list_technical_reports.main()
+install_ijulia()
 set_intersphinx_version_remapping({
     "ipython": {
         "8.12.2": "8.12.1",
@@ -66,7 +75,10 @@ set_intersphinx_version_remapping({
         "8.1.1": "8.1.2",
     },
     "matplotlib": {"3.5.1": "3.5.0"},
-    "mpl-interactions": {"0.24.1": "0.24.0"},
+    "mpl-interactions": {
+        "0.24.1": "0.24.0",
+        "0.24.2": "0.24.0",
+    },
 })
 
 BRANCH = _get_commit_sha()
@@ -179,7 +191,7 @@ intersphinx_mapping = {
     "ampform-0.14.x": ("https://ampform.readthedocs.io/0.14.x", None),
     "ampform": ("https://ampform.readthedocs.io/stable", None),
     "attrs": (f"https://www.attrs.org/en/{pin('attrs')}", None),
-    "expertsystem": ("https://expertsystem.readthedocs.io/en/stable", None),
+    "expertsystem": ("https://expertsystem.readthedocs.io/stable", None),
     "graphviz": ("https://graphviz.readthedocs.io/en/stable", None),
     "hepstats": ("https://scikit-hep.org/hepstats", None),
     "IPython": (f"https://ipython.readthedocs.io/en/{pin('IPython')}", None),
@@ -190,8 +202,9 @@ intersphinx_mapping = {
         f"https://mpl-interactions.readthedocs.io/en/{pin('mpl-interactions')}",
         None,
     ),
-    "numba": ("https://numba.pydata.org/numba-doc/latest", None),
+    "numba": (f"https://numba.readthedocs.io/en/{pin('numba')}", None),
     "numpy": (f"https://numpy.org/doc/{pin_minor('numpy')}", None),
+    "pdg": ("https://pdgapi.lbl.gov/doc", None),
     "plotly": ("https://plotly.com/python-api-reference/", None),
     "pwa": ("https://pwa.readthedocs.io", None),
     "python": ("https://docs.python.org/3", None),
@@ -208,11 +221,13 @@ linkcheck_ignore = [
     "http://127.0.0.1:8000",
     "https://atom.io",  # often instable
     "https://doi.org/10.1002/andp.19955070504",  # 403 for onlinelibrary.wiley.com
+    "https://doi.org/10.1155/2020/6674595",  # 403 hindawi.com
+    "https://doi.org/10.7566/JPSCP.26.022002",  # 403 for journals.jps.jp
+    "https://downloads.hindawi.com",  # 403
     "https://github.com/organizations/ComPWA/settings/repository-defaults",  # private
-    "https://github.com/orgs/ComPWA/projects/5",  # private
-    "https://github.com/orgs/ComPWA/projects/6",  # private
     "https://ieeexplore.ieee.org/document/6312940",  # 401
     "https://indico.ific.uv.es/event/6803",  # SSL error
+    "https://journals.aps.org",
     "https://leetcode.com",
     "https://mybinder.org",  # often instable
     "https://open.vscode.dev",
@@ -221,6 +236,8 @@ linkcheck_ignore = [
     "https://via.placeholder.com",  # irregular timeout
     "https://www.andiamo.co.uk/resources/iso-language-codes",  # 443, but works
     "https://www.bookfinder.com",
+    r"https://github.com/ComPWA/RUB-EP1-AG/.*",  # private
+    r"https://github.com/orgs/ComPWA/projects/\d+",  # private
 ]
 myst_enable_extensions = [
     "amsmath",

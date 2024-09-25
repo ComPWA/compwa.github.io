@@ -22,7 +22,6 @@ version.py
 # Temporary files
 *.pyc
 *condaenv.*
-.DS_Store
 .coverage
 .coverage.*
 .ipynb_checkpoints/
@@ -37,6 +36,7 @@ prof/
 
 # Virtual environments
 *venv/
+.pixi/
 .tox/
 pyvenv*/
 
@@ -48,7 +48,6 @@ pyvenv*/
 !.cspell.json
 !.github/*.yml
 !.github/*/*.yml
-!.gitpod.yml
 !.pre-commit-config.yaml
 !.readthedocs.yml
 !.vscode/*.json
@@ -56,3 +55,4 @@ pyvenv*/
 !codecov.yml
 !environment.yml
 !pyrightconfig.json
+.jupyter_ystore.db

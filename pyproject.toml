@@ -12,7 +12,7 @@ classifiers = [
     "Intended Audience :: Developers",
     "Intended Audience :: Education",
     "Intended Audience :: Science/Research",
-    "License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)",
+    "License :: OSI Approved :: Apache Software License",
     "Natural Language :: English",
     "Operating System :: OS Independent",
     "Programming Language :: Python :: 3.10",
@@ -28,12 +28,14 @@ classifiers = [
 dependencies = [
     "graphviz",
     "ipympl",
+    "matplotlib <3.9.0", # https://github.com/ComPWA/compwa.github.io/actions/runs/9189453016/job/25271564131?pr=274
     "matplotlib",
     "mpl-interactions",
+    "numpy==1.*",
 ]
 description = "Source code for the ComPWA Organization pages"
 dynamic = ["version"]
-license = {text = "GPLv3 or later"}
+license = {file = "LICENSE"}
 maintainers = [{email = "compwa-admin@ep1.rub.de"}]
 name = "compwa-org"
 requires-python = ">=3.7"
@@ -64,10 +66,8 @@ doc = [
     "sphinxcontrib-bibtex >=2",
 ]
 jupyter = [
-    "black",
-    "isort",
     "jupyterlab",
-    "jupyterlab-code-formatter",
+    "jupyterlab-code-formatter >=3.0.0",
     "jupyterlab-git",
     "jupyterlab-lsp",
     "jupyterlab-myst",
@@ -104,7 +104,102 @@ Tracker = "https://github.com/ComPWA/compwa.github.io/issues"
 include-package-data = false
 
 [tool.setuptools_scm]
+local_scheme = "no-local-version"
+version_scheme = "post-release"
 write_to = "version.py"
+
+[tool.pixi.project]
+channels = ["conda-forge"]
+platforms = ["linux-64"]
+
+[tool.pixi.activation.env]
+PRETTIER_LEGACY_CLI = "1"
+PYTHONHASHSEED = "0"
+
+[tool.pixi.dependencies]
+graphviz = "*"
+juliaup = "*"
+python = "3.12.*"
+
+[tool.pixi.environments]
+default = {features = [
+    "dev",
+    "doc",
+    "jupyter",
+    "sty",
+    "test",
+    "types",
+]}
+
+[tool.pixi.feature.dev.tasks.ci]
+depends_on = ["docnb", "linkcheck", "sty"]
+
+[tool.pixi.feature.dev.tasks.doc]
+cmd = """
+sphinx-build \
+    --builder html \
+    --fail-on-warning \
+    --keep-going \
+    --show-traceback \
+    docs/ docs/_build/html
+"""
+env = {FORCE_COLOR = "1", PYTHONWARNINGS = "", ZFIT_DISABLE_TF_WARNINGS = "1"}
+
+[tool.pixi.feature.dev.tasks.doclive]
+cmd = """
+sphinx-autobuild \
+    --open-browser \
+    --re-ignore '.*/.ipynb_checkpoints/.*' \
+    --re-ignore '.*/__pycache__/.*' \
+    --re-ignore '.*\\.gitignore' \
+    --re-ignore 'docs/.*\\.csv' \
+    --re-ignore 'docs/.*\\.gif' \
+    --re-ignore 'docs/.*\\.gv' \
+    --re-ignore 'docs/.*\\.inv' \
+    --re-ignore 'docs/.*\\.json' \
+    --re-ignore 'docs/.*\\.pickle' \
+    --re-ignore 'docs/.*\\.png' \
+    --re-ignore 'docs/.*\\.svg' \
+    --re-ignore 'docs/.*\\.yaml' \
+    --re-ignore 'docs/.*\\.yml' \
+    --re-ignore 'docs/_build/.*' \
+    --re-ignore docs/_static/exported_intensity_model.py \
+    --re-ignore docs/report/data/* \
+    --watch docs \
+    docs/ docs/_build/html
+"""
+env = {FORCE_COLOR = "1", PYTHONWARNINGS = "", ZFIT_DISABLE_TF_WARNINGS = "1"}
+
+[tool.pixi.feature.dev.tasks.docnb]
+cmd = "pixi run doc"
+env = {EXECUTE_NB = "yes", FORCE_COLOR = "1", PYTHONWARNINGS = "", TF_CPP_MIN_LOG_LEVEL = "3", ZFIT_DISABLE_TF_WARNINGS = "1"}
+
+[tool.pixi.feature.dev.tasks.docnb-force]
+cmd = "pixi run doc"
+env = {FORCE_COLOR = "1", FORCE_EXECUTE_NB = "yes", PYTHONWARNINGS = "", TF_CPP_MIN_LOG_LEVEL = "3", ZFIT_DISABLE_TF_WARNINGS = "1"}
+
+[tool.pixi.feature.dev.tasks.docnblive]
+cmd = "pixi run doclive"
+env = {EXECUTE_NB = "yes", FORCE_COLOR = "1", PYTHONWARNINGS = "", TF_CPP_MIN_LOG_LEVEL = "3", ZFIT_DISABLE_TF_WARNINGS = "1"}
+
+[tool.pixi.feature.dev.tasks.linkcheck]
+cmd = """
+sphinx-build \
+    --builder linkcheck \
+    --show-traceback \
+    docs/ docs/_build/linkcheck
+"""
+env = {FORCE_COLOR = "1"}
+
+[tool.pixi.feature.dev.tasks.nb]
+cmd = "pytest --nbmake docs"
+
+[tool.pixi.feature.dev.tasks.sty]
+cmd = "pre-commit run  -a"
+env = {SKIP = "pyright"}
+
+[tool.pixi.pypi-dependencies]
+compwa-org = {path = ".", editable = true}
 
 [tool.pyright]
 exclude = [
@@ -177,46 +272,17 @@ testpaths = [
 extend-include = ["*.ipynb"]
 preview = true
 show-fixes = true
-target-version = "py37"
 
 [tool.ruff.format]
 docstring-code-format = true
 line-ending = "lf"
 
 [tool.ruff.lint]
-extend-select = [
-    "A",
-    "B",
-    "BLE",
-    "C4",
-    "C90",
-    "D",
-    "EM",
-    "ERA",
-    "FA",
-    "I",
-    "ICN",
-    "INP",
-    "ISC",
-    "N",
-    "NPY",
-    "PGH",
-    "PIE",
-    "PL",
-    "Q",
-    "RET",
-    "RSE",
-    "RUF",
-    "S",
-    "SIM",
-    "T20",
-    "TCH",
-    "TID",
-    "TRY",
-    "UP",
-    "YTT",
-]
 ignore = [
+    "ANN401",
+    "ARG00",
+    "COM812",
+    "CPY001",
     "D101",
     "D102",
     "D103",
@@ -226,33 +292,49 @@ ignore = [
     "D213",
     "D407",
     "D416",
+    "DOC",
     "E501",
+    "FBT",
+    "FURB101",
+    "FURB103",
+    "FURB140",
+    "G004",
     "ISC001",
     "PLW1514",
+    "PT001",
+    "PTH",
     "SIM108",
+    "SLF001",
 ]
+select = ["ALL"]
 task-tags = ["cspell"]
+
+[tool.ruff.lint.flake8-builtins]
+builtins-ignorelist = ["display"]
+
+[tool.ruff.lint.flake8-comprehensions]
+allow-dict-calls-with-keyword-arguments = true
+
+[tool.ruff.lint.flake8-self]
+ignore-names = [
+    "_latex",
+    "_print",
+]
 
 [tool.ruff.lint.isort]
 split-on-trailing-comma = false
 
 [tool.ruff.lint.per-file-ignores]
-"**/003.ipynb" = ["B023", "PLC2701"]
-"**/011.ipynb" = ["PLC2701", "PLR6301"]
-"**/014.ipynb" = ["PLC2701"]
-"**/016.ipynb" = ["PLC2701"]
-"**/021.ipynb" = ["I001"]
-"**/022.ipynb" = ["PLC2701"]
-"**/024.ipynb" = ["E731", "E741", "S307"]
-"**/025.ipynb" = ["E731"]
-"**/98*.ipynb" = ["E731", "PLR6301"]
 "*.ipynb" = [
     "A003",
+    "ANN",
     "B008",
     "B018",
     "C408",
     "C90",
     "D",
+    "E303",
+    "E402",
     "E703",
     "E741",
     "F404",
@@ -262,6 +344,7 @@ split-on-trailing-comma = false
     "N807",
     "N815",
     "N816",
+    "PD901",
     "PLC0415",
     "PLC2401",
     "PLR09",
@@ -269,14 +352,28 @@ split-on-trailing-comma = false
     "PLW0602",
     "PLW0603",
     "PLW2901",
+    "PYI034",
+    "RUF001",
     "RUF027",
     "S101",
     "S307",
     "T20",
     "TCH00",
 ]
+"**/003.ipynb" = ["B023", "PLC2701"]
+"**/009.ipynb" = ["FURB113"]
+"**/010.ipynb" = ["FURB113"]
+"**/011.ipynb" = ["PLC2701", "PLR6301"]
+"**/014.ipynb" = ["PLC2701"]
+"**/016.ipynb" = ["PLC2701"]
+"**/021.ipynb" = ["I001"]
+"**/022.ipynb" = ["PLC2701"]
+"**/024.ipynb" = ["E731", "E741", "S307"]
+"**/025.ipynb" = ["E731"]
+"**/98*.ipynb" = ["E731", "PLR6301"]
 "docs/*" = [
     "D",
+    "E402",
     "INP001",
     "S101",
     "S113",
@@ -298,11 +395,12 @@ split-on-trailing-comma = false
 "docs/report/011.ipynb" = ["F821"]
 "docs/report/017.ipynb" = ["S404", "S603"]
 "docs/report/020.ipynb" = ["F821"]
-"docs/report/021.ipynb" = ["S404", "S603"]
+"docs/report/021.ipynb" = ["FIX004", "S404", "S603"]
 "docs/report/022.ipynb" = ["F821"]
 "docs/report/024.ipynb" = ["F821", "S102"]
 "docs/report/025.ipynb" = ["S404", "S603"]
 "docs/report/027.ipynb" = ["PLW1510", "S404", "S603"]
+"docs/report/028.ipynb" = ["PERF203"]
 "pin_nb_requirements.py" = ["INP001", "PLW2901"]
 "setup.py" = ["D100"]
 
@@ -319,6 +417,5 @@ sort_first = [
     "tool.setuptools",
     "tool.setuptools_scm",
 ]
-sort_table_keys = true
 spaces_indent_inline_array = 4
 trailing_comma_inline_array = true
