@@ -44,6 +44,7 @@ def get_nb_exclusion_patterns() -> list[str]:
         "report/020*",
         "report/021*",
         "report/022*",
+        "report/028*",
         "report/033*",
     }
     julia_notebooks = {
