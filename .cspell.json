@@ -317,6 +317,7 @@
     "numpycode",
     "operatorname",
     "pandoc",
+    "pbar",
     "pcolormesh",
     "pdg's",
     "phasespace",
