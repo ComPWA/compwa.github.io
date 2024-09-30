@@ -13,13 +13,14 @@ repos:
       - id: check-useless-excludes
 
   - repo: https://github.com/ComPWA/policy
-    rev: 0.4.0
+    rev: 0.4.1
     hooks:
       - id: check-dev-files
         args:
           - --doc-apt-packages=graphviz
           - --dev-python-version=3.12
           - --github-pages
+          - --imports-on-top
           - --no-prettierrc
           - --pin-requirements=bimonthly
           - --repo-name=compwa.github.io
@@ -144,6 +145,27 @@ repos:
         exclude: >
           (?x)^(
             docs/_static/favicon.ico
+          )$
+
+  - repo: https://github.com/nbQA-dev/nbQA
+    rev: 1.9.0
+    hooks:
+      - id: nbqa-isort
+        args: [--float-to-top]
+        exclude: >-
+          (?x)^(
+            docs/adr/.*\.ipynb|
+            docs/report/001\.ipynb|
+            docs/report/002\.ipynb|
+            docs/report/003\.ipynb|
+            docs/report/008\.ipynb|
+            docs/report/013\.ipynb|
+            docs/report/018\.ipynb|
+            docs/report/020\.ipynb|
+            docs/report/026\.ipynb|
+            docs/report/027\.ipynb|
+            docs/report/028\.ipynb|
+            docs/symbolics\.ipynb
           )$
 
   - repo: local

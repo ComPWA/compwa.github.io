@@ -108,6 +108,9 @@ local_scheme = "no-local-version"
 version_scheme = "post-release"
 write_to = "version.py"
 
+[tool.isort]
+profile = "black"
+
 [tool.pixi.project]
 channels = ["conda-forge"]
 platforms = ["linux-64"]
