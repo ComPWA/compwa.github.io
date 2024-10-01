@@ -15,6 +15,3 @@ indent_size = 4
 
 [LICENSE]
 indent_size = unset
-
-[setup.cfg]
-indent_size = 4
