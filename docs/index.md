@@ -255,7 +255,6 @@ symbolics
 develop
 adr
 Technical Reports <https://compwa.github.io/reports>
-references
 Demo notebooks <https://github.com/ComPWA/demo/blob/main/README.md>
 GitHub Repositories <https://github.com/ComPWA>
 ```
