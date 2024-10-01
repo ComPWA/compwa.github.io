@@ -12,9 +12,10 @@ from __future__ import annotations
 import argparse
 import re
 import sys
+from collections.abc import Sequence
 from functools import lru_cache
 from textwrap import dedent
-from typing import Callable, Sequence, TypeVar
+from typing import Callable, TypeVar
 
 import attr
 import nbformat
