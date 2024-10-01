@@ -31,7 +31,6 @@
     "\u03c3": true
   },
   "files.associations": {
-    "**/.constraints/py*.txt": "pip-requirements",
     "**/pixi.lock": "yaml"
   },
   "files.watcherExclude": {
@@ -65,8 +64,7 @@
   "ruff.importStrategy": "fromEnvironment",
   "ruff.organizeImports": true,
   "search.exclude": {
-    "**/tests/**/__init__.py": true,
-    ".constraints/*.txt": true
+    "**/tests/**/__init__.py": true
   },
   "telemetry.telemetryLevel": "off",
   "yaml.schemas": {

@@ -6,6 +6,6 @@ dependencies:
   - pip
   - python==3.12.*
   - pip:
-      - -c .constraints/py3.12.txt -e .[dev]
+      - -e .[dev]
 variables:
   PYTHONHASHSEED: 0
