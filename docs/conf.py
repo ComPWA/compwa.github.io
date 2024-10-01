@@ -222,6 +222,7 @@ linkcheck_ignore = [
     "http://127.0.0.1:8000",
     "https://atom.io",  # often instable
     "https://doi.org/10.1002/andp.19955070504",  # 403 for onlinelibrary.wiley.com
+    "https://doi.org/10.1103",  # 403 for journals.aps.org
     "https://doi.org/10.1155/2020/6674595",  # 403 hindawi.com
     "https://doi.org/10.7566/JPSCP.26.022002",  # 403 for journals.jps.jp
     "https://downloads.hindawi.com",  # 403
