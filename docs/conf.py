@@ -19,17 +19,7 @@ set_intersphinx_version_remapping({
         "8.12.2": "8.12.1",
         "8.12.3": "8.12.1",
     },
-    "ipywidgets": {
-        "8.0.3": "8.0.5",
-        "8.0.4": "8.0.5",
-        "8.0.6": "8.0.5",
-        "8.1.1": "8.1.2",
-    },
     "matplotlib": {"3.5.1": "3.5.0"},
-    "mpl-interactions": {
-        "0.24.1": "0.24.0",
-        "0.24.2": "0.24.0",
-    },
 })
 
 BRANCH = _get_commit_sha()
@@ -139,33 +129,22 @@ html_theme_options = {
 }
 html_title = "Common Partial Wave Analysis Project"
 intersphinx_mapping = {
-    "ampform-0.14.x": ("https://ampform.readthedocs.io/0.14.x", None),
     "ampform": ("https://ampform.readthedocs.io/stable", None),
     "attrs": (f"https://www.attrs.org/en/{pin('attrs')}", None),
     "expertsystem": ("https://expertsystem.readthedocs.io/stable", None),
     "graphviz": ("https://graphviz.readthedocs.io/en/stable", None),
-    "hepstats": ("https://scikit-hep.org/hepstats", None),
     "IPython": (f"https://ipython.readthedocs.io/en/{pin('IPython')}", None),
-    "ipywidgets": (f"https://ipywidgets.readthedocs.io/en/{pin('ipywidgets')}", None),
     "jax": ("https://jax.readthedocs.io/en/latest", None),
     "matplotlib": (f"https://matplotlib.org/{pin('matplotlib')}", None),
-    "mpl_interactions": (
-        f"https://mpl-interactions.readthedocs.io/en/{pin('mpl-interactions')}",
-        None,
-    ),
     "numba": (f"https://numba.readthedocs.io/en/{pin('numba')}", None),
     "numpy": (f"https://numpy.org/doc/{pin_minor('numpy')}", None),
-    "pdg": ("https://pdgapi.lbl.gov/doc", None),
-    "plotly": ("https://plotly.com/python-api-reference/", None),
     "pwa": ("https://pwa.readthedocs.io", None),
     "python": ("https://docs.python.org/3", None),
-    "qrules-0.9.x": ("https://qrules.readthedocs.io/0.9.x", None),
     "qrules": ("https://qrules.readthedocs.io/stable", None),
     "scipy": ("https://docs.scipy.org/doc/scipy-1.7.0", None),
     "sympy": ("https://docs.sympy.org/latest", None),
     "tensorwaves": ("https://tensorwaves.readthedocs.io/stable", None),
     "torch": ("https://pytorch.org/docs/stable", None),
-    "zfit": ("https://zfit.readthedocs.io/en/latest", None),
 }
 linkcheck_anchors = False
 linkcheck_ignore = [
