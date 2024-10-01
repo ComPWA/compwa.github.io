@@ -22,12 +22,8 @@
   ],
   "ignorePaths": [
     "**/*.bib",
-    "**/*.rst_t",
     "**/.cspell.json",
-    "**/Manifest.toml",
-    "**/Project.toml",
     "*.ico",
-    "*.rst_t",
     "*.svg",
     ".constraints/*.txt",
     ".editorconfig",
@@ -39,20 +35,12 @@
     ".readthedocs.yml",
     ".vscode/*",
     "CITATION.cff",
-    "docs/_templates/*",
     "docs/adr/*/*",
     "docs/conf.py",
     "pyproject.toml",
     "tox.ini"
   ],
   "language": "en-US",
-  "overrides": [
-    {
-      "allowCompoundWords": true,
-      "filename": "**/*.jl",
-      "languageId": "julia"
-    }
-  ],
   "words": [
     "aitchison",
     "ampform",

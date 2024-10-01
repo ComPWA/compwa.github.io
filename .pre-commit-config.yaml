@@ -3,7 +3,6 @@ ci:
   autoupdate_schedule: quarterly
   skip:
     - check-jsonschema
-    - pin-nb-requirements
     - pyright
 
 repos:
@@ -20,7 +19,6 @@ repos:
           - --doc-apt-packages=graphviz
           - --dev-python-version=3.12
           - --github-pages
-          - --imports-on-top
           - --no-prettierrc
           - --pin-requirements=bimonthly
           - --repo-name=compwa.github.io
@@ -106,7 +104,6 @@ repos:
     hooks:
       - id: toml-sort
         args: [--in-place]
-        exclude: (?x)^(.*/Manifest\.toml|.*/Project\.toml)$
 
   - repo: https://github.com/python-jsonschema/check-jsonschema
     rev: 0.29.2
@@ -146,39 +143,6 @@ repos:
           (?x)^(
             docs/_static/favicon.ico
           )$
-
-  - repo: https://github.com/nbQA-dev/nbQA
-    rev: 1.9.0
-    hooks:
-      - id: nbqa-isort
-        args: [--float-to-top]
-        exclude: >-
-          (?x)^(
-            docs/adr/.*\.ipynb|
-            docs/report/001\.ipynb|
-            docs/report/002\.ipynb|
-            docs/report/003\.ipynb|
-            docs/report/008\.ipynb|
-            docs/report/013\.ipynb|
-            docs/report/018\.ipynb|
-            docs/report/020\.ipynb|
-            docs/report/026\.ipynb|
-            docs/report/027\.ipynb|
-            docs/report/028\.ipynb|
-            docs/symbolics\.ipynb
-          )$
-
-  - repo: local
-    hooks:
-      - id: pin-nb-requirements
-        name: Check whether notebook contains a pip install line
-        description:
-          Specify which packages to install specifically in order to run
-          this notebook.
-        entry: python3 .pre-commit/pin_nb_requirements.py
-        language: system
-        types:
-          - jupyter
 
   - repo: https://github.com/ComPWA/mirrors-pyright
     rev: v1.1.379

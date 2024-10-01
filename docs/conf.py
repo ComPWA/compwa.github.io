@@ -6,11 +6,6 @@ documentation: https://www.sphinx-doc.org/en/master/usage/configuration.html
 
 from __future__ import annotations
 
-import os
-import shutil
-import subprocess  # noqa: S404
-import sys
-
 from sphinx_api_relink.helpers import (
     get_execution_mode,
     pin,
@@ -19,51 +14,6 @@ from sphinx_api_relink.helpers import (
 )
 from sphinx_api_relink.linkcode import _get_commit_sha
 
-sys.path.insert(0, os.path.abspath("."))
-import _list_technical_reports
-
-
-def get_nb_exclusion_patterns() -> list[str]:
-    exclusions = {
-        "adr/001/*",
-        "adr/002/*",
-        "report/000*",
-        "report/001*",
-        "report/002*",
-        "report/005*",
-        "report/008*",
-        "report/009*",
-        "report/010*",
-        "report/011*",
-        "report/012*",
-        "report/013*",
-        "report/014*",
-        "report/015*",
-        "report/017*",
-        "report/018*",
-        "report/020*",
-        "report/021*",
-        "report/022*",
-        "report/028*",
-        "report/033*",
-    }
-    julia_notebooks = {
-        "report/019*",
-    }
-    if shutil.which("julia") is None or "READTHEDOCS" in os.environ:
-        exclusions.update(julia_notebooks)
-    return sorted(exclusions)
-
-
-def install_ijulia() -> None:
-    if shutil.which("julia") is None:
-        return
-    if "EXECUTE_NB" in os.environ or "FORCE_EXECUTE_NB" in os.environ:
-        subprocess.check_call(["julia", "InstallIJulia.jl"])  # noqa: S603, S607
-
-
-_list_technical_reports.main()
-install_ijulia()
 set_intersphinx_version_remapping({
     "ipython": {
         "8.12.2": "8.12.1",
@@ -265,7 +215,10 @@ modify the parameters.
 """,
 }
 myst_update_mathjax = False
-nb_execution_excludepatterns = get_nb_exclusion_patterns()
+nb_execution_excludepatterns = [
+    "adr/001/*",
+    "adr/002/*",
+]
 nb_execution_mode = get_execution_mode()
 nb_execution_show_tb = True
 nb_execution_timeout = -1

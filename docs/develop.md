@@ -724,7 +724,7 @@ Pkg.activate(".")  # if environment is defined in this folder
 Pkg.instantiate()
 ```
 
-See {doc}`/report/019` for an example.
+See **[TR-019](https://compwa.github.io/report/019)** for an example.
 :::
 
 Additionally, you can install a [Language Server](https://jupyterlab-lsp.readthedocs.io/en/latest/Language%20Servers.html) for Julia in Jupyter Lab. To do so, run:
