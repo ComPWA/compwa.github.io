@@ -20,6 +20,7 @@ repos:
           - --dev-python-version=3.12
           - --github-pages
           - --no-prettierrc
+          - --no-pypi
           - --pin-requirements=bimonthly
           - --repo-name=compwa.github.io
           - --repo-title=ComPWA Organization
