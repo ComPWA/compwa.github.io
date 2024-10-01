@@ -156,6 +156,7 @@ sphinx-design==0.6.1
 sphinx-hep-pdgref==0.2.0
 sphinx-pybtex-etal-style==0.0.2
 sphinx-remove-toctrees==1.0.0.post1
+sphinx-reredirects==0.1.5
 sphinx-thebe==0.3.1
 sphinx-togglebutton==0.3.2
 sphinxcontrib-applehelp==2.0.0
