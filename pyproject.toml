@@ -149,20 +149,13 @@ cmd = """
 sphinx-autobuild \
     --open-browser \
     --re-ignore '.*/.ipynb_checkpoints/.*' \
+    --re-ignore '.*/.virtual_documents/.*' \
     --re-ignore '.*/__pycache__/.*' \
-    --re-ignore '.*\\.gitignore' \
-    --re-ignore 'docs/.*\\.csv' \
-    --re-ignore 'docs/.*\\.gif' \
-    --re-ignore 'docs/.*\\.gv' \
-    --re-ignore 'docs/.*\\.inv' \
-    --re-ignore 'docs/.*\\.json' \
-    --re-ignore 'docs/.*\\.pickle' \
     --re-ignore 'docs/.*\\.png' \
     --re-ignore 'docs/.*\\.svg' \
     --re-ignore 'docs/.*\\.yaml' \
     --re-ignore 'docs/.*\\.yml' \
     --re-ignore 'docs/_build/.*' \
-    --re-ignore docs/_static/exported_intensity_model.py \
     --watch docs \
     docs/ docs/_build/html
 """
