@@ -59,6 +59,7 @@ doc = [
     "sphinx-hep-pdgref",
     "sphinx-pybtex-etal-style",
     "sphinx-remove-toctrees",
+    "sphinx-reredirects",
     "sphinx-thebe",
     "sphinx-togglebutton",
     "sphinxcontrib-bibtex >=2",

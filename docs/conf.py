@@ -62,11 +62,6 @@ exclude_patterns = [
 ]
 extensions = [
     "myst_nb",
-    "sphinx.ext.autosectionlabel",
-    "sphinx.ext.intersphinx",
-    "sphinx.ext.mathjax",
-    "sphinx.ext.napoleon",
-    "sphinx.ext.todo",
     "sphinx_api_relink",
     "sphinx_codeautolink",
     "sphinx_comments",
@@ -75,8 +70,14 @@ extensions = [
     "sphinx_hep_pdgref",
     "sphinx_pybtex_etal_style",
     "sphinx_remove_toctrees",
+    "sphinx_reredirects",
     "sphinx_thebe",
     "sphinx_togglebutton",
+    "sphinx.ext.autosectionlabel",
+    "sphinx.ext.intersphinx",
+    "sphinx.ext.mathjax",
+    "sphinx.ext.napoleon",
+    "sphinx.ext.todo",
     "sphinxcontrib.bibtex",
 ]
 graphviz_output_format = "svg"
@@ -206,6 +207,9 @@ nb_output_stderr = "remove"
 nitpicky = True
 primary_domain = "py"
 project = REPO_TITLE
+redirects = {
+    "reports": "https://compwa.github.io/report",
+}
 remove_from_toctrees = [
     "adr/*",
     "report/*",
