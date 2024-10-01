@@ -12,14 +12,16 @@ from __future__ import annotations
 import argparse
 import re
 import sys
-from collections.abc import Sequence
 from functools import lru_cache
 from textwrap import dedent
-from typing import Callable, TypeVar
+from typing import TYPE_CHECKING, Callable, TypeVar
 
 import attr
 import nbformat
 from nbformat import NotebookNode
+
+if TYPE_CHECKING:
+    from collections.abc import Sequence
 
 if sys.version_info >= (3, 10):
     from typing import ParamSpec
