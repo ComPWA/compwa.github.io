@@ -96,9 +96,7 @@ A central knowledge-base for Partial Wave Analysis theory and software
 
 ::::
 
-Finally, the {doc}`technical reports </reports>` on these pages
-([compwa.github.io](https://compwa.github.io)) describe more general tips and
-tricks, some of which can be of interest to general Python users as well!
+Finally, the [technical reports](https://compwa.github.io/reports) describe more general tips and tricks, some of which can be of interest to general Python users as well!
 
 :::{dropdown} Deprecated projects
 
@@ -195,7 +193,7 @@ In order to close this gap as best as possible, ComPWA follows the following ide
    ({ref}`issues, PRs, and discussions <develop:Collaboration>`) make this extremely
    easy. In addition, larger decisions are recorded in the form of {doc}`ADRs </adr>`
    and explorations of challenges posed by physics and software are hosted in the form
-   of {doc}`/reports`.
+   of [technical reports](https://compwa.github.io/reports).
 
 ### Design
 
@@ -256,8 +254,7 @@ hidden:
 symbolics
 develop
 adr
-reports
-references
+Technical Reports <https://compwa.github.io/reports>
 Demo notebooks <https://github.com/ComPWA/demo/blob/main/README.md>
 GitHub Repositories <https://github.com/ComPWA>
 ```

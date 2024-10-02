@@ -6,11 +6,6 @@ documentation: https://www.sphinx-doc.org/en/master/usage/configuration.html
 
 from __future__ import annotations
 
-import os
-import shutil
-import subprocess  # noqa: S404
-import sys
-
 from sphinx_api_relink.helpers import (
     get_execution_mode,
     pin,
@@ -19,67 +14,12 @@ from sphinx_api_relink.helpers import (
 )
 from sphinx_api_relink.linkcode import _get_commit_sha
 
-sys.path.insert(0, os.path.abspath("."))
-import _list_technical_reports
-
-
-def get_nb_exclusion_patterns() -> list[str]:
-    exclusions = {
-        "adr/001/*",
-        "adr/002/*",
-        "report/000*",
-        "report/001*",
-        "report/002*",
-        "report/005*",
-        "report/008*",
-        "report/009*",
-        "report/010*",
-        "report/011*",
-        "report/012*",
-        "report/013*",
-        "report/014*",
-        "report/015*",
-        "report/017*",
-        "report/018*",
-        "report/020*",
-        "report/021*",
-        "report/022*",
-        "report/028*",
-        "report/033*",
-    }
-    julia_notebooks = {
-        "report/019*",
-    }
-    if shutil.which("julia") is None or "READTHEDOCS" in os.environ:
-        exclusions.update(julia_notebooks)
-    return sorted(exclusions)
-
-
-def install_ijulia() -> None:
-    if shutil.which("julia") is None:
-        return
-    if "EXECUTE_NB" in os.environ or "FORCE_EXECUTE_NB" in os.environ:
-        subprocess.check_call(["julia", "InstallIJulia.jl"])  # noqa: S603, S607
-
-
-_list_technical_reports.main()
-install_ijulia()
 set_intersphinx_version_remapping({
     "ipython": {
         "8.12.2": "8.12.1",
         "8.12.3": "8.12.1",
     },
-    "ipywidgets": {
-        "8.0.3": "8.0.5",
-        "8.0.4": "8.0.5",
-        "8.0.6": "8.0.5",
-        "8.1.1": "8.1.2",
-    },
     "matplotlib": {"3.5.1": "3.5.0"},
-    "mpl-interactions": {
-        "0.24.1": "0.24.0",
-        "0.24.2": "0.24.0",
-    },
 })
 
 BRANCH = _get_commit_sha()
@@ -122,11 +62,6 @@ exclude_patterns = [
 ]
 extensions = [
     "myst_nb",
-    "sphinx.ext.autosectionlabel",
-    "sphinx.ext.intersphinx",
-    "sphinx.ext.mathjax",
-    "sphinx.ext.napoleon",
-    "sphinx.ext.todo",
     "sphinx_api_relink",
     "sphinx_codeautolink",
     "sphinx_comments",
@@ -135,8 +70,14 @@ extensions = [
     "sphinx_hep_pdgref",
     "sphinx_pybtex_etal_style",
     "sphinx_remove_toctrees",
+    "sphinx_reredirects",
     "sphinx_thebe",
     "sphinx_togglebutton",
+    "sphinx.ext.autosectionlabel",
+    "sphinx.ext.intersphinx",
+    "sphinx.ext.mathjax",
+    "sphinx.ext.napoleon",
+    "sphinx.ext.todo",
     "sphinxcontrib.bibtex",
 ]
 graphviz_output_format = "svg"
@@ -189,33 +130,22 @@ html_theme_options = {
 }
 html_title = "Common Partial Wave Analysis Project"
 intersphinx_mapping = {
-    "ampform-0.14.x": ("https://ampform.readthedocs.io/0.14.x", None),
     "ampform": ("https://ampform.readthedocs.io/stable", None),
     "attrs": (f"https://www.attrs.org/en/{pin('attrs')}", None),
     "expertsystem": ("https://expertsystem.readthedocs.io/stable", None),
     "graphviz": ("https://graphviz.readthedocs.io/en/stable", None),
-    "hepstats": ("https://scikit-hep.org/hepstats", None),
     "IPython": (f"https://ipython.readthedocs.io/en/{pin('IPython')}", None),
-    "ipywidgets": (f"https://ipywidgets.readthedocs.io/en/{pin('ipywidgets')}", None),
     "jax": ("https://jax.readthedocs.io/en/latest", None),
     "matplotlib": (f"https://matplotlib.org/{pin('matplotlib')}", None),
-    "mpl_interactions": (
-        f"https://mpl-interactions.readthedocs.io/en/{pin('mpl-interactions')}",
-        None,
-    ),
     "numba": (f"https://numba.readthedocs.io/en/{pin('numba')}", None),
     "numpy": (f"https://numpy.org/doc/{pin_minor('numpy')}", None),
-    "pdg": ("https://pdgapi.lbl.gov/doc", None),
-    "plotly": ("https://plotly.com/python-api-reference/", None),
     "pwa": ("https://pwa.readthedocs.io", None),
     "python": ("https://docs.python.org/3", None),
-    "qrules-0.9.x": ("https://qrules.readthedocs.io/0.9.x", None),
     "qrules": ("https://qrules.readthedocs.io/stable", None),
     "scipy": ("https://docs.scipy.org/doc/scipy-1.7.0", None),
     "sympy": ("https://docs.sympy.org/latest", None),
     "tensorwaves": ("https://tensorwaves.readthedocs.io/stable", None),
     "torch": ("https://pytorch.org/docs/stable", None),
-    "zfit": ("https://zfit.readthedocs.io/en/latest", None),
 }
 linkcheck_anchors = False
 linkcheck_ignore = [
@@ -266,7 +196,10 @@ modify the parameters.
 """,
 }
 myst_update_mathjax = False
-nb_execution_excludepatterns = get_nb_exclusion_patterns()
+nb_execution_excludepatterns = [
+    "adr/001/*",
+    "adr/002/*",
+]
 nb_execution_mode = get_execution_mode()
 nb_execution_show_tb = True
 nb_execution_timeout = -1
@@ -274,6 +207,9 @@ nb_output_stderr = "remove"
 nitpicky = True
 primary_domain = "py"
 project = REPO_TITLE
+redirects = {
+    "reports": "https://compwa.github.io/report",
+}
 remove_from_toctrees = [
     "adr/*",
     "report/*",

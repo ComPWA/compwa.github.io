@@ -59,6 +59,7 @@ doc = [
     "sphinx-hep-pdgref",
     "sphinx-pybtex-etal-style",
     "sphinx-remove-toctrees",
+    "sphinx-reredirects",
     "sphinx-thebe",
     "sphinx-togglebutton",
     "sphinxcontrib-bibtex >=2",
@@ -104,9 +105,6 @@ local_scheme = "no-local-version"
 version_scheme = "post-release"
 write_to = "version.py"
 
-[tool.isort]
-profile = "black"
-
 [tool.pixi.project]
 channels = ["conda-forge"]
 platforms = ["linux-64"]
@@ -117,7 +115,6 @@ PYTHONHASHSEED = "0"
 
 [tool.pixi.dependencies]
 graphviz = "*"
-juliaup = "*"
 python = "3.12.*"
 
 [tool.pixi.environments]
@@ -149,21 +146,13 @@ cmd = """
 sphinx-autobuild \
     --open-browser \
     --re-ignore '.*/.ipynb_checkpoints/.*' \
+    --re-ignore '.*/.virtual_documents/.*' \
     --re-ignore '.*/__pycache__/.*' \
-    --re-ignore '.*\\.gitignore' \
-    --re-ignore 'docs/.*\\.csv' \
-    --re-ignore 'docs/.*\\.gif' \
-    --re-ignore 'docs/.*\\.gv' \
-    --re-ignore 'docs/.*\\.inv' \
-    --re-ignore 'docs/.*\\.json' \
-    --re-ignore 'docs/.*\\.pickle' \
     --re-ignore 'docs/.*\\.png' \
     --re-ignore 'docs/.*\\.svg' \
     --re-ignore 'docs/.*\\.yaml' \
     --re-ignore 'docs/.*\\.yml' \
     --re-ignore 'docs/_build/.*' \
-    --re-ignore docs/_static/exported_intensity_model.py \
-    --re-ignore docs/report/data/* \
     --watch docs \
     docs/ docs/_build/html
 """
@@ -246,7 +235,6 @@ addopts = [
     "--ignore=docs/adr/001/sympy.ipynb",
     "--ignore=docs/conf.py",
     "--nbmake-timeout=1200",
-    "-k not docs/report/019.ipynb",
 ]
 filterwarnings = [
     "error",
@@ -384,24 +372,6 @@ split-on-trailing-comma = false
     "PLC2701",
     "PLW2901",
 ]
-"docs/report/002.ipynb" = ["F821"]
-"docs/report/003.ipynb" = ["F821", "S404", "S603"]
-"docs/report/004.ipynb" = ["S404", "S603"]
-"docs/report/005.ipynb" = ["F821", "S404", "S603"]
-"docs/report/006.ipynb" = ["S404", "S603"]
-"docs/report/009.ipynb" = ["S404", "S603"]
-"docs/report/010.ipynb" = ["S404", "S603"]
-"docs/report/011.ipynb" = ["F821"]
-"docs/report/017.ipynb" = ["S404", "S603"]
-"docs/report/020.ipynb" = ["F821"]
-"docs/report/021.ipynb" = ["FIX004", "S404", "S603"]
-"docs/report/022.ipynb" = ["F821"]
-"docs/report/024.ipynb" = ["F821", "S102"]
-"docs/report/025.ipynb" = ["S404", "S603"]
-"docs/report/027.ipynb" = ["PLW1510", "S404", "S603"]
-"docs/report/028.ipynb" = ["PERF203"]
-"pin_nb_requirements.py" = ["INP001", "PLW2901"]
-"setup.py" = ["D100"]
 
 [tool.ruff.lint.pydocstyle]
 convention = "google"

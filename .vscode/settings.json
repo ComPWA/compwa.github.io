@@ -57,7 +57,6 @@
   "notebook.formatOnSave.enabled": true,
   "notebook.gotoSymbols.showAllSymbols": true,
   "python.analysis.autoImportCompletions": false,
-  "python.analysis.typeCheckingMode": "strict",
   "python.terminal.activateEnvironment": false,
   "python.testing.pytestEnabled": false,
   "redhat.telemetry.enabled": false,

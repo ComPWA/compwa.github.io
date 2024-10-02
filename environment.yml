@@ -2,8 +2,7 @@ name: compwa.github.io
 channels:
   - conda-forge
 dependencies:
-  - graphviz # for binder
-  - juliaup
+  - graphviz
   - pip
   - python==3.12.*
   - pip:
