@@ -63,9 +63,6 @@
   "ruff.enable": true,
   "ruff.importStrategy": "fromEnvironment",
   "ruff.organizeImports": true,
-  "search.exclude": {
-    "**/tests/**/__init__.py": true
-  },
   "telemetry.telemetryLevel": "off",
   "yaml.schemas": {
     "https://citation-file-format.github.io/1.2.0/schema.json": "CITATION.cff",
