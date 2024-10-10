@@ -17,4 +17,4 @@ build:
   jobs:
     post_install:
       - python -m pip install 'uv>=0.2.0'
-      - python -m uv pip install -e .[doc]
+      - python -m uv pip install -c .constraints/py3.12.txt -e .[doc]
