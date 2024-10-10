@@ -442,7 +442,7 @@ More specialized {command}`tox` job are defined in the
 they do, by running:
 
 ```shell
-tox -av
+tox list
 ```
 
 ### GitHub Actions
