@@ -25,7 +25,6 @@
     "**/.cspell.json",
     "*.ico",
     "*.svg",
-    ".constraints/*.txt",
     ".editorconfig",
     ".envrc",
     ".gitattributes",
