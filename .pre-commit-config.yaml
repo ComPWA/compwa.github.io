@@ -1,5 +1,5 @@
 ci:
-  autoupdate_commit_msg: "MAINT: update pip constraints and pre-commit"
+  autoupdate_commit_msg: "MAINT: autoupdate pre-commit hooks"
   autoupdate_schedule: quarterly
   skip:
     - check-jsonschema
@@ -21,7 +21,6 @@ repos:
           - --github-pages
           - --no-prettierrc
           - --no-pypi
-          - --pin-requirements=bimonthly
           - --repo-name=compwa.github.io
           - --repo-title=ComPWA Organization
       - id: colab-toc-visible
