@@ -35,15 +35,15 @@ description = "Source code for the ComPWA Organization pages"
 dynamic = ["version"]
 license = {file = "LICENSE"}
 maintainers = [{email = "compwa-admin@ep1.rub.de"}]
-name = "compwa-org"
+name = "compwa-github-io"
 requires-python = ">=3.9"
 
 [project.optional-dependencies]
 dev = [
-    "compwa-org[doc]",
-    "compwa-org[jupyter]",
-    "compwa-org[sty]",
-    "compwa-org[test]",
+    "compwa-github-io[doc]",
+    "compwa-github-io[jupyter]",
+    "compwa-github-io[sty]",
+    "compwa-github-io[test]",
     "sphinx-autobuild",
     "tox >=1.9", # for skip_install, use_develop
 ]
@@ -75,7 +75,7 @@ jupyter = [
 ]
 sty = [
     "attrs",
-    "compwa-org[types]",
+    "compwa-github-io[types]",
     "nbformat",
     "pre-commit >=1.4.0",
     "ruff",
