@@ -7,22 +7,6 @@ requires = [
 
 [project]
 authors = [{name = "Common Partial Wave Analysis", email = "compwa-admin@ep1.rub.de"}]
-classifiers = [
-    "Development Status :: 4 - Beta",
-    "Intended Audience :: Developers",
-    "Intended Audience :: Education",
-    "Intended Audience :: Science/Research",
-    "License :: OSI Approved :: Apache Software License",
-    "Natural Language :: English",
-    "Operating System :: OS Independent",
-    "Programming Language :: Python :: 3.10",
-    "Programming Language :: Python :: 3.11",
-    "Programming Language :: Python :: 3.12",
-    "Programming Language :: Python :: 3.9",
-    "Programming Language :: Python",
-    "Topic :: Scientific/Engineering :: Physics",
-    "Topic :: Scientific/Engineering",
-]
 dependencies = [
     "graphviz",
     "ipympl",
@@ -45,12 +29,12 @@ dev = [
     "compwa-github-io[sty]",
     "compwa-github-io[test]",
     "sphinx-autobuild",
-    "tox >=1.9", # for skip_install, use_develop
+    "tox",
 ]
 doc = [
-    "Sphinx >=3",
-    "myst-nb >=0.14", # nb_ configuration prefixes
-    "sphinx-api-relink >=0.0.4",
+    "myst-nb",
+    "sphinx",
+    "sphinx-api-relink",
     "sphinx-book-theme",
     "sphinx-codeautolink[ipython]",
     "sphinx-comments",
@@ -77,7 +61,7 @@ sty = [
     "attrs",
     "compwa-github-io[types]",
     "nbformat",
-    "pre-commit >=1.4.0",
+    "pre-commit-uv",
     "ruff",
 ]
 test = [
@@ -85,7 +69,7 @@ test = [
     "nbmake",
 ]
 types = [
-    "sphinx-api-relink >=0.0.4",
+    "sphinx-api-relink",
 ]
 
 [project.readme]
@@ -102,92 +86,8 @@ include-package-data = false
 
 [tool.setuptools_scm]
 local_scheme = "no-local-version"
-version_scheme = "post-release"
+version_scheme = "only-version"
 write_to = "version.py"
-
-[tool.pixi.project]
-channels = ["conda-forge"]
-platforms = ["linux-64"]
-
-[tool.pixi.activation.env]
-PRETTIER_LEGACY_CLI = "1"
-PYTHONHASHSEED = "0"
-
-[tool.pixi.dependencies]
-graphviz = "*"
-python = "3.12.*"
-
-[tool.pixi.environments]
-default = {features = [
-    "dev",
-    "doc",
-    "jupyter",
-    "sty",
-    "test",
-    "types",
-]}
-
-[tool.pixi.feature.dev.tasks.ci]
-depends_on = ["docnb", "linkcheck", "sty"]
-
-[tool.pixi.feature.dev.tasks.doc]
-cmd = """
-sphinx-build \
-    --builder html \
-    --fail-on-warning \
-    --keep-going \
-    --show-traceback \
-    docs/ docs/_build/html
-"""
-env = {FORCE_COLOR = "1", PYTHONWARNINGS = "", ZFIT_DISABLE_TF_WARNINGS = "1"}
-
-[tool.pixi.feature.dev.tasks.doclive]
-cmd = """
-sphinx-autobuild \
-    --open-browser \
-    --re-ignore '.*/.ipynb_checkpoints/.*' \
-    --re-ignore '.*/.virtual_documents/.*' \
-    --re-ignore '.*/__pycache__/.*' \
-    --re-ignore 'docs/.*\\.png' \
-    --re-ignore 'docs/.*\\.svg' \
-    --re-ignore 'docs/.*\\.yaml' \
-    --re-ignore 'docs/.*\\.yml' \
-    --re-ignore 'docs/_build/.*' \
-    --watch docs \
-    docs/ docs/_build/html
-"""
-env = {FORCE_COLOR = "1", PYTHONWARNINGS = "", ZFIT_DISABLE_TF_WARNINGS = "1"}
-
-[tool.pixi.feature.dev.tasks.docnb]
-cmd = "pixi run doc"
-env = {EXECUTE_NB = "yes", FORCE_COLOR = "1", PYTHONWARNINGS = "", TF_CPP_MIN_LOG_LEVEL = "3", ZFIT_DISABLE_TF_WARNINGS = "1"}
-
-[tool.pixi.feature.dev.tasks.docnb-force]
-cmd = "pixi run doc"
-env = {FORCE_COLOR = "1", FORCE_EXECUTE_NB = "yes", PYTHONWARNINGS = "", TF_CPP_MIN_LOG_LEVEL = "3", ZFIT_DISABLE_TF_WARNINGS = "1"}
-
-[tool.pixi.feature.dev.tasks.docnblive]
-cmd = "pixi run doclive"
-env = {EXECUTE_NB = "yes", FORCE_COLOR = "1", PYTHONWARNINGS = "", TF_CPP_MIN_LOG_LEVEL = "3", ZFIT_DISABLE_TF_WARNINGS = "1"}
-
-[tool.pixi.feature.dev.tasks.linkcheck]
-cmd = """
-sphinx-build \
-    --builder linkcheck \
-    --show-traceback \
-    docs/ docs/_build/linkcheck
-"""
-env = {FORCE_COLOR = "1"}
-
-[tool.pixi.feature.dev.tasks.nb]
-cmd = "pytest --nbmake docs"
-
-[tool.pixi.feature.dev.tasks.sty]
-cmd = "pre-commit run  -a"
-env = {SKIP = "pyright"}
-
-[tool.pixi.pypi-dependencies]
-compwa-org = {path = ".", editable = true}
 
 [tool.pyright]
 exclude = [
@@ -196,6 +96,7 @@ exclude = [
     "**/.mypy_cache",
     "**/.pytest_cache",
     "**/.tox",
+    "**/.venv/",
     "**/__pycache__",
     "**/_build",
 ]
@@ -388,3 +289,100 @@ sort_first = [
 ]
 spaces_indent_inline_array = 4
 trailing_comma_inline_array = true
+
+[tool.tox]
+legacy_tox_ini = """
+[tox]
+envlist =
+    docnb-force,
+    linkcheck,
+    sty,
+skip_install = True
+skip_missing_interpreters = True
+skipsdist = True
+
+[testenv]
+passenv = *
+
+[testenv:doc]
+allowlist_externals =
+    sphinx-build
+commands =
+    sphinx-build \
+        --builder=html \
+        --fail-on-warning \
+        --keep-going \
+        --show-traceback \
+        docs/ docs/_build/html
+description = Build documentation and API through Sphinx
+setenv =
+    PYTHONWARNINGS =
+    TF_CPP_MIN_LOG_LEVEL = 3
+    ZFIT_DISABLE_TF_WARNINGS = 1
+
+[testenv:docnb]
+base = doc
+description = {[testenv:doc]description} with cached notebook execution
+setenv =
+    {[testenv:doc]setenv}
+    EXECUTE_NB = yes
+
+[testenv:docnb-force]
+base = doc
+description = {[testenv:doc]description} with notebook execution (no cache)
+setenv =
+    {[testenv:doc]setenv}
+    FORCE_EXECUTE_NB = yes
+
+[testenv:doclive]
+allowlist_externals =
+    sphinx-autobuild
+base = doc
+commands =
+    sphinx-autobuild \
+        --ignore=docs/_build/ \
+        --open-browser \
+        --port=0 \
+        --re-ignore='.*/__pycache__/.*' \
+        --re-ignore='.*/.ipynb_checkpoints/.*' \
+        --re-ignore='.*/.virtual_documents/.*' \
+        --re-ignore='.*\\.png' \
+        --re-ignore='.*\\.svg' \
+        --re-ignore='.*\\.yaml' \
+        --re-ignore='.*\\.yml' \
+        --watch=docs \
+        docs/ docs/_build/html
+description = Set up a server to directly preview changes to the HTML pages
+
+[testenv:docnblive]
+base = doclive
+description = {[testenv:doclive]description} with cached notebook execution
+setenv =
+    {[testenv:doclive]setenv}
+    EXECUTE_NB = yes
+
+[testenv:linkcheck]
+base = doc
+commands =
+    sphinx-build \
+        --builder=linkcheck \
+        --show-traceback \
+        docs/ docs/_build/linkcheck
+description = Check external links in the documentation (requires internet connection)
+
+[testenv:nb]
+allowlist_externals =
+    pytest
+commands =
+    pytest --nbmake {posargs:docs}
+description = Run all notebooks with pytest
+
+[testenv:sty]
+allowlist_externals =
+    pre-commit
+commands =
+    pre-commit run --all-files {posargs}
+description = Perform all linting, formatting, and spelling checks
+setenv =
+    SKIP = pyright
+"""
