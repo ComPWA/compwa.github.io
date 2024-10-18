@@ -27,9 +27,7 @@ ORGANIZATION = "ComPWA"
 REPO_NAME = "compwa.github.io"
 REPO_TITLE = "ComPWA Organization"
 
-BINDER_LINK = (
-    f"https://mybinder.org/v2/gh/ComPWA/{REPO_NAME}/{BRANCH}?filepath=docs/usage"
-)
+BINDER_LINK = f"https://mybinder.org/v2/gh/ComPWA/{REPO_NAME}/{BRANCH}?urlpath=lab"
 
 autosectionlabel_prefix_document = True
 bibtex_bibfiles = ["bibliography.bib"]
