@@ -27,7 +27,6 @@
     "*.svg",
     ".editorconfig",
     ".envrc",
-    ".gitattributes",
     ".gitignore",
     ".pre-commit-config.yaml",
     ".prettierignore",
@@ -36,8 +35,7 @@
     "CITATION.cff",
     "docs/adr/*/*",
     "docs/conf.py",
-    "pyproject.toml",
-    "tox.ini"
+    "pyproject.toml"
   ],
   "language": "en-US",
   "words": [
