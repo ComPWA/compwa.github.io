@@ -53,6 +53,7 @@ copyright = f"2020, {ORGANIZATION}"
 default_role = "py:obj"
 exclude_patterns = [
     "**.ipynb_checkpoints",
+    "**/.venv/*",
     "*build",
     "*template.md",
     "adr/template.md",

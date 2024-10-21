@@ -47,6 +47,7 @@ jupyter = [
     "jupyterlab-git",
     "jupyterlab-lsp",
     "jupyterlab-myst",
+    "pyproject-local-kernel",
     "python-lsp-ruff",
     "python-lsp-server[rope]",
 ]
@@ -383,3 +384,6 @@ description = Perform all linting, formatting, and spelling checks
 setenv =
     SKIP = pyright
 """
+
+[tool.uv.workspace]
+exclude = ["docs/*"]

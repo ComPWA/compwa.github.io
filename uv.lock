@@ -324,6 +324,7 @@ dev = [
     { name = "nbformat" },
     { name = "nbmake" },
     { name = "numpy" },
+    { name = "pyproject-local-kernel" },
     { name = "python-lsp-ruff" },
     { name = "python-lsp-server", extra = ["rope"] },
     { name = "ruff" },
@@ -374,6 +375,7 @@ jupyter = [
     { name = "jupyterlab-lsp" },
     { name = "jupyterlab-myst" },
     { name = "numpy" },
+    { name = "pyproject-local-kernel" },
     { name = "python-lsp-ruff" },
     { name = "python-lsp-server", extra = ["rope"] },
     { name = "sympy" },
@@ -420,6 +422,7 @@ requires-dist = [
     { name = "nbformat", marker = "extra == 'sty'" },
     { name = "nbmake", marker = "extra == 'test'" },
     { name = "numpy", marker = "extra == 'notebooks'" },
+    { name = "pyproject-local-kernel", marker = "extra == 'jupyter'" },
     { name = "python-lsp-ruff", marker = "extra == 'jupyter'" },
     { name = "python-lsp-server", extras = ["rope"], marker = "extra == 'jupyter'" },
     { name = "ruff", marker = "extra == 'sty'" },
@@ -1629,6 +1632,19 @@ source = { registry = "https://pypi.org/simple" }
 sdist = { url = "https://files.pythonhosted.org/packages/8e/62/8336eff65bcbc8e4cb5d05b55faf041285951b6e80f33e2bff2024788f31/pygments-2.18.0.tar.gz", hash = "sha256:786ff802f32e91311bff3889f6e9a86e81505fe99f2735bb6d60ae0c5004f199", size = 4891905 }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/f7/3f/01c8b82017c199075f8f788d0d906b9ffbbc5a47dc9918a945e13d5a2bda/pygments-2.18.0-py3-none-any.whl", hash = "sha256:b8e6aca0523f3ab76fee51799c488e38782ac06eafcf95e7ba832985c8e7b13a", size = 1205513 },
+]
+
+[[package]]
+name = "pyproject-local-kernel"
+version = "0.12.0"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "jupyter-client" },
+    { name = "traitlets" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/a3/02/21e10d19c93e1f142cfced918ff95809da61e5bb7bc3631e5b0c53cb73c9/pyproject_local_kernel-0.12.0.tar.gz", hash = "sha256:7ae2b4a8caea45de457e023fa490ffc955e7d033fe7f5c17bea23b215fba4c1a", size = 311620 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/e1/a9/4739ce2dbc2bd680c8d294cdf347758eb6a56c3365d1ef3913ed711a7f8d/pyproject_local_kernel-0.12.0-py3-none-any.whl", hash = "sha256:a4311fe25085682b8ae4f58fce8e18ef422266f605ab2a6945815e854c95f7f8", size = 19253 },
 ]
 
 [[package]]
