@@ -29,7 +29,6 @@ dev = [
     "compwa-github-io[sty]",
     "compwa-github-io[test]",
     "sphinx-autobuild",
-    "tox",
 ]
 doc = [
     "myst-nb",
