@@ -15,3 +15,6 @@ indent_size = 4
 
 [LICENSE]
 indent_size = unset
+
+[uv.lock]
+indent_size = 4

@@ -27,9 +27,7 @@ ORGANIZATION = "ComPWA"
 REPO_NAME = "compwa.github.io"
 REPO_TITLE = "ComPWA Organization"
 
-BINDER_LINK = (
-    f"https://mybinder.org/v2/gh/ComPWA/{REPO_NAME}/{BRANCH}?filepath=docs/usage"
-)
+BINDER_LINK = f"https://mybinder.org/v2/gh/ComPWA/{REPO_NAME}/{BRANCH}?urlpath=lab"
 
 autosectionlabel_prefix_document = True
 bibtex_bibfiles = ["bibliography.bib"]
@@ -131,14 +129,14 @@ html_theme_options = {
 html_title = "Common Partial Wave Analysis Project"
 intersphinx_mapping = {
     "ampform": ("https://ampform.readthedocs.io/stable", None),
-    "attrs": (f"https://www.attrs.org/en/{pin('attrs')}", None),
+    "attrs": (f"https://www.attrs.org/en/{pin("attrs")}", None),
     "expertsystem": ("https://expertsystem.readthedocs.io/stable", None),
     "graphviz": ("https://graphviz.readthedocs.io/en/stable", None),
-    "IPython": (f"https://ipython.readthedocs.io/en/{pin('IPython')}", None),
+    "IPython": (f"https://ipython.readthedocs.io/en/{pin("IPython")}", None),
     "jax": ("https://jax.readthedocs.io/en/latest", None),
-    "matplotlib": (f"https://matplotlib.org/{pin('matplotlib')}", None),
-    "numba": (f"https://numba.readthedocs.io/en/{pin('numba')}", None),
-    "numpy": (f"https://numpy.org/doc/{pin_minor('numpy')}", None),
+    "matplotlib": (f"https://matplotlib.org/{pin("matplotlib")}", None),
+    "numba": (f"https://numba.readthedocs.io/en/{pin("numba")}", None),
+    "numpy": (f"https://numpy.org/doc/{pin_minor("numpy")}", None),
     "pwa": ("https://pwa.readthedocs.io", None),
     "python": ("https://docs.python.org/3", None),
     "qrules": ("https://qrules.readthedocs.io/stable", None),
@@ -149,6 +147,7 @@ intersphinx_mapping = {
 }
 linkcheck_anchors = False
 linkcheck_ignore = [
+    "https://github.com/search",
     "http://127.0.0.1:8000",
     "https://atom.io",  # often instable
     "https://doi.org/10.1002/andp.19955070504",  # 403 for onlinelibrary.wiley.com
