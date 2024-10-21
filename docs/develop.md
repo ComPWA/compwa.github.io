@@ -67,22 +67,13 @@ Miniconda](https://docs.conda.io/en/latest/miniconda.html#linux-installers), as 
 much smaller than Anaconda. In addition, Conda can install more than just Python
 packages.
 
-All packages {ref}`maintained by the ComPWA organization <index:Main projects>` provide
-a
-[Conda environment file](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html)
-([`environment.yml`](https://github.com/ComPWA/ampform/blob/main/environment.yml)) that
-defines all requirements when working on the source code of that repository. To create
-an environment specific for this repository, simply navigate to the main folder of the
-source code and run:
+The virtual environment of repositories that provide a [Conda environment file](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html) (`environment.yml`), can simply be created with
 
 ```shell
 conda env create
 ```
 
-Conda now creates an environment with a name that is defined in the
-[`environment.yml`](https://github.com/ComPWA/ampform/blob/main/environment.yml) file.
-In addition, it will install the framework itself in
-["editable" mode](#editable-installation), so that you can start developing right away.
+Conda now creates an environment with a name that is defined in the `environment.yml` file. In addition, it will install the framework itself in ["editable" mode](#editable-installation), so that you can start developing right away.
 
 :::
 :::{tab-item} Python venv
