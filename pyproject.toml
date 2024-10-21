@@ -61,7 +61,6 @@ sty = [
     "attrs",
     "compwa-github-io[types]",
     "nbformat",
-    "pre-commit-uv",
     "ruff",
 ]
 test = [
