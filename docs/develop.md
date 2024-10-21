@@ -379,7 +379,7 @@ notebooks with Julia kernels into your {ref}`documentation<develop:Documentation
 
 Where possible, we define and enforce our coding conventions through automated tools, instead of describing them in documentation. These tools perform their checks when you commit files locally (see {ref}`develop:Pre-commit`), when {ref}`running tox <develop:tox>`, and when you make a {ref}`pull request <develop:Collaboration>`.
 
-The tools are mainly configured through [`pyproject.toml`](https://github.com/ComPWA/ampform/blob/main/pyproject.toml), [`tox.ini`](https://github.com/ComPWA/ampform/blob/main/tox.ini), and the workflow files under [`.github`](https://github.com/ComPWA/ampform/blob/main/.github). These configuration files are kept up to date through the [ComPWA/policy](https://compwa.github.io/policy) repository, which essentially defines the developer environment across [all ComPWA repositories](https://github.com/orgs/ComPWA/repositories?q=archived%3Ano&type=all&language=&sort=name).
+The tools are mainly configured through [`pyproject.toml`](https://github.com/ComPWA/ampform/blob/main/pyproject.toml) and the workflow files under [`.github`](https://github.com/ComPWA/ampform/blob/main/.github). These configuration files are kept up to date through the [ComPWA/policy](https://compwa.github.io/policy) repository, which essentially defines the developer environment across [all ComPWA repositories](https://github.com/orgs/ComPWA/repositories?q=archived%3Ano&type=all&language=&sort=name).
 
 If you run into persistent linting errors, this may mean we need to further specify our conventions. In that case, it's best to {ref}`create an issue <develop:Issue management>` or a {ref}`pull request <develop:Collaboration>` at [ComPWA/policy](https://github.com/ComPWA/policy) and propose a policy change that can be formulated through those config files.
 
@@ -437,8 +437,8 @@ submitting a pull request!**
 <!-- cspell:ignore testenv -->
 
 More specialized {command}`tox` job are defined in the
-[`tox.ini`](https://github.com/ComPWA/ampform/blob/main/tox.ini) config file, under each
-{code}`testenv` section. You can list all environments, along with a description of what
+[`pyproject.toml`](https://github.com/ComPWA/ampform/blob/main/pyproject.toml) config file, under each
+{code}`testenv` section under `legacy_tox_ini`. You can list all environments, along with a description of what
 they do, by running:
 
 ```shell
