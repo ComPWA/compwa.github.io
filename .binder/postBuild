@@ -4,6 +4,7 @@ curl -LsSf https://astral.sh/uv/install.sh | sh
 source $HOME/.cargo/env
 uv export \
   --extra jupyter \
+  --extra notebooks \
   > requirements.txt
 uv pip install \
   --requirement requirements.txt \
