@@ -313,6 +313,7 @@ source = { editable = "." }
 dev = [
     { name = "attrs" },
     { name = "black" },
+    { name = "graphviz" },
     { name = "jupyter" },
     { name = "jupyterlab" },
     { name = "jupyterlab-code-formatter" },
@@ -345,6 +346,7 @@ dev = [
 ]
 doc = [
     { name = "black" },
+    { name = "graphviz" },
     { name = "myst-nb" },
     { name = "numpy" },
     { name = "sphinx" },
@@ -365,6 +367,7 @@ doc = [
 ]
 jupyter = [
     { name = "black" },
+    { name = "graphviz" },
     { name = "jupyterlab" },
     { name = "jupyterlab-code-formatter" },
     { name = "jupyterlab-git" },
@@ -377,6 +380,7 @@ jupyter = [
 ]
 notebooks = [
     { name = "black" },
+    { name = "graphviz" },
     { name = "numpy" },
     { name = "sympy" },
 ]
@@ -405,6 +409,7 @@ requires-dist = [
     { name = "compwa-github-io", extras = ["sty"], marker = "extra == 'dev'" },
     { name = "compwa-github-io", extras = ["test"], marker = "extra == 'dev'" },
     { name = "compwa-github-io", extras = ["types"], marker = "extra == 'sty'" },
+    { name = "graphviz", marker = "extra == 'notebooks'" },
     { name = "jupyter", marker = "extra == 'test'" },
     { name = "jupyterlab", marker = "extra == 'jupyter'" },
     { name = "jupyterlab-code-formatter", marker = "extra == 'jupyter'", specifier = ">=3.0.0" },
@@ -539,6 +544,15 @@ dependencies = [
 sdist = { url = "https://files.pythonhosted.org/packages/b6/a1/106fd9fa2dd989b6fb36e5893961f82992cf676381707253e0bf93eb1662/GitPython-3.1.43.tar.gz", hash = "sha256:35f314a9f878467f5453cc1fee295c3e18e52f1b99f10f6cf5b1682e968a9e7c", size = 214149 }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/e9/bd/cc3a402a6439c15c3d4294333e13042b915bbeab54edc457c723931fed3f/GitPython-3.1.43-py3-none-any.whl", hash = "sha256:eec7ec56b92aad751f9912a73404bc02ba212a23adb2c7098ee668417051a1ff", size = 207337 },
+]
+
+[[package]]
+name = "graphviz"
+version = "0.20.3"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/fa/83/5a40d19b8347f017e417710907f824915fba411a9befd092e52746b63e9f/graphviz-0.20.3.zip", hash = "sha256:09d6bc81e6a9fa392e7ba52135a9d49f1ed62526f96499325930e87ca1b5925d", size = 256455 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/00/be/d59db2d1d52697c6adc9eacaf50e8965b6345cc143f671e1ed068818d5cf/graphviz-0.20.3-py3-none-any.whl", hash = "sha256:81f848f2904515d8cd359cc611faba817598d2feaac4027b266aa3eda7b3dde5", size = 47126 },
 ]
 
 [[package]]

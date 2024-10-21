@@ -52,6 +52,7 @@ jupyter = [
 ]
 notebooks = [
     "black",
+    "graphviz",
     "numpy",
     "sympy",
 ]
