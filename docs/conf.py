@@ -147,6 +147,7 @@ intersphinx_mapping = {
 }
 linkcheck_anchors = False
 linkcheck_ignore = [
+    "https://github.com/search",
     "http://127.0.0.1:8000",
     "https://atom.io",  # often instable
     "https://doi.org/10.1002/andp.19955070504",  # 403 for onlinelibrary.wiley.com
