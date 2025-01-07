@@ -33,6 +33,7 @@
     "ms-python.isort",
     "ms-python.mypy-type-checker",
     "ms-python.pylint",
+    "ms-toolsai.vscode-jupyter-slideshow",
     "travisillig.vscode-json-stable-stringify",
     "tyriar.sort-lines"
   ]
