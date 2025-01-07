@@ -132,7 +132,8 @@ addopts = [
     "--ignore-glob=*/.ipynb_checkpoints/*",
     "--ignore=docs/adr/001/sympy.ipynb",
     "--ignore=docs/conf.py",
-    "--nbmake-timeout=1200",
+    "--nbmake",
+    "--nbmake-timeout=0",
 ]
 filterwarnings = [
     "error",
@@ -370,7 +371,7 @@ description = Check external links in the documentation (requires internet conne
 allowlist_externals =
     pytest
 commands =
-    pytest --nbmake {posargs:docs}
+    pytest {posargs:docs}
 description = Run all notebooks with pytest
 
 [testenv:sty]
