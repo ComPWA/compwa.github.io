@@ -113,5 +113,6 @@
     "toprettyxml",
     "unsrt",
     "venv"
-  ]
+  ],
+  "useGitignore": true
 }
