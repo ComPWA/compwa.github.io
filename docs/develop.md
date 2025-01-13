@@ -429,7 +429,7 @@ submitting a pull request!**
 
 More specialized {command}`tox` job are defined in the
 [`pyproject.toml`](https://github.com/ComPWA/ampform/blob/main/pyproject.toml) config file, under each
-{code}`testenv` section under `legacy_tox_ini`. You can list all environments, along with a description of what
+{code}`tool.tox.env` table. You can list all environments, along with a description of what
 they do, by running:
 
 ```shell

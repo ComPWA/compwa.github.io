@@ -14,16 +14,25 @@ maintainers = [{email = "compwa-admin@ep1.rub.de"}]
 name = "compwa-github-io"
 requires-python = ">=3.12"
 
-[project.optional-dependencies]
+[project.readme]
+content-type = "text/markdown"
+file = "README.md"
+
+[project.urls]
+Documentation = "https://compwa.github.io"
+Source = "https://github.com/ComPWA/compwa.github.io"
+Tracker = "https://github.com/ComPWA/compwa.github.io/issues"
+
+[dependency-groups]
 dev = [
-    "compwa-github-io[doc]",
-    "compwa-github-io[jupyter]",
-    "compwa-github-io[sty]",
-    "compwa-github-io[test]",
+    "ruff",
     "sphinx-autobuild",
+    {include-group = "doc"},
+    {include-group = "jupyter"},
+    {include-group = "style"},
+    {include-group = "test"},
 ]
 doc = [
-    "compwa-github-io[notebooks]",
     "myst-nb",
     "sphinx",
     "sphinx-api-relink",
@@ -39,16 +48,18 @@ doc = [
     "sphinx-thebe",
     "sphinx-togglebutton",
     "sphinxcontrib-bibtex >=2",
+    {include-group = "notebooks"},
 ]
 jupyter = [
-    "compwa-github-io[notebooks]",
     "jupyterlab",
     "jupyterlab-code-formatter >=3.0.0",
+    "jupyterlab-code-formatter",
     "jupyterlab-git",
     "jupyterlab-lsp",
     "jupyterlab-myst",
     "python-lsp-ruff",
     "python-lsp-server[rope]",
+    {include-group = "notebooks"},
 ]
 notebooks = [
     "black",
@@ -56,28 +67,16 @@ notebooks = [
     "numpy",
     "sympy",
 ]
-sty = [
+style = [
     "attrs",
-    "compwa-github-io[types]",
     "nbformat",
-    "ruff",
+    {include-group = "types"},
 ]
 test = [
     "jupyter",
     "nbmake",
 ]
-types = [
-    "sphinx-api-relink",
-]
-
-[project.readme]
-content-type = "text/markdown"
-file = "README.md"
-
-[project.urls]
-Documentation = "https://compwa.github.io"
-Source = "https://github.com/ComPWA/compwa.github.io"
-Tracker = "https://github.com/ComPWA/compwa.github.io/issues"
+types = ["sphinx-api-relink"]
 
 [tool.setuptools]
 include-package-data = false
@@ -123,6 +122,8 @@ reportUnusedFunction = true
 reportUnusedImport = true
 reportUnusedVariable = true
 typeCheckingMode = "strict"
+venv = ".venv"
+venvPath = "."
 
 [tool.pytest.ini_options]
 addopts = [
@@ -133,7 +134,8 @@ addopts = [
     "--ignore-glob=*/.ipynb_checkpoints/*",
     "--ignore=docs/adr/001/sympy.ipynb",
     "--ignore=docs/conf.py",
-    "--nbmake-timeout=1200",
+    "--nbmake",
+    "--nbmake-timeout=0",
 ]
 filterwarnings = [
     "error",
@@ -243,7 +245,7 @@ split-on-trailing-comma = false
     "S101",
     "S307",
     "T20",
-    "TCH00",
+    "TC00",
 ]
 "**/003.ipynb" = ["B023", "PLC2701"]
 "**/009.ipynb" = ["FURB113"]
@@ -283,103 +285,109 @@ sort_first = [
     "project",
     "tool.setuptools",
     "tool.setuptools_scm",
+    "tool.tox.env_run_base",
 ]
 spaces_indent_inline_array = 4
 trailing_comma_inline_array = true
 
 [tool.tox]
-legacy_tox_ini = """
-[tox]
-envlist =
-    docnb-force,
-    linkcheck,
-    sty,
-skip_install = True
-skip_missing_interpreters = True
-skipsdist = True
+env_list = [
+    "docnb-force",
+    "linkcheck",
+    "sty",
+]
+no_package = true
+requires = ["tox>=4.21.0"]
+skip_install = true
+skip_missing_interpreters = true
 
-[testenv]
-passenv = *
+[tool.tox.env_run_base]
+pass_env = ["*"]
 
-[testenv:doc]
-allowlist_externals =
-    sphinx-build
-commands =
-    sphinx-build \
-        --builder=html \
-        --fail-on-warning \
-        --keep-going \
-        --show-traceback \
-        docs/ docs/_build/html
-description = Build documentation and API through Sphinx
-setenv =
-    PYTHONWARNINGS =
-    TF_CPP_MIN_LOG_LEVEL = 3
-    ZFIT_DISABLE_TF_WARNINGS = 1
+[tool.tox.env.doc]
+allowlist_externals = ["sphinx-build"]
+commands = [
+    [
+        "sphinx-build",
+        "--builder=html",
+        "--fail-on-warning",
+        "--keep-going",
+        "--show-traceback",
+        "docs/",
+        "docs/_build/html",
+    ],
+]
+description = "Build documentation and API through Sphinx"
+set_env.PYTHONWARNINGS = ""
+set_env.TF_CPP_MIN_LOG_LEVEL = "3"
+set_env.ZFIT_DISABLE_TF_WARNINGS = "1"
 
-[testenv:docnb]
-base = doc
-description = {[testenv:doc]description} with cached notebook execution
-setenv =
-    {[testenv:doc]setenv}
-    EXECUTE_NB = yes
+[tool.tox.env.doclive]
+allowlist_externals = ["sphinx-autobuild"]
+base = ["tool.tox.env_run_base", "tool.tox.env.doc"]
+commands = [
+    [
+        "sphinx-autobuild",
+        "--ignore=docs/_build/",
+        "--open-browser",
+        "--port=0",
+        "--re-ignore='.*/__pycache__/.*'",
+        "--re-ignore='.*/.ipynb_checkpoints/.*'",
+        "--re-ignore='.*/.virtual_documents/.*'",
+        "--re-ignore='.*\\.png'",
+        "--re-ignore='.*\\.svg'",
+        "--re-ignore='.*\\.yaml'",
+        "--re-ignore='.*\\.yml'",
+        "--watch=docs",
+        "docs/",
+        "docs/_build/html",
+    ],
+]
+description = "Set up a server to directly preview changes to the HTML pages"
 
-[testenv:docnb-force]
-base = doc
-description = {[testenv:doc]description} with notebook execution (no cache)
-setenv =
-    {[testenv:doc]setenv}
-    FORCE_EXECUTE_NB = yes
+[tool.tox.env.docnb]
+base = ["tool.tox.env_run_base", "tool.tox.env.doc"]
+description = "{[tool.tox.env.doc]description} with cached notebook execution"
+set_env = [
+    {replace = "ref", of = ["tool.tox.env.doc.set_env"]},
+    {EXECUTE_NB = "yes"},
+]
 
-[testenv:doclive]
-allowlist_externals =
-    sphinx-autobuild
-base = doc
-commands =
-    sphinx-autobuild \
-        --ignore=docs/_build/ \
-        --open-browser \
-        --port=0 \
-        --re-ignore='.*/__pycache__/.*' \
-        --re-ignore='.*/.ipynb_checkpoints/.*' \
-        --re-ignore='.*/.virtual_documents/.*' \
-        --re-ignore='.*\\.png' \
-        --re-ignore='.*\\.svg' \
-        --re-ignore='.*\\.yaml' \
-        --re-ignore='.*\\.yml' \
-        --watch=docs \
-        docs/ docs/_build/html
-description = Set up a server to directly preview changes to the HTML pages
+[tool.tox.env.docnb-force]
+base = ["tool.tox.env_run_base", "tool.tox.env.doc"]
+description = "{[tool.tox.env.doc]description} with notebook execution (no cache)"
+set_env = [
+    {replace = "ref", of = ["tool.tox.env.doc.set_env"]},
+    {FORCE_EXECUTE_NB = "yes"},
+]
 
-[testenv:docnblive]
-base = doclive
-description = {[testenv:doclive]description} with cached notebook execution
-setenv =
-    {[testenv:doclive]setenv}
-    EXECUTE_NB = yes
+[tool.tox.env.docnblive]
+base = ["tool.tox.env_run_base", "tool.tox.env.doclive"]
+description = "{[tool.tox.env.doclive]description} with cached notebook execution"
+set_env = [
+    {replace = "ref", of = ["tool.tox.env.doc.set_env"]},
+    {EXECUTE_NB = "yes"},
+]
 
-[testenv:linkcheck]
-base = doc
-commands =
-    sphinx-build \
-        --builder=linkcheck \
-        --show-traceback \
-        docs/ docs/_build/linkcheck
-description = Check external links in the documentation (requires internet connection)
+[tool.tox.env.linkcheck]
+base = ["tool.tox.env_run_base", "tool.tox.env.doc"]
+commands = [
+    [
+        "sphinx-build",
+        "--builder=linkcheck",
+        "--show-traceback",
+        "docs/",
+        "docs/_build/linkcheck",
+    ],
+]
+description = "Check external links in the documentation (requires internet connection)"
 
-[testenv:nb]
-allowlist_externals =
-    pytest
-commands =
-    pytest --nbmake {posargs:docs}
-description = Run all notebooks with pytest
+[tool.tox.env.nb]
+allowlist_externals = ["pytest"]
+commands = [["pytest", "{posargs:docs}"]]
+description = "Run all notebooks with pytest"
 
-[testenv:sty]
-allowlist_externals =
-    pre-commit
-commands =
-    pre-commit run --all-files {posargs}
-description = Perform all linting, formatting, and spelling checks
-setenv =
-    SKIP = pyright
-"""
+[tool.tox.env.sty]
+allowlist_externals = ["pre-commit"]
+commands = [["pre-commit", "run", "--all-files", "{posargs}"]]
+description = "Perform all linting, formatting, and spelling checks"
