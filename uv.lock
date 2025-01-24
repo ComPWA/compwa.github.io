@@ -304,7 +304,6 @@ wheels = [
 
 [[package]]
 name = "compwa-github-io"
-version = "0.0.1"
 source = { editable = "." }
 
 [package.dev-dependencies]
