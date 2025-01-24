@@ -82,8 +82,6 @@ types = ["sphinx-api-relink"]
 include-package-data = false
 
 [tool.setuptools_scm]
-local_scheme = "no-local-version"
-version_scheme = "only-version"
 write_to = "version.py"
 
 [tool.pyright]
