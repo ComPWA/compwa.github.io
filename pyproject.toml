@@ -85,16 +85,6 @@ include-package-data = false
 write_to = "version.py"
 
 [tool.pyright]
-exclude = [
-    "**/.git",
-    "**/.ipynb_checkpoints",
-    "**/.mypy_cache",
-    "**/.pytest_cache",
-    "**/.tox",
-    "**/.venv/",
-    "**/__pycache__",
-    "**/_build",
-]
 reportGeneralTypeIssues = false
 reportIncompatibleMethodOverride = false
 reportMissingParameterType = false
