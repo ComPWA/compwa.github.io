@@ -82,21 +82,9 @@ types = ["sphinx-api-relink"]
 include-package-data = false
 
 [tool.setuptools_scm]
-local_scheme = "no-local-version"
-version_scheme = "only-version"
 write_to = "version.py"
 
 [tool.pyright]
-exclude = [
-    "**/.git",
-    "**/.ipynb_checkpoints",
-    "**/.mypy_cache",
-    "**/.pytest_cache",
-    "**/.tox",
-    "**/.venv/",
-    "**/__pycache__",
-    "**/_build",
-]
 reportGeneralTypeIssues = false
 reportIncompatibleMethodOverride = false
 reportMissingParameterType = false
@@ -132,6 +120,8 @@ addopts = [
     "--doctest-modules",
     "--durations=0",
     "--ignore-glob=*/.ipynb_checkpoints/*",
+    "--ignore=docs/adr/001/operators.ipynb",
+    "--ignore=docs/adr/001/parameter_container.py",
     "--ignore=docs/adr/001/sympy.ipynb",
     "--ignore=docs/conf.py",
     "--nbmake",
@@ -148,7 +138,6 @@ norecursedirs = [
     ".ipynb_checkpoints",
     ".virtual_documents",
     "_build",
-    "docs/adr",
 ]
 testpaths = [
     ".pre-commit",
@@ -314,7 +303,7 @@ commands = [
         "--keep-going",
         "--show-traceback",
         "docs/",
-        "docs/_build/html",
+        "docs/_build/html/",
     ],
 ]
 description = "Build documentation and API through Sphinx"
@@ -328,19 +317,23 @@ base = ["tool.tox.env_run_base", "tool.tox.env.doc"]
 commands = [
     [
         "sphinx-autobuild",
-        "--ignore=docs/_build/",
-        "--open-browser",
         "--port=0",
-        "--re-ignore='.*/__pycache__/.*'",
-        "--re-ignore='.*/.ipynb_checkpoints/.*'",
-        "--re-ignore='.*/.virtual_documents/.*'",
-        "--re-ignore='.*\\.png'",
-        "--re-ignore='.*\\.svg'",
-        "--re-ignore='.*\\.yaml'",
-        "--re-ignore='.*\\.yml'",
-        "--watch=docs",
+        "--re-ignore=/__pycache__(/.*)?$",
+        "--re-ignore=/_build(/.*)?$",
+        "--re-ignore=/\\.cache(/.*)?$",
+        "--re-ignore=/\\.egg-info(/.*)?$",
+        "--re-ignore=/\\.ipynb_checkpoints(/.*)?$",
+        "--re-ignore=/\\.virtual_documents(/.*)?$",
+        "--re-ignore=/api(/.*)?$",
+        "--re-ignore=/docs$",
+        "--re-ignore=/version\\.py$",
+        "--re-ignore=\\.egg-info(/.*)?$",
+        "--re-ignore=\\.pkl$",
+        "--re-ignore=\\.png$",
+        "--re-ignore=\\.svg$",
+        "--re-ignore=\\.yml$",
         "docs/",
-        "docs/_build/html",
+        "docs/_build/html/",
     ],
 ]
 description = "Set up a server to directly preview changes to the HTML pages"
@@ -377,7 +370,7 @@ commands = [
         "--builder=linkcheck",
         "--show-traceback",
         "docs/",
-        "docs/_build/linkcheck",
+        "docs/_build/linkcheck/",
     ],
 ]
 description = "Check external links in the documentation (requires internet connection)"

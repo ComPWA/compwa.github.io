@@ -30,12 +30,6 @@
     "\u03bd": true,
     "\u03c3": true
   },
-  "files.watcherExclude": {
-    "**/*_cache/**": true,
-    "**/.eggs/**": true,
-    "**/.git/**": true,
-    "**/.tox/**": true
-  },
   "git.rebaseWhenSync": true,
   "github-actions.workflows.pinned.workflows": [".github/workflows/ci.yml"],
   "gitlens.telemetry.enabled": false,
@@ -53,6 +47,7 @@
   "notebook.formatOnSave.enabled": true,
   "notebook.gotoSymbols.showAllSymbols": true,
   "python.analysis.autoImportCompletions": false,
+  "python.defaultInterpreterPath": ".venv/bin/python",
   "python.terminal.activateEnvironment": false,
   "python.testing.pytestEnabled": false,
   "redhat.telemetry.enabled": false,
