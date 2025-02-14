@@ -29,6 +29,7 @@ REPO_TITLE = "ComPWA Organization"
 
 BINDER_LINK = f"https://mybinder.org/v2/gh/ComPWA/{REPO_NAME}/{BRANCH}?urlpath=lab"
 
+author = ""
 autosectionlabel_prefix_document = True
 bibtex_bibfiles = ["bibliography.bib"]
 bibtex_reference_style = "author_year"
