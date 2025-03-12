@@ -142,7 +142,7 @@ repos:
         always_run: true
         exclude: >
           (?x)^(
-            docs/_static/favicon.ico
+            docs/favicon.ico
           )$
 
   - repo: https://github.com/ComPWA/pyright-pre-commit
