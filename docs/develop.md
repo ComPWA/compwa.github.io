@@ -368,7 +368,7 @@ notebooks with Julia kernels into your {ref}`documentation<develop:Documentation
 
 ## Automated coding conventions
 
-Where possible, we define and enforce our coding conventions through automated tools, instead of describing them in documentation. These tools perform their checks when you commit files locally (see {ref}`develop:Pre-commit`), when {ref}`running tox <develop:tox>`, and when you make a {ref}`pull request <develop:Collaboration>`.
+Where possible, we define and enforce our coding conventions through automated tools, instead of describing them in documentation. These tools perform their checks when you commit files locally (see {ref}`develop:Pre-commit`), when {ref}`running checks locally <develop:checks>`, and when you make a {ref}`pull request <develop:Collaboration>`.
 
 The tools are mainly configured through [`pyproject.toml`](https://github.com/ComPWA/ampform/blob/main/pyproject.toml) and the workflow files under [`.github`](https://github.com/ComPWA/ampform/blob/main/.github). These configuration files are kept up to date through the [ComPWA/policy](https://compwa.github.io/policy) repository, which essentially defines the developer environment across [all ComPWA repositories](https://github.com/orgs/ComPWA/repositories?q=archived%3Ano&type=all&language=&sort=name).
 
@@ -405,35 +405,20 @@ and [on pre-commit.ci](https://results.pre-commit.ci/install/github/18435973) , 
 that all files in the repository follow the same conventions as set in the config files
 of these tools.
 
-### Tox
+### Checks
 
-More thorough checks can be run in one go with the following command:
+<!-- cspell:ignore poethepoet -->
 
-:::{margin} Running jobs in parallel
-The {code}`-p` flag lets the jobs run in parallel. It also provides a nicer overview of
-the progress. See [`--parallel`](https://tox.wiki/en/latest/config.html#cmdoption-tox-p)
-flag.
-:::
+Many ComPWA repositories define a set of tasks that serve as way to run CI checks locally. These checks are run through the [Poe the Poet](https://poethepoet.natn.io) task runner and are defined under the [`[tool.poe.tasks]`](https://poethepoet.natn.io/tasks/index.html) table in [`pyproject.toml`](https://github.com/ComPWA/ampform/blob/main/pyproject.toml). The available checks can be listed with
 
 ```shell
-tox -p
+poe
 ```
 
-This command will [run `pytest`](#testing), perform all
-{ref}`style checks <develop:Style checks>`,
-{ref}`build the documentation <develop:Documentation>`, and verify cross-references in
-the documentation and the API. It's especially recommended to **run tox before
-submitting a pull request!**
-
-<!-- cspell:ignore testenv -->
-
-More specialized {command}`tox` job are defined in the
-[`pyproject.toml`](https://github.com/ComPWA/ampform/blob/main/pyproject.toml) config file, under each
-{code}`tool.tox.env` table. You can list all environments, along with a description of what
-they do, by running:
+Poe the Poet is installed through the `dev` dependency group. However, since the `poe` command can automatically generate a `uv` virtual environment, it can be useful to install it system-wide, so that you can run the checks without having to activate the environment.
 
 ```shell
-tox list
+uv tool install poethepoet
 ```
 
 ### GitHub Actions
@@ -516,9 +501,7 @@ The flag {command}`-n auto` causes {code}`pytest` to
 
 ::::{margin}
 :::{tip}
-In VScode, you can visualize test coverage are covered with
-[Coverage Gutters](https://marketplace.visualstudio.com/items?itemName=ryanluker.vscode-coverage-gutters).
-For this you need to run {command}`pytest` with the flag {command}`--cov-report=xml`).
+In VS&nbsp;Code, you can visualize test coverage are covered with through its built-in [test coverage support](https://code.visualstudio.com/docs/python/testing#_run-tests-with-coverage).
 :::
 ::::
 
@@ -527,7 +510,7 @@ For this you need to run {command}`pytest` with the flag {command}`--cov-report=
 Try to keep test coverage high. You can compute current coverage by running
 
 ```shell
-tox -e cov
+poe cov
 ```
 
 and opening {file}`htmlcov/index.html` in a browser.
@@ -565,7 +548,7 @@ host them on the website (see [MyST-NB](https://myst-nb.readthedocs.io))!
 You can quickly build the documentation with the command:
 
 ```shell
-tox -e doc
+poe doc
 ```
 
 <!-- cspell:ignore autobuild -->
@@ -577,7 +560,7 @@ Just run:
 <!-- cspell:ignore doclive -->
 
 ```shell
-tox -e doclive
+poe doclive
 ```
 
 This will start a server [http://127.0.0.1:8000](http://127.0.0.1:8000) where you can
@@ -615,18 +598,16 @@ useful Jupyter Lab plugins are also installed through the
 Now, if you want to test all notebooks in the documentation folder and check what their
 output cells will look like in the {ref}`develop:Documentation`, you can do this with:
 
-<!-- cspell:ignore docnb -->
+<!-- cspell:ignore docnb docnblive -->
 
 ```shell
-tox -e docnb
+poe docnb
 ```
 
-This command takes more time than `tox -e doc`, but it is good practice to do this
-before you submit a pull request. It's also possible to continuously generate the HTML
-pages _including cell output_ while you work on the notebooks with:
+This command takes more time than `poe doc`, but it is good practice to do this before you submit a pull request. It's also possible to continuously generate the HTML pages _including cell output_ while you work on the notebooks with:
 
 ```shell
-EXECUTE_NB= tox -e doclive
+poe docnblive
 ```
 
 :::{tip}
@@ -876,7 +857,7 @@ not have any CI or code review restrictions. We call this a "feature branch".
   [Epic](https://blog.zenhub.com/working-with-epics-in-github) and split up into smaller
   tasks.
 
-- Before creating a pull request, run {ref}`develop:Tox`.
+- Before creating a pull request, run {ref}`develop:checks`.
 
 - Also use a [conventional commit message](https://www.conventionalcommits.org) style
   for the PR title. This is because we follow a
