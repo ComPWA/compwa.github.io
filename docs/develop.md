@@ -8,40 +8,36 @@ This page describes some of the tools and conventions followed by
 because its file structure is comparable to that of other ComPWA repositories.
 
 :::::{tip}
+ComPWA repositories define their developer environment with [`uv`](https://docs.astral.sh/uv) for Python-only projects and with [Pixi](https://pixi.sh) for projects that also use other languages, such as Julia or C++. It is straightforward to install these package managers on your system, even as a user.
+
 To start developing, simply run the following from a cloned repository on your machine:
+
 ::::{tab-set}
-:::{tab-item} Conda
-
-```shell
-conda env create
-conda activate ampform
-pre-commit install --install-hooks
-```
-
-:::
 :::{tab-item} uv
 
 ```shell
-uv venv -p 3.10
+uv sync
 source .venv/bin/activate
-uv pip install -c .constraints/py3.10.txt -e '.[dev]'
-pre-commit install --install-hooks
 ```
 
 :::
-:::{tab-item} Python venv
+:::{tab-item} Pixi
 
 ```shell
-python3 -m venv ./venv
-source ./venv/bin/activate
-python3 -m pip install -c .constraints/py3.10.txt -e '.[dev]'
-pre-commit install --install-hooks
+pixi shell
 ```
-
-Replace `3.10` with the Python version you use on your machine.
 
 :::
 ::::
+
+Then, install the [`pre-commit`](https://pre-commit.com) and the hooks for this repository:
+
+```shell
+
+uv tool install --with pre-commit-uv pre-commit
+pre-commit install --install-hooks
+```
+
 See {ref}`develop:Virtual environment` for more info.
 :::::
 
@@ -56,25 +52,32 @@ in case something goes wrong with the dependencies: just trash the environment a
 recreate it. In addition, you can easily install other versions of the dependencies,
 without affecting other packages you may be working on.
 
-Somme common tools to manage virtual environments are [Conda](https://www.anaconda.com), [`uv`](https://github.com/astral-sh/uv) and [Python's built-in `venv`](https://docs.python.org/3/tutorial/venv.html). In any of these cases, you have to activate the environment whenever you want to run the framework or use the developer tools.
+Somme common tools to manage virtual environments are [`uv`](https://github.com/astral-sh/uv), [Python's built-in `venv`](https://docs.python.org/3/tutorial/venv.html), and [Pixi](https://pixi.sh) for projects that also use other languages, such as Julia or C++. In any of these cases, you have to activate the environment whenever you want to run the framework or use the developer tools.
 
 ::::{tab-set}
-:::{tab-item} Conda environment
+:::{tab-item} uv
 
-[Conda](https://www.anaconda.com) can be installed without administrator rights. It is
-recommended to [download
-Miniconda](https://docs.conda.io/en/latest/miniconda.html#linux-installers), as it is
-much smaller than Anaconda. In addition, Conda can install more than just Python
-packages.
-
-The virtual environment of repositories that provide a [Conda environment file](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html) (`environment.yml`), can simply be created with
+An upcoming and super fast Python package installer is [`uv`](https://github.com/astral-sh/uv?tab=readme-ov-file#getting-started). It can be installed without administrator rights and comes with its own `venv` command to manage virtual environments. The virtual environment can simply be created with:
 
 ```shell
-conda env create
+uv sync
 ```
 
-Conda now creates an environment with a name that is defined in the `environment.yml` file. In addition, it will install the framework itself in ["editable" mode](#editable-installation), so that you can start developing right away.
+This creates a folder called {file}`.venv` where all Python packages will be contained. To activate the environment, run:
 
+```shell
+source .venv/bin/activate
+```
+
+:::
+:::{tab-item} Pixi
+[Pixi](https://pixi.sh) is a fast package manager written in Rust that can install many non-Python packages. ComPWA repositories that contain a Pixi configuration (either under `pixi.toml` or `pyproject.toml`) can be set up with:
+
+```shell
+pixi shell
+```
+
+The virtual environment is located under the `.pixi/` directory.
 :::
 :::{tab-item} Python venv
 
@@ -102,27 +105,21 @@ pip install -e .
 ```
 
 :::
-:::{tab-item} uv
+:::{tab-item} Conda environment
 
-An upcoming and super fast Python package installer is [`uv`](https://github.com/astral-sh/uv?tab=readme-ov-file#getting-started). It can be installed without administrator rights and comes with its own `venv` command to manage virtual environments. Here's how to do it for a specific Python version:[^deadsnakes]
+[Conda](https://www.anaconda.com) can be installed without administrator rights. It is
+recommended to [download
+Miniconda](https://docs.conda.io/en/latest/miniconda.html#linux-installers), as it is
+much smaller than Anaconda. In addition, Conda can install more than just Python
+packages.
 
-```shell
-uv venv -p 3.10
-```
-
-This creates a folder called {file}`.venv` where all Python packages will be contained. To activate the environment, run:
-
-```shell
-source .venv/bin/activate
-```
-
-You can safely install the package you want to work on (see ["editable" mode](#editable-installation)), as well as any additional required packages (see [optional dependencies](#optional-dependencies)):
+The virtual environment of repositories that provide a [Conda environment file](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html) (`environment.yml`), can simply be created with
 
 ```shell
-uv pip install -e .
+conda env create
 ```
 
-[^deadsnakes]: To install a specific Python version on Ubuntu, use [deadsnakes](https://launchpad.net/~deadsnakes/+archive/ubuntu/ppa).
+Conda now creates an environment with a name that is defined in the `environment.yml` file. In addition, it will install the framework itself in ["editable" mode](#editable-installation), so that you can start developing right away.
 
 :::
 ::::
@@ -290,6 +287,32 @@ accessible. Here's an example, where we also make the Julia executable available
 system:
 
 :::::{tab-set}
+::::{tab-item} Pixi
+
+Install [juliaup](https://github.com/JuliaLang/juliaup) for installing and managing Julia versions.
+
+```shell
+pixi global install juliaup
+```
+
+:::{dropdown} Optional: select Julia version
+By default, this provides you with the latest Julia release. **Optionally**, you can
+switch versions as follows:
+
+```shell
+conda install juliaup -c conda-forge
+juliaup add 1.9
+juliaup default 1.9
+```
+
+You can switch back to the latest version with:
+
+```shell
+juliaup default release
+```
+
+:::
+::::
 ::::{tab-item} Conda
 
 Install [juliaup](https://github.com/JuliaLang/juliaup) for installing and managing
@@ -961,19 +984,32 @@ You can still specify your own settings in
 [either the user or encompassing workspace settings](https://code.visualstudio.com/docs/getstarted/settings),
 as the VSCode settings that come with this are folder settings.
 
-:::{dropdown} Conda and VSCode
-ComPWA projects are best developed {ref}`with Conda <develop:Virtual environment>` and
-VSCode. The complete developer install procedure then becomes:
+:::::{dropdown} Visual Studio Code
+ComPWA projects are best developed {ref}`with uv and Pixi <develop:Virtual environment>` and VSCode. The complete developer install procedure then becomes:
+
+::::{tab-set}
+:::{tab-item} uv
 
 ```shell
 git clone https://github.com/ComPWA/ampform  # or some other repo
 cd ampform
-conda env create
-conda activate pwa  # or whatever the environment name is
+uv sync
 code .  # open folder in VSCode
 ```
 
 :::
+:::{tab-item} Pixi
+
+```shell
+git clone https://github.com/ComPWA/polarimetry  # or some other repo
+cd polarimetry
+pixi install
+code .  # open folder in VSCode
+```
+
+:::
+::::
+:::::
 
 ## Writing durable software
 
