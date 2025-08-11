@@ -8,40 +8,36 @@ This page describes some of the tools and conventions followed by
 because its file structure is comparable to that of other ComPWA repositories.
 
 :::::{tip}
+ComPWA repositories define their developer environment with [`uv`](https://docs.astral.sh/uv) for Python-only projects and with [Pixi](https://pixi.sh) for projects that also use other languages, such as Julia or C++. It is straightforward to install these package managers on your system, even as a user.
+
 To start developing, simply run the following from a cloned repository on your machine:
+
 ::::{tab-set}
-:::{tab-item} Conda
-
-```shell
-conda env create
-conda activate ampform
-pre-commit install --install-hooks
-```
-
-:::
 :::{tab-item} uv
 
 ```shell
-uv venv -p 3.10
+uv sync
 source .venv/bin/activate
-uv pip install -c .constraints/py3.10.txt -e '.[dev]'
-pre-commit install --install-hooks
 ```
 
 :::
-:::{tab-item} Python venv
+:::{tab-item} Pixi
 
 ```shell
-python3 -m venv ./venv
-source ./venv/bin/activate
-python3 -m pip install -c .constraints/py3.10.txt -e '.[dev]'
-pre-commit install --install-hooks
+pixi shell
 ```
-
-Replace `3.10` with the Python version you use on your machine.
 
 :::
 ::::
+
+Then, install the [`pre-commit`](https://pre-commit.com) and the hooks for this repository:
+
+```shell
+
+uv tool install --with pre-commit-uv pre-commit
+pre-commit install --install-hooks
+```
+
 See {ref}`develop:Virtual environment` for more info.
 :::::
 
@@ -56,25 +52,32 @@ in case something goes wrong with the dependencies: just trash the environment a
 recreate it. In addition, you can easily install other versions of the dependencies,
 without affecting other packages you may be working on.
 
-Somme common tools to manage virtual environments are [Conda](https://www.anaconda.com), [`uv`](https://github.com/astral-sh/uv) and [Python's built-in `venv`](https://docs.python.org/3/tutorial/venv.html). In any of these cases, you have to activate the environment whenever you want to run the framework or use the developer tools.
+Somme common tools to manage virtual environments are [`uv`](https://github.com/astral-sh/uv), [Python's built-in `venv`](https://docs.python.org/3/tutorial/venv.html), and [Pixi](https://pixi.sh) for projects that also use other languages, such as Julia or C++. In any of these cases, you have to activate the environment whenever you want to run the framework or use the developer tools.
 
 ::::{tab-set}
-:::{tab-item} Conda environment
+:::{tab-item} uv
 
-[Conda](https://www.anaconda.com) can be installed without administrator rights. It is
-recommended to [download
-Miniconda](https://docs.conda.io/en/latest/miniconda.html#linux-installers), as it is
-much smaller than Anaconda. In addition, Conda can install more than just Python
-packages.
-
-The virtual environment of repositories that provide a [Conda environment file](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html) (`environment.yml`), can simply be created with
+An upcoming and super fast Python package installer is [`uv`](https://github.com/astral-sh/uv?tab=readme-ov-file#getting-started). It can be installed without administrator rights and comes with its own `venv` command to manage virtual environments. The virtual environment can simply be created with:
 
 ```shell
-conda env create
+uv sync
 ```
 
-Conda now creates an environment with a name that is defined in the `environment.yml` file. In addition, it will install the framework itself in ["editable" mode](#editable-installation), so that you can start developing right away.
+This creates a folder called {file}`.venv` where all Python packages will be contained. To activate the environment, run:
 
+```shell
+source .venv/bin/activate
+```
+
+:::
+:::{tab-item} Pixi
+[Pixi](https://pixi.sh) is a fast package manager written in Rust that can install many non-Python packages. ComPWA repositories that contain a Pixi configuration (either under `pixi.toml` or `pyproject.toml`) can be set up with:
+
+```shell
+pixi shell
+```
+
+The virtual environment is located under the `.pixi/` directory.
 :::
 :::{tab-item} Python venv
 
@@ -102,27 +105,21 @@ pip install -e .
 ```
 
 :::
-:::{tab-item} uv
+:::{tab-item} Conda environment
 
-An upcoming and super fast Python package installer is [`uv`](https://github.com/astral-sh/uv?tab=readme-ov-file#getting-started). It can be installed without administrator rights and comes with its own `venv` command to manage virtual environments. Here's how to do it for a specific Python version:[^deadsnakes]
+[Conda](https://www.anaconda.com) can be installed without administrator rights. It is
+recommended to [download
+Miniconda](https://docs.conda.io/en/latest/miniconda.html#linux-installers), as it is
+much smaller than Anaconda. In addition, Conda can install more than just Python
+packages.
 
-```shell
-uv venv -p 3.10
-```
-
-This creates a folder called {file}`.venv` where all Python packages will be contained. To activate the environment, run:
-
-```shell
-source .venv/bin/activate
-```
-
-You can safely install the package you want to work on (see ["editable" mode](#editable-installation)), as well as any additional required packages (see [optional dependencies](#optional-dependencies)):
+The virtual environment of repositories that provide a [Conda environment file](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html) (`environment.yml`), can simply be created with
 
 ```shell
-uv pip install -e .
+conda env create
 ```
 
-[^deadsnakes]: To install a specific Python version on Ubuntu, use [deadsnakes](https://launchpad.net/~deadsnakes/+archive/ubuntu/ppa).
+Conda now creates an environment with a name that is defined in the `environment.yml` file. In addition, it will install the framework itself in ["editable" mode](#editable-installation), so that you can start developing right away.
 
 :::
 ::::
@@ -290,6 +287,32 @@ accessible. Here's an example, where we also make the Julia executable available
 system:
 
 :::::{tab-set}
+::::{tab-item} Pixi
+
+Install [juliaup](https://github.com/JuliaLang/juliaup) for installing and managing Julia versions.
+
+```shell
+pixi global install juliaup
+```
+
+:::{dropdown} Optional: select Julia version
+By default, this provides you with the latest Julia release. **Optionally**, you can
+switch versions as follows:
+
+```shell
+conda install juliaup -c conda-forge
+juliaup add 1.9
+juliaup default 1.9
+```
+
+You can switch back to the latest version with:
+
+```shell
+juliaup default release
+```
+
+:::
+::::
 ::::{tab-item} Conda
 
 Install [juliaup](https://github.com/JuliaLang/juliaup) for installing and managing
@@ -368,7 +391,7 @@ notebooks with Julia kernels into your {ref}`documentation<develop:Documentation
 
 ## Automated coding conventions
 
-Where possible, we define and enforce our coding conventions through automated tools, instead of describing them in documentation. These tools perform their checks when you commit files locally (see {ref}`develop:Pre-commit`), when {ref}`running tox <develop:tox>`, and when you make a {ref}`pull request <develop:Collaboration>`.
+Where possible, we define and enforce our coding conventions through automated tools, instead of describing them in documentation. These tools perform their checks when you commit files locally (see {ref}`develop:Pre-commit`), when {ref}`running checks locally <develop:checks>`, and when you make a {ref}`pull request <develop:Collaboration>`.
 
 The tools are mainly configured through [`pyproject.toml`](https://github.com/ComPWA/ampform/blob/main/pyproject.toml) and the workflow files under [`.github`](https://github.com/ComPWA/ampform/blob/main/.github). These configuration files are kept up to date through the [ComPWA/policy](https://compwa.github.io/policy) repository, which essentially defines the developer environment across [all ComPWA repositories](https://github.com/orgs/ComPWA/repositories?q=archived%3Ano&type=all&language=&sort=name).
 
@@ -405,35 +428,20 @@ and [on pre-commit.ci](https://results.pre-commit.ci/install/github/18435973) , 
 that all files in the repository follow the same conventions as set in the config files
 of these tools.
 
-### Tox
+### Checks
 
-More thorough checks can be run in one go with the following command:
+<!-- cspell:ignore poethepoet -->
 
-:::{margin} Running jobs in parallel
-The {code}`-p` flag lets the jobs run in parallel. It also provides a nicer overview of
-the progress. See [`--parallel`](https://tox.wiki/en/latest/config.html#cmdoption-tox-p)
-flag.
-:::
+Many ComPWA repositories define a set of tasks that serve as way to run CI checks locally. These checks are run through the [Poe the Poet](https://poethepoet.natn.io) task runner and are defined under the [`[tool.poe.tasks]`](https://poethepoet.natn.io/tasks/index.html) table in [`pyproject.toml`](https://github.com/ComPWA/ampform/blob/main/pyproject.toml). The available checks can be listed with
 
 ```shell
-tox -p
+poe
 ```
 
-This command will [run `pytest`](#testing), perform all
-{ref}`style checks <develop:Style checks>`,
-{ref}`build the documentation <develop:Documentation>`, and verify cross-references in
-the documentation and the API. It's especially recommended to **run tox before
-submitting a pull request!**
-
-<!-- cspell:ignore testenv -->
-
-More specialized {command}`tox` job are defined in the
-[`pyproject.toml`](https://github.com/ComPWA/ampform/blob/main/pyproject.toml) config file, under each
-{code}`tool.tox.env` table. You can list all environments, along with a description of what
-they do, by running:
+Poe the Poet is installed through the `dev` dependency group. However, since the `poe` command can automatically generate a `uv` virtual environment, it can be useful to install it system-wide, so that you can run the checks without having to activate the environment.
 
 ```shell
-tox list
+uv tool install poethepoet
 ```
 
 ### GitHub Actions
@@ -516,9 +524,7 @@ The flag {command}`-n auto` causes {code}`pytest` to
 
 ::::{margin}
 :::{tip}
-In VScode, you can visualize test coverage are covered with
-[Coverage Gutters](https://marketplace.visualstudio.com/items?itemName=ryanluker.vscode-coverage-gutters).
-For this you need to run {command}`pytest` with the flag {command}`--cov-report=xml`).
+In VS&nbsp;Code, you can visualize test coverage are covered with through its built-in [test coverage support](https://code.visualstudio.com/docs/python/testing#_run-tests-with-coverage).
 :::
 ::::
 
@@ -527,7 +533,7 @@ For this you need to run {command}`pytest` with the flag {command}`--cov-report=
 Try to keep test coverage high. You can compute current coverage by running
 
 ```shell
-tox -e cov
+poe cov
 ```
 
 and opening {file}`htmlcov/index.html` in a browser.
@@ -565,7 +571,7 @@ host them on the website (see [MyST-NB](https://myst-nb.readthedocs.io))!
 You can quickly build the documentation with the command:
 
 ```shell
-tox -e doc
+poe doc
 ```
 
 <!-- cspell:ignore autobuild -->
@@ -577,7 +583,7 @@ Just run:
 <!-- cspell:ignore doclive -->
 
 ```shell
-tox -e doclive
+poe doclive
 ```
 
 This will start a server [http://127.0.0.1:8000](http://127.0.0.1:8000) where you can
@@ -615,18 +621,16 @@ useful Jupyter Lab plugins are also installed through the
 Now, if you want to test all notebooks in the documentation folder and check what their
 output cells will look like in the {ref}`develop:Documentation`, you can do this with:
 
-<!-- cspell:ignore docnb -->
+<!-- cspell:ignore docnb docnblive -->
 
 ```shell
-tox -e docnb
+poe docnb
 ```
 
-This command takes more time than `tox -e doc`, but it is good practice to do this
-before you submit a pull request. It's also possible to continuously generate the HTML
-pages _including cell output_ while you work on the notebooks with:
+This command takes more time than `poe doc`, but it is good practice to do this before you submit a pull request. It's also possible to continuously generate the HTML pages _including cell output_ while you work on the notebooks with:
 
 ```shell
-EXECUTE_NB= tox -e doclive
+poe docnblive
 ```
 
 :::{tip}
@@ -876,7 +880,7 @@ not have any CI or code review restrictions. We call this a "feature branch".
   [Epic](https://blog.zenhub.com/working-with-epics-in-github) and split up into smaller
   tasks.
 
-- Before creating a pull request, run {ref}`develop:Tox`.
+- Before creating a pull request, run {ref}`develop:checks`.
 
 - Also use a [conventional commit message](https://www.conventionalcommits.org) style
   for the PR title. This is because we follow a
@@ -980,19 +984,32 @@ You can still specify your own settings in
 [either the user or encompassing workspace settings](https://code.visualstudio.com/docs/getstarted/settings),
 as the VSCode settings that come with this are folder settings.
 
-:::{dropdown} Conda and VSCode
-ComPWA projects are best developed {ref}`with Conda <develop:Virtual environment>` and
-VSCode. The complete developer install procedure then becomes:
+:::::{dropdown} Visual Studio Code
+ComPWA projects are best developed {ref}`with uv and Pixi <develop:Virtual environment>` and VSCode. The complete developer install procedure then becomes:
+
+::::{tab-set}
+:::{tab-item} uv
 
 ```shell
 git clone https://github.com/ComPWA/ampform  # or some other repo
 cd ampform
-conda env create
-conda activate pwa  # or whatever the environment name is
+uv sync
 code .  # open folder in VSCode
 ```
 
 :::
+:::{tab-item} Pixi
+
+```shell
+git clone https://github.com/ComPWA/polarimetry  # or some other repo
+cd polarimetry
+pixi install
+code .  # open folder in VSCode
+```
+
+:::
+::::
+:::::
 
 ## Writing durable software
 
