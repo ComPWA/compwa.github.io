@@ -114,6 +114,7 @@ help = "Build documentation and API"
 cmd = """
 sphinx-autobuild \
     --builder=html \
+    --open-browser \
     --port=0 \
     --re-ignore=/__pycache__(/.*)?$ \
     --re-ignore=/_build(/.*)?$ \
