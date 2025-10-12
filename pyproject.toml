@@ -305,7 +305,6 @@ split-on-trailing-comma = false
     "N807",
     "N815",
     "N816",
-    "PD901",
     "PLC0415",
     "PLC2401",
     "PLR09",
