@@ -14,12 +14,11 @@ repos:
       - id: check-useless-excludes
 
   - repo: https://github.com/ComPWA/policy
-    rev: 0.7.1
+    rev: 0.7.3
     hooks:
       - id: check-dev-files
         args:
           - --doc-apt-packages=graphviz
-          - --dev-python-version=3.12
           - --github-pages
           - --no-pypi
           - --repo-name=compwa.github.io
@@ -60,7 +59,7 @@ repos:
   - repo: https://github.com/astral-sh/ruff-pre-commit
     rev: v0.14.0
     hooks:
-      - id: ruff
+      - id: ruff-check
         args: [--fix]
         types_or: [python, pyi, jupyter]
       - id: ruff-format
@@ -108,7 +107,7 @@ repos:
         args: [--in-place]
 
   - repo: https://github.com/python-jsonschema/check-jsonschema
-    rev: 0.34.0
+    rev: 0.34.1
     hooks:
       - id: check-jsonschema
         name: Check CITATION.cff
