@@ -170,6 +170,7 @@ linkcheck_ignore = [
     "https://www.andiamo.co.uk/resources/iso-language-codes",  # 443, but works
     "https://www.bookfinder.com",
     "https://www.mathworks.com/products/matlab.html",
+    "https://www.npmjs.com/package",
     r"https://github.com/ComPWA/RUB-EP1-AG/.*",  # private
     r"https://github.com/orgs/ComPWA/projects/\d+",  # private
 ]
