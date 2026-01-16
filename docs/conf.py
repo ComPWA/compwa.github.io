@@ -139,7 +139,6 @@ intersphinx_mapping = {
     "matplotlib": (f"https://matplotlib.org/{pin('matplotlib')}", None),
     "numba": (f"https://numba.readthedocs.io/en/{pin('numba')}", None),
     "numpy": (f"https://numpy.org/doc/{pin_minor('numpy')}", None),
-    "pwa": ("https://pwa.readthedocs.io", None),
     "python": ("https://docs.python.org/3", None),
     "qrules": ("https://qrules.readthedocs.io/stable", None),
     "scipy": ("https://docs.scipy.org/doc/scipy-1.7.0", None),
@@ -222,6 +221,7 @@ source_suffix = {
     ".md": "myst-nb",
 }
 suppress_warnings = [
+    "myst.directive_unknown",
     "myst.domains",
     "mystnb.unknown_mime_type",
 ]

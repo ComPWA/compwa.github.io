@@ -787,7 +787,7 @@ as a way to document the framework.
 ### Branching model
 
 While our aim is to maintain long-term, stable projects,
-{ref}`PWA software projects <pwa:software:software inventory>` are academic projects
+[PWA software projects](https://pwa.readthedocs.io/software) are academic projects
 that are subject to change and often require swift modifications or new features for
 ongoing analyses. For this reason, we work in different layers of development. These
 layers are represented by Git branches.
@@ -847,6 +847,8 @@ requests. It is best to create such a pull request from a separate branch, which
 not have any CI or code review restrictions. We call this a "feature branch".
 
 ### Commit conventions
+
+<!-- cspell:ignore MAINT -->
 
 - Please use [conventional commit messages](https://www.conventionalcommits.org): start
   the commit with one of the semantic keywords below in UPPER CASE, followed by
