@@ -374,12 +374,12 @@ rules.unresolved-attribute = "ignore"
 [[tool.ty.overrides]]
 include = ["docs/adr/002/composition.ipynb"]
 rules.call-non-callable = "ignore"
-rules.division-by-zero = "warn"
-rules.empty-body = "warn"
-rules.possibly-missing-import = "warn"
-rules.possibly-unresolved-reference = "warn"
+rules.empty-body = "ignore"
 
 [tool.ty.rules]
 division-by-zero = "warn"
 possibly-missing-import = "warn"
 possibly-unresolved-reference = "warn"
+
+[tool.ty.terminal]
+error-on-warning = true
