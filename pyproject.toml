@@ -85,10 +85,10 @@ include-package-data = false
 [tool.setuptools_scm]
 write_to = "version.py"
 
-[tool.poe]
-executor.isolated = true
-executor.no-group = "dev"
-executor.type = "uv"
+[tool.poe.executor]
+isolated = true
+no-group = "dev"
+type = "uv"
 
 [tool.poe.tasks.all]
 help = "Run all continuous integration (CI) tasks locally"
