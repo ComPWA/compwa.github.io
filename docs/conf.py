@@ -33,6 +33,7 @@ author = ""
 autosectionlabel_prefix_document = True
 bibtex_bibfiles = ["bibliography.bib"]
 bibtex_reference_style = "author_year"
+bibtex_use_mathjax = True
 codeautolink_concat_default = True
 codeautolink_global_preface = """
 import matplotlib.pyplot as plt
