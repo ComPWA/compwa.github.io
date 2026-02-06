@@ -1991,16 +1991,16 @@ wheels = [
 
 [[package]]
 name = "sphinx-api-relink"
-version = "0.1.0"
+version = "0.1.1"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "colorama" },
     { name = "docutils" },
     { name = "sphinx" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/19/99/b71b83d23bbc4dca5329dcc5e728e1088c40e303dac2cb05d5879b0785fd/sphinx_api_relink-0.1.0.tar.gz", hash = "sha256:bac1a58ef0a422e5b28111c46d9682bb181b7eb5f92617b53a55d6d7fef32a40", size = 26988, upload-time = "2026-01-13T22:48:12.878Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/d3/03/3488c9fa7fcfddb01206aadfd6641ba3f4ba4166a09ad96786c6d8a3be57/sphinx_api_relink-0.1.1.tar.gz", hash = "sha256:91ce49375941742384f30ce8d823eb85d1e1be9bdbda0f7e0441141db3c8cfa5", size = 27117, upload-time = "2026-02-06T12:14:51.332Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/f2/fc/5633f7099508cd30d7f9a97dc48ca75bc9a6773d02081fc4a1a6bcaf2ce6/sphinx_api_relink-0.1.0-py3-none-any.whl", hash = "sha256:7e8a7fd29c215aed93a727a80930e7050ccf2158f112451f8f84db0465ce98fb", size = 13799, upload-time = "2026-01-13T22:48:11.152Z" },
+    { url = "https://files.pythonhosted.org/packages/6c/c7/3d049d143c1a102085c90552a4e33867013771419f74f0a297705ff3ba38/sphinx_api_relink-0.1.1-py3-none-any.whl", hash = "sha256:1dcb75777ac4e0d5621c61aceb61cdfbb1d37095481af857676581a68790a466", size = 13753, upload-time = "2026-02-06T12:14:50.294Z" },
 ]
 
 [[package]]
@@ -2072,28 +2072,28 @@ wheels = [
 
 [[package]]
 name = "sphinx-hep-pdgref"
-version = "0.2.1"
+version = "0.2.2"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "attrs" },
     { name = "docutils" },
     { name = "sphinx" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/78/22/37fed67271c83018cea4c5c8f82b03d658cac6407289dca5a7cb3ed4b600/sphinx_hep_pdgref-0.2.1.tar.gz", hash = "sha256:c7cbae1ea1d7b70a82872a99583ebad7886c3ed217b5610ead8446843699f6d8", size = 17614, upload-time = "2024-10-29T10:57:09.522Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/2e/37/6a0e669bec2089db62e78c51900138fa1ea11cc51c8dc1ce433e1cb261af/sphinx_hep_pdgref-0.2.2.tar.gz", hash = "sha256:1257b50628bca25219112fca2ec3a5ab881c82b0cdc50be73eb56b2400c5ec2e", size = 17339, upload-time = "2026-02-06T12:03:29.602Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/9d/0c/78ba08f0f2c3f8980b07a0b74b411ef6f6ef662f3b0517b1cd922cfc66a4/sphinx_hep_pdgref-0.2.1-py3-none-any.whl", hash = "sha256:4d22a3cd7278b6be8988559acd8c15573cb482a0e686172a25899a53d64a6127", size = 7534, upload-time = "2024-10-29T10:57:08.628Z" },
+    { url = "https://files.pythonhosted.org/packages/72/1e/fbdfe0b6131ac0d2b62052f2f44a48c8f02434ce16cef4383fcaad4fe5cf/sphinx_hep_pdgref-0.2.2-py3-none-any.whl", hash = "sha256:3b990e16ac449f967c2e54cbbeffdc9fda380e4112e9de9aac0fdc0aea285915", size = 7468, upload-time = "2026-02-06T12:03:28.512Z" },
 ]
 
 [[package]]
 name = "sphinx-pybtex-etal-style"
-version = "0.0.3"
+version = "0.0.4"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "pybtex" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/05/cb/c75d1173988344a5fabd9dbeea742e4a8c452953e68f1c25d844733b62a6/sphinx_pybtex_etal_style-0.0.3.tar.gz", hash = "sha256:e43beb55bc33f01d9b4d0ac90b20ad1d7209238d993d3256a973946aeeece262", size = 11855, upload-time = "2024-10-29T10:58:09.749Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/76/a0/86a558095a760241042b90357df11844339325a986e5d99c05479f48730f/sphinx_pybtex_etal_style-0.0.4.tar.gz", hash = "sha256:661dd788dd873c53a1171f1f78a017bea40c5b5ca3a1b7d7911ebe9df3e1b527", size = 13847, upload-time = "2026-02-06T10:51:07.988Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/a3/4d/8beb18b2cf347e152899a1a595f85049d691fbcd9a60e38756144742ca8f/sphinx_pybtex_etal_style-0.0.3-py3-none-any.whl", hash = "sha256:51170abd9fcf5ba5d09ffb890c1b722448d8d185b9b9b5a2feb869c57256f2ff", size = 6032, upload-time = "2024-10-29T10:58:07.973Z" },
+    { url = "https://files.pythonhosted.org/packages/cb/95/28633a01ae9c9ec55fcf477878ed6d3e154349a1c529fd4eeefb16663abf/sphinx_pybtex_etal_style-0.0.4-py3-none-any.whl", hash = "sha256:5a42fac509e03756af390aefb10d6195271b1d672d7d95fa2e816a8324955807", size = 7338, upload-time = "2026-02-06T10:51:06.59Z" },
 ]
 
 [[package]]
