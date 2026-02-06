@@ -958,7 +958,7 @@ Do you have other recommendations? Edit this page
 - [Scientific Python Library Development Guide](https://learn.scientific-python.org/development/) for scientists and research software engineers.
 - [Complete Python Development Guide ― testdriven.io](https://testdriven.io/guides/complete-python)
 - _Effective Python: 90 Specific Ways to Write Better Python_ (2019) by Brett Slatkin
-  {cite}`slatkinEffectivePython902019`. See also
+  {cite}`Slatkin:2019-EffectivePython`. See also
   [its website](https://effectivepython.com).
 - [Scikit-HEP Developer Information](https://scikit-hep.org/developer)
 
