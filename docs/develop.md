@@ -4,7 +4,7 @@
 
 This page describes some of the tools and conventions followed by
 [Common Partial Wave Analysis](https://github.com/ComPWA). Where possible, we use the
-[source code of the AmpForm repository](https://github.com/ComPWA/AmpForm) as example,
+[source code of the AmpForm repository](https://github.com/ComPWA/ampform) as example,
 because its file structure is comparable to that of other ComPWA repositories.
 
 :::::{tip}
@@ -30,12 +30,17 @@ pixi shell
 :::
 ::::
 
-Then, install the [`pre-commit`](https://pre-commit.com) and the hooks for this repository:
+In addition, [`pre-commit`](https://pre-commit.com) is used to enforce style checks and can be installed with::
 
 ```shell
-
-uv tool install --with pre-commit-uv pre-commit
+uv tool install --python=3.13 --with pre-commit-uv pre-commit
 pre-commit install --install-hooks
+```
+
+In `uv`-only projects, [Poe the Poet](https://poethepoet.natn.io) is used as task runner and can be installed with:
+
+```shell
+uv tool install --python=3.13 poethepoet
 ```
 
 See {ref}`develop:Virtual environment` for more info.
@@ -145,15 +150,6 @@ the repository you want to work on, navigate into it, and run:
 python3 -m pip install -e .
 ```
 
-:::{toggle}
-Internally, this calls:
-
-```shell
-python3 setup.py develop
-```
-
-:::
-
 This will also install all dependencies required by the package.
 
 ### Optional dependencies
@@ -191,49 +187,7 @@ requirements can be installed with the last example.
 
 ### Pinning dependency versions
 
-To ensure that developers use exactly the same versions of the package dependencies and
-developer requirements, some of the repositories provide
-[constraint files](https://pip.pypa.io/en/stable/user_guide/#constraints-files). These
-files can be used to 'pin' all versions of installed packages as follows:
-
-:::{margin}
-Requirements may differ per Python version, so there is one constraint file for each
-version of Python that the package supports.
-:::
-
-```shell
-python3 -m pip install -c .constraints/py3.10.txt -e .
-```
-
-The syntax works just as well for {ref}`develop:Optional dependencies`:
-
-::::{tab-set}
-:::{tab-item} Bash
-
-```shell
-python3 -m pip install -c .constraints/py3.10.txt -e .[doc,sty]
-python3 -m pip install -c .constraints/py3.10.txt -e .[test]
-python3 -m pip install -c .constraints/py3.10.txt -e .[dev]
-```
-
-:::
-:::{tab-item} Z shell
-
-```shell
-python3 -m pip install -c .constraints/py3.10.txt -e ".[doc,sty]"
-python3 -m pip install -c .constraints/py3.10.txt -e ".[test]"
-python3 -m pip install -c .constraints/py3.10.txt -e ".[dev]"
-```
-
-:::
-::::
-
-The constraint files are updated automatically with
-[`pip-tools`](https://github.com/jazzband/pip-tools) through
-{ref}`develop:GitHub Actions`. See
-[`requirements-pr.yml`](https://github.com/ComPWA/ampform/actions/workflows/requirements-pr.yml)
-and
-[`requirements-cron.yml`](https://github.com/ComPWA/ampform/actions/workflows/requirements-cron.yml).
+To ensure that developers use exactly the same versions of the package dependencies and developer requirements, some of the repositories provide lock files, such as [`uv.lock`](https://docs.astral.sh/uv/concepts/projects/sync) and [`pixi.lock`](https://pixi.prefix.dev/v0.63.2/workspace/lockfile). The constraint files are updated automatically with the [ComPWA/actions/.github/workflows/lock.yml](https://github.com/ComPWA/actions/blob/v4/.github/workflows/lock.yml) workflow using {ref}`develop:GitHub Actions`.
 
 :::{note}
 Constraint files ensure that the framework is _deterministic and reproducible_ (up to
@@ -242,36 +196,6 @@ and for developers (for instance with
 {ref}`continuous integration <develop:GitHub Actions>`). In other words, it provides a
 way out of ["dependency hell"](https://en.wikipedia.org/wiki/Dependency_hell).
 :::
-
-### Updating
-
-It may be that new commits in the repository modify the dependencies. In that case, you
-have to rerun this command after pulling new commits from the repository:
-
-::::{tab-set}
-:::{tab-item} Bash
-
-```shell
-git checkout main
-git pull
-pip install -c .constraints/py3.10.txt -e .[dev]
-```
-
-:::
-:::{tab-item} Z shell
-
-```shell
-git checkout main
-git pull
-pip install -c .constraints/py3.10.txt -e ".[dev]"
-```
-
-:::
-::::
-
-If you still have problems, it may be that certain dependencies have become redundant.
-In that case, trash the virtual environment and
-{ref}`create a new one <develop:Virtual environment>`.
 
 ### Julia
 
@@ -344,10 +268,10 @@ juliaup default release
 
 ```shell
 cd ~/Downloads
-tar xzf julia-1.10.3-linux-x86_64.tar.gz
+tar xzf julia-1.12.4-linux-x86_64.tar.gz
 mkdir ~/opt ~/bin
-mv julia-1.10.3 ~/opt/
-ln -s ~/opt/julia-1.10.3/bin/julia ~/bin/julia
+mv julia-1.12.4 ~/opt/
+ln -s ~/opt/julia-1.12.4/bin/julia ~/bin/julia
 ```
 
 Make sure that `~/bin` is listed in the `PATH` environment variable, e.g. by updating it
@@ -362,9 +286,9 @@ export PATH="~/bin:$PATH"
 
 ```shell
 cd ~/Downloads
-tar xzf julia-1.10.3-linux-x86_64.tar.gz
-sudo mv julia-1.10.3 /opt/
-sudo ln -s /opt/julia-1.10.3/bin/julia /usr/local/bin/julia
+tar xzf julia-1.12.4-linux-x86_64.tar.gz
+sudo mv julia-1.12.4 /opt/
+sudo ln -s /opt/julia-1.12.4/bin/julia /usr/local/bin/julia
 ```
 
 ::::
@@ -787,7 +711,7 @@ as a way to document the framework.
 ### Branching model
 
 While our aim is to maintain long-term, stable projects,
-{ref}`PWA software projects <pwa:software:software inventory>` are academic projects
+[PWA software projects](https://pwa.readthedocs.io/software) are academic projects
 that are subject to change and often require swift modifications or new features for
 ongoing analyses. For this reason, we work in different layers of development. These
 layers are represented by Git branches.
@@ -848,6 +772,8 @@ not have any CI or code review restrictions. We call this a "feature branch".
 
 ### Commit conventions
 
+<!-- cspell:ignore MAINT -->
+
 - Please use [conventional commit messages](https://www.conventionalcommits.org): start
   the commit with one of the semantic keywords below in UPPER CASE, followed by
   [a column](https://git-scm.com/docs/git-interpret-trailers), then the commit header.
@@ -864,16 +790,16 @@ not have any CI or code review restrictions. We call this a "feature branch".
 
   The allowed semantic keywords (commit types) are as follows:[^1]
 
-  | [Commit type](https://www.conventionalcommits.org/en/v1.0.0/#specification) | [Repository label](https://github.com/organizations/ComPWA/settings/repository-defaults)                                                                                                             | Description                                         |
-  | :-------------------------------------------------------------------------: | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :-------------------------------------------------- |
-  |                                   `FEAT`                                    | ![#C2E0C6](https://via.placeholder.com/15/C2E0C6/C2E0C6.png) [✨ Feature](https://github.com/search?o=desc&s=created&type=Issues&q=user%3AComPWA+label%3A%22%E2%9C%A8%20Feature%22)                  | New feature added to the package                    |
-  |                                    `ENH`                                    | ![#C2E0C6](https://via.placeholder.com/15/C2E0C6/C2E0C6.png) [⚙️ Enhancement](https://github.com/search?o=desc&s=created&type=Issues&q=user%3AComPWA+label%3A%22%E2%9A%99%EF%B8%8F%20Enhancement%22) | Improvements and optimizations of existing features |
-  |                                    `FIX`                                    | ![#e11d21](https://via.placeholder.com/15/e11d21/e11d21.png) [🐛 Bug](https://github.com/search?o=desc&s=created&type=Issues&q=user%3AComPWA+label%3A%22%F0%9F%90%9B+Bug%22)                         | Bug has been fixed                                  |
-  |                                   `BREAK`                                   | ![#F9D0C4](https://via.placeholder.com/15/F9D0C4/F9D0C4.png) [⚠️ Interface](https://github.com/search?o=desc&s=created&type=Issues&q=user%3AComPWA+label%3A%22%E2%9A%A0%EF%B8%8F%20Interface%22)     | Breaking changes to the API                         |
-  |                                 `BEHAVIOR`                                  | ![#F9D0C4](https://via.placeholder.com/15/F9D0C4/F9D0C4.png) [❗ Behavior](https://github.com/search?o=desc&s=created&type=Issues&q=user%3AComPWA+label%3A%22%E2%9D%97%20Behavior%22)                | Changes that may affect the framework output        |
-  |                                    `DOC`                                    | ![#bfd4f2](https://via.placeholder.com/15/bfd4f2/bfd4f2.png) [📝 Docs](https://github.com/search?o=desc&s=created&type=Issues&q=user%3AComPWA+label%3A%22%F0%9F%93%9D%20Docs%22)                     | Improvements or additions to documentation          |
-  |                                   `MAINT`                                   | ![#FFCD8F](https://via.placeholder.com/15/FFCD8F/FFCD8F.png) [🔨 Maintenance](https://github.com/search?o=desc&s=created&type=Issues&q=user%3AComPWA+label%3A%22%F0%9F%94%A8%20Maintenance%22)       | Maintenance and upkeep improvements                 |
-  |                                    `DX`                                     | ![#FEF2C0](https://via.placeholder.com/15/FEF2C0/FEF2C0.png) [🖱️ DX](https://github.com/search?o=desc&s=created&type=Issues&q=user%3AComPWA+label%3A%22%F0%9F%96%B1%EF%B8%8F%20DX%22)                | Improvements to the Developer Experience            |
+  | [Commit type](https://www.conventionalcommits.org/en/v1.0.0/#specification) |                Color                 | [Label](https://github.com/organizations/ComPWA/settings/repository-defaults)                                                                | Description                                         |
+  | :-------------------------------------------------------------------------: | :----------------------------------: | :------------------------------------------------------------------------------------------------------------------------------------------- | :-------------------------------------------------- |
+  |                                   `FEAT`                                    | <font color="#C2E0C6">#C2E0C6</font> | [✨&nbsp;Feature](https://github.com/search?o=desc&s=created&type=Issues&q=user%3AComPWA+label%3A%22%E2%9C%A8%20Feature%22)                  | New feature added to the package                    |
+  |                                    `ENH`                                    | <font color="#C2E0C6">#C2E0C6</font> | [⚙️&nbsp;Enhancement](https://github.com/search?o=desc&s=created&type=Issues&q=user%3AComPWA+label%3A%22%E2%9A%99%EF%B8%8F%20Enhancement%22) | Improvements and optimizations of existing features |
+  |                                    `FIX`                                    | <font color="#E11D21">#E11D21</font> | [🐛&nbsp;Bug](https://github.com/search?o=desc&s=created&type=Issues&q=user%3AComPWA+label%3A%22%F0%9F%90%9B+Bug%22)                         | Bug has been fixed                                  |
+  |                                   `BREAK`                                   | <font color="#F9D0C4">#F9D0C4</font> | [⚠️&nbsp;Interface](https://github.com/search?o=desc&s=created&type=Issues&q=user%3AComPWA+label%3A%22%E2%9A%A0%EF%B8%8F%20Interface%22)     | Breaking changes to the API                         |
+  |                                 `BEHAVIOR`                                  | <font color="#F9D0C4">#F9D0C4</font> | [❗&nbsp;Behavior](https://github.com/search?o=desc&s=created&type=Issues&q=user%3AComPWA+label%3A%22%E2%9D%97%20Behavior%22)                | Changes that may affect the framework output        |
+  |                                    `DOC`                                    | <font color="#BFD4F2">#BFD4F2</font> | [📝&nbsp;Docs](https://github.com/search?o=desc&s=created&type=Issues&q=user%3AComPWA+label%3A%22%F0%9F%93%9D%20Docs%22)                     | Improvements or additions to documentation          |
+  |                                   `MAINT`                                   | <font color="#FFCD8F">#FFCD8F</font> | [🔨&nbsp;Maintenance](https://github.com/search?o=desc&s=created&type=Issues&q=user%3AComPWA+label%3A%22%F0%9F%94%A8%20Maintenance%22)       | Maintenance and upkeep improvements                 |
+  |                                    `DX`                                     | <font color="#FEF2C0">#FEF2C0</font> | [🖱️&nbsp;DX](https://github.com/search?o=desc&s=created&type=Issues&q=user%3AComPWA+label%3A%22%F0%9F%96%B1%EF%B8%8F%20DX%22)                | Improvements to the Developer Experience            |
 
 - Keep pull requests small. If the issue you try to address is too big, discuss in the
   team whether the issue can be converted into an
@@ -1032,7 +958,7 @@ Do you have other recommendations? Edit this page
 - [Scientific Python Library Development Guide](https://learn.scientific-python.org/development/) for scientists and research software engineers.
 - [Complete Python Development Guide ― testdriven.io](https://testdriven.io/guides/complete-python)
 - _Effective Python: 90 Specific Ways to Write Better Python_ (2019) by Brett Slatkin
-  {cite}`slatkinEffectivePython902019`. See also
+  {cite}`Slatkin:2019-EffectivePython`. See also
   [its website](https://effectivepython.com).
 - [Scikit-HEP Developer Information](https://scikit-hep.org/developer)
 

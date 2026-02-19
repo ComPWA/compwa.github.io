@@ -89,7 +89,7 @@ fast fits on large data samples
 PWA Pages
 ```
 
-[![Documentation build status](https://readthedocs.org/projects/pwa/badge/?version=latest)](https://pwa.readthedocs.io)<br>
+[![Documentation build status](https://app.readthedocs.org/projects/pwa/badge/)](https://pwa.readthedocs.io)<br>
 A central knowledge-base for Partial Wave Analysis theory and software
 
 :::
@@ -115,7 +115,7 @@ The main packages listed above originate from the following, deprecated projects
 Partial Wave Analysis is a complicated research discipline, where several aspects of
 quantum field theory, experimental physics, statistics, regression analysis, and
 high-performance computing come together. This has led to
-{ref}`a large number of PWA frameworks <pwa:software:Software inventory>` that taylor to
+[a large number of PWA frameworks](https://pwa.readthedocs.io/software) that taylor to
 the need of each collaboration.
 
 This state of affairs is only natural: research requires a flexible and specialized
@@ -228,7 +228,7 @@ PWA is a difficult field to get into and to navigate around. ComPWA therefore pu
 effort into maintaining **easily navigable and interactive documentation** that
 **narrows the gap between code and theory**.
 
-- All libraries provide example pages (see e.g. {doc}`here <ampform:usage>`). These
+- All libraries provide example pages (see e.g. {doc}`here <tensorwaves:usage>`). These
   pages are written as Jupyter notebook and provide a close link between code (how to
   use the library in a script, with links to the API) and theory (explanations of the
   basics being performed).

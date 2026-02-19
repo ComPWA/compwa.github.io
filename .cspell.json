@@ -26,6 +26,7 @@
     "*.svg",
     ".editorconfig",
     ".envrc",
+    ".github/dependabot.yml",
     ".gitignore",
     ".pre-commit-config.yaml",
     ".prettierignore",
@@ -38,7 +39,6 @@
     "pyproject.toml"
   ],
   "ignoreWords": [
-    "MAINT",
     "codemirror",
     "commitlint",
     "cxxcode",
@@ -64,6 +64,7 @@
     "nbmake",
     "nbsp",
     "nopython",
+    "poethepoet",
     "prereleased",
     "pycode",
     "pygments",

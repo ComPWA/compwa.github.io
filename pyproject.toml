@@ -20,14 +20,12 @@ file = "README.md"
 
 [project.urls]
 Documentation = "https://compwa.github.io"
+Issues = "https://github.com/ComPWA/compwa.github.io/issues"
 Source = "https://github.com/ComPWA/compwa.github.io"
-Tracker = "https://github.com/ComPWA/compwa.github.io/issues"
 
 [dependency-groups]
 dev = [
-    "poethepoet",
     "ruff",
-    "sphinx-autobuild",
     {include-group = "doc"},
     {include-group = "jupyter"},
     {include-group = "style"},
@@ -52,30 +50,32 @@ doc = [
     {include-group = "notebooks"},
 ]
 jupyter = [
+    "jupyter-ruff",
     "jupyterlab",
-    "jupyterlab-code-formatter",
     "jupyterlab-git",
     "jupyterlab-lsp",
     "jupyterlab-myst",
     "jupyterlab-quickopen",
     "python-lsp-ruff",
-    "python-lsp-server[rope]",
+    "python-lsp-server",
     {include-group = "notebooks"},
 ]
 notebooks = [
     "black",
     "graphviz",
+    "ipython",
     "numpy",
     "sympy",
 ]
 style = [
     "attrs",
     "nbformat",
+    "ty",
+    {include-group = "notebooks"},
     {include-group = "types"},
 ]
 test = [
     "jupyter",
-    "nbmake",
 ]
 types = ["sphinx-api-relink"]
 
@@ -85,8 +85,10 @@ include-package-data = false
 [tool.setuptools_scm]
 write_to = "version.py"
 
-[tool.poe]
-executor.type = "uv"
+[tool.poe.executor]
+isolated = true
+no-group = "dev"
+type = "uv"
 
 [tool.poe.tasks.all]
 help = "Run all continuous integration (CI) tasks locally"
@@ -108,6 +110,7 @@ sphinx-build \
     docs/_build/html/
 """
 env = {PYTHONWARNINGS = "", TF_CPP_MIN_LOG_LEVEL = "3", ZFIT_DISABLE_TF_WARNINGS = "1"}
+executor = {group = "doc"}
 help = "Build documentation and API"
 
 [tool.poe.tasks.doclive]
@@ -133,6 +136,7 @@ sphinx-autobuild \
     docs/ \
     docs/_build/html/
 """
+executor = {group = "doc", with = "sphinx-autobuild"}
 help = "Set up a server to directly preview changes to the HTML pages"
 
 [tool.poe.tasks.docnb]
@@ -153,7 +157,8 @@ sequence = ["doclive"]
 [tool.poe.tasks.lab]
 args = [{name = "paths", default = "", positional = true}]
 cmd = "jupyter lab ${paths}"
-help = "Run Jupyter Lab"
+executor = {group = "jupyter"}
+help = "Launch Jupyter Lab"
 
 [tool.poe.tasks.linkcheck]
 cmd = """
@@ -164,44 +169,19 @@ sphinx-build \
     docs/_build/linkcheck/
 """
 env = {PYTHONWARNINGS = ""}
+executor = {group = "doc"}
 help = "Check external links in the documentation (requires internet connection)"
 
 [tool.poe.tasks.nb]
-cmd = "pytest --nbmake --nbmake-timeout=0 docs"
+args = [{name = "paths", default = "docs", multiple = true, positional = true}]
+cmd = "pytest --nbmake --nbmake-timeout=0 ${paths}"
+executor = {group = "notebooks", with = "nbmake"}
 help = "Run all notebooks"
 
 [tool.poe.tasks.style]
 cmd = "pre-commit run --all-files"
+executor = {group = "style"}
 help = "Perform all linting, formatting, and spelling checks"
-
-[tool.pyright]
-reportGeneralTypeIssues = false
-reportIncompatibleMethodOverride = false
-reportMissingParameterType = false
-reportMissingTypeArgument = false
-reportMissingTypeStubs = false
-reportOperatorIssue = false
-reportOverlappingOverload = false
-reportPrivateImportUsage = false
-reportPrivateUsage = false
-reportReturnType = false
-reportUnboundVariable = false
-reportUnknownArgumentType = false
-reportUnknownLambdaType = false
-reportUnknownMemberType = false
-reportUnknownParameterType = false
-reportUnknownVariableType = false
-reportUnnecessaryComparison = false
-reportUnnecessaryContains = false
-reportUnnecessaryIsInstance = false
-reportUntypedFunctionDecorator = false
-reportUnusedClass = true
-reportUnusedFunction = true
-reportUnusedImport = true
-reportUnusedVariable = true
-typeCheckingMode = "strict"
-venv = ".venv"
-venvPath = "."
 
 [tool.pytest.ini_options]
 addopts = [
@@ -269,6 +249,7 @@ ignore = [
     "PLW1514",
     "PT001",
     "PTH",
+    "RUF067",
     "SIM108",
     "SLF001",
 ]
@@ -325,6 +306,7 @@ split-on-trailing-comma = false
     "T20",
     "TC00",
 ]
+"**/001/operators.ipynb" = ["E731"]
 "**/003.ipynb" = ["B023", "PLC2701"]
 "**/009.ipynb" = ["FURB113"]
 "**/010.ipynb" = ["FURB113"]
@@ -366,3 +348,38 @@ sort_first = [
 ]
 spaces_indent_inline_array = 4
 trailing_comma_inline_array = true
+
+[[tool.ty.overrides]]
+include = ["docs/symbolics.ipynb"]
+rules.unresolved-attribute = "ignore"
+
+[[tool.ty.overrides]]
+include = [
+    "docs/adr/001/operators.ipynb",
+    "docs/adr/001/sympy.ipynb",
+    "docs/adr/002/composition.ipynb",
+    "docs/adr/002/expr.ipynb",
+    "docs/adr/002/function.ipynb",
+]
+rules.unresolved-import = "ignore"
+
+[[tool.ty.overrides]]
+include = ["docs/adr/**/*.ipynb"]
+rules.invalid-argument-type = "ignore"
+rules.invalid-assignment = "ignore"
+rules.invalid-return-type = "ignore"
+rules.no-matching-overload = "ignore"
+rules.unresolved-attribute = "ignore"
+
+[[tool.ty.overrides]]
+include = ["docs/adr/002/composition.ipynb"]
+rules.call-non-callable = "ignore"
+rules.empty-body = "ignore"
+
+[tool.ty.rules]
+division-by-zero = "warn"
+possibly-missing-import = "warn"
+possibly-unresolved-reference = "warn"
+
+[tool.ty.terminal]
+error-on-warning = true
