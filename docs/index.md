@@ -228,7 +228,7 @@ PWA is a difficult field to get into and to navigate around. ComPWA therefore pu
 effort into maintaining **easily navigable and interactive documentation** that
 **narrows the gap between code and theory**.
 
-- All libraries provide example pages (see e.g. {doc}`here <ampform:usage>`). These
+- All libraries provide example pages (see e.g. {doc}`here <tensorwaves:usage>`). These
   pages are written as Jupyter notebook and provide a close link between code (how to
   use the library in a script, with links to the API) and theory (explanations of the
   basics being performed).
