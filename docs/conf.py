@@ -136,7 +136,7 @@ intersphinx_mapping = {
     "expertsystem": ("https://expertsystem.readthedocs.io/stable", None),
     "graphviz": ("https://graphviz.readthedocs.io/en/stable", None),
     "IPython": (f"https://ipython.readthedocs.io/en/{pin('IPython')}", None),
-    "jax": ("https://jax.readthedocs.io/en/latest", None),
+    "jax": ("https://docs.jax.dev/en/latest", None),
     "matplotlib": (f"https://matplotlib.org/{pin('matplotlib')}", None),
     "numba": (f"https://numba.readthedocs.io/en/{pin('numba')}", None),
     "numpy": (f"https://numpy.org/doc/{pin_minor('numpy')}", None),
