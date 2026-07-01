@@ -46,7 +46,7 @@ doc = [
     "sphinx-reredirects",
     "sphinx-thebe",
     "sphinx-togglebutton",
-    "sphinxcontrib-bibtex >=2",
+    "sphinxcontrib-bibtex>=2.7.0",
     {include-group = "notebooks"},
 ]
 jupyter = [
