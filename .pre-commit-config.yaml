@@ -14,22 +14,9 @@ repos:
       - id: check-useless-excludes
 
   - repo: https://github.com/ComPWA/policy
-    rev: 0.8.13
+    rev: 15362d4c0f603c124978ece1b3b5c9629c852d51
     hooks:
       - id: check-dev-files
-        args:
-          - --doc-apt-packages=graphviz
-          - --github-pages
-          - --no-pypi
-          - --repo-name=compwa.github.io
-          - --repo-title=ComPWA Organization
-          - --type-checker=ty
-      - id: colab-toc-visible
-      - id: fix-nbformat-version
-      - id: remove-empty-tags
-      - id: set-nb-display-name
-      - id: strip-nb-whitespace
-
   - repo: https://github.com/kynan/nbstripout
     rev: 0.9.1
     hooks:
@@ -157,15 +144,11 @@ repos:
             docs/favicon.ico
           )$
 
-  - repo: local
+  - repo: https://github.com/astral-sh/ty-pre-commit
+    rev: v0.0.56
     hooks:
       - id: ty
-        name: ty
-        entry: ty check
-        args: [--no-progress, --output-format=concise]
-        require_serial: true
-        language: system
-        types_or: [python, pyi, jupyter]
+        args: [--no-default-groups, --group=types]
 
   - repo: https://github.com/astral-sh/uv-pre-commit
     rev: 0.11.26

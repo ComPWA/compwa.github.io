@@ -85,6 +85,18 @@ include-package-data = false
 [tool.setuptools_scm]
 write_to = "version.py"
 
+[tool.compwa.policy]
+doc-apt-packages = "graphviz"
+repo-name = "compwa.github.io"
+repo-title = "ComPWA Organization"
+
+[tool.compwa.policy.github]
+github-pages = true
+no-pypi = true
+
+[tool.compwa.policy.python]
+type-checker = ["ty"]
+
 [tool.poe.executor]
 isolated = true
 no-group = "dev"
