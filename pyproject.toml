@@ -90,16 +90,10 @@ isolated = true
 no-group = "dev"
 type = "uv"
 
-[tool.poe.tasks.all]
-help = "Run all continuous integration (CI) tasks locally"
-ignore_fail = "return_non_zero"
-sequence = [
-    "docnb-force",
-    "linkcheck",
-    "style",
-]
+[tool.poe.groups.doc]
+heading = "Documentation"
 
-[tool.poe.tasks.doc]
+[tool.poe.groups.doc.tasks.doc]
 cmd = """
 sphinx-build \
     --builder=html \
@@ -113,7 +107,7 @@ env = {PYTHONWARNINGS = "", TF_CPP_MIN_LOG_LEVEL = "3", ZFIT_DISABLE_TF_WARNINGS
 executor = {group = "doc"}
 help = "Build documentation and API"
 
-[tool.poe.tasks.doclive]
+[tool.poe.groups.doc.tasks.doclive]
 cmd = """
 sphinx-autobuild \
     --builder=html \
@@ -139,28 +133,17 @@ sphinx-autobuild \
 executor = {group = "doc", with = "sphinx-autobuild"}
 help = "Set up a server to directly preview changes to the HTML pages"
 
-[tool.poe.tasks.docnb]
+[tool.poe.groups.doc.tasks.docnb]
 env = {EXECUTE_NB = "yes"}
 help = "Build documentation and API with cached notebook execution"
 sequence = ["doc"]
 
-[tool.poe.tasks.docnb-force]
-env = {FORCE_EXECUTE_NB = "yes"}
-help = "Build documentation and API with notebook execution (no cache)"
-sequence = ["doc"]
-
-[tool.poe.tasks.docnblive]
+[tool.poe.groups.doc.tasks.docnblive]
 env = {EXECUTE_NB = "yes"}
 help = "Set up a server to directly preview changes to the HTML pages with cached notebook execution"
 sequence = ["doclive"]
 
-[tool.poe.tasks.lab]
-args = [{name = "paths", default = "", positional = true}]
-cmd = "jupyter lab ${paths}"
-executor = {group = "jupyter"}
-help = "Launch Jupyter Lab"
-
-[tool.poe.tasks.linkcheck]
+[tool.poe.groups.doc.tasks.linkcheck]
 cmd = """
 sphinx-build \
     --builder=linkcheck \
@@ -172,16 +155,47 @@ env = {PYTHONWARNINGS = ""}
 executor = {group = "doc"}
 help = "Check external links in the documentation (requires internet connection)"
 
-[tool.poe.tasks.nb]
+[tool.poe.groups.notebook]
+heading = "Notebooks"
+
+[tool.poe.groups.notebook.tasks.lab]
+args = [{name = "paths", default = "", positional = true}]
+cmd = "jupyter lab ${paths}"
+executor = {group = "jupyter"}
+help = "Launch Jupyter Lab"
+
+[tool.poe.groups.notebook.tasks.nb]
 args = [{name = "paths", default = "docs", multiple = true, positional = true}]
 cmd = "pytest --nbmake --nbmake-timeout=0 ${paths}"
 executor = {group = "notebooks", with = "nbmake"}
 help = "Run all notebooks"
 
+[tool.poe.tasks.all]
+help = "Run all continuous integration (CI) tasks locally"
+ignore_fail = "return_non_zero"
+sequence = [
+    "docnb-force",
+    "linkcheck",
+    "style",
+]
+
+[tool.poe.tasks.docnb-force]
+env = {FORCE_EXECUTE_NB = "yes"}
+help = "Build documentation and API with notebook execution (no cache)"
+sequence = ["doc"]
+
 [tool.poe.tasks.style]
 cmd = "pre-commit run --all-files"
 executor = {group = "style"}
 help = "Perform all linting, formatting, and spelling checks"
+
+[tool.poe.tasks.upgrade]
+executor = {type = "simple"}
+help = "Upgrade lock files"
+parallel = [
+    {cmd = "pre-commit autoupdate -j8"},
+    {cmd = "uv lock --upgrade"},
+]
 
 [tool.pytest.ini_options]
 addopts = [
