@@ -138,6 +138,11 @@ env = {EXECUTE_NB = "yes"}
 help = "Build documentation and API with cached notebook execution"
 sequence = ["doc"]
 
+[tool.poe.groups.doc.tasks.docnb-force]
+env = {FORCE_EXECUTE_NB = "yes"}
+help = "Build documentation and API with notebook execution (no cache)"
+sequence = ["doc"]
+
 [tool.poe.groups.doc.tasks.docnblive]
 env = {EXECUTE_NB = "yes"}
 help = "Set up a server to directly preview changes to the HTML pages with cached notebook execution"
@@ -178,11 +183,6 @@ sequence = [
     "linkcheck",
     "style",
 ]
-
-[tool.poe.tasks.docnb-force]
-env = {FORCE_EXECUTE_NB = "yes"}
-help = "Build documentation and API with notebook execution (no cache)"
-sequence = ["doc"]
 
 [tool.poe.tasks.style]
 cmd = "pre-commit run --all-files"
