@@ -46,7 +46,7 @@ doc = [
     "sphinx-reredirects",
     "sphinx-thebe",
     "sphinx-togglebutton",
-    "sphinxcontrib-bibtex >=2",
+    "sphinxcontrib-bibtex>=2.7.0",
     {include-group = "notebooks"},
 ]
 jupyter = [
@@ -84,6 +84,18 @@ include-package-data = false
 
 [tool.setuptools_scm]
 write_to = "version.py"
+
+[tool.compwa.policy]
+doc-apt-packages = "graphviz"
+repo-name = "compwa.github.io"
+repo-title = "ComPWA Organization"
+
+[tool.compwa.policy.github]
+github-pages = true
+no-pypi = true
+
+[tool.compwa.policy.python]
+type-checker = ["ty"]
 
 [tool.poe.executor]
 isolated = true
@@ -138,6 +150,11 @@ env = {EXECUTE_NB = "yes"}
 help = "Build documentation and API with cached notebook execution"
 sequence = ["doc"]
 
+[tool.poe.groups.doc.tasks.docnb-force]
+env = {FORCE_EXECUTE_NB = "yes"}
+help = "Build documentation and API with notebook execution (no cache)"
+sequence = ["doc"]
+
 [tool.poe.groups.doc.tasks.docnblive]
 env = {EXECUTE_NB = "yes"}
 help = "Set up a server to directly preview changes to the HTML pages with cached notebook execution"
@@ -178,11 +195,6 @@ sequence = [
     "linkcheck",
     "style",
 ]
-
-[tool.poe.tasks.docnb-force]
-env = {FORCE_EXECUTE_NB = "yes"}
-help = "Build documentation and API with notebook execution (no cache)"
-sequence = ["doc"]
 
 [tool.poe.tasks.style]
 cmd = "pre-commit run --all-files"
