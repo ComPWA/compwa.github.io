@@ -376,7 +376,12 @@ test = [
     { name = "jupyter" },
 ]
 types = [
+    { name = "black" },
+    { name = "graphviz" },
+    { name = "ipython" },
+    { name = "numpy" },
     { name = "sphinx-api-relink" },
+    { name = "sympy" },
 ]
 
 [package.metadata]
@@ -473,7 +478,14 @@ style = [
     { name = "ty" },
 ]
 test = [{ name = "jupyter" }]
-types = [{ name = "sphinx-api-relink" }]
+types = [
+    { name = "black" },
+    { name = "graphviz" },
+    { name = "ipython" },
+    { name = "numpy" },
+    { name = "sphinx-api-relink" },
+    { name = "sympy" },
+]
 
 [[package]]
 name = "debugpy"
