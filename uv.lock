@@ -376,6 +376,7 @@ test = [
     { name = "jupyter" },
 ]
 types = [
+    { name = "attrs" },
     { name = "black" },
     { name = "graphviz" },
     { name = "ipython" },
@@ -479,6 +480,7 @@ style = [
 ]
 test = [{ name = "jupyter" }]
 types = [
+    { name = "attrs" },
     { name = "black" },
     { name = "graphviz" },
     { name = "ipython" },
