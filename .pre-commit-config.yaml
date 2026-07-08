@@ -14,9 +14,10 @@ repos:
       - id: check-useless-excludes
 
   - repo: https://github.com/ComPWA/policy
-    rev: 15362d4c0f603c124978ece1b3b5c9629c852d51
+    rev: 25e781ae72399eead3a5a6c272a601d84fd98f22
     hooks:
       - id: check-dev-files
+
   - repo: https://github.com/kynan/nbstripout
     rev: 0.9.1
     hooks:
