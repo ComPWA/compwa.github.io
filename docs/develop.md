@@ -30,12 +30,14 @@ pixi shell
 :::
 ::::
 
-In addition, [`pre-commit`](https://pre-commit.com) is used to enforce style checks and can be installed with::
+In addition, [prek](https://prek.j178.dev) is used to enforce style checks and can be installed with:
 
 ```shell
-uv tool install --python=3.13 --with pre-commit-uv pre-commit
-pre-commit install --install-hooks
+uv tool install prek
+prek install --prepare-hooks
 ```
+
+If you already had `pre-commit` installed in this repository, see {ref}`develop:Prek` for how to replace its Git hooks.
 
 In `uv`-only projects, [Poe the Poet](https://poethepoet.natn.io) is used as task runner and can be installed with:
 
@@ -187,7 +189,7 @@ requirements can be installed with the last example.
 
 ### Pinning dependency versions
 
-To ensure that developers use exactly the same versions of the package dependencies and developer requirements, some of the repositories provide lock files, such as [`uv.lock`](https://docs.astral.sh/uv/concepts/projects/sync) and [`pixi.lock`](https://pixi.prefix.dev/v0.63.2/workspace/lockfile). The constraint files are updated automatically with the [ComPWA/actions/.github/workflows/lock.yml](https://github.com/ComPWA/actions/blob/v4/.github/workflows/lock.yml) workflow using {ref}`develop:GitHub Actions`.
+To ensure that developers use exactly the same versions of the package dependencies and developer requirements, some of the repositories provide lock files, such as [`uv.lock`](https://docs.astral.sh/uv/concepts/projects/sync) and [`pixi.lock`](https://pixi.prefix.dev/v0.63.2/workspace/lockfile). The constraint files are updated automatically with the [ComPWA/actions/.github/workflows/lock.yml](https://github.com/ComPWA/actions/blob/v4/.github/workflows/lock.yml) workflow using {ref}`develop:GitHub Actions`. That workflow also bumps the hook revisions in `.pre-commit-config.yaml` with `uvx prek autoupdate`, which is what the {ref}`local <develop:checks>` `poe upgrade` task does as well.
 
 :::{note}
 Constraint files ensure that the framework is _deterministic and reproducible_ (up to
@@ -315,42 +317,54 @@ notebooks with Julia kernels into your {ref}`documentation<develop:Documentation
 
 ## Automated coding conventions
 
-Where possible, we define and enforce our coding conventions through automated tools, instead of describing them in documentation. These tools perform their checks when you commit files locally (see {ref}`develop:Pre-commit`), when {ref}`running checks locally <develop:checks>`, and when you make a {ref}`pull request <develop:Collaboration>`.
+Where possible, we define and enforce our coding conventions through automated tools, instead of describing them in documentation. These tools perform their checks when you commit files locally (see {ref}`develop:Prek`), when {ref}`running checks locally <develop:checks>`, and when you make a {ref}`pull request <develop:Collaboration>`.
 
 The tools are mainly configured through [`pyproject.toml`](https://github.com/ComPWA/ampform/blob/main/pyproject.toml) and the workflow files under [`.github`](https://github.com/ComPWA/ampform/blob/main/.github). These configuration files are kept up to date through the [ComPWA/policy](https://compwa.github.io/policy) repository, which essentially defines the developer environment across [all ComPWA repositories](https://github.com/orgs/ComPWA/repositories?q=archived%3Ano&type=all&language=&sort=name).
 
 If you run into persistent linting errors, this may mean we need to further specify our conventions. In that case, it's best to {ref}`create an issue <develop:Issue management>` or a {ref}`pull request <develop:Collaboration>` at [ComPWA/policy](https://github.com/ComPWA/policy) and propose a policy change that can be formulated through those config files.
 
-### Pre-commit
+(pre-commit)=
 
-All {ref}`style checks <develop:Style checks>` are enforced through a tool called
-[{command}`pre-commit`](https://pre-commit.com). It's best to activate this tool locally
-as well. This has to be done only once, after you clone the repository:
+### Prek
+
+All {ref}`style checks <develop:Style checks>` are enforced through [prek](https://prek.j178.dev), a drop-in replacement for [pre-commit](https://pre-commit.com). It reads the same [{file}`.pre-commit-config.yaml`](https://github.com/ComPWA/ampform/blob/main/.pre-commit-config.yaml) file and the same hook definitions, so only the command and the local set-up differ. Install it once as a global tool with [`uv`](https://docs.astral.sh/uv):
 
 ```shell
-pre-commit install --install-hooks
+uv tool install prek
 ```
 
-:::{margin} Initializing pre-commit
-The first time you run {command}`pre-commit` after installing or updating its checks, it
-may take some time to initialize.
+It's best to activate the hooks locally as well. This has to be done only once, after you clone the repository:
+
+```shell
+prek install --prepare-hooks
+```
+
+:::{margin} Initializing prek
+The `--prepare-hooks` flag installs the hook environments right away, instead of on your first commit. This may take some time, but prek creates the environments with `uv` and in parallel, so it is considerably faster than `pre-commit` was.
 :::
 
-Upon committing, {command}`pre-commit` runs a set of checks as defined in the file
-[{file}`.pre-commit-config.yaml`](https://github.com/ComPWA/ampform/blob/main/.pre-commit-config.yaml)
-over all staged files. You can also quickly run all checks over _all_ indexed files in
-the repository with the command:
+Upon committing, prek runs a set of checks as defined in the file [{file}`.pre-commit-config.yaml`](https://github.com/ComPWA/ampform/blob/main/.pre-commit-config.yaml) over all staged files. You can also quickly run all checks over _all_ indexed files in the repository with the command:
 
 ```shell
-pre-commit run -a
+prek run --all-files
 ```
 
-Whenever you {ref}`submit a pull request <develop:Collaboration>`, this command is
-automatically run
-[on GitHub actions](https://github.com/ComPWA/ampform/actions/workflows/ci.yml)
-and [on pre-commit.ci](https://results.pre-commit.ci/install/github/18435973) , ensuring
-that all files in the repository follow the same conventions as set in the config files
-of these tools.
+:::{admonition} Coming from `pre-commit`
+:class: tip
+The Git hooks under `.git/hooks` are installed per developer and are not tracked by Git, so no policy update can replace them for you. If you previously ran `pre-commit install`, the shims there still call `pre-commit`. Either run `prek install --prepare-hooks` again to overwrite them, or let [`policy migrate`](https://compwa.github.io/policy/check-dev-files/migrations.html) detect and replace them:
+
+```shell
+uvx --from git+https://github.com/ComPWA/policy --refresh policy migrate
+```
+
+You can then uninstall the old tool with `uv tool uninstall pre-commit`. The `pre-commit-uv` package is no longer needed either: prek uses `uv` natively.
+:::
+
+:::{warning}
+prek has a [workspace mode](https://prek.j178.dev/workspace/) that discovers _nested_ `.pre-commit-config.yaml` files, which `pre-commit` does not. If a repository ships such a file as a test fixture, list its directory in a [`.prekignore`](https://prek.j178.dev/workspace/) file, so that prek does not run it as a real project.
+:::
+
+Whenever you {ref}`submit a pull request <develop:Collaboration>`, the same checks are run automatically [on GitHub Actions](https://github.com/ComPWA/ampform/actions/workflows/ci.yml), ensuring that all files in the repository follow the same conventions as set in the config files of these tools. Fixes that the hooks make are committed back to your branch by {ref}`autofix.ci <develop:autofix.ci>`.
 
 ### Checks
 
@@ -368,6 +382,38 @@ Poe the Poet is installed through the `dev` dependency group. However, since the
 uv tool install poethepoet
 ```
 
+The task that runs all {ref}`style checks <develop:Style checks>` is `style`. It is a thin wrapper around `prek run --all-files`, so these three commands are equivalent:
+
+::::{tab-set}
+:::{tab-item} uv
+
+```shell
+poe style
+```
+
+:::
+:::{tab-item} Pixi
+
+```shell
+pixi run style
+```
+
+:::
+:::{tab-item} prek
+
+```shell
+prek run --all-files
+```
+
+:::
+::::
+
+Repositories with lock files additionally define an `upgrade` task, which runs `prek autoupdate -j8` through the `_upgrade-prek` helper task, next to the helper tasks that upgrade the lock files themselves (see {ref}`develop:Pinning dependency versions`):
+
+```shell
+poe upgrade
+```
+
 ### GitHub Actions
 
 All {ref}`style checks <develop:Style checks>`, testing of the
@@ -377,6 +423,18 @@ All {ref}`style checks <develop:Style checks>`, testing of the
 [here](https://github.com/ComPWA/ampform/actions)). The checks are defined under the
 [`.github`](https://github.com/ComPWA/ampform/blob/main/.github) folder. All checks
 performed for each PR have to pass before the PR can be merged.
+
+#### autofix.ci
+
+Most {ref}`style checks <develop:Style checks>` do not just report a problem, they fix it. Those fixes are committed back to your pull request by [autofix.ci](https://autofix.ci), a GitHub App that ComPWA repositories activate through a workflow file named {file}`.github/workflows/autofix.ci.yml`. The workflow runs `prek run --all-files`, updates the {ref}`Jupyter kernel names <develop:Jupyter Notebooks>`, and hands the resulting patch to the app, which pushes it as a commit authored by `autofix-ci[bot]`. This replaces [pre-commit.ci](https://pre-commit.ci), which ComPWA repositories used before and which runs `pre-commit` rather than prek.
+
+There are a few things to be aware of:
+
+- The workflow file has to be named exactly `autofix.ci`. The service uses that name to recognize the workflow it trusts, both in the action and on its own servers, so renaming the file silently disables the fixes.
+- autofix.ci does apply fixes to pull requests from forks, which the previous push job could not do. It does _not_ apply a patch when the last four commits were authored by a bot, so a long series of automated commits has to be interrupted by a human commit.
+- Since autofix.ci commits the fixes, the {ref}`style workflow <develop:GitHub Actions>` skips its own push job when it finds an `autofix.ci.yml` in the repository. Fixes are therefore never committed twice.
+
+If a check only _reports_ a problem, such as a spelling mistake or a type error, there is nothing to commit and you have to fix it yourself. Run `poe style` locally to see the same output.
 
 ## Style checks
 
@@ -394,7 +452,7 @@ Ruff](https://beta.ruff.rs/docs/rules/#isort-i)). For other code, we use
 they offer only limited configuration options, as to make formatting as conform as
 possible.
 
-{ref}`develop:Pre-commit` performs some additional formatting jobs. For instance, it
+{ref}`develop:Prek` performs some additional formatting jobs. For instance, it
 formats Jupyter notebooks with [nbQA](https://github.com/nbQA-dev/nbQA) and strips them
 of any output cells with [`nbstripout`](https://github.com/kynan/nbstripout).
 
@@ -416,7 +474,7 @@ As a tool, we use
 [cSpell](https://github.com/streetsidesoftware/cspell/blob/master/packages/cspell/README.md),
 because it allows to check variable names in camel case and snake case. This way, a
 spelling checker helps you avoid mistakes in the code as well! cSpell is enforced
-through pre-commit.
+through {ref}`prek <develop:Prek>`.
 
 Accepted words are tracked through the
 [`.cspell.json`](https://github.com/ComPWA/ampform/blob/main/.cspell.json) file. As with
@@ -558,7 +616,7 @@ poe docnblive
 ```
 
 :::{tip}
-Notebooks are automatically formatted through {ref}`pre-commit <develop:Pre-commit>` (see {ref}`develop:Formatting`). If you want to format the notebooks automatically as you're working, you can do so with [`jupyterlab-code-formatter`](https://jupyterlab-code-formatter.readthedocs.io), which is automatically {ref}`installed with the dev requirements <develop:Optional dependencies>`.
+Notebooks are automatically formatted through {ref}`prek <develop:Prek>` (see {ref}`develop:Formatting`). If you want to format the notebooks automatically as you're working, you can do so with [`jupyterlab-code-formatter`](https://jupyterlab-code-formatter.readthedocs.io), which is automatically {ref}`installed with the dev requirements <develop:Optional dependencies>`.
 
 For this, you need to set Ruff as the formatter (see [](#formatting)) for `jupyterlab-code-formatter`:
 
