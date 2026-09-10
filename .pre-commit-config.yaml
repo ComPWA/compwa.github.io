@@ -1,14 +1,3 @@
-ci:
-  autofix_commit_msg: "MAINT: implement pre-commit autofixes"
-  autoupdate_commit_msg: "MAINT: upgrade lock files"
-  autoupdate_schedule: quarterly
-  skip:
-    - check-jsonschema
-    - tombi-format
-    - tombi-lint
-    - ty
-    - uv-lock
-
 repos:
   - repo: meta
     hooks:
