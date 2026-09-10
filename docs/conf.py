@@ -166,7 +166,6 @@ linkcheck_ignore = [
     "https://open.vscode.dev",
     "https://rosettacode.org",
     "https://stackoverflow.com",
-    "https://via.placeholder.com",  # irregular timeout
     "https://www.andiamo.co.uk/resources/iso-language-codes",  # 443, but works
     "https://www.bookfinder.com",
     "https://www.guru99.com/types-of-software-testing.html",
