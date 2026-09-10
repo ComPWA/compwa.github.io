@@ -1,0 +1,58 @@
+# The workflow name is load-bearing: autofix.ci only accepts a patch that was
+# uploaded from a workflow named "autofix.ci". Do not rename it.
+name: autofix.ci
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: |-
+    ${{ github.ref != format('refs/heads/{0}', github.event.repository.default_branch) }}
+
+on:
+  pull_request:
+    branches:
+      - main
+      - epic/*
+      - "[0-9]+.[0-9]+.x"
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+env:
+  FORCE_COLOR: true
+  PREK_COLOR: always
+
+jobs:
+  autofix:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0 # the Jupyter kernel update diffs against the base branch
+      - uses: j178/prek-action@4e14d07f9231acabce116ccfca13b13dd9755ece # v3.0.0
+        with:
+          install-only: true
+      - id: prek
+        name: Run prek
+        continue-on-error: true
+        run: prek run --all-files
+      # The first run fails as soon as a hook rewrites a file, so it runs again
+      # against the fixed tree. A hook that only reports keeps the job red.
+      - if: steps.prek.outcome == 'failure'
+        name: Verify fixes
+        run: prek run --all-files
+      - if: >-
+          always() && !cancelled() &&
+          github.event_name == 'pull_request' &&
+          hashFiles('**/*.ipynb')
+        name: Update Jupyter kernels
+        uses: ComPWA/actions/update-jupyter-kernel@aa47e7f596961634fe54c446af2144a309501cda # PR #178 preview
+        with:
+          target-branch: origin/${{ github.event.pull_request.base.ref }}
+          upload-artifact: false
+      - if: always() && !cancelled()
+        name: Commit fixes
+        uses: autofix-ci/action@c5b2d67aa2274e7b5a18224e8171550871fc7e4a # v1.3.4
