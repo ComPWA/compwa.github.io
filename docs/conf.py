@@ -158,12 +158,12 @@ linkcheck_ignore = [
     "https://downloads.hindawi.com",  # 403
     "https://github.com/organizations/ComPWA/settings/repository-defaults",  # private
     "https://github.com/search",
+    "https://github.dev",
     "https://ieeexplore.ieee.org/document/6312940",  # 401
     "https://indico.ific.uv.es/event/6803",  # SSL error
     "https://journals.aps.org",
     "https://leetcode.com",
     "https://mybinder.org",  # often instable
-    "https://open.vscode.dev",
     "https://rosettacode.org",
     "https://stackoverflow.com",
     "https://www.andiamo.co.uk/resources/iso-language-codes",  # 443, but works
