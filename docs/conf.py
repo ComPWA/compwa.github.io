@@ -154,6 +154,7 @@ linkcheck_ignore = [
     "https://doi.org/10.1002/andp.19955070504",  # 403 for onlinelibrary.wiley.com
     "https://doi.org/10.1103",  # 403 for journals.aps.org
     "https://doi.org/10.1155/2020/6674595",  # 403 hindawi.com
+    "https://doi.org/10.5281/zenodo",  # 403 for zenodo.org
     "https://doi.org/10.7566/JPSCP.26.022002",  # 403 for journals.jps.jp
     "https://downloads.hindawi.com",  # 403
     "https://github.com/organizations/ComPWA/settings/repository-defaults",  # private
@@ -171,6 +172,7 @@ linkcheck_ignore = [
     "https://www.guru99.com/types-of-software-testing.html",
     "https://www.mathworks.com/products/matlab.html",
     "https://www.npmjs.com/package",
+    "https://zenodo.org",  # 403
     r"https://github.com/ComPWA/RUB-EP1-AG/.*",  # private
     r"https://github.com/orgs/ComPWA/projects/\d+",  # private
 ]
