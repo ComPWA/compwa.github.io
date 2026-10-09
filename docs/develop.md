@@ -33,14 +33,14 @@ pixi shell
 In addition, [`pre-commit`](https://pre-commit.com) is used to enforce style checks and can be installed with::
 
 ```shell
-uv tool install --python=3.13 --with pre-commit-uv pre-commit
+uv tool install --python=3.14 --with pre-commit-uv pre-commit
 pre-commit install --install-hooks
 ```
 
 In `uv`-only projects, [Poe the Poet](https://poethepoet.natn.io) is used as task runner and can be installed with:
 
 ```shell
-uv tool install --python=3.13 poethepoet
+uv tool install --python=3.14 poethepoet
 ```
 
 See {ref}`develop:Virtual environment` for more info.
