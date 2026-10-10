@@ -1,7 +1,7 @@
 [project]
 name = "compwa-github-io"
 description = "Source code for the ComPWA Organization pages"
-requires-python = "~=3.13.0"
+requires-python = "~=3.14.0"
 license = "Apache-2.0"
 license-files = ["LICENSE"]
 authors = [{ name = "Common Partial Wave Analysis", email = "compwa-admin@ep1.rub.de" }]
@@ -197,17 +197,20 @@ sequence = [
 ]
 
 [tool.poe.tasks.style]
-cmd = "pre-commit run --all-files"
+cmd = "prek run --all-files"
 executor = { group = "style" }
 help = "Perform all linting, formatting, and spelling checks"
 
 [tool.poe.tasks.upgrade]
 executor = { type = "simple" }
 help = "Upgrade lock files"
-parallel = ["_upgrade-precommit", "_upgrade-uv"]
+parallel = [
+    "_upgrade-precommit",
+    "_upgrade-uv",
+]
 
 [tool.poe.tasks._upgrade-precommit]
-cmd = "pre-commit autoupdate -j8"
+cmd = "prek autoupdate"
 executor = { type = "simple" }
 
 [tool.poe.tasks._upgrade-uv]
@@ -256,33 +259,33 @@ line-ending = "lf"
 
 [tool.ruff.lint]
 ignore = [
-    "ANN401",
     "ARG00",
-    "COM812",
-    "CPY001",
-    "D101",
-    "D102",
-    "D103",
-    "D105",
-    "D107",
-    "D203",
-    "D213",
-    "D407",
-    "D416",
     "DOC",
-    "E501",
     "FBT",
-    "FURB101",
-    "FURB103",
-    "FURB140",
-    "G004",
-    "ISC001",
-    "PLW1514",
-    "PT001",
     "PTH",
-    "RUF067",
-    "SIM108",
-    "SLF001",
+    "any-type",
+    "if-else-block-instead-of-if-exp",
+    "incorrect-blank-line-before-class",
+    "line-too-long",
+    "logging-f-string",
+    "missing-copyright-notice",
+    "missing-dashed-underline-after-section",
+    "missing-section-name-colon",
+    "missing-trailing-comma",
+    "multi-line-summary-second-line",
+    "non-empty-init-module",
+    "private-member-access",
+    "pytest-fixture-incorrect-parentheses-style",
+    "read-whole-file",
+    "reimplemented-starmap",
+    "single-line-implicit-string-concatenation",
+    "undocumented-magic-method",
+    "undocumented-public-class",
+    "undocumented-public-function",
+    "undocumented-public-init",
+    "undocumented-public-method",
+    "unspecified-encoding",
+    "write-whole-file",
 ]
 select = ["ALL"]
 task-tags = ["cspell"]
@@ -304,64 +307,68 @@ split-on-trailing-comma = false
 
 [tool.ruff.lint.per-file-ignores]
 "*.ipynb" = [
-    "A003",
     "ANN",
-    "B008",
-    "B018",
-    "C408",
     "C90",
     "D",
-    "E303",
-    "E402",
-    "E703",
-    "E741",
-    "F404",
-    "N802",
-    "N803",
-    "N806",
-    "N807",
-    "N815",
-    "N816",
-    "PLC0415",
-    "PLC2401",
     "PLR09",
-    "PLR2004",
-    "PLW0602",
-    "PLW0603",
-    "PLW2901",
-    "PYI034",
-    "RUF001",
-    "RUF027",
-    "S101",
-    "S307",
     "T20",
     "TC00",
+    "ambiguous-unicode-character-string",
+    "ambiguous-variable-name",
+    "assert",
+    "builtin-attribute-shadowing",
+    "dunder-function-name",
+    "function-call-in-default-argument",
+    "global-statement",
+    "global-variable-not-assigned",
+    "import-outside-top-level",
+    "invalid-argument-name",
+    "invalid-function-name",
+    "late-future-import",
+    "magic-value-comparison",
+    "missing-f-string-syntax",
+    "mixed-case-variable-in-class-scope",
+    "mixed-case-variable-in-global-scope",
+    "module-import-not-at-top-of-file",
+    "non-ascii-name",
+    "non-lowercase-variable-in-function",
+    "non-self-return-type",
+    "redefined-loop-name",
+    "suspicious-eval-usage",
+    "too-many-blank-lines",
+    "unnecessary-collection-call",
+    "useless-expression",
+    "useless-semicolon",
 ]
-"**/001/operators.ipynb" = ["E731"]
-"**/003.ipynb" = ["B023", "PLC2701"]
-"**/009.ipynb" = ["FURB113"]
-"**/010.ipynb" = ["FURB113"]
-"**/011.ipynb" = ["PLC2701", "PLR6301"]
-"**/014.ipynb" = ["PLC2701"]
-"**/016.ipynb" = ["PLC2701"]
-"**/021.ipynb" = ["I001"]
-"**/022.ipynb" = ["PLC2701"]
-"**/024.ipynb" = ["E731", "E741", "S307"]
-"**/025.ipynb" = ["E731"]
-"**/98*.ipynb" = ["E731", "PLR6301"]
+"**/001/operators.ipynb" = ["lambda-assignment"]
+"**/003.ipynb" = ["function-uses-loop-variable", "import-private-name"]
+"**/009.ipynb" = ["repeated-append"]
+"**/010.ipynb" = ["repeated-append"]
+"**/011.ipynb" = ["import-private-name", "no-self-use"]
+"**/014.ipynb" = ["import-private-name"]
+"**/016.ipynb" = ["import-private-name"]
+"**/021.ipynb" = ["unsorted-imports"]
+"**/022.ipynb" = ["import-private-name"]
+"**/024.ipynb" = [
+    "lambda-assignment",
+    "ambiguous-variable-name",
+    "suspicious-eval-usage"
+]
+"**/025.ipynb" = ["lambda-assignment"]
+"**/98*.ipynb" = ["lambda-assignment", "no-self-use"]
 "docs/*" = [
     "D",
-    "E402",
-    "INP001",
-    "S101",
-    "S113",
-    "T201",
+    "assert",
+    "implicit-namespace-package",
+    "module-import-not-at-top-of-file",
+    "print",
+    "request-without-timeout",
 ]
 "docs/conf.py" = [
-    "A001",
-    "D100",
-    "PLC2701",
-    "PLW2901",
+    "builtin-variable-shadowing",
+    "import-private-name",
+    "redefined-loop-name",
+    "undocumented-public-module",
 ]
 
 [tool.ruff.lint.pydocstyle]
@@ -385,7 +392,7 @@ key-empty = "off"
 
 [[tool.tombi.schemas]]
 root = "tool.compwa.policy"
-path = "https://raw.githubusercontent.com/ComPWA/policy/0.9.0/compwa-policy.schema.json"
+path = "https://raw.githubusercontent.com/ComPWA/policy/0.10.0/compwa-policy.schema.json"
 include = ["pyproject.toml"]
 
 [[tool.ty.overrides]]
