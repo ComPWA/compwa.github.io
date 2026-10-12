@@ -1,6 +1,6 @@
 # Help developing
 
-[![Open in Visual Studio Code](https://img.shields.io/badge/vscode-open-blue?logo=visualstudiocode)](https://open.vscode.dev/ComPWA/compwa.github.io)
+[![Open in Visual Studio Code](https://img.shields.io/badge/vscode-open-blue?logo=visualstudiocode)](https://github.dev/ComPWA/compwa.github.io)
 
 This page describes some of the tools and conventions followed by
 [Common Partial Wave Analysis](https://github.com/ComPWA). Where possible, we use the
@@ -42,7 +42,7 @@ If you already had `pre-commit` installed in this repository, see {ref}`develop:
 In `uv`-only projects, [Poe the Poet](https://poethepoet.natn.io) is used as task runner and can be installed with:
 
 ```shell
-uv tool install --python=3.13 poethepoet
+uv tool install --python=3.14 poethepoet
 ```
 
 See {ref}`develop:Virtual environment` for more info.
@@ -408,7 +408,7 @@ prek run --all-files
 :::
 ::::
 
-Repositories with lock files additionally define an `upgrade` task, which runs `prek autoupdate -j8` through the `_upgrade-prek` helper task, next to the helper tasks that upgrade the lock files themselves (see {ref}`develop:Pinning dependency versions`):
+Repositories with lock files additionally define an `upgrade` task, which runs `prek autoupdate` through the `_upgrade-precommit` helper task, next to the helper tasks that upgrade the lock files themselves (see {ref}`develop:Pinning dependency versions`):
 
 ```shell
 poe upgrade

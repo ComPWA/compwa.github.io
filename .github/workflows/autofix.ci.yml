@@ -49,7 +49,7 @@ jobs:
           github.event_name == 'pull_request' &&
           hashFiles('**/*.ipynb')
         name: Update Jupyter kernels
-        uses: ComPWA/actions/update-jupyter-kernel@aa47e7f596961634fe54c446af2144a309501cda # PR #178 preview
+        uses: ComPWA/actions/update-jupyter-kernel@313866498eb92c341d7e6b905e09f33a5979dffb # v4.1.4
         with:
           target-branch: origin/${{ github.event.pull_request.base.ref }}
           upload-artifact: false
