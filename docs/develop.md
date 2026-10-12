@@ -1,6 +1,6 @@
 # Help developing
 
-[![Open in Visual Studio Code](https://img.shields.io/badge/vscode-open-blue?logo=visualstudiocode)](https://open.vscode.dev/ComPWA/compwa.github.io)
+[![Open in Visual Studio Code](https://img.shields.io/badge/vscode-open-blue?logo=visualstudiocode)](https://github.dev/ComPWA/compwa.github.io)
 
 This page describes some of the tools and conventions followed by
 [Common Partial Wave Analysis](https://github.com/ComPWA). Where possible, we use the
@@ -33,14 +33,14 @@ pixi shell
 In addition, [`pre-commit`](https://pre-commit.com) is used to enforce style checks and can be installed with::
 
 ```shell
-uv tool install --python=3.13 --with pre-commit-uv pre-commit
+uv tool install --python=3.14 --with pre-commit-uv pre-commit
 pre-commit install --install-hooks
 ```
 
 In `uv`-only projects, [Poe the Poet](https://poethepoet.natn.io) is used as task runner and can be installed with:
 
 ```shell
-uv tool install --python=3.13 poethepoet
+uv tool install --python=3.14 poethepoet
 ```
 
 See {ref}`develop:Virtual environment` for more info.
