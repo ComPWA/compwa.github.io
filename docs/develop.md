@@ -130,7 +130,7 @@ Conda now creates an environment with a name that is defined in the `environment
 ::::
 
 :::{tip}
-[Install `direnv`](https://direnv.net/docs/installation.html) if a repository contains a {file}`.envrc` file. This ensures that the appropriate environment is activates once you navigate into the repository!
+[Install `direnv`](https://direnv.net/docs/installation.html) v2.38.1 or newer if a repository contains a {file}`.envrc` file. This ensures that the appropriate environment is activated once you navigate into the repository! Run `direnv allow` to approve the {file}`.envrc` file. In repositories that use Pixi, direnv asks for approval again whenever {file}`pixi.lock` or the Pixi manifest changes.
 :::
 
 ### Editable installation
