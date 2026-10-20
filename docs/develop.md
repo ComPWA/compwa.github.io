@@ -302,7 +302,7 @@ uvx --from git+https://github.com/ComPWA/policy --refresh policy migrate
 You can then uninstall the old tool with `uv tool uninstall pre-commit`. The `pre-commit-uv` package is no longer needed either: `prek` uses `uv` natively.
 :::
 
-Whenever you {ref}`submit a pull request <develop:Collaboration>`, the same checks are run automatically [on GitHub Actions](https://github.com/ComPWA/ampform/actions/workflows/ci.yml), ensuring that all files in the repository follow the same conventions as set in the config files of these tools. Fixes that the hooks make are committed back to your branch by {ref}`autofix.ci <develop:autofix.ci>`.
+Whenever you {ref}`submit a pull request <develop:Collaboration>`, [GitHub Actions](https://github.com/ComPWA/ampform/actions/workflows/ci.yml) runs the same checks, so that all files in the repository follow the conventions set in the config files of these tools. Fixes that the hooks make are committed back to your branch by {ref}`autofix.ci <develop:autofix.ci>`.
 
 ### Checks
 
