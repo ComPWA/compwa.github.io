@@ -30,7 +30,7 @@ pixi shell
 :::
 ::::
 
-In addition, [prek](https://prek.j178.dev) is used to enforce style checks and can be installed with:
+In addition, [`prek`](https://prek.j178.dev) is used to enforce style checks and can be installed with:
 
 ```shell
 uv tool install prek
@@ -327,7 +327,7 @@ If you run into persistent linting errors, this may mean we need to further spec
 
 ### Prek
 
-All {ref}`style checks <develop:Style checks>` are enforced through [prek](https://prek.j178.dev), a drop-in replacement for [pre-commit](https://pre-commit.com). It reads the same [{file}`.pre-commit-config.yaml`](https://github.com/ComPWA/ampform/blob/main/.pre-commit-config.yaml) file and the same hook definitions, so only the command and the local set-up differ. Install it once as a global tool with [`uv`](https://docs.astral.sh/uv):
+All {ref}`style checks <develop:Style checks>` are enforced through [`prek`](https://prek.j178.dev), a drop-in replacement for [pre-commit](https://pre-commit.com). It reads the same [{file}`.pre-commit-config.yaml`](https://github.com/ComPWA/ampform/blob/main/.pre-commit-config.yaml) file and the same hook definitions, so only the command and the local set-up differ. Install it once as a global tool with [`uv`](https://docs.astral.sh/uv):
 
 ```shell
 uv tool install prek
@@ -339,11 +339,11 @@ It's best to activate the hooks locally as well. This has to be done only once, 
 prek install --prepare-hooks
 ```
 
-:::{margin} Initializing prek
-The `--prepare-hooks` flag installs the hook environments right away, instead of on your first commit. This may take some time, but prek creates the environments with `uv` and in parallel, so it is considerably faster than `pre-commit` was.
+:::{margin} Initializing `prek`
+The `--prepare-hooks` flag installs the hook environments right away, instead of on your first commit. This may take some time, but `prek` creates the environments with `uv` and in parallel, so it is considerably faster than `pre-commit` was.
 :::
 
-Upon committing, prek runs a set of checks as defined in the file [{file}`.pre-commit-config.yaml`](https://github.com/ComPWA/ampform/blob/main/.pre-commit-config.yaml) over all staged files. You can also quickly run all checks over _all_ indexed files in the repository with the command:
+Upon committing, `prek` runs a set of checks as defined in the file [{file}`.pre-commit-config.yaml`](https://github.com/ComPWA/ampform/blob/main/.pre-commit-config.yaml) over all staged files. You can also quickly run all checks over _all_ indexed files in the repository with the command:
 
 ```shell
 prek run --all-files
@@ -357,11 +357,11 @@ The Git hooks under `.git/hooks` are installed per developer and are not tracked
 uvx --from git+https://github.com/ComPWA/policy --refresh policy migrate
 ```
 
-You can then uninstall the old tool with `uv tool uninstall pre-commit`. The `pre-commit-uv` package is no longer needed either: prek uses `uv` natively.
+You can then uninstall the old tool with `uv tool uninstall pre-commit`. The `pre-commit-uv` package is no longer needed either: `prek` uses `uv` natively.
 :::
 
 :::{warning}
-prek has a [workspace mode](https://prek.j178.dev/reference/workspace/) that discovers _nested_ `.pre-commit-config.yaml` files, which `pre-commit` does not. If a repository ships such a file as a test fixture, list its directory in a [`.prekignore`](https://prek.j178.dev/reference/workspace/) file, so that prek does not run it as a real project.
+`prek` has a [workspace mode](https://prek.j178.dev/reference/workspace/) that discovers _nested_ `.pre-commit-config.yaml` files, which `pre-commit` does not. If a repository ships such a file as a test fixture, list its directory in a [`.prekignore`](https://prek.j178.dev/reference/workspace/) file, so that `prek` does not run it as a real project.
 :::
 
 Whenever you {ref}`submit a pull request <develop:Collaboration>`, the same checks are run automatically [on GitHub Actions](https://github.com/ComPWA/ampform/actions/workflows/ci.yml), ensuring that all files in the repository follow the same conventions as set in the config files of these tools. Fixes that the hooks make are committed back to your branch by {ref}`autofix.ci <develop:autofix.ci>`.
@@ -426,7 +426,7 @@ performed for each PR have to pass before the PR can be merged.
 
 #### autofix.ci
 
-Most {ref}`style checks <develop:Style checks>` do not just report a problem, they fix it. Those fixes are committed back to your pull request by [autofix.ci](https://autofix.ci), a GitHub App that ComPWA repositories activate through a workflow file named {file}`.github/workflows/autofix.ci.yml`. The workflow runs `prek run --all-files`, updates the {ref}`Jupyter kernel names <develop:Jupyter Notebooks>`, and hands the resulting patch to the app, which pushes it as a commit authored by `autofix-ci[bot]`. This replaces [pre-commit.ci](https://pre-commit.ci), which ComPWA repositories used before and which runs `pre-commit` rather than prek.
+Most {ref}`style checks <develop:Style checks>` do not just report a problem, they fix it. Those fixes are committed back to your pull request by [autofix.ci](https://autofix.ci), a GitHub App that ComPWA repositories activate through a workflow file named {file}`.github/workflows/autofix.ci.yml`. The workflow runs `prek run --all-files`, updates the {ref}`Jupyter kernel names <develop:Jupyter Notebooks>`, and hands the resulting patch to the app, which pushes it as a commit authored by `autofix-ci[bot]`. This replaces [pre-commit.ci](https://pre-commit.ci), which ComPWA repositories used before and which runs `pre-commit` rather than `prek`.
 
 There are a few things to be aware of:
 
