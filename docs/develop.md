@@ -346,7 +346,7 @@ The `--prepare-hooks` flag installs the hook environments right away, instead of
 Upon committing, `prek` runs a set of checks as defined in the file [{file}`.pre-commit-config.yaml`](https://github.com/ComPWA/ampform/blob/main/.pre-commit-config.yaml) over all staged files. You can also quickly run all checks over _all_ indexed files in the repository with the command:
 
 ```shell
-prek run --all-files
+prek run -a
 ```
 
 :::{admonition} Coming from `pre-commit`
@@ -382,7 +382,7 @@ Poe the Poet is installed through the `dev` dependency group. However, since the
 uv tool install poethepoet
 ```
 
-The task that runs all {ref}`style checks <develop:Style checks>` is `style`. It is a thin wrapper around `prek run --all-files`, so these three commands are equivalent:
+The task that runs all {ref}`style checks <develop:Style checks>` is `style`. It is a thin wrapper around `prek run -a`, so these three commands are equivalent:
 
 ::::{tab-set}
 :::{tab-item} uv
@@ -402,7 +402,7 @@ pixi run style
 :::{tab-item} prek
 
 ```shell
-prek run --all-files
+prek run -a
 ```
 
 :::
@@ -426,7 +426,7 @@ performed for each PR have to pass before the PR can be merged.
 
 #### autofix.ci
 
-Most {ref}`style checks <develop:Style checks>` do not just report a problem, they fix it. Those fixes are committed back to your pull request by [autofix.ci](https://autofix.ci), a GitHub App that ComPWA repositories activate through a workflow file named {file}`.github/workflows/autofix.ci.yml`. The workflow runs `prek run --all-files`, updates the {ref}`Jupyter kernel names <develop:Jupyter Notebooks>`, and hands the resulting patch to the app, which pushes it as a commit authored by `autofix-ci[bot]`. This replaces [pre-commit.ci](https://pre-commit.ci), which ComPWA repositories used before and which runs `pre-commit` rather than `prek`.
+Most {ref}`style checks <develop:Style checks>` do not just report a problem, they fix it. Those fixes are committed back to your pull request by [autofix.ci](https://autofix.ci), a GitHub App that ComPWA repositories activate through a workflow file named {file}`.github/workflows/autofix.ci.yml`. The workflow runs `prek run -a`, updates the {ref}`Jupyter kernel names <develop:Jupyter Notebooks>`, and hands the resulting patch to the app, which pushes it as a commit authored by `autofix-ci[bot]`. This replaces [pre-commit.ci](https://pre-commit.ci), which ComPWA repositories used before and which runs `pre-commit` rather than `prek`.
 
 There are a few things to be aware of:
 
