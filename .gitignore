@@ -57,3 +57,4 @@ GEMINI.md
 !.zenodo.json
 !codecov.yml
 .jupyter_ystore.db
+.lycheecache
