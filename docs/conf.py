@@ -148,7 +148,9 @@ intersphinx_mapping = {
     "tensorwaves": ("https://tensorwaves.readthedocs.io/stable", None),
     "torch": ("https://docs.pytorch.org/docs/stable/", None),
 }
+myst_colon_fence_exact_match = True
 myst_enable_extensions = [
+    "alert",
     "amsmath",
     "colon_fence",
     "dollarmath",

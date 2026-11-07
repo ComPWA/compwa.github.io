@@ -4,46 +4,45 @@
 
 This page describes some of the tools and conventions followed by [Common Partial Wave Analysis](https://github.com/ComPWA). Where possible, we use the [source code of the AmpForm repository](https://github.com/ComPWA/ampform) as example, because its file structure is comparable to that of other ComPWA repositories.
 
-:::::{tip}
-ComPWA repositories define their developer environment with [`uv`](https://docs.astral.sh/uv) for Python-only projects and with [Pixi](https://pixi.prefix.dev) for projects that also use other languages, such as Julia or C++. It is straightforward to install these package managers on your system, even as a user.
-
-To start developing, simply run the following from a cloned repository on your machine:
-
-::::{tab-set}
-:::{tab-item} uv
-
-```shell
-uv sync
-source .venv/bin/activate
-```
-
-:::
-:::{tab-item} Pixi
-
-```shell
-pixi shell
-```
-
-:::
-::::
-
-In addition, [`prek`](https://prek.j178.dev) is used to enforce style checks and can be installed with:
-
-```shell
-uv tool install prek
-prek install --prepare-hooks
-```
-
-If you already had `pre-commit` installed in this repository, see {ref}`develop:Prek` for how to replace its Git hooks.
-
-In `uv`-only projects, [Poe the Poet](https://poethepoet.natn.io) is used as task runner and can be installed with:
-
-```shell
-uv tool install --python=3.14 poethepoet
-```
-
-See {ref}`develop:Virtual environment` for more info.
-:::::
+> [!TIP]
+> ComPWA repositories define their developer environment with [`uv`](https://docs.astral.sh/uv) for Python-only projects and with [Pixi](https://pixi.prefix.dev) for projects that also use other languages, such as Julia or C++. It is straightforward to install these package managers on your system, even as a user.
+>
+> To start developing, simply run the following from a cloned repository on your machine:
+>
+> ::::{tab-set}
+> :::{tab-item} uv
+>
+> ```shell
+> uv sync
+> source .venv/bin/activate
+> ```
+>
+> :::
+> :::{tab-item} Pixi
+>
+> ```shell
+> pixi shell
+> ```
+>
+> :::
+> ::::
+>
+> In addition, [`prek`](https://prek.j178.dev) is used to enforce style checks and can be installed with:
+>
+> ```shell
+> uv tool install prek
+> prek install --prepare-hooks
+> ```
+>
+> If you already had `pre-commit` installed in this repository, see {ref}`develop:Prek` for how to replace its Git hooks.
+>
+> In `uv`-only projects, [Poe the Poet](https://poethepoet.natn.io) is used as task runner and can be installed with:
+>
+> ```shell
+> uv tool install --python=3.14 poethepoet
+> ```
+>
+> See {ref}`develop:Virtual environment` for more info.
 
 ## Local set-up
 
@@ -114,9 +113,8 @@ Conda now creates an environment with a name that is defined in the `environment
 :::
 ::::
 
-:::{tip}
-[Install `direnv`](https://direnv.net/docs/installation.html) if a repository contains a {file}`.envrc` file. This ensures that the appropriate environment is activates once you navigate into the repository!
-:::
+> [!TIP]
+> [Install `direnv`](https://direnv.net/docs/installation.html) if a repository contains a {file}`.envrc` file. This ensures that the appropriate environment is activates once you navigate into the repository!
 
 ### Editable installation
 
@@ -161,9 +159,8 @@ Developers require several additional tools besides the dependencies required to
 
 To ensure that developers use exactly the same versions of the package dependencies and developer requirements, some of the repositories provide lock files, such as [`uv.lock`](https://docs.astral.sh/uv/concepts/projects/sync) and [`pixi.lock`](https://pixi.prefix.dev/v0.63.2/workspace/lockfile). The constraint files are updated automatically with the [ComPWA/actions/.github/workflows/lock.yml](https://github.com/ComPWA/actions/blob/v4/.github/workflows/lock.yml) workflow using {ref}`develop:GitHub Actions`. That workflow also bumps the hook revisions in `.pre-commit-config.yaml` with `uvx prek autoupdate`, which is what the {ref}`local <develop:checks>` `poe upgrade` task does as well.
 
-:::{note}
-Constraint files ensure that the framework is _deterministic and reproducible_ (up to testing) _for all commits and versions_, which is vital for both users (doing analysis) and for developers (for instance with {ref}`continuous integration <develop:GitHub Actions>`). In other words, it provides a way out of ["dependency hell"](https://en.wikipedia.org/wiki/Dependency_hell).
-:::
+> [!NOTE]
+> Constraint files ensure that the framework is _deterministic and reproducible_ (up to testing) _for all commits and versions_, which is vital for both users (doing analysis) and for developers (for instance with {ref}`continuous integration <develop:GitHub Actions>`). In other words, it provides a way out of ["dependency hell"](https://en.wikipedia.org/wiki/Dependency_hell).
 
 ### Julia
 
@@ -403,9 +400,10 @@ pytest -n auto
 The flag {command}`-n auto` causes {code}`pytest` to [run with a distributed strategy](https://pypi.org/project/pytest-xdist).
 
 ::::{margin}
-:::{tip}
-In VS&nbsp;Code, you can visualize test coverage are covered with through its built-in [test coverage support](https://code.visualstudio.com/docs/python/testing#_run-tests-with-coverage).
-:::
+
+> [!TIP]
+> In VS&nbsp;Code, you can visualize test coverage are covered with through its built-in [test coverage support](https://code.visualstudio.com/docs/python/testing#_run-tests-with-coverage).
+
 ::::
 
 <!-- cspell:ignore htmlcov -->
@@ -426,9 +424,8 @@ pytest --profile-svg
 
 and check the stats and the {file}`prof/combined.svg` output file.
 
-:::{note}
-Jupyter notebooks can also be used as tests. See more info {ref}`here <develop:Jupyter Notebooks>`.
-:::
+> [!NOTE]
+> Jupyter notebooks can also be used as tests. See more info {ref}`here <develop:Jupyter Notebooks>`.
 
 ## Documentation
 
@@ -461,9 +458,10 @@ Finally, a nice feature of [Read the Docs](https://about.readthedocs.com/), wher
 ### Jupyter Notebooks
 
 ::::{margin}
-:::{tip}
-Sometimes it happens that your Jupyter installation does not recognize your {ref}`virtual environment <develop:Virtual environment>`. In that case, have a look at [these instructions](https://ipython.readthedocs.io/en/stable/install/kernel_install.html#kernels-for-different-environments).
-:::
+
+> [!TIP]
+> Sometimes it happens that your Jupyter installation does not recognize your {ref}`virtual environment <develop:Virtual environment>`. In that case, have a look at [these instructions](https://ipython.readthedocs.io/en/stable/install/kernel_install.html#kernels-for-different-environments).
+
 ::::
 
 The [docs](https://github.com/ComPWA/ampform/tree/main/docs) folder can also contain Jupyter notebooks. These notebooks are rendered as HTML by [MyST-NB](https://myst-nb.readthedocs.io). The notebooks are also run and tested whenever you make a {ref}`pull request <develop:Collaboration>`, so they also serve as **integration tests**.
@@ -484,30 +482,28 @@ This command takes more time than `poe doc`, but it is good practice to do this 
 poe docnblive
 ```
 
-:::{tip}
-Notebooks are automatically formatted through {ref}`prek <develop:Prek>` (see {ref}`develop:Formatting`). If you want to format the notebooks automatically as you're working, you can do so with [`jupyterlab-code-formatter`](https://jupyterlab-code-formatter.readthedocs.io), which is automatically {ref}`installed with the dev requirements <develop:Optional dependencies>`.
-
-For this, you need to set Ruff as the formatter (see [](#formatting)) for `jupyterlab-code-formatter`:
-
-1. Open Jupyter Lab Settings ({kbd}`Ctrl+,` / {kbd}`⌘+,`).
-2. Select the "Jupyterlab Code Formatter" plugin from the left sidebar.
-3. Under `default_formatter`, list two Python formatters: `ruffformat` and `ruff`. The first is the actual [Ruff formatter](https://docs.astral.sh/ruff/formatter) that mimics `black`, the second is for Ruff auto-fixes of linting rules. (The default formatters are `isort` and `black`—you should overwrite these.) <!-- cspell:ignore ruffformat -->
-4. **Optional:** Activate format-on-save by ticking "Auto format config".
-
-Alternatively, you can open the settings for the "Jupyterlab Code Formatter" as JSON and set it to:
-
-```json
-{
-  "preferences": {
-    "default_formatter": {
-      "python": ["ruffformat", "ruff"]
-    }
-  },
-  "formatOnSave": true
-}
-```
-
-:::
+> [!TIP]
+> Notebooks are automatically formatted through {ref}`prek <develop:Prek>` (see {ref}`develop:Formatting`). If you want to format the notebooks automatically as you're working, you can do so with [`jupyterlab-code-formatter`](https://jupyterlab-code-formatter.readthedocs.io), which is automatically {ref}`installed with the dev requirements <develop:Optional dependencies>`.
+>
+> For this, you need to set Ruff as the formatter (see [](#formatting)) for `jupyterlab-code-formatter`:
+>
+> 1. Open Jupyter Lab Settings ({kbd}`Ctrl+,` / {kbd}`⌘+,`).
+> 2. Select the "Jupyterlab Code Formatter" plugin from the left sidebar.
+> 3. Under `default_formatter`, list two Python formatters: `ruffformat` and `ruff`. The first is the actual [Ruff formatter](https://docs.astral.sh/ruff/formatter) that mimics `black`, the second is for Ruff auto-fixes of linting rules. (The default formatters are `isort` and `black`; you should overwrite these.) <!-- cspell:ignore ruffformat -->
+> 4. **Optional:** Activate format-on-save by ticking "Auto format config".
+>
+> Alternatively, you can open the settings for the "Jupyterlab Code Formatter" as JSON and set it to:
+>
+> ```json
+> {
+>   "preferences": {
+>     "default_formatter": {
+>       "python": ["ruffformat", "ruff"]
+>     }
+>   },
+>   "formatOnSave": true
+> }
+> ```
 
 #### IJulia notebooks
 
@@ -555,17 +551,16 @@ installkernel("julia")
 
 and select it as kernel in the Jupyter notebook.
 
-:::{note}
-As mentioned in {ref}`develop:Julia`, Julia can be installed within your Conda environment through [`juliaup`](https://anaconda.org/conda-forge/juliaup). This is, however, not yet a virtual environment for Julia itself. You can create a virtual environment for Julia itself by for instance defining it through a code cell like this:
-
-```julia
-using Pkg
-Pkg.activate(".")  # if environment is defined in this folder
-Pkg.instantiate()
-```
-
-See **[TR-019](https://compwa.github.io/report/019)** for an example.
-:::
+> [!NOTE]
+> As mentioned in {ref}`develop:Julia`, Julia can be installed within your Conda environment through [`juliaup`](https://anaconda.org/conda-forge/juliaup). This is, however, not yet a virtual environment for Julia itself. You can create a virtual environment for Julia itself by for instance defining it through a code cell like this:
+>
+> ```julia
+> using Pkg
+> Pkg.activate(".")  # if environment is defined in this folder
+> Pkg.instantiate()
+> ```
+>
+> See **[TR-019](https://compwa.github.io/report/019)** for an example.
 
 Additionally, you can install a [Language Server](https://jupyterlab-lsp.readthedocs.io/en/latest/Language%20Servers.html) for Julia in Jupyter Lab. To do so, run:
 
@@ -591,15 +586,13 @@ Pkg.add("LanguageServer")
 
 The source code of all ComPWA repositories is maintained with [Git](https://git-scm.com) and [GitHub](https://github.com). We keep track of issues with the code, documentation, and developer set-up with GitHub issues (see for instance [here](https://github.com/ComPWA/ampform/issues)). This is also the place where you can [report bugs](https://github.com/ComPWA/ampform/issues/new/choose).
 
-:::{tip}
-If you are new to working with GitHub, have a look at the tutorials on [GitHub Skills](https://skills.github.com). For good tutorials on Git, see:
-
-- [freeCodeCamp's "Gitting Things Done"](https://www.freecodecamp.org/news/gitting-things-done-book)
-  <!-- cspell:ignore gitting -->
-- [HSF Software Training Center](https://swcarpentry.github.io/git-novice)
-- The [Pro Git](https://git-scm.com/book/en/v2) book
-
-:::
+> [!TIP]
+> If you are new to working with GitHub, have a look at the tutorials on [GitHub Skills](https://skills.github.com). For good tutorials on Git, see:
+>
+> - [freeCodeCamp's "Gitting Things Done"](https://www.freecodecamp.org/news/gitting-things-done-book)
+>   <!-- cspell:ignore gitting -->
+> - [HSF Software Training Center](https://swcarpentry.github.io/git-novice)
+> - The [Pro Git](https://git-scm.com/book/en/v2) book
 
 ### Issue management
 
@@ -709,12 +702,11 @@ Even though we try to standardize the developer set-up of the repositories, we e
 
 Still, where code editor settings can be shared through configuration files in the repository, we provide recommended settings for the code editor as well. This is especially the case for [VSCode](#visual-studio-code).
 
-:::{tip}
-
-<!-- cspell:ignore Intelli vimrc -->
-
-We are open to other code editors as well. An example would be maintaining a [local vimrc](https://github.com/embear/vim-localvimrc) for users who prefer [VIM](<https://en.wikipedia.org/wiki/Vim_(text_editor)>). Other IDEs we'd like to support are [PyCharm](https://www.jetbrains.com/pycharm), [Atom](https://github.com/atom/atom), [IntelliJ with Python](https://www.jetbrains.com/help/idea/managing-plugins.html). So we'll gladly integrate your editor settings where possible as you [contribute](#collaboration) to the frameworks!
-:::
+> [!TIP]
+>
+> <!-- cspell:ignore Intelli vimrc -->
+>
+> We are open to other code editors as well. An example would be maintaining a [local vimrc](https://github.com/embear/vim-localvimrc) for users who prefer [VIM](<https://en.wikipedia.org/wiki/Vim_(text_editor)>). Other IDEs we'd like to support are [PyCharm](https://www.jetbrains.com/pycharm), [Atom](https://github.com/atom/atom), [IntelliJ with Python](https://www.jetbrains.com/help/idea/managing-plugins.html). So we'll gladly integrate your editor settings where possible as you [contribute](#collaboration) to the frameworks!
 
 ### Visual Studio code
 
@@ -801,11 +793,8 @@ Do you have other recommendations? Edit this page [here](https://github.com/ComP
 
 ## Bibliography
 
-:::{tip}
-
-Download this bibliography as BibTeX {download}`here </bibliography.bib>`.
-
-:::
+> [!TIP]
+> Download this bibliography as BibTeX {download}`here </bibliography.bib>`.
 
 ```{bibliography} /bibliography.bib
 ---
