@@ -54,6 +54,5 @@ GEMINI.md
 !.pre-commit-config.yaml
 !.readthedocs.yml
 !.vscode/*.json
-!.zenodo.json
-!codecov.yml
 .jupyter_ystore.db
+.lycheecache
