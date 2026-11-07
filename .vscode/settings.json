@@ -43,7 +43,6 @@
     }
   ],
   "livePreview.defaultPreviewPath": "docs/_build/html",
-  "multiDiffEditor.experimental.enabled": true,
   "notebook.codeActionsOnSave": {
     "notebook.source.organizeImports": "explicit"
   },
@@ -63,9 +62,5 @@
   "telemetry.telemetryLevel": "off",
   "ty.completions.autoImport": false,
   "ty.diagnosticMode": "workspace",
-  "ty.importStrategy": "fromEnvironment",
-  "yaml.schemas": {
-    "https://citation-file-format.github.io/1.2.0/schema.json": "CITATION.cff",
-    "https://json.schemastore.org/github-workflow.json": "./.github/workflows/requirements.yml"
-  }
+  "ty.importStrategy": "fromEnvironment"
 }
