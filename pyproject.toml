@@ -422,7 +422,7 @@ include = ["pyproject.toml"]
 
 [[tool.ty.overrides]]
 include = ["docs/symbolics.ipynb"]
-rules.unresolved-attribute = "ignore"
+rules.missing-attribute = "ignore"
 
 [[tool.ty.overrides]]
 include = [
@@ -440,7 +440,7 @@ rules.invalid-argument-type = "ignore"
 rules.invalid-assignment = "ignore"
 rules.invalid-return-type = "ignore"
 rules.no-matching-overload = "ignore"
-rules.unresolved-attribute = "ignore"
+rules.missing-attribute = "ignore"
 
 [[tool.ty.overrides]]
 include = ["docs/adr/002/composition.ipynb"]
