@@ -31,7 +31,7 @@ doc = [
     "sphinx",
     "sphinx-api-relink",
     "sphinx-book-theme",
-    "sphinx-codeautolink[ipython]",
+    "sphinx-codeautolink[ipython]<0.20",  # 0.20 fails to resolve transformed code in the ADR notebooks.
     "sphinx-comments",
     "sphinx-copybutton",
     "sphinx-design",
@@ -102,6 +102,8 @@ cache = true
 cache_exclude_status = "400.."
 # [:] keeps Lychee from extracting regex patterns as URLs.
 exclude = [
+    '^https[:]//leetcode\.com/problemset$',  # LeetCode rejects automated requests from GitHub Actions
+    '^https[:]//www\.guru99\.com/types-of-software-testing\.html$',  # Guru99 rejects automated requests from GitHub Actions
     '\$(?:NEXT_[A-Z_]+|PREVIOUS_TAG)',  # Release Drafter substitutes these placeholders at runtime
     '^http[:]//127\.0\.0\.1:8000/?$',  # Local documentation server
     '^https[:]//doi\.org/10\.1007/JHEP07\(2023\)228$',  # Publisher redirects automated requests through a cookie challenge
