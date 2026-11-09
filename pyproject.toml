@@ -95,88 +95,29 @@ type-checker = ["ty"]
 
 [tool.lychee]
 cache = true
-# In `exclude` and `remap`, `[:]` stops lychee from extracting the patterns as links from this file
+cache_exclude_status = "400.."
+# [:] keeps Lychee from extracting regex patterns as URLs.
 exclude = [
     '\$(?:NEXT_[A-Z_]+|PREVIOUS_TAG)',  # Release Drafter substitutes these placeholders at runtime
     '^http[:]//127\.0\.0\.1:8000/?$',  # Local documentation server
     '^https[:]//doi\.org/10\.1007/JHEP07\(2023\)228$',  # Publisher redirects automated requests through a cookie challenge
-    '^https[:]//doi\.org/10\.5281/zenodo\.\d+$',  # Zenodo concept DOIs redirect to the latest version by design
     '^https[:]//github\.com/ComPWA/ampform/issues/new/choose$',  # Requires authentication
-    '^https[:]//github\.com/ComPWA/compwa\.github\.io/assets/29308176/a1a19f74-b2dd-484f-804f-02da523ed4b7$',  # Redirects to an expiring signed download
     '^https[:]//github\.com/ComPWA/compwa\.github\.io/edit/main/docs/develop\.md$',  # Requires authentication
     '^https[:]//github\.com/organizations/ComPWA/settings/repository-defaults$',  # Requires organization admin access
     '^https[:]//github\.com/orgs/ComPWA/projects/5$',  # Private project
-    '^https[:]//leetcode\.com/problemset$',  # Rejects automated requests with 403
     '^https[:]//stackoverflow\.com/a/(?:36344627|7844038)$',  # Answer links redirect to pages that reject automated requests with 403
     '^https[:]//www\.mathworks\.com/products/matlab\.html$',  # Rejects automated requests with 403
-    '^https[:]//www\.npmjs\.com/package/cspell(?:#.*)?$',  # Rejects automated requests with 403
     "%7B[^/]*%7D",  # URL templates are completed at build or runtime
 ]
 extensions = ["bib", "ipynb", "json", "md", "py", "toml", "yaml", "yml"]
 hidden = true  # Include the workflows under .github/
 include_fragments = "anchor-only"
 include_verbatim = true
-max_cache_age = "2d"
-max_redirects = 0
-max_retries = 3
+max_cache_age = "7d"
 remap = [
-    '^(https[:]//(?:docs\.astral\.sh|prek\.j178\.dev)/[^?#]*[^/?#])([?#].*)?$ $1/$2',
     '^(https[:]//github\.com/ComPWA/compwa\.github\.io/compare)/\$PREVIOUS_TAG.*$ $1',
     '^git\+(https[:]//[^@]+)(@.*)?$ $1',
-    '^https[:]//adr\.github\.io/madr$ https://adr.github.io/madr/',
-    '^https[:]//algs4\.cs\.princeton\.edu/$ https://algs4.cs.princeton.edu/home/',
-    '^https[:]//ampform\.readthedocs\.io/$ https://ampform.readthedocs.io/stable/',
-    '^https[:]//ampform\.readthedocs\.io/stable$ https://ampform.readthedocs.io/stable/',
-    '^https[:]//ampform\.rtfd\.io/$ https://ampform.readthedocs.io/stable/',
-    '^https[:]//anaconda\.org/conda-forge/ampform/badges/version\.svg$ https://anaconda.org/conda-forge/ampform',
-    '^https[:]//anaconda\.org/conda-forge/qrules/badges/version\.svg$ https://anaconda.org/conda-forge/qrules',
-    '^https[:]//anaconda\.org/conda-forge/tensorwaves/badges/version\.svg$ https://anaconda.org/conda-forge/tensorwaves',
-    '^https[:]//black\.readthedocs\.io/$ https://black.readthedocs.io/en/stable/',
-    '^https[:]//compwa\.github\.io/legacy$ https://compwa.github.io/legacy/',
-    '^https[:]//compwa\.github\.io/policy$ https://compwa.github.io/policy/',
-    '^https[:]//compwa\.github\.io/report/019$ https://compwa.github.io/report/019/',
-    '^https[:]//compwa\.github\.io/report$ https://compwa.github.io/report/',
-    '^https[:]//docs\.jax\.dev/en/latest$ https://docs.jax.dev/en/latest/',
-    '^https[:]//docs\.python\.org/3$ https://docs.python.org/3/',
-    '^https[:]//docs\.scipy\.org/doc/scipy-1\.7\.0$ https://docs.scipy.org/doc/scipy-1.7.0/',
-    '^https[:]//docs\.sympy\.org/latest$ https://docs.sympy.org/latest/',
-    '^https[:]//executablebooks\.org/$ https://executablebooks.org/en/latest/',
-    '^https[:]//expertsystem\.readthedocs\.io/stable$ https://expertsystem.readthedocs.io/stable/',
-    '^https[:]//github\.com/ComPWA/ampform/blob/main/\.github$ https://github.com/ComPWA/ampform/tree/main/.github',
-    '^https[:]//github\.dev/(.+)$ https://vscode.dev/github/$1',
-    '^https[:]//graphviz\.readthedocs\.io/en/stable$ https://graphviz.readthedocs.io/en/stable/',
-    '^https[:]//hynek\.me/articles/python-subclassing-redux$ https://hynek.me/articles/python-subclassing-redux/',
-    '^https[:]//isort\.readthedocs\.io/$ https://isort.readthedocs.io/en/latest/',
-    '^https[:]//julialang\.org/downloads$ https://julialang.org/downloads/',
-    '^https[:]//jupyterlab\.readthedocs\.io/en/stable$ https://jupyterlab.readthedocs.io/en/stable/',
-    '^https[:]//myst-nb\.readthedocs\.io/$ https://myst-nb.readthedocs.io/en/latest/',
-    '^https[:]//myst-parser\.readthedocs\.io/$ https://myst-parser.readthedocs.io/en/latest/',
-    '^https[:]//pip\.pypa\.io/en/stable/cli/pip_install$ https://pip.pypa.io/en/stable/cli/pip_install/',
-    '^https[:]//pixi\.prefix\.dev/v0\.63\.2/workspace/lockfile$ https://pixi.prefix.dev/v0.63.2/workspace/lockfile/',
-    '^https[:]//pkgdocs\.julialang\.org/v1/environments$ https://pkgdocs.julialang.org/v1/environments/',
-    '^https[:]//pkgdocs\.julialang\.org/v1/managing-packages$ https://pkgdocs.julialang.org/v1/managing-packages/',
-    '^https[:]//pwa\.readthedocs\.io/software$ https://pwa.readthedocs.io/software/',
-    '^https[:]//pwa\.rtfd\.io/$ https://pwa.readthedocs.io/',
-    '^https[:]//qrules\.readthedocs\.io/$ https://qrules.readthedocs.io/stable/',
-    '^https[:]//qrules\.readthedocs\.io/stable$ https://qrules.readthedocs.io/stable/',
-    '^https[:]//qrules\.rtfd\.io/$ https://qrules.readthedocs.io/stable/',
-    '^https[:]//realpython\.com/python-virtual-environments-a-primer$ https://realpython.com/python-virtual-environments-a-primer/',
-    '^https[:]//scikit-hep\.org/developer$ https://scikit-hep.org/developer/',
-    '^https[:]//swcarpentry\.github\.io/git-novice$ https://swcarpentry.github.io/git-novice/',
-    '^https[:]//tensorwaves\.readthedocs\.io/$ https://tensorwaves.readthedocs.io/stable/',
-    '^https[:]//tensorwaves\.readthedocs\.io/stable$ https://tensorwaves.readthedocs.io/stable/',
-    '^https[:]//tensorwaves\.rtfd\.io/$ https://tensorwaves.readthedocs.io/stable/',
-    '^https[:]//testdriven\.io/guides/complete-python$ https://testdriven.io/guides/complete-python/',
-    '^https[:]//www\.andiamo\.co\.uk/resources/iso-language-codes$ https://www.andiamo.co.uk/resources/iso-language-codes/',
-    '^https[:]//www\.infoq\.com/articles/sustainable-architectural-design-decisions$ https://www.infoq.com/articles/sustainable-architectural-design-decisions/',
-    '^https[:]//www\.jetbrains\.com/pycharm$ https://www.jetbrains.com/pycharm/',
-    '^https[:]//www\.maplesoft\.com/products/Maple$ https://www.maplesoft.com/products/Maple/',
-    '^https[:]//www\.sphinx-doc\.org/$ https://www.sphinx-doc.org/en/master/',
-    '^https[:]//www\.wolfram\.com/mathematica$ https://www.wolfram.com/mathematica/',
-    '^https[:]//zenodo\.org/schemas/deposits/records/legacyrecord\.json$ https://raw.githubusercontent.com/zenodo/zenodo/master/zenodo/modules/deposit/jsonschemas/deposits/records/legacyrecord.json',
 ]
-retry_wait_time = 5
-timeout = 30
 
 [tool.poe.executor]
 isolated = true

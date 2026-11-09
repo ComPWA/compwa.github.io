@@ -39,7 +39,7 @@
   "json.schemas": [
     {
       "fileMatch": [".zenodo.json"],
-      "url": "https://zenodo.org/schemas/deposits/records/legacyrecord.json"
+      "url": "https://raw.githubusercontent.com/zenodo/zenodo/master/zenodo/modules/deposit/jsonschemas/deposits/records/legacyrecord.json"
     }
   ],
   "livePreview.defaultPreviewPath": "docs/_build/html",
