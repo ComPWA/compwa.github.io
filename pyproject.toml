@@ -20,6 +20,7 @@ Source = "https://github.com/ComPWA/compwa.github.io"
 [dependency-groups]
 dev = [
     "ruff",
+    "ty",
     { include-group = "doc" },
     { include-group = "jupyter" },
     { include-group = "style" },
@@ -64,7 +65,6 @@ notebooks = [
 style = [
     "attrs",
     "nbformat",
-    "ty",
     { include-group = "types" },
 ]
 test = ["jupyter"]
@@ -92,6 +92,10 @@ no-pypi = true
 
 [tool.compwa.policy.python]
 type-checker = ["ty"]
+
+[tool.docstrfmt]
+docstring-trailing-line = false
+format-python-code-blocks = false
 
 [tool.lychee]
 cache = true
@@ -411,7 +415,7 @@ key-empty = "off"
 
 [[tool.tombi.schemas]]
 root = "tool.compwa.policy"
-path = "https://raw.githubusercontent.com/ComPWA/policy/0.10.3/compwa-policy.schema.json"
+path = "https://raw.githubusercontent.com/ComPWA/policy/0.10.4/compwa-policy.schema.json"
 include = ["pyproject.toml"]
 
 [[tool.ty.overrides]]
