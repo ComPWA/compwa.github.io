@@ -440,8 +440,8 @@ include = ["docs/adr/**/*.ipynb"]
 rules.invalid-argument-type = "ignore"
 rules.invalid-assignment = "ignore"
 rules.invalid-return-type = "ignore"
-rules.no-matching-overload = "ignore"
 rules.missing-attribute = "ignore"
+rules.no-matching-overload = "ignore"
 
 [[tool.ty.overrides]]
 include = ["docs/adr/002/composition.ipynb"]
