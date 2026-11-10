@@ -124,10 +124,10 @@ This situation however has a few major disadvantages:
 
 ComPWA attempts to break this with the following ideals:
 
-- Prioritize {ref}`index:Developer Experience` over functionality.
-- Have everything {ref}`open source <index:Open source>` and remain collaboration-independent
-- Offer functionality in the form of modules (libraries) that can serve as building blocks in more specialized scripts and frameworks ({ref}`index:Design`).
-- Record and share acquired knowledge through {ref}`modern, interlinked documentation <index:User Experience>`.
+- Prioritize [Developer Experience](#developer-experience) over functionality.
+- Have everything [open source](#open-source) and remain collaboration-independent
+- Offer functionality in the form of modules (libraries) that can serve as building blocks in more specialized scripts and frameworks ([Design](#design)).
+- Record and share acquired knowledge through [modern, interlinked documentation](#user-experience).
 - Follow industry standards and tools (e.g. {doc}`ticket system, CI, ADR, etc... </develop>`).
 
 The first point is crucial. ComPWA rather sacrifices functionality for design and developer experience related developments. Many other frameworks have started with the same ideal of having a good software design etc., but soon begin to drop those ideals for the understandable reasons described above. We believe that only by sticking to those ideals, it is possible to maintain a long-term and collaboration-independent common tool.
@@ -140,22 +140,22 @@ In order to close this gap as best as possible, ComPWA follows the following ide
 
 1. Frameworks are built up as **modular libraries with an accessible and well-documented [API](https://en.wikipedia.org/wiki/API)** (see for example [here](https://ampform.readthedocs.io/stable/api/ampform.html)). Users preferably set up their analysis through Jupyter notebooks or scripts that use these libraries. This allows the user to adapt to the specific challenges that their research challenges pose, while at the same time thinking along or improving the with the design and features offered by the library.
 2. **New features are added to the library with care**, as to not let the library grow over time with features that are specific to certain analyses. Procedures are kept small and general enough, so that they can be used by different user scripts. This relates to 1., because the API and underlying code base should remain understandable.
-3. It should be **easy to make the step from using the library to contributing to the source code**. The main starting points are the {ref}`example pages provided by each library <index:User experience>` (accessible without any software but a browser). From there, it should be just a matter of a running few command lines to start modifying and trying out changes to the code-bases (see e.g. {ref}`develop:Local set-up`) in a {ref}`standardized and automated environment <develop:Automated coding conventions>`.
+3. It should be **easy to make the step from using the library to contributing to the source code**. The main starting points are the [example pages provided by each library](#user-experience) (accessible without any software but a browser). From there, it should be just a matter of a running few command lines to start modifying and trying out changes to the code-bases (see e.g. [Local set-up](develop.md#local-set-up)) in a [standardized and automated environment](develop.md#automated-coding-conventions).
 4. **Developments industry techniques and software development tools are followed closely.** Despite the specific nature of PWA, many aspects can be performed or supported by existing technologies or packages. Think of the regression process that forms the basis of Machine Learning, but also the growing number of tools that are popular in data science, like [Pandas](https://pandas.pydata.org) and [Jupyter notebooks](https://jupyter.org).
-5. As frameworks are {ref}`open source <index:Open source>` and users and developers come and go, **decision making is recorded as thoroughly as possible**. Fortunately, Git (commit history) and GitHub ({ref}`issues, PRs, and discussions <develop:Collaboration>`) make this extremely easy. In addition, larger decisions are recorded in the form of {doc}`ADRs </adr>` and explorations of challenges posed by physics and software are hosted in the form of [technical reports](https://compwa.github.io/reports).
+5. As frameworks are [open source](#open-source) and users and developers come and go, **decision making is recorded as thoroughly as possible**. Fortunately, Git (commit history) and GitHub ([issues, PRs, and discussions](develop.md#collaboration)) make this extremely easy. In addition, larger decisions are recorded in the form of {doc}`ADRs </adr>` and explorations of challenges posed by physics and software are hosted in the form of [technical reports](https://compwa.github.io/reports).
 
 ### Design
 
 - Code modularity and transparency. For example, separation of {mod}`qrules`, {mod}`ampform`, and {mod}`tensorwaves`. The former two include all of the physics, while {mod}`tensorwaves` can use these amplitude models and perform fits, but aims to keep physics logic contained upstream.
 - Keep the code simple by sticking to the core responsibility: construct amplitude models and fitting them to data. Avoid ["feature creep"](https://en.wikipedia.org/wiki/Feature_creep)!
-- Accommodate both stable development and flexibility for ongoing analyses (see e.g. {ref}`develop:Branching model`).
+- Accommodate both stable development and flexibility for ongoing analyses (see e.g. [Branching model](develop.md#branching-model)).
 - ComPWA values the [open-closed principle](https://en.wikipedia.org/wiki/Open%E2%80%93closed_principle). Where possible, libraries are intended to give users the flexibility to insert custom behavior (like custom dynamics) without having to introduce new updates to the library.
 
 ### Open source
 
 ComPWA repositories are intended to be collaboration-independent. As such, they are always public and open source and free to try out and re-use under the [Apache license](https://www.apache.org/licenses/LICENSE-2.0).
 
-At the same time, open source projects come with many challenges: it is crucial to {ref}`maintain strict standards for the code-base <develop:Automated coding conventions>` from the start, when anyone is allowed to contribute.
+At the same time, open source projects come with many challenges: it is crucial to [maintain strict standards for the code-base](develop.md#automated-coding-conventions) from the start, when anyone is allowed to contribute.
 
 ## User Experience
 
@@ -163,7 +163,7 @@ PWA is a difficult field to get into and to navigate around. ComPWA therefore pu
 
 - All libraries provide example pages (see e.g. {doc}`here <tensorwaves:usage>`). These pages are written as Jupyter notebook and provide a close link between code (how to use the library in a script, with links to the API) and theory (explanations of the basics being performed).
 - Texts on the web-pages are thoroughly interlinked, so that the reader can easily to navigate to literature or external resources for more information. The intention is to make PWA a more accessible field for newcomers and to provide reference to the literature that was consulted for the implementation.
-- Almost all ComPWA libraries are written in Python. This makes it easy for analysis users to install and use. In addition, the Python community has developed excellent tools that make it easy to document and maintain a clean codebase, so that is easy to make the step to become a {ref}`developer <index:Developer Experience>`.
+- Almost all ComPWA libraries are written in Python. This makes it easy for analysis users to install and use. In addition, the Python community has developed excellent tools that make it easy to document and maintain a clean codebase, so that is easy to make the step to become a [developer](#developer-experience).
 
 This page is combines documentation on projects provided by the [ComPWA organization on GitHub](https://github.com/ComPWA). It is more technical than the [PWA Pages](https://pwa.rtfd.io) and focuses on the ComPWA organization only. Read more about our ideals and ongoing projects on the {doc}`main</index>` page.
 

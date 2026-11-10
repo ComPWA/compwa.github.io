@@ -34,7 +34,7 @@ This page describes some of the tools and conventions followed by [Common Partia
 > prek install --prepare-hooks
 > ```
 >
-> If you already had `pre-commit` installed in this repository, see {ref}`develop:Prek` for how to replace its Git hooks.
+> If you already had `pre-commit` installed in this repository, see [Prek](#prek) for how to replace its Git hooks.
 >
 > In `uv`-only projects, [Poe the Poet](https://poethepoet.natn.io) is used as task runner and can be installed with:
 >
@@ -42,7 +42,7 @@ This page describes some of the tools and conventions followed by [Common Partia
 > uv tool install --python=3.14 poethepoet
 > ```
 >
-> See {ref}`develop:Virtual environment` for more info.
+> See [Virtual environment](#virtual-environment) for more info.
 
 ## Local set-up
 
@@ -153,14 +153,14 @@ pip install -e ".[dev]"  #  editable + all dev requirements
 :::
 ::::
 
-Developers require several additional tools besides the dependencies required to run the package itself (see {ref}`develop:Automated coding conventions`). All those additional requirements can be installed with the last example.
+Developers require several additional tools besides the dependencies required to run the package itself (see [Automated coding conventions](#automated-coding-conventions)). All those additional requirements can be installed with the last example.
 
 ### Pinning dependency versions
 
-To ensure that developers use exactly the same versions of the package dependencies and developer requirements, some of the repositories provide lock files, such as [`uv.lock`](https://docs.astral.sh/uv/concepts/projects/sync) and [`pixi.lock`](https://pixi.prefix.dev/v0.63.2/workspace/lockfile). The constraint files are updated automatically with the [ComPWA/actions/.github/workflows/lock.yml](https://github.com/ComPWA/actions/blob/v4/.github/workflows/lock.yml) workflow using {ref}`develop:GitHub Actions`. That workflow also bumps the hook revisions in `.pre-commit-config.yaml` with `uvx prek autoupdate`, which is what the {ref}`local <develop:checks>` `poe upgrade` task does as well.
+To ensure that developers use exactly the same versions of the package dependencies and developer requirements, some of the repositories provide lock files, such as [`uv.lock`](https://docs.astral.sh/uv/concepts/projects/sync) and [`pixi.lock`](https://pixi.prefix.dev/v0.63.2/workspace/lockfile). The constraint files are updated automatically with the [ComPWA/actions/.github/workflows/lock.yml](https://github.com/ComPWA/actions/blob/v4/.github/workflows/lock.yml) workflow using [GitHub Actions](#github-actions). That workflow also bumps the hook revisions in `.pre-commit-config.yaml` with `uvx prek autoupdate`, which is what the [local](#checks) `poe upgrade` task does as well.
 
 > [!NOTE]
-> Constraint files ensure that the framework is _deterministic and reproducible_ (up to testing) _for all commits and versions_, which is vital for both users (doing analysis) and for developers (for instance with {ref}`continuous integration <develop:GitHub Actions>`). In other words, it provides a way out of ["dependency hell"](https://en.wikipedia.org/wiki/Dependency_hell).
+> Constraint files ensure that the framework is _deterministic and reproducible_ (up to testing) _for all commits and versions_, which is vital for both users (doing analysis) and for developers (for instance with [continuous integration](#github-actions)). In other words, it provides a way out of ["dependency hell"](https://en.wikipedia.org/wiki/Dependency_hell).
 
 ### Julia
 
@@ -248,25 +248,25 @@ sudo ln -s /opt/julia-1.12.4/bin/julia /usr/local/bin/julia
 ::::
 :::::
 
-Just as in Python, it's safest to work with a {ref}`virtual environment <develop:Virtual environment>`. You can read more about Julia environments [here](https://pkgdocs.julialang.org/v1/environments). An environment is defined through a [`Project.toml` file](https://pkgdocs.julialang.org/v1/toml-files/#Project.toml) (which defines direct dependencies) and a [`Manifest.toml` file](https://pkgdocs.julialang.org/v1/toml-files/#Manifest.toml) (which exactly pins the installed versions of _all_ recursive dependencies). Don't touch these files―they are automatically managed by the [package manager](https://pkgdocs.julialang.org/v1/managing-packages). It does make sense though to commit both `Project.toml` and `Manifest.toml` files, so that the environment is reproducible for each commit (see also {ref}`develop:Pinning dependency versions`).
+Just as in Python, it's safest to work with a [virtual environment](#virtual-environment). You can read more about Julia environments [here](https://pkgdocs.julialang.org/v1/environments). An environment is defined through a [`Project.toml` file](https://pkgdocs.julialang.org/v1/toml-files/#Project.toml) (which defines direct dependencies) and a [`Manifest.toml` file](https://pkgdocs.julialang.org/v1/toml-files/#Manifest.toml) (which exactly pins the installed versions of _all_ recursive dependencies). Don't touch these files―they are automatically managed by the [package manager](https://pkgdocs.julialang.org/v1/managing-packages). It does make sense though to commit both `Project.toml` and `Manifest.toml` files, so that the environment is reproducible for each commit (see also [Pinning dependency versions](#pinning-dependency-versions)).
 
 :::{seealso}
-Have a look {ref}`here<develop:IJulia notebooks>` if you want to integrate Jupyter notebooks with Julia kernels into your {ref}`documentation<develop:Documentation>`.
+Have a look [here](#ijulia-notebooks) if you want to integrate Jupyter notebooks with Julia kernels into your [documentation](#documentation).
 :::
 
 ## Automated coding conventions
 
-Where possible, we define and enforce our coding conventions through automated tools, instead of describing them in documentation. These tools perform their checks when you commit files locally (see {ref}`develop:Prek`), when {ref}`running checks locally <develop:checks>`, and when you make a {ref}`pull request <develop:Collaboration>`.
+Where possible, we define and enforce our coding conventions through automated tools, instead of describing them in documentation. These tools perform their checks when you commit files locally (see [Prek](#prek)), when [running checks locally](#checks), and when you make a [pull request](#collaboration).
 
 The tools are mainly configured through [`pyproject.toml`](https://github.com/ComPWA/ampform/blob/main/pyproject.toml) and the workflow files under [`.github`](https://github.com/ComPWA/ampform/blob/main/.github). These configuration files are kept up to date through the [ComPWA/policy](https://compwa.github.io/policy) repository, which essentially defines the developer environment across [all ComPWA repositories](https://github.com/orgs/ComPWA/repositories?q=archived%3Ano&type=all&language=&sort=name).
 
-If you run into persistent linting errors, this may mean we need to further specify our conventions. In that case, it's best to {ref}`create an issue <develop:Issue management>` or a {ref}`pull request <develop:Collaboration>` at [ComPWA/policy](https://github.com/ComPWA/policy) and propose a policy change that can be formulated through those config files.
+If you run into persistent linting errors, this may mean we need to further specify our conventions. In that case, it's best to [create an issue](#issue-management) or a [pull request](#collaboration) at [ComPWA/policy](https://github.com/ComPWA/policy) and propose a policy change that can be formulated through those config files.
 
 (pre-commit)=
 
 ### Prek
 
-All {ref}`style checks <develop:Style checks>` are enforced through [`prek`](https://prek.j178.dev), a drop-in replacement for [pre-commit](https://pre-commit.com). It reads the same [{file}`.pre-commit-config.yaml`](https://github.com/ComPWA/ampform/blob/main/.pre-commit-config.yaml) file and the same hook definitions, so only the command and the local set-up differ. Install it once as a global tool with [`uv`](https://docs.astral.sh/uv):
+All [style checks](#style-checks) are enforced through [`prek`](https://prek.j178.dev), a drop-in replacement for [pre-commit](https://pre-commit.com). It reads the same [{file}`.pre-commit-config.yaml`](https://github.com/ComPWA/ampform/blob/main/.pre-commit-config.yaml) file and the same hook definitions, so only the command and the local set-up differ. Install it once as a global tool with [`uv`](https://docs.astral.sh/uv):
 
 ```shell
 uv tool install prek
@@ -299,7 +299,7 @@ uvx --from git+https://github.com/ComPWA/policy --refresh policy migrate
 You can then uninstall the old tool with `uv tool uninstall pre-commit`. The `pre-commit-uv` package is no longer needed either: `prek` uses `uv` natively.
 :::
 
-Whenever you {ref}`submit a pull request <develop:Collaboration>`, [GitHub Actions](https://github.com/ComPWA/ampform/actions/workflows/ci.yml) runs the same checks, so that all files in the repository follow the conventions set in the config files of these tools. Fixes that the hooks make are committed back to your branch by {ref}`autofix.ci <develop:autofix.ci>`.
+Whenever you [submit a pull request](#collaboration), [GitHub Actions](https://github.com/ComPWA/ampform/actions/workflows/ci.yml) runs the same checks, so that all files in the repository follow the conventions set in the config files of these tools. Fixes that the hooks make are committed back to your branch by [autofix.ci](#autofixci).
 
 ### Checks
 
@@ -317,7 +317,7 @@ Poe the Poet is installed through the `dev` dependency group. However, since the
 uv tool install poethepoet
 ```
 
-The task that runs all {ref}`style checks <develop:Style checks>` is `style`. It is a thin wrapper around `prek run -a`, so these three commands are equivalent:
+The task that runs all [style checks](#style-checks) is `style`. It is a thin wrapper around `prek run -a`, so these three commands are equivalent:
 
 ::::{tab-set}
 :::{tab-item} uv
@@ -343,7 +343,7 @@ prek run -a
 :::
 ::::
 
-Repositories with lock files additionally define an `upgrade` task, which runs `prek autoupdate` through the `_upgrade-precommit` helper task, next to the helper tasks that upgrade the lock files themselves (see {ref}`develop:Pinning dependency versions`):
+Repositories with lock files additionally define an `upgrade` task, which runs `prek autoupdate` through the `_upgrade-precommit` helper task, next to the helper tasks that upgrade the lock files themselves (see [Pinning dependency versions](#pinning-dependency-versions)):
 
 ```shell
 poe upgrade
@@ -351,17 +351,17 @@ poe upgrade
 
 ### GitHub Actions
 
-All {ref}`style checks <develop:Style checks>`, testing of the {ref}`documentation and links <develop:Documentation>`, and {ref}`unit tests <develop:Testing>` are performed upon each pull request through [GitHub Actions](https://docs.github.com/en/actions) (see status overview [here](https://github.com/ComPWA/ampform/actions)). The checks are defined under the [`.github`](https://github.com/ComPWA/ampform/blob/main/.github) folder. All checks performed for each PR have to pass before the PR can be merged.
+All [style checks](#style-checks), testing of the [documentation and links](#documentation), and [unit tests](#testing) are performed upon each pull request through [GitHub Actions](https://docs.github.com/en/actions) (see status overview [here](https://github.com/ComPWA/ampform/actions)). The checks are defined under the [`.github`](https://github.com/ComPWA/ampform/blob/main/.github) folder. All checks performed for each PR have to pass before the PR can be merged.
 
 #### autofix.ci
 
-Most {ref}`style checks <develop:Style checks>` do not just report a problem, they fix it. Those fixes are committed back to your pull request by [autofix.ci](https://autofix.ci), a GitHub App that ComPWA repositories activate through a workflow file named {file}`.github/workflows/autofix.ci.yml`. The workflow runs `prek run -a`, updates the {ref}`Jupyter kernel names <develop:Jupyter Notebooks>`, and hands the resulting patch to the app, which pushes it as a commit authored by `autofix-ci[bot]`. This replaces [pre-commit.ci](https://pre-commit.ci), which ComPWA repositories used before and which runs `pre-commit` rather than `prek`.
+Most [style checks](#style-checks) do not just report a problem, they fix it. Those fixes are committed back to your pull request by [autofix.ci](https://autofix.ci), a GitHub App that ComPWA repositories activate through a workflow file named {file}`.github/workflows/autofix.ci.yml`. The workflow runs `prek run -a`, updates the [Jupyter kernel names](#jupyter-notebooks), and hands the resulting patch to the app, which pushes it as a commit authored by `autofix-ci[bot]`. This replaces [pre-commit.ci](https://pre-commit.ci), which ComPWA repositories used before and which runs `pre-commit` rather than `prek`.
 
 There are a few things to be aware of:
 
 - The workflow file has to be named exactly `autofix.ci`. The service uses that name to recognize the workflow it trusts, both in the action and on its own servers, so renaming the file silently disables the fixes.
 - autofix.ci does apply fixes to pull requests from forks, which the previous push job could not do. It does _not_ apply a patch when the last four commits were authored by a bot, so a long series of automated commits has to be interrupted by a human commit.
-- Since autofix.ci commits the fixes, the {ref}`style workflow <develop:GitHub Actions>` skips its own push job when it finds an `autofix.ci.yml` in the repository. Fixes are therefore never committed twice.
+- Since autofix.ci commits the fixes, the [style workflow](#github-actions) skips its own push job when it finds an `autofix.ci.yml` in the repository. Fixes are therefore never committed twice.
 
 If a check only _reports_ a problem, such as a spelling mistake or a type error, there is nothing to commit and you have to fix it yourself. Run `poe style` locally to see the same output.
 
@@ -369,25 +369,25 @@ If a check only _reports_ a problem, such as a spelling mistake or a type error,
 
 ### Formatting
 
-Formatters are tools that automatically format source code, or some document. Naturally, this speeds up your own programming, but these tools are particularly important when {ref}`collaborating <develop:Collaboration>`, because a standardized format avoids line conflicts in Git and makes diffs in code review easier to read.
+Formatters are tools that automatically format source code, or some document. Naturally, this speeds up your own programming, but these tools are particularly important when [collaborating](#collaboration), because a standardized format avoids line conflicts in Git and makes diffs in code review easier to read.
 
 For the Python source code, we use [`black`](https://black.readthedocs.io) and [`isort`](https://isort.readthedocs.io) ([through Ruff](https://docs.astral.sh/ruff/rules/#isort-i)). For other code, we use [Prettier](https://prettier.io). All of these formatters are "opinionated formatters": they offer only limited configuration options, as to make formatting as conform as possible.
 
-{ref}`develop:Prek` performs some additional formatting jobs. For instance, it formats Jupyter notebooks with [nbQA](https://github.com/nbQA-dev/nbQA) and strips them of any output cells with [`nbstripout`](https://github.com/kynan/nbstripout).
+[Prek](#prek) performs some additional formatting jobs. For instance, it formats Jupyter notebooks with [nbQA](https://github.com/nbQA-dev/nbQA) and strips them of any output cells with [`nbstripout`](https://github.com/kynan/nbstripout).
 
 <!-- cspell:ignore nbstripout -->
 
 ### Linting
 
-Linters point out when certain style conventions are not correctly followed. Unlike with {ref}`formatters <develop:Formatting>`, you have to fix the errors yourself. As mentioned in {ref}`develop:Automated coding conventions`, style conventions are formulated in config files. The main linter that ComPWA projects use, is [Ruff](https://docs.astral.sh/ruff/).
+Linters point out when certain style conventions are not correctly followed. Unlike with [formatters](#formatting), you have to fix the errors yourself. As mentioned in [Automated coding conventions](#automated-coding-conventions), style conventions are formulated in config files. The main linter that ComPWA projects use, is [Ruff](https://docs.astral.sh/ruff/).
 
 ### Spelling
 
-Throughout this repository, we follow American English ([en-us](https://www.andiamo.co.uk/resources/iso-language-codes)) spelling conventions. As a tool, we use [cSpell](https://github.com/streetsidesoftware/cspell/blob/main/packages/cspell/README.md), because it allows to check variable names in camel case and snake case. This way, a spelling checker helps you avoid mistakes in the code as well! cSpell is enforced through {ref}`prek <develop:Prek>`.
+Throughout this repository, we follow American English ([en-us](https://www.andiamo.co.uk/resources/iso-language-codes)) spelling conventions. As a tool, we use [cSpell](https://github.com/streetsidesoftware/cspell/blob/main/packages/cspell/README.md), because it allows to check variable names in camel case and snake case. This way, a spelling checker helps you avoid mistakes in the code as well! cSpell is enforced through [prek](#prek).
 
 Accepted words are tracked through the [`.cspell.json`](https://github.com/ComPWA/ampform/blob/main/.cspell.json) file. As with the other config files, [`.cspell.json`](https://github.com/ComPWA/ampform/blob/main/.cspell.json) formulates our conventions with regard to spelling and can be continuously updated while our code base develops. In the file, the `words` section lists words that you want to see as suggested corrections, while `ignoreWords` are just the words that won't be flagged. Try to be sparse in adding words: if some word is just specific to one file, you can [ignore it inline](https://cspell.org/docs/Configuration/document-settings#ignore), or you can add the file to the `ignorePaths` section if you want to ignore it completely.
 
-It is easiest to use cSpell in {ref}`develop:Visual Studio Code`, through the [Code Spell Checker](https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker) extension: it provides linting, suggests corrections from the {code}`words` section, and enables you to quickly add or ignore words through the [`.cspell.json`](https://github.com/ComPWA/ampform/blob/main/.cspell.json) file.
+It is easiest to use cSpell in [Visual Studio code](#visual-studio-code), through the [Code Spell Checker](https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker) extension: it provides linting, suggests corrections from the {code}`words` section, and enables you to quickly add or ignore words through the [`.cspell.json`](https://github.com/ComPWA/ampform/blob/main/.cspell.json) file.
 
 ## Testing
 
@@ -425,7 +425,7 @@ pytest --profile-svg
 and check the stats and the {file}`prof/combined.svg` output file.
 
 > [!NOTE]
-> Jupyter notebooks can also be used as tests. See more info {ref}`here <develop:Jupyter Notebooks>`.
+> Jupyter notebooks can also be used as tests. See more info [here](#jupyter-notebooks).
 
 ## Documentation
 
@@ -460,15 +460,15 @@ Finally, a nice feature of [Read the Docs](https://about.readthedocs.com/), wher
 ::::{margin}
 
 > [!TIP]
-> Sometimes it happens that your Jupyter installation does not recognize your {ref}`virtual environment <develop:Virtual environment>`. In that case, have a look at [these instructions](https://ipython.readthedocs.io/en/stable/install/kernel_install.html#kernels-for-different-environments).
+> Sometimes it happens that your Jupyter installation does not recognize your [virtual environment](#virtual-environment). In that case, have a look at [these instructions](https://ipython.readthedocs.io/en/stable/install/kernel_install.html#kernels-for-different-environments).
 
 ::::
 
-The [docs](https://github.com/ComPWA/ampform/tree/main/docs) folder can also contain Jupyter notebooks. These notebooks are rendered as HTML by [MyST-NB](https://myst-nb.readthedocs.io). The notebooks are also run and tested whenever you make a {ref}`pull request <develop:Collaboration>`, so they also serve as **integration tests**.
+The [docs](https://github.com/ComPWA/ampform/tree/main/docs) folder can also contain Jupyter notebooks. These notebooks are rendered as HTML by [MyST-NB](https://myst-nb.readthedocs.io). The notebooks are also run and tested whenever you make a [pull request](#collaboration), so they also serve as **integration tests**.
 
-If you want to improve those notebooks, we recommend working with [Jupyter Lab](https://jupyterlab.readthedocs.io/en/stable), which is {ref}`installed with the dev requirements <develop:Optional dependencies>`. Jupyter Lab offers a nicer developer experience than the default Jupyter notebook editor does. A few useful Jupyter Lab plugins are also installed through the {ref}`optional dependencies <develop:Optional dependencies>`.
+If you want to improve those notebooks, we recommend working with [Jupyter Lab](https://jupyterlab.readthedocs.io/en/stable), which is [installed with the dev requirements](#optional-dependencies). Jupyter Lab offers a nicer developer experience than the default Jupyter notebook editor does. A few useful Jupyter Lab plugins are also installed through the [optional dependencies](#optional-dependencies).
 
-Now, if you want to test all notebooks in the documentation folder and check what their output cells will look like in the {ref}`develop:Documentation`, you can do this with:
+Now, if you want to test all notebooks in the documentation folder and check what their output cells will look like in the [Documentation](#documentation), you can do this with:
 
 <!-- cspell:ignore docnb docnblive -->
 
@@ -483,7 +483,7 @@ poe docnblive
 ```
 
 > [!TIP]
-> Notebooks are automatically formatted through {ref}`prek <develop:Prek>` (see {ref}`develop:Formatting`). If you want to format the notebooks automatically as you're working, you can do so with [`jupyterlab-code-formatter`](https://jupyterlab-code-formatter.readthedocs.io), which is automatically {ref}`installed with the dev requirements <develop:Optional dependencies>`.
+> Notebooks are automatically formatted through [prek](#prek) (see [Formatting](#formatting)). If you want to format the notebooks automatically as you're working, you can do so with [`jupyterlab-code-formatter`](https://jupyterlab-code-formatter.readthedocs.io), which is automatically [installed with the dev requirements](#optional-dependencies).
 >
 > For this, you need to set Ruff as the formatter (see [](#formatting)) for `jupyterlab-code-formatter`:
 >
@@ -507,7 +507,7 @@ poe docnblive
 
 #### IJulia notebooks
 
-It's also possible to execute and render Jupyter notebooks with Julia kernels. For this, {ref}`install Julia<develop:Julia>` and install [IJulia](https://ijulia.org/):
+It's also possible to execute and render Jupyter notebooks with Julia kernels. For this, [install Julia](#julia) and install [IJulia](https://ijulia.org/):
 
 ::::{tab-set}
 :::{tab-item} Shell
@@ -552,7 +552,7 @@ installkernel("julia")
 and select it as kernel in the Jupyter notebook.
 
 > [!NOTE]
-> As mentioned in {ref}`develop:Julia`, Julia can be installed within your Conda environment through [`juliaup`](https://anaconda.org/conda-forge/juliaup). This is, however, not yet a virtual environment for Julia itself. You can create a virtual environment for Julia itself by for instance defining it through a code cell like this:
+> As mentioned in [Julia](#julia), Julia can be installed within your Conda environment through [`juliaup`](https://anaconda.org/conda-forge/juliaup). This is, however, not yet a virtual environment for Julia itself. You can create a virtual environment for Julia itself by for instance defining it through a code cell like this:
 >
 > ```julia
 > using Pkg
@@ -607,7 +607,7 @@ Some issues are not public. To get access, you can request to become member of t
 - [Milestones](https://github.com/ComPWA/ampform/milestones?direction=asc&sort=title&state=open): way to bundle issues and PRs for upcoming releases.
 - [Releases](https://github.com/ComPWA/ampform/releases).
 
-All of these are important for the {ref}`develop:Release flow` and therefore also serve as a way to document the framework.
+All of these are important for the [Release flow](#release-flow) and therefore also serve as a way to document the framework.
 
 ### Branching model
 
@@ -619,13 +619,13 @@ While our aim is to maintain long-term, stable projects, [PWA software projects]
 
 #### `stable` branch
 
-Represents the _latest release_ of the package that can be found on both the GitHub release page and on PyPI (see {ref}`develop:Release flow`). The documentation of the `stable` branch is also the default view {ref}`you see on Read the Docs <develop:Documentation>` (RTD). See e.g. [ampform.rtfd.io/en/stable](https://ampform.readthedocs.io/stable/).
+Represents the _latest release_ of the package that can be found on both the GitHub release page and on PyPI (see [Release flow](#release-flow)). The documentation of the `stable` branch is also the default view [you see on Read the Docs](#documentation) (RTD). See e.g. [ampform.rtfd.io/en/stable](https://ampform.readthedocs.io/stable/).
 
 (main-branch)=
 
 #### `main` branch
 
-Represents the upcoming release of the package. This branch is not guaranteed to be stable, but has high {ref}`CI standards <develop:GitHub Actions>` and can only be updated through reviewed pull requests. The documentation of the `main` branch can be found on RTD under "latest", see e.g. [ampform.rtfd.io/en/latest](https://ampform.readthedocs.io/latest/).
+Represents the upcoming release of the package. This branch is not guaranteed to be stable, but has high [CI standards](#github-actions) and can only be updated through reviewed pull requests. The documentation of the `main` branch can be found on RTD under "latest", see e.g. [ampform.rtfd.io/en/latest](https://ampform.readthedocs.io/latest/).
 
 #### Epic branches
 
@@ -635,7 +635,7 @@ The word ["epic"](https://www.atlassian.com/agile/project-management/epics) is u
 
 When working on a feature or larger refactoring that may take a longer time (think of implementing a new PWA formalism), we isolate its development under an 'epic branch', separate from the `main` branch. Eventually, this epic branch is to be merged back into the `main`, until then it is available for discussion and testing.
 
-Pull requests to an epic branch require no code review and the CI checks are less strict. This allows for faster development, while still offering the possibility to discuss new implementations and {ref}`keeping track of related issues <develop:Issue management>`.
+Pull requests to an epic branch require no code review and the CI checks are less strict. This allows for faster development, while still offering the possibility to discuss new implementations and [keeping track of related issues](#issue-management).
 
 Epic branches can be installed through PyPI as well. Say that a certain epic is located under the branch `epic/some-title` and that the source code is located under [https://github.com/ComPWA/ampform](https://github.com/compwa/ampform), it can be installed as follows:
 
@@ -645,7 +645,7 @@ python3 -m pip install git+https://github.com/ComPWA/ampform@epic/some-title
 
 #### Feature branches
 
-The {ref}`main-branch` and {ref}`develop:epic branches` can be updated through pull requests. It is best to create such a pull request from a separate branch, which does not have any CI or code review restrictions. We call this a "feature branch".
+The {ref}`main-branch` and [Epic branches](#epic-branches) can be updated through pull requests. It is best to create such a pull request from a separate branch, which does not have any CI or code review restrictions. We call this a "feature branch".
 
 ### Commit conventions
 
@@ -676,13 +676,13 @@ The {ref}`main-branch` and {ref}`develop:epic branches` can be updated through p
 
 - Keep pull requests small. If the issue you try to address is too big, discuss in the team whether the issue can be converted into an [Epic](https://www.zenhub.com/blog-posts/working-with-epics-in-github) and split up into smaller tasks.
 
-- Before creating a pull request, run {ref}`develop:checks`.
+- Before creating a pull request, run [Checks](#checks).
 
-- Also use a [conventional commit message](https://www.conventionalcommits.org) style for the PR title. This is because we follow a [linear commit history](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/managing-a-branch-protection-rule) and the PR title will become the eventual commit message. A linear commit history is important for the {ref}`develop:Release flow` and it is easier to navigate through changes once something goes wrong. In fact, in a linear commit history, commits that a have been merged into the {ref}`main-branch` become more like small intermediate patches between the minor and major releases.
+- Also use a [conventional commit message](https://www.conventionalcommits.org) style for the PR title. This is because we follow a [linear commit history](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/managing-a-branch-protection-rule) and the PR title will become the eventual commit message. A linear commit history is important for the [Release flow](#release-flow) and it is easier to navigate through changes once something goes wrong. In fact, in a linear commit history, commits that a have been merged into the {ref}`main-branch` become more like small intermediate patches between the minor and major releases.
 
-  Note that a conventional commit message style is {ref}`enforced through GitHub Actions <develop:GitHub Actions>` with [`commitlint`](https://github.com/conventional-changelog/commitlint), as well as a check on {ref}`PR labels <develop:Issue management>` (see example [here](https://github.com/ComPWA/ampform/actions?query=workflow%3A%22PR+linting%22)). The commit messages are centrally defined for the ComPWA organization at [ComPWA/commitlint-config](https://github.com/ComPWA/commitlint-config).
+  Note that a conventional commit message style is [enforced through GitHub Actions](#github-actions) with [`commitlint`](https://github.com/conventional-changelog/commitlint), as well as a check on [PR labels](#issue-management) (see example [here](https://github.com/ComPWA/ampform/actions?query=workflow%3A%22PR+linting%22)). The commit messages are centrally defined for the ComPWA organization at [ComPWA/commitlint-config](https://github.com/ComPWA/commitlint-config).
 
-- PRs can only be merged through 'squash and merge'. There, you will see a summary based on the separate commits that constitute this PR. Leave the relevant commits in as bullet points. See the [commit history](https://github.com/ComPWA/ampform/commits/main) for examples. This comes in especially handy when {ref}`drafting a release <develop:Release flow>`!
+- PRs can only be merged through 'squash and merge'. There, you will see a summary based on the separate commits that constitute this PR. Leave the relevant commits in as bullet points. See the [commit history](https://github.com/ComPWA/ampform/commits/main) for examples. This comes in especially handy when [drafting a release](#release-flow)!
 
 <!-- prettier-ignore-start -->
 [^1]: The commit types for the ComPWA organization are defined [here](https://github.com/ComPWA/commitlint-config/blob/main/index.js). See also [ComPWA/.github#7](https://github.com/ComPWA/.github/issues/7) for a discussion on these commit types.
@@ -694,7 +694,7 @@ Releases are managed with the [GitHub release page](https://docs.github.com/en/r
 
 Once a release is made on GitHub for a repository with source code for a Python package, a new version is automatically published on [PyPI](https://pypi.org) and the [`stable` branch](#stable-branch) is updated to this latest tag. The package version is taken from the Git tag associated with the release on GitHub (see [setuptools-scm](https://pypi.org/project/setuptools-scm)). This way, the release notes on GitHub serve as a changelog as well!
 
-Release tags **have to follow the [Semantic Versioning scheme](https://semver.org)**! This ensures that the tag can be used by [setuptools-scm](https://pypi.org/project/setuptools-scm) (in case the repository is a Python package). In addition, {ref}`milestones <develop:Issue management>` with the same name as the release tag are automatically closed.
+Release tags **have to follow the [Semantic Versioning scheme](https://semver.org)**! This ensures that the tag can be used by [setuptools-scm](https://pypi.org/project/setuptools-scm) (in case the repository is a Python package). In addition, [milestones](#issue-management) with the same name as the release tag are automatically closed.
 
 ## Code editors
 
@@ -717,7 +717,7 @@ If you add or open this repository as a [VSCode workspace](https://code.visualst
 You can still specify your own settings in [either the user or encompassing workspace settings](https://code.visualstudio.com/docs/configure/settings), as the VSCode settings that come with this are folder settings.
 
 :::::{dropdown} Visual Studio Code
-ComPWA projects are best developed {ref}`with uv and Pixi <develop:Virtual environment>` and VSCode. The complete developer install procedure then becomes:
+ComPWA projects are best developed [with uv and Pixi](#virtual-environment) and VSCode. The complete developer install procedure then becomes:
 
 ::::{tab-set}
 :::{tab-item} uv
