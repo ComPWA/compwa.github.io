@@ -87,6 +87,7 @@ repo-name = "compwa.github.io"
 repo-title = "ComPWA Organization"
 
 [tool.compwa.policy.github]
+dependabot-assignees = ["redeboer"]
 github-pages = true
 no-pypi = true
 
