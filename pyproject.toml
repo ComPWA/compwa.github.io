@@ -31,7 +31,7 @@ doc = [
     "sphinx",
     "sphinx-api-relink",
     "sphinx-book-theme",
-    "sphinx-codeautolink[ipython]<0.20",  # 0.20 fails to resolve transformed code in the ADR notebooks.
+    "sphinx-codeautolink[ipython]",
     "sphinx-comments",
     "sphinx-copybutton",
     "sphinx-design",
