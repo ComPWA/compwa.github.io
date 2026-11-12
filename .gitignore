@@ -37,6 +37,10 @@ prof/
 pyvenv*/
 
 # Settings
+.idea/
+**.code-workspace
+
+# Agent tooling
 .agents/
 .claude/
 .codex/
@@ -44,8 +48,6 @@ pyvenv*/
 AGENTS.md
 CLAUDE.md
 GEMINI.md
-.idea/
-**.code-workspace
 
 # Exceptions
 !.cspell.json
@@ -54,6 +56,5 @@ GEMINI.md
 !.pre-commit-config.yaml
 !.readthedocs.yml
 !.vscode/*.json
-!.zenodo.json
-!codecov.yml
 .jupyter_ystore.db
+.lycheecache

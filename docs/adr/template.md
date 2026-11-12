@@ -11,8 +11,7 @@
 ## Context and problem statement
 
 <!--
-Describe the context and problem statement, e.g., in free form using two to
-three sentences. You may want to articulate the problem in form of a question.
+Describe the context and problem statement, e.g., in free form using two to three sentences. You may want to articulate the problem in form of a question.
 -->
 
 <!--
@@ -24,8 +23,7 @@ Summary of problems with the existing design, possibly with some snippets.
 <!--
 ### Technical story
 
-If available, list and link related issues, PRs, or ADRs that led up to this
-ADR:
+If available, list and link related issues, PRs, or ADRs that led up to this ADR:
 
 - [ComPWA/ampform#1](https://github.com/ComPWA/ampform/issues/1)
 - [ComPWA/tensorwaves#2](https://github.com/ComPWA/tensorwaves/issues/2)
@@ -43,9 +41,7 @@ ADR:
 ## Considered solutions
 
 <!--
-Solutions can be illustrated with Jupyter notebooks or MyST files in a
-subfolder. They should only factually illustrate design and implementation: the
-discussion should take place in the main document.
+Solutions can be illustrated with Jupyter notebooks or MyST files in a subfolder. They should only factually illustrate design and implementation: the discussion should take place in the main document.
 
 To include documents in a sub-folder, use a toctree:
 
@@ -60,8 +56,7 @@ xxx/option2
 ### Pros and Cons
 
 <!--
-List some advantages and disadvantages of each of the implementations, possibly
-with links (using e.g. {ref} or {doc}) to the proposed solutions.
+List some advantages and disadvantages of each of the implementations, possibly with links (using e.g. {ref} or {doc}) to the proposed solutions.
 
 #### Option 1
 
@@ -97,16 +92,13 @@ See [requirements](#solution-requirements).
 ## Decision outcome
 
 <!--
-Chosen option: "[option 1]", because [justification. e.g., only option, which
-meets k.o. criterion decision driver | which resolves force force | … | comes
-out best (see below)].
+Chosen option: "[option 1]", because [justification. e.g., only option, which meets k.o. criterion decision driver | which resolves force force | … | comes out best (see below)].
 -->
 
 <!--
 ### Positive consequences
 
-- [e.g., improvement of quality attribute satisfaction, follow-up decisions
-  required, …]
+- [e.g., improvement of quality attribute satisfaction, follow-up decisions required, …]
 - …
 
 ### Negative consequences

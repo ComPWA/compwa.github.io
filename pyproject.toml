@@ -20,6 +20,7 @@ Source = "https://github.com/ComPWA/compwa.github.io"
 [dependency-groups]
 dev = [
     "ruff",
+    "ty",
     { include-group = "doc" },
     { include-group = "jupyter" },
     { include-group = "style" },
@@ -64,7 +65,6 @@ notebooks = [
 style = [
     "attrs",
     "nbformat",
-    "ty",
     { include-group = "types" },
 ]
 test = ["jupyter"]
@@ -87,11 +87,44 @@ repo-name = "compwa.github.io"
 repo-title = "ComPWA Organization"
 
 [tool.compwa.policy.github]
+dependabot-assignees = ["redeboer"]
 github-pages = true
 no-pypi = true
 
 [tool.compwa.policy.python]
 type-checker = ["ty"]
+
+[tool.docstrfmt]
+docstring-trailing-line = false
+format-python-code-blocks = false
+
+[tool.lychee]
+cache = true
+cache_exclude_status = "400.."
+# [:] keeps Lychee from extracting regex patterns as URLs.
+exclude = [
+    '^https[:]//leetcode\.com/problemset$',  # LeetCode rejects automated requests from GitHub Actions
+    '^https[:]//www\.guru99\.com/types-of-software-testing\.html$',  # Guru99 rejects automated requests from GitHub Actions
+    '\$(?:NEXT_[A-Z_]+|PREVIOUS_TAG)',  # Release Drafter substitutes these placeholders at runtime
+    '^http[:]//127\.0\.0\.1:8000/?$',  # Local documentation server
+    '^https[:]//doi\.org/10\.1007/JHEP07\(2023\)228$',  # Publisher redirects automated requests through a cookie challenge
+    '^https[:]//github\.com/ComPWA/ampform/issues/new/choose$',  # Requires authentication
+    '^https[:]//github\.com/ComPWA/compwa\.github\.io/edit/main/docs/develop\.md$',  # Requires authentication
+    '^https[:]//github\.com/organizations/ComPWA/settings/repository-defaults$',  # Requires organization admin access
+    '^https[:]//github\.com/orgs/ComPWA/projects/5$',  # Private project
+    '^https[:]//stackoverflow\.com/a/(?:36344627|7844038)$',  # Answer links redirect to pages that reject automated requests with 403
+    '^https[:]//www\.mathworks\.com/products/matlab\.html$',  # Rejects automated requests with 403
+    "%7B[^/]*%7D",  # URL templates are completed at build or runtime
+]
+extensions = ["bib", "ipynb", "json", "md", "py", "toml", "yaml", "yml"]
+hidden = true  # Include the workflows under .github/
+include_fragments = "anchor-only"
+include_verbatim = true
+max_cache_age = "7d"
+remap = [
+    '^(https[:]//github\.com/ComPWA/compwa\.github\.io/compare)/\$PREVIOUS_TAG.*$ $1',
+    '^git\+(https[:]//[^@]+)(@.*)?$ $1',
+]
 
 [tool.poe.executor]
 isolated = true
@@ -161,16 +194,9 @@ help = "Set up a server to directly preview changes to the HTML pages with cache
 sequence = ["doclive"]
 
 [tool.poe.groups.doc.tasks.linkcheck]
-cmd = """
-sphinx-build \
-    --builder=linkcheck \
-    --show-traceback \
-    docs/ \
-    docs/_build/linkcheck/
-"""
-env = { PYTHONWARNINGS = "" }
-executor = { group = "doc" }
-help = "Check external links in the documentation (requires internet connection)"
+cmd = "uvx --from lychee-bin lychee . --quiet"
+executor = { type = "simple" }
+help = "Check links and fragments in repository sources (requires internet connection)"
 
 [tool.poe.groups.notebook]
 heading = "Notebooks"
@@ -302,6 +328,9 @@ ignore-names = [
     "_print",
 ]
 
+[tool.ruff.lint.flake8-tidy-imports.banned-api]
+"__future__.annotations".msg = "Notebooks should not use postponed evaluation of annotations."
+
 [tool.ruff.lint.isort]
 split-on-trailing-comma = false
 
@@ -392,12 +421,12 @@ key-empty = "off"
 
 [[tool.tombi.schemas]]
 root = "tool.compwa.policy"
-path = "https://raw.githubusercontent.com/ComPWA/policy/0.10.1/compwa-policy.schema.json"
+path = "https://raw.githubusercontent.com/ComPWA/policy/0.10.7/compwa-policy.schema.json"
 include = ["pyproject.toml"]
 
 [[tool.ty.overrides]]
 include = ["docs/symbolics.ipynb"]
-rules.unresolved-attribute = "ignore"
+rules.missing-attribute = "ignore"
 
 [[tool.ty.overrides]]
 include = [
@@ -407,15 +436,15 @@ include = [
     "docs/adr/002/expr.ipynb",
     "docs/adr/002/function.ipynb",
 ]
-rules.unresolved-import = "ignore"
+rules.import-not-found = "ignore"
 
 [[tool.ty.overrides]]
 include = ["docs/adr/**/*.ipynb"]
 rules.invalid-argument-type = "ignore"
 rules.invalid-assignment = "ignore"
 rules.invalid-return-type = "ignore"
+rules.missing-attribute = "ignore"
 rules.no-matching-overload = "ignore"
-rules.unresolved-attribute = "ignore"
 
 [[tool.ty.overrides]]
 include = ["docs/adr/002/composition.ipynb"]
